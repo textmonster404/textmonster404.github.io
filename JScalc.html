@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="scripts/khanAnswers.js"></script>
+        <title id="title">JScalc</title>
+        <link rel="icon" href="icon/icon.ico">
+    </head>
+    <body>
+        <textarea id="textarea"></textarea>
+        <script>
+            var title = document.getElementById("title");
+            var textarea = document.getElementById("textarea");
+            var calculate function() {
+                title.innerHTML = eval(textarea.value) + "JScalc";
+            }
+            window.setInterval(calculate,0);
+        </script>
+    </body>
+</html>
