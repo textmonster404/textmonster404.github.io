@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="../icon/icon.ico">
+        <title>Paper</title>
+        <style>
+            a:visited {color:blue;}
+        </style>
+    </head>
+    <body>
+        <h1 id="h1">Digit 1 &times; Digit 2 - Digit 3 - Digit 3</h1>
+        <textarea id="input"></textarea>
+        <script>
+            var check = function() {
+                if (document.getElementById("input").value == "8") {document.getElementById("h1").style.color = "green";} else {document.getElementById("h1").style.color = "red";}
+            }
+            window.setInterval(check,0)
+            function closeme() {window.close();}
+            window.onblur=closeme;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cursor Experiment</title>
+        <link rel="icon" href="../icon/icon.ico">
+    <style>
+        @keyframes colorchange{from {background:linear-gradient(90deg, red, orange, yellow, green, blue, purple);}to {background:linear-gradient(90deg, purple, blue, green, yellow, orange, red);}}
+        body {animation-name:colorchange;animation-duration:1s;animation-iteration-count:infinite;animation-timing-function:linear;}
+        span {position:absolute;left:46.5% ;top:50%;font-size:36px;font-family:monospace;font-weight:500;text-shadow:1px 1px,0px 1px,-1px 1px,-1px 0px,-1px -1px,0px -1px,1px -1px,1px 0px;color:white;-webkit-text-stroke: 1px #BBBBBB;}
+span::selection {background:rgba(0,0,0,0);}
+    </style>
+</head>
+<body>
+    <a href="random.html">Back</a>
+<span id="cursor" onmousedown="stop = 'yes';" onmouseup="stop = 'no';">Cursor!</span>
+
+<!-- 
+Hover over the word 'Cursor!' to
+see what happens.
+-->
+    <script>
+Array.prototype.randomElement = function () {return this[Math.floor(Math.random() * this.length)]};
+var cursors = ['auto','default','none','context-menu','help','pointer','progress','wait','cell','crosshair','text','vertical-text','alias','copy','no-drop','not-allowed','all-scroll','col-resize','row-resize','n-resize','s-resize','e-resize','w-resize','ne-resize','nw-resize','sw-resize','se-resize','ns-resize','ew-resize','nesw-resize','nwse-resize','zoom-in','zoom-out','grab','grabbing'];
+var stop = 'no';
+var cursorchange = function() {if (stop === 'no') {document.getElementsByTagName("span")[0].style.cursor = cursors.randomElement()}};
+window.setInterval(cursorchange,1);
+    </script>
+</body>
+</html>

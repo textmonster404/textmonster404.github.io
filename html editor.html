@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML Editor</title>
+        <link rel="icon" href="icon/icon.ico">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <style>
+            body {text-align:center;}
+        </style>
+    </head>
+    <body>
+        <textarea placeholder="Enter HTML code here!" id="input"></textarea><br>
+        <iframe id="output"></iframe><br>
+        <input type="text" id="fileName"/>
+        <input type="button" value="Load" onClick="document.getElementById('input').value = localStorage.getItem(document.getElementById('fileName').value);"/><br>
+        <input type="button" value="Save" onclick="localStorage.setItem(document.getElementById('fileName').value, document.getElementById('input').value);" id="save">
+        <input type="button" value="Delete Save" onclick="localStorage.removeItem(document.getElementById('fileName').value);" id="del"><br>
+        <a href="Homepage.html">Back</a>
+        <script>
+            var oldtextareavalue = "";
+            function doThing(){
+                var output = $("#output").contents().find('body');
+                if (oldtextareavalue !== document.getElementById('input').value) {var textareaValue = $("textarea").val();output.html(textareaValue);}
+                oldtextareavalue = document.getElementById('input').value;
+                if (document.getElementById('input').value == "") {document.getElementById('save').disabled=true;document.getElementById('del').disabled=true} else {document.getElementById('save').disabled=false;document.getElementById('del').disabled=false}
+            }
+            window.setInterval(doThing, 0);
+            function titleChange() {if (document.getElementsByTagName("title")[0].innerHTML == "HTML Editor") {document.getElementsByTagName("title")[0].innerHTML = "Notes & Stuff";} else {document.getElementsByTagName("title")[0].innerHTML = "HTML Editor"}}
+            window.setInterval(titleChange, 2000);
+        </script>
+    </body>
+</html>

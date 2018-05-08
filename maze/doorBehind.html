@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="../icon/icon.ico">
+        <title>Maze</title>
+        <style>
+            a:visited {color:blue;}
+        </style>
+    </head>
+    <body>
+        <h1>The hidden <a id="link">door</a> is locked...</h1>
+        <a onClick="openThing()" style="color:blue;text-decoration:underline;cursor:pointer;">Paper</a><br>
+        <input type="number" id="input"><input type="button" onClick="correct()" value="Enter">
+        <script>
+            function openThing() {
+                var thing = window.open("puzzle.html", "Puzzle", "width=400,height=400");
+            }
+            var correct = function() {if (document.getElementById("input").value==2738) {document.getElementById("link").href="unlockedDoor.html"} else {}}
+        </script>
+    </body>
+</html>

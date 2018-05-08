@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Khan Answers - Exponent</title>
+        <link rel="icon" href="../../../icon/icon.ico">
+    </head>
+    <body>
+        <input id="input1" placeholder="Number 1">
+        <input id="input2" placeholder="Number 2">
+        <input type="button" value="calculate" onClick="calculate()">
+        <br><br><textarea id="output"></textarea>
+        <script>
+            var input1 = document.getElementById("input1");
+            var input2 = document.getElementById("input2");
+            var output = document.getElementById("output");
+            var calculate = function() {
+                output.value = parseInt(input1.value) ** parseInt(input2.value);
+            }
+        </script>
+    </body>
+</html>

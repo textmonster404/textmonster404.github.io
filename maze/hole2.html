@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="../icon/icon.ico">
+        <title>Maze</title>
+        <style>
+            #move {position:absolute;top:50px;transition:left 3.25s;left:10px;}
+        </style>
+        <style>
+            a:visited {color:blue;}
+        </style>
+    </head>
+    <body>
+        <h1>The hole changed... maybe reason has too...</h1>
+        <a href="" id="move" onMouseOver="document.getElementById('move').style.left=Math.random()*100+'%';">Door</a>
+        <script>
+            var hrefs = ["loop.html","moveHole.html"];
+            document.getElementById("move").href = hrefs[Math.floor(Math.random()*2)];
+        </script>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Khan Answers - Median</title>
+        <link rel="icon" href="../../icon/icon.ico">
+    </head>
+    <body>
+        <input id="input1" placeholder="list">
+        <input type="button" value="calculate" onClick="calculate()">
+        <br><br><textarea id="output"></textarea>
+        <script>
+            var input1 = document.getElementById("input1");
+            var output = document.getElementById("output");
+            var median = function(list) {list.sort(function(a,b) {return(a - b);});if (list.length % 2 == 1) {return(list[Math.floor(list.length/2)]);} else {return((list[list.length/2-1]+list[list.length/2])/2)}};
+            var calculate = function() {
+                var listForm = JSON.parse("["+input1.value+"]");
+                output.value = median(listForm);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Khan Answers - Least Of List</title>
+        <link rel="icon" href="../../../icon/icon.ico">
+    </head>
+    <body>
+        <input id="input1" placeholder="list">
+        <input type="button" value="calculate" onClick="calculate()">
+        <br><br><textarea id="output"></textarea>
+        <script>
+            var input1 = document.getElementById("input1");
+            var output = document.getElementById("output");
+            var calculate = function() {
+                var list = JSON.parse("[" + input1.value + "]");
+                var min=list[0];
+                for (var i=0;i<list.length;i++) {
+                    if (list[i]<min) {
+                        min=list[i];
+                    }
+                };
+                output.value = min;
+            }
+        </script>
+    </body>
+</html>

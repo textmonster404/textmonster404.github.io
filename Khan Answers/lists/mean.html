@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Khan Answers - Mean</title>
+        <link rel="icon" href="../../icon/icon.ico">
+    </head>
+    <body>
+        <input id="input1" placeholder="list">
+        <input type="button" value="calculate" onClick="calculate()">
+        <br><br><textarea id="output"></textarea>
+        <script>
+            var input1 = document.getElementById("input1");
+            var output = document.getElementById("output");
+            var totalOfList = function(list) {
+                var total=0;
+                for (var i=0;i<list.length;i++) {
+                    total+=list[i];
+                }
+                return(total);
+            }
+            var calculate = function() {
+                var listForm = JSON.parse("["+input1.value+"]");
+                output.value = totalOfList(listForm)/listForm.length;
+            }
+        </script>
+    </body>
+</html>

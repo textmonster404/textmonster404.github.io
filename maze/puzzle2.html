@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="../icon/icon.ico">
+        <title>Paper</title>
+        <style>
+            a:visited {color:blue;}
+        </style>
+    </head>
+    <body>
+    <h1 id="h1">Remove The Number Halfway</h1>
+        <button onClick="removeN(1)" id="1">1</button>
+        <button onClick="removeN(2)" id="2">2</button>
+        <button onClick="removeN(3)" id="3">3</button>
+        <button onClick="removeN(4)" id="4">4</button>
+        <button onClick="removeN(5)" id="5">5</button>
+        <button onClick="removeN(6)" id="6">6</button>
+        <button onClick="removeN(7)" id="7">7</button>
+        <button onClick="removeN(8)" id="8">8</button>
+        <button onClick="removeN(9)" id="9">9</button>
+        <button onClick="removeN(10)" id="10">10</button>
+        <script>
+            Element.prototype.remove = function() {
+                this.parentElement.removeChild(this);
+            }
+            NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+                for(var i = this.length - 1; i >= 0; i--) {
+                    if(this[i] && this[i].parentElement) {
+                        this[i].parentElement.removeChild(this[i]);
+                    }
+                }
+            }
+            var i;
+            var numbers = [1,2,3,4,5,6,7,8,9,10]
+            function removeN(n) {
+                for (i=0;!(numbers[i]==n);i++){}
+                numbers.splice(i,1);
+                document.getElementById(n.toString()).remove();
+            }
+            var isEqual = function (value, other) {
+	           var type = Object.prototype.toString.call(value);
+	           if (type !== Object.prototype.toString.call(other)) return false;
+	           if (['[object Array]', '[object Object]'].indexOf(type) < 0) return false;
+	           var valueLen = type === '[object Array]' ? value.length : Object.keys(value).length;
+	           var otherLen = type === '[object Array]' ? other.length : Object.keys(other).length;
+	           if (valueLen !== otherLen) return false;
+	           var compare = function (item1, item2) {
+		          var itemType = Object.prototype.toString.call(item1);
+		          if (['[object Array]', '[object Object]'].indexOf(itemType) >= 0) {
+			         if (!isEqual(item1, item2)) return false;
+		          }
+            else {
+			         if (itemType !== Object.prototype.toString.call(item2)) return false;
+			         if (itemType === '[object Function]') {
+				            if (item1.toString() !== item2.toString()) return false;
+			         } else {
+				         if (item1 !== item2) return false;
+			         }
+
+		          }
+	           };
+	           if (type === '[object Array]') {
+		          for (var i = 0; i < valueLen; i++) {
+			         if (compare(value[i], other[i]) === false) return false;
+		          }
+	           } else {
+		          for (var key in value) {
+			         if (value.hasOwnProperty(key)) {
+				            if (compare(value[key], other[key]) === false) return false;
+			         }
+		          }
+	           }
+	           return true;
+            };
+            var h1 = document.getElementById("h1");
+            var nLeft = function() {
+                if (isEqual(numbers,[1,2,3,4,6,7,8,9,10])) {
+                    h1.textContent="Remove The Least And Greatest";
+                }
+                if (isEqual(numbers,[2,3,4,6,7,8,9])) {
+                    h1.textContent="Remove All Even Numbers";
+                }
+                if (isEqual(numbers,[3,7,9])) {
+                    h1.textContent="Remove The Multiples of 3";
+                }
+                if (isEqual(numbers,[7])) {
+                    h1.textContent="Good";
+                }
+            }
+            window.setInterval(nLeft, 0);
+            function closeme() {window.close();}
+            window.onblur=closeme;
+        </script>
+    </body>
+</html>

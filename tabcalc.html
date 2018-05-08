@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="icon/icon.ico">
+        <title></title>
+    </head>
+    <body>
+        <input id="d1" type="number" style="width:50px" value="1"><select id="f"><option value="+">+</option><option value="-">-</option><option value="*">*</option><option value="/">/</option><option value="^">^</option><option value="%">%</option><option value="//">//</option></select><input id="d2" type="number" style="width:50px" value="1">
+        <a href="Homepage.html">Back</a>
+        <script>
+            var d1 = document.getElementById("d1");
+            var d2 = document.getElementById("d2");
+            var f = document.getElementById("f");
+            var output;
+            var lastOutput;
+            var errored = false;
+            var title = document.getElementsByTagName("title")[0];
+            var doThings = function() {
+                if (f.value == "+") {
+                    output = parseFloat(d1.value)+parseFloat(d2.value);
+                }
+                if (f.value == "-") {
+                    output = parseFloat(d1.value)-parseFloat(d2.value);
+                }
+                if (f.value == "*") {
+                    output = parseFloat(d1.value)*parseFloat(d2.value);
+                }
+                if (f.value == "/") {
+                    output = parseFloat(d1.value)/parseFloat(d2.value);
+                }
+                if (f.value == "^") {
+                    output = parseFloat(d1.value)**parseFloat(d2.value);
+                }
+                if (f.value == "%") {
+                    output = parseFloat(d1.value)%parseFloat(d2.value);
+                }
+                if (f.value == "//") {
+                    output = Math.floor(parseFloat(d1.value)/parseFloat(d2.value));
+                }
+                if (lastOutput !== output && d1.value !== "" && d2.value !== "" && !((f.value == "/" || f.value == "//" || f.value == "%") && d2.value == "0")) {
+                    title.innerHTML = d1.value + " " + f.value + " " + d2.value + " = " + output + " &nbsp;&nbsp;|&nbsp; Tab Calc";
+                    console.log(output);
+                    errored = false;
+                }
+                if (errored == false && !(d1.value !== "" && d2.value !== "" && !((f.value == "/" || f.value == "//" || f.value == "%") && d2.value == "0"))) {
+                    title.innerHTML = "Error! &nbsp;&nbsp;|&nbsp; Tab Calc";
+                    errored = true;
+                }
+                lastOutput = output
+            }
+            window.setInterval(doThings,0);
+        </script>
+    </body>
+</html>

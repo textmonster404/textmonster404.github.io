@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="../icon/icon.ico">
+        <title>Paper</title>
+        <style>
+            a:visited {color:blue;}
+        </style>
+    </head>
+    <body>
+        <a onClick="open1()" style="color:blue;text-decoration:underline;cursor:pointer;">1</a>,
+        <a onClick="open2()" style="color:blue;text-decoration:underline;cursor:pointer;">2</a>,
+        <a onClick="open3()" style="color:blue;text-decoration:underline;cursor:pointer;">3</a>,
+        <a onClick="open4()" style="color:blue;text-decoration:underline;cursor:pointer;">4</a>
+        <script>
+            function open1() {
+                window.open("puzzle1.html", "Puzzle1", "width=400,height=400");
+            }
+            function open2() {
+                window.open("puzzle2.html", "Puzzle2", "width=400,height=400");
+            }
+            function open3() {
+                window.open("puzzle3.html", "Puzzle3", "width=400,height=400");
+            }
+            function open4() {
+                window.open("puzzle4.html", "Puzzle4", "width=400,height=400");
+            }
+            function closeme() {window.close();}
+            window.onblur=closeme;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="refresh" id="refresh" content="">
+        <link rel="icon" href="icon/icon.ico">
+        <script>
+            var time = Math.random()*15;
+            document.getElementById("refresh").content = time+"; URL=Homepage.html";
+        </script>
+        <title>Loading...</title>
+        <style>
+            span {color:blue; text-decoration:underline;}
+            @keyframes fadeout {
+                0%,95% {background:#CCC;}
+                96% {background:linear-gradient(90deg,#BA8,#DDC477,#A87);}
+                97% {background:linear-gradient(90deg,#A39955,#EACA55,#855);}
+                98% {background:linear-gradient(90deg,#9D8646,#F2DF33,#532);}
+                99% {background:linear-gradient(90deg,#9B7E3B,#F8D818,#462713);}
+                100% {background:linear-gradient(90deg,#997732,#FFD700,#442200);}
+            }
+            @keyframes fade {
+                0%, 95% {opacity:1;}
+                100% {opacity:0;}
+            }
+            @keyframes fadein {
+                0%, 94.9% {opacity:0;display:none;}
+                95% {opacity:0;display:block;}
+                100% {opacity:1;display:block;}
+            }
+            .container {animation-name:fade;animation-duration:15s;animation-timing-function:linear;}
+            .newpage {animation-name:fadein;animation-duration:15s;animation-timing-function:linear;}
+            body {animation-name:fadeout;animation-duration:15s;animation-timing-function:linear;cursor:default;background:linear-gradient(90deg,#997732,#FFD700,#442200);}
+@keyframes o1 {
+  0% {left:33%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:30%;}
+  6% {top:70%;}
+  8% {top:30%;} 
+  10% {top:70%;border-radius:50%;}
+  18% {border-radius:2px;left:33%;}
+  24% {left:50%;top:50%;}
+  26% {left:40%;top:25%;}
+  40% {left:40%;top:25%;}
+  46% {left:50%;top:20%;}
+  50% {left:40%;top:75%;}
+  64% {left:60%;top:40%;border-radius:2px;}
+  70% {top:96.875%;border-radius:50%;}
+  100% {left:33%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:30%;}
+}
+@keyframes o2 {
+  0% {left:33%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:70%;}
+  6% {top:30%;}
+  8% {top:70%;}
+  10% {top:30%;border-radius:50%;}
+  18% {border-radius:2px;left:33%;}
+  24% {left:50%;top:50%;}
+  26% {left:50%;top:50%;}
+  28% {left:60%;top:25%;}
+  40% {left:60%;top:25%;}
+  46% {left:40%;top:25%;}
+  50% {left:50%;top:80%;}
+  64% {left:55%;top:40%;border-radius:2px;}
+  70% {top:93.75%;border-radius:50%;}
+  100% {left:33%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:70%;}
+}
+@keyframes o3 {
+  0% {left:50%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:70%;}
+  7% {top:30%;}
+  9% {top:70%;}
+  11% {top:30%;border-radius:50%;}
+  18% {border-radius:2px;left:50%;}
+  24% {left:50%;top:50%;}
+  28% {left:50%;top:50%;}
+  30% {left:60%;top:75%;}
+  40% {left:60%;top:75%;}
+  46% {left:60%;top:25%;}
+  50% {left:50%;top:20%;}
+  64% {left:50%;top:40%;border-radius:2px;}
+  70% {top:87.5%;border-radius:50%;}
+  100% {left:50%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:70%;}
+} 
+@keyframes o4 {
+  0% {left:50%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:30%;}
+  7% {top:70%;}
+  9% {top:30%;}
+  11% {top:70%;border-radius:50%;}
+  18% {border-radius:2px;left:50%;}
+  24% {left:50%;top:50%;}
+  30% {left:50%;top:50%;}
+  32% {left:40%;top:75%;}
+  40% {left:40%;top:75%;}
+  46% {left:60%;top:75%;}
+  50% {left:40%;top:25%;}
+  64% {left:45%;top:40%;border-radius:2px;}
+  70% {top:75%;border-radius:50%;}
+  100% {left:50%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:30%;}
+}
+@keyframes o5 {
+  0% {left:66%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:70%;}
+  8% {top:30%;}
+  10% {top:70%;}
+  12% {top:30%;border-radius:50%;}
+  18% {border-radius:2px;left:66%;}
+  24% {left:50%;top:50%;}
+  32% {left:50%;top:50%;}
+  34% {left:50%;top:80%;}
+  40% {left:50%;top:80%;}
+  46% {left:40%;top:75%;}
+  50% {left:60%;top:25%;}
+  64% {left:40%;top:40%;border-radius:2px;}
+  70% {top:50%;border-radius:50%;}
+  100% {left:66%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:70%;}
+}
+@keyframes o6 {
+  0% {left:66%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:30%;}
+  8% {top:70%;}
+  10% {top:30%;}
+  12% {top:70%;border-radius:50%;}
+  18% {border-radius:2px;left:66%;}
+  24% {left:50%;top:50%;}
+  34% {left:50%;top:50%;}
+  36% {left:50%;top:20%;}
+  40% {left:50%;top:20%;}
+  46% {left:50%;top:80%;}
+  50% {left:60%;top:75%;}
+  64% {left:35%;top:40%;border-radius:2px;}
+  70% {top:0%;border-radius:50%;}
+  100% {left:66%;background:rgba(255,255,255,0.75);width:50px;height:50px;border-radius:50%;top:30%;}
+}
+#o1 {animation:o1 15s ease 0s infinite normal;position:absolute;}
+#o2 {animation:o2 15s ease 0s infinite normal;position:absolute;}
+#o3 {animation:o3 15s ease 0s infinite normal;position:absolute;}
+#o4 {animation:o4 15s ease 0s infinite normal;position:absolute;}
+#o5 {animation:o5 15s ease 0s infinite normal;position:absolute;}
+#o6 {animation:o6 15s ease 0s infinite normal;position:absolute;}
+            table {background:#ca3;border:2px outset gold;padding:0px;text-align:center;}
+            ul {text-indent:-5px;}
+            li {padding-right:25px;}
+            h1 {text-align:center;text-shadow:1px 1px 0px #ddbb55, 1px 0px 0px #ddbb55, 1px -1px 0px #ddbb55, 0px -1px 0px #ddbb55, -1px -1px 0px #ddbb55, -1px 0px 0px #ddbb55, -1px 1px 0px #ddbb55, 0px 1px 0px #ddbb55;color:#221100;}
+            td,th {border:2px outset gold;padding:0px;margin:0px;}
+            h2,h3 {line-height:0.5;}
+        </style>
+    </head>
+    <body>
+        <div class="container" id="container"> 
+            <div class="o" id="o1"></div>
+            <div class="o" id="o2"></div>
+            <div class="o" id="o3"></div>
+            <div class="o" id="o4"></div>
+            <div class="o" id="o5"></div>
+            <div class="o" id="o6"></div>
+        </div>
+        <div class="newpage" id="newpage">
+        <h1>Josh's Homepage</h1><br>
+        <table align="center">
+            <thead>
+                <tr><th colspan="3"><h2>Links:</h2></th></tr>
+                <tr>
+                    <td><h3>Projects:</h3></td>
+                    <td><h3>Widgets:</h3></td>
+                    <td><h3>Games:</h3></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <ul>
+                            <li><span>Cool Text</span></li>
+                            <li><span>School Stuff</span></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li><span>Random Stuff</span></li>
+                            <li><span>HTML Editor</span></li>
+                            <li><span>Tab Calc</span></li>
+                            <li><span>Khan Answers</span></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li><span>Button Clicker</span></li>
+                            <li><span>Google Pacman</span></li>
+                            <li><span>Cookie Clicker</span></li>
+                            <li><span>Combo Pool</span></li>
+                            <li><span style="font-family:cursive;">Doge 2048</span></li>
+                            <li><span>Link Maze</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <script>
+            document.getElementById("newpage").style.animationDuration = time+"s";
+            document.getElementById("container").style.animationDuration = time+"s";
+            
+            document.body.style.animationDuration = time+"s";
+        </script>
+    </body>
+</html>

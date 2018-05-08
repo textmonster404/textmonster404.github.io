@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="../icon/icon.ico">
+        <title>Maze</title>
+        <style>
+            a:visited {color:blue;}
+        </style>
+    </head>
+    <body>
+        <h1>Loops that aren't Loops...? Endless <span  onClick="change()" style="cursor:pointer;text-decoration:underline;">alternation</span>?</h1>
+        <a id="link">Door where you came from...</a>
+        <a id="door2Times">Door</a>
+        <script>
+            var hrefs = ["loop.html","hole2.html"];
+            document.getElementById("link").href = hrefs[Math.floor(Math.random()*2)];
+            var change = function() { document.getElementById('door2Times').href='doorAgain.html';document.getElementById('door2Times').style.color="blue";document.getElementById('door2Times').style.textDecoration="underline";document.getElementById('door2Times').style.cursor="pointer";}
+        </script>
+    </body>
+</html>

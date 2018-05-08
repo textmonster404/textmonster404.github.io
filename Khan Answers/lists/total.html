@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Khan Answers - Total</title>
+        <link rel="icon" href="../../icon/icon.ico">
+    </head>
+    <body>
+        <input id="input1" placeholder="list">
+        <input type="button" value="calculate" onClick="calculate()">
+        <br><br><textarea id="output"></textarea>
+        <script>
+            var input1 = document.getElementById("input1");
+            var output = document.getElementById("output");
+            var calculate = function() {
+                var list = JSON.parse("["+input1.value+"]");
+                var total=0;
+                for (var i=0;i<list.length;i++) {
+                    total+=list[i];
+                }
+                output.value = total;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Khan Answers - Evaluate Multiple</title>
+        <link rel="icon" href="../../../icon/icon.ico">
+    </head>
+    <body>
+        <input id="input1" placeholder="listOfVariableEquals">
+        <input id="input2" placeholder="equation">
+        <input type="button" value="calculate" onClick="calculate()">
+        <br><br><textarea id="output"></textarea>
+        <script>
+            var input1 = document.getElementById("input1");
+            var input2 = document.getElementById("input2");
+            var output = document.getElementById("output");
+            var calculate = function() {
+                var listOfVariableEquals = input1.value.split(",");
+                for (var iterations=0;  iterations<listOfVariableEquals.length; iterations++) {
+                    eval("var "+listOfVariableEquals[iterations]+";");
+                };
+                output.value = eval(input2.value);
+            }
+        </script>
+    </body>
+</html>

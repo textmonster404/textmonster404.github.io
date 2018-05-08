@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hamburger Button</title>
+        <link rel="icon" href="../icon/icon.ico">
+        <style>@keyframes titleAni {
+  0% {left:45%;top:8%;;}
+  50% {left:45%;top:11%;}
+  100% {left:45%;top:8%;}
+}
+@keyframes titleAni2 {
+  0% {left:45%;top:14%;;}
+  50% {left:45%;top:18%;}
+  100% {left:45%;top:14%;}
+}
+.title::before {
+  top:-10%;
+  font-size:1.8em;
+  animation:titleAni 2s ease 0s infinite normal;
+  content: "Hamburger";
+  position:absolute;
+  font-family:monospace;
+  transform:rotate(11deg);
+}
+.title::after {
+  top:-10%;
+  font-size:1.8em;
+  animation:titleAni2 2s ease 0s infinite normal;
+  content: "Button";
+  position:absolute;
+  font-family:monospace;
+  transform:rotate(11deg);
+}
+.burger {position:absolute;left:47%;top:51%;width:50px;height:50px;cursor:pointer;}
+.line1, .line2, .line3 {position:relative;width:100%;background:#333;height:15%;display:inline-block;transition:top 0.2s ease-in-out,left 0.1s ease-in-out,transform 0.4s ease;}
+.line1 {top:0%;left:0%;}
+.line2 {top:7%;left:0%;}
+.line3 {top:14%;left:0%;}
+.burger:hover > .line1 {top:9%;transform:rotate(7deg);}
+.burger:hover > .line2 {top:13%;transform:rotate(10deg);}
+.burger:hover > .line3 {top:17%;transform:rotate(13deg);}
+.burger:active > .line1 {top:4%;left:-6%;transform:rotate(-9deg);}
+.burger:active > .line2 {top:6%;left:-7%;transform:rotate(-6deg);}
+.burger:active > .line3 {top:8%;left:-8%;transform:rotate(-3deg);}
+        </style>
+    </head>
+    <body>
+        <div class="title"></div>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </body>
+</html>

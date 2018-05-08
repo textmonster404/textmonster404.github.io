@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="../icon/icon.ico">
+        <title>Paper</title>
+        <style>
+            a:visited {color:blue;}
+        </style>
+    </head>
+    <body>
+        <h1 id="h1" style="color:red;">1</h1>
+        <script>
+            var h1 = document.getElementById("h1");
+            var change = function() {
+                h1.textContent = parseInt(h1.textContent)+1;
+                if (h1.textContent == "3") {
+                    h1.style.color = "green";
+                } else {
+                    h1.style.color = "red";
+                }
+            }
+            window.setInterval(change,1000);
+            function closeme() {window.close();}
+            window.onblur=closeme;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="../icon/icon.ico">
+        <title>Paper</title>
+        <style>
+            a:visited {color:blue;}
+        </style>
+    </head>
+    <body>
+        <h1>(A NAND B) AND (C XOR D)</h1>
+        <input type="checkbox" id="a">A<br>
+        <input type="checkbox" id="b">B<br>
+        <input type="checkbox" id="c">C<br>
+        <input type="checkbox" id="d">D<br>
+        <script>
+            var code = document.body.innerHTML;
+            setInterval(function() {
+            var a = document.getElementById("a").checked;
+            var b = document.getElementById("b").checked;
+            var c = document.getElementById("c").checked;
+            var d = document.getElementById("d").checked;
+            if ((!(a&&b))&&(!(c==d))) {document.body.innerHTML = code + "<b>2</b>";}
+            },0)
+            function closeme() {window.close();}
+            window.onblur=closeme;
+        </script>
+    </body>
+</html>

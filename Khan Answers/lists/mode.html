@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Khan Answers - Mean</title>
+        <link rel="icon" href="../../icon/icon.ico">
+    </head>
+    <body>
+        <input id="input1" placeholder="list">
+        <input type="button" value="calculate" onClick="calculate()">
+        <br><br><textarea id="output"></textarea>
+        <script>
+            var input1 = document.getElementById("input1");
+            var output = document.getElementById("output");
+            var mode = function(list) {if (list.length == 0) {return null;};var modeMap = {},maxCount = 1,modes = [list[0]];for (var i = 0; i < list.length; i++) {var el = list[i];if (modeMap[el] == null) {modeMap[el] = 1;} else {modeMap[el]++;} if (modeMap[el] > maxCount) {modes = [el];maxCount = modeMap[el];} else if (modeMap[el] == maxCount) {modes.push(el);maxCount = modeMap[el];};};var lastMode = modes[0];var modesNoRepeat = [];var it = 0;for (var i=0;i<modes.length;i++) {if (lastMode !== modes[i] || i == 0) {modesNoRepeat[it]=modes[i];it++;}; lastMode = modes[i];};return(modesNoRepeat);};
+            var calculate = function() {
+                var listForm = JSON.parse("["+input1.value+"]");
+                output.value = mode(listForm);
+            }
+        </script>
+    </body>
+</html>

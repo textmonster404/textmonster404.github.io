@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PSA Vandalism</title>
+        <link rel="icon" href="../icon/icon.ico">
+        <style>
+            @keyframes notes {
+                0% {color:red;}
+                16.6666% {color:orange;}
+                33.3333% {color:yellow;}
+                50% {color:green;}
+                66.6666% {color:blue;}
+                83.3333% {color:purple;}
+                100% {color:red;}
+            }
+            body {overflow-x:hidden;}
+            .note {animation-name:notes;animation-duration:6s;animation-iteration-count:infinite;animation-timing-function:linear;position:relative;left:2%;}
+            #store1 {width:75%;border:1px solid #777;border-radius:3px;padding-left:2px;padding-right:2px;}
+            #store1:focus {width:75%;border:1px solid #181818;border-radius:3px;padding-left:2px;padding-right:2px;}
+            #store2 {width:75%;border:1px solid #777;border-radius:3px;padding-left:2px;padding-right:2px;}
+            #store2:focus {width:75%;border:1px solid #181818;border-radius:3px;padding-left:2px;padding-right:2px;}
+            table {border:1px solid black;text-align:center;}
+            th {border:2px solid black;text-align:center;margin-bottom:0px;}
+            th:hover {font-style:italic;}
+            td {border:1px solid black;margin-top:0px;}
+            td:hover {font-style:italic;}
+        </style>
+    </head>
+    <body>
+        <h1 style="position:fixed;top:0px;z-index:10;background:#EDEDED;border:3px solid grey;width:auto;height:auto;margin-top:0px;left:47%;padding-left:5px;padding-right:5px;padding-top:1px;padding-bottom:1px;box-shadow:2px 2px 2px #111;">PSA</h1>
+        <a href="school.html" style="text-align:center;">Back</a>
+        <h3 class="note">Notes:</h3>
+        <ul>
+            <li><div><input id="store1"> <input type="submit" value="Set Value" onclick="localStorage.setItem('boxstore1', document.getElementById('store1').value);"> <input type="submit" value="Remove Value" onclick="localStorage.removeItem('boxstore1');"></div>
+            <li><div><input id="store2"> <input type="submit" value="Set Value" onclick="localStorage.setItem('boxstore2', document.getElementById('store2').value);"> <input type="submit" value="Remove Value" onclick="localStorage.removeItem('boxstore2');"></div>
+        </ul><br><br>
+        <table align="center" style="width:1081px;">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Topic</th>
+                    <th>Message</th>
+                    <th>Audience</th>
+                    <th>PSA Hope</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Erase the Vandalisers</td>
+                    <td>Stopping Graffiti</td>
+                    <td>It damages other people's property.</td>
+                    <td>Teenagers/Young Adults</td>
+                    <td>Preventing Teens/Young Adults from drawing on others' property</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <script>
+            document.getElementById("store1").value = localStorage.getItem("boxstore1");
+            document.getElementById("store2").value = localStorage.getItem("boxstore2");
+        </script>
+    </body>
+</html>
