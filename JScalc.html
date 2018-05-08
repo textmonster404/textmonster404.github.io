@@ -15,6 +15,7 @@
             var calculate = function() {
                 if (previousTextarea !== textarea.value) {
                     title.innerHTML = eval(textarea.value) + " - JScalc";
+                    if (eval(textarea.value)==null) {title.innerHTML = "JScalc"};
                 }
                 previousTextarea = textarea.value;
             }
