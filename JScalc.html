@@ -11,8 +11,12 @@
         <script>
             var title = document.getElementById("title");
             var textarea = document.getElementById("textarea");
+            var previousTextarea = textarea.value
             var calculate = function() {
-                title.innerHTML = eval(textarea.value) + " - JScalc";
+                if (previousTextarea !== textarea.value) {
+                    title.innerHTML = eval(textarea.value) + " - JScalc";
+                }
+                previousTextarea = textarea.value;
             }
             window.setInterval(calculate,0);
         </script>
