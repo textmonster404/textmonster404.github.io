@@ -10,7 +10,10 @@
             th {background:radial-gradient(navy, #b6b688 91%);color:white;}
             td {background:radial-gradient(white, #b6b688 91%);}
             td.t2 {border:none;background:transparent;}
-            .table2 {background:radial-gradient(white, #b6b688 91%);}
+            .table2 tr {position:relative;background:radial-gradient(white, #b6b688 91%);z-index:5;}
+            .table2 {position:relative;background:radial-gradient(transparent, #b6b688 91%);z-index:4;}
+            .table2 td {position:relative;z-index:2;}
+            .table2 td img {border:2px outset #b6b688;}
             #firstName {position:relative;left:-6px;transition:left 2s;}
             #lastName {position:relative;left:8px;transition:left 2s;}
             #middleName {position:relative;left:- 60px;top:0px;transition:top 2s;}
