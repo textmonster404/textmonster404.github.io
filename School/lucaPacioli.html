@@ -5,6 +5,15 @@
         <title>Luca Pacioli</title>
         <link rel="icon" href="../icon/icon.ico">
         <style>
+            @keyframes strokeRainbow {
+                0% {-webkit-text-stroke-color:red;}
+                17% {-webkit-text-stroke-color:orange;}
+                33% {-webkit-text-stroke-color:yellow;}
+                50% {-webkit-text-stroke-color:green;}
+                67% {-webkit-text-stroke-color:blue;}
+                83% {-webkit-text-stroke-color:purple;}
+                100% {-webkit-text-stroke-color:red;}
+            }
             body {background:repeating-radial-gradient(closest-side at 25px 35px, #f7f7b1 3.75px, #ffd 14px);background-size:50px 50px;}
             table,td,th {background:white;border:3px inset;}
             th {background:radial-gradient(navy, #b6b688 91%);color:white;}
@@ -17,7 +26,7 @@
             #firstName {position:relative;left:-6px;transition:left 2s;}
             #lastName {position:relative;left:8px;transition:left 2s;}
             #middleName {position:relative;left:- 60px;top:0px;transition:top 2s;}
-            #legacy {-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: white;}
+            #legacy {-webkit-text-stroke-width: 1px;animation-name:strokeRainbow;animation-duration:5s;animation-timing-function:linear;}
         </style>
     </head>
     <body>
