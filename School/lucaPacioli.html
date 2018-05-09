@@ -56,8 +56,8 @@
             <tbody>
                 <tr>
                     <td>
-                        <i style="position:absolute;"><small>A Rhombicuboctahedron.</small></i><br>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Leonardo_polyhedra.png/220px-Leonardo_polyhedra.png"><br>
+                        <i style="position:relative;left:10px;top:20px;" id="captionSlide"><small>A Rhombicuboctahedron.</small></i><br>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Leonardo_polyhedra.png/220px-Leonardo_polyhedra.png" onClick="if (slide) {document.getElementById('captionSlide').style.top='20px';slide=false} else {document.getElementById('captionSlide').style.top='5px';slide=true}"><br>
                     </td>
                     <td>
                         <h3 style="margin-bottom:5px;">Legacy:</h3>
@@ -68,6 +68,7 @@
         </table>
         <script>
             var hasFace = false;
+            var slide = false;
         </script>
     </body>
 </html>
