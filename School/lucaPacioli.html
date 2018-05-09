@@ -9,6 +9,18 @@
                 from {top:-200px;}
                 to {top:0px;}
             }
+            @keyframes slideLeft {
+                from {left:-1000px;}
+                to {left:0px;}
+            }
+            @keyframes slideRight {
+                from {right:-1000px;}
+                to {right:0px;}
+            }
+            .table1 {position:relative;animation-name:slideLeft;animation-duration:1s;}
+            .table2 {position:relative;animation-name:slideRight;animation-duration:1s;}
+            #faceSwap:hover {color:blue;}
+            #faceSwap:active {color:red;}
             @keyframes strokeRainbow {
                 0% {-webkit-text-stroke-color:red;}
                 17% {-webkit-text-stroke-color:orange;}
@@ -36,7 +48,7 @@
         </style>
     </head>
     <body>
-        <table align="center">
+        <table align="center" class="table1">
             <caption onClick="nameChange()"><h1 style="cursor:pointer;color:#1f1f1f;text-shadow:1px 1px springgreen;position:relative;animation-name:slideTop;animation-duration:1s;"><span id="firstName">Luca </span><span id="middleName">Bartolomeo de </span><span id="lastName">Pacioli</span></h1></caption>
             <thead>
                 <tr>
@@ -60,7 +72,7 @@
                             <li>He was a Friar, Mathematician, and Writer.
                             <li>He wrote an unpublished treatice on chess.
                             <li><b id="interestPoint">He had collaborated with Leonardo da Vinci.</b>
-                            <li style="cursor:pointer;text-decoration:underline;" onClick="if (!hasFace) {document.getElementById('face').style.height='326px';window.setTimeout(function() {document.getElementById('face').style.opacity='1'},1000);hasFace=true} else {document.getElementById('face').style.opacity='0';window.setTimeout(function() {document.getElementById('face').style.height='0px'},500);hasFace=false}">Made a woodcut of the porportions of the human face.<br>
+                            <li id="faceSwap" style="cursor:pointer;text-decoration:underline;" onClick="if (!hasFace) {document.getElementById('face').style.height='326px';window.setTimeout(function() {document.getElementById('face').style.opacity='1'},1000);hasFace=true} else {document.getElementById('face').style.opacity='0';window.setTimeout(function() {document.getElementById('face').style.height='0px'},500);hasFace=false}">Made a woodcut of the porportions of the human face.<br>
                             <img id="face" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Divina_proportione.png/220px-Divina_proportione.png" style="height:0px;opacity:0;transition:height 1s, opacity 0.5s;">
                         </ul>
                     </td>
