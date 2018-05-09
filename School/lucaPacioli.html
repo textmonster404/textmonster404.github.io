@@ -7,11 +7,14 @@
         <style>
             body {background:repeating-radial-gradient(closest-side at 25px 35px, #f7f7b1 3.75px, #ffd 14px);background-size:50px 50px;}
             table,table:first-child td,th {background:white;border:3px inset #333;}
+            #firstName {position:relative;left:calc(50% - 30px);transition:left 2s;}
+            #lastName {position:relative;left:calc(50% + 23px);transition:left 2s;}
+            #middleName {position:relative;left:calc(50% - 50px);top:25px;transition:top 2s;}
         </style>
     </head>
     <body>
         <table align="center" border="1">
-            <caption><h1>Luca Bartolomeo de Pacioli</h1></caption>
+            <caption onClick="nameChange()"><h1><span id="firstName">Luca </span><span id="middleName">Bartolomeo de </span><span id="lastName">Pacioli</span></h1></caption>
             <thead>
                 <hr>
                     <th><h3>Character Traits:</h3></th>
@@ -58,7 +61,7 @@
                 <tr>
                     <td>
                         <i style="position:relative;left:10px;top:100px;z-index:1;transition:top 1s;" id="captionSlide"><small>A Rhombicuboctahedron.</small></i><br>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Leonardo_polyhedra.png/220px-Leonardo_polyhedra.png" onClick="if (slide) {document.getElementById('captionSlide').style.top='100px';slide=false} else {document.getElementById('captionSlide').style.top='5px';slide=true}" style="position:relative;z-index:2;"><br>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Leonardo_polyhedra.png/220px-Leonardo_polyhedra.png" onClick="if (slide) {document.getElementById('captionSlide').style.top='100px';slide=false} else {document.getElementById('captionSlide').style.top='5px';slide=true}" style="position:relative;z-index:2;cursor:help;"><br>
                     </td>
                     <td>
                         <h3 style="margin-bottom:5px;">Legacy:</h3>
@@ -70,6 +73,20 @@
         <script>
             var hasFace = false;
             var slide = false;
+            var name = true;
+            var nameChange = function() {
+                if (name) {
+                    document.getElementById("firstName").style.left = "calc(50% - 5px)";
+                    document.getElementById("lastName").style.left = "50%";
+                    document.getElementById("middleName").style.top = "-50px";
+                    name = false;
+                } else {
+                    document.getElementById("firstName").style.left = "calc(50% - 30px)";
+                    document.getElementById("lastName").style.left = "calc(50% + 23px)";
+                    document.getElementById("middleName").style.top = "25px";
+                    name = true;
+                }
+            }
         </script>
     </body>
 </html>
