@@ -33,7 +33,7 @@
                             <li>He was a Friar, Mathematician, and Writer.
                             <li>He wrote an unpublished treatice on chess.
                             <li><b id="interestPoint">He had collaborated with Leonardo da Vinci.</b>
-                            <li style="cursor:pointer;text-decoration:underline;" onClick="if (document.getElementById('face').style.opacity='0') {document.getElementById('face').style.height='326px';window.setTimeout(function() {document.getElementById('face').style.opacity='1'},1000);} else {document.getElementById('face').style.opacity='0';window.setTimeout(function() {document.getElementById('face').style.height='0px'},1000);}">Made a woodcut of the porportions of the human face.<br>
+                            <li style="cursor:pointer;text-decoration:underline;" onClick="if (document.getElementById('face').style.opacity='0') {document.getElementById('face').style.height='326px';window.setTimeout(function() {document.getElementById('face').style.opacity='1'},1000);} else if (document.getElementById('face').style.opacity='1') {document.getElementById('face').style.opacity='0';window.setTimeout(function() {document.getElementById('face').style.height='0px'},1000);}">Made a woodcut of the porportions of the human face.<br>
                             <img id="face" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Divina_proportione.png/220px-Divina_proportione.png" style="height:0px;opacity:0;transition:height 1s, opacity 0.5s;">
                         </ul>
                     </td>
@@ -52,11 +52,11 @@
                 </tr>
             </tbody>
         </table>
-        <table style="text-align:center;" align="center">
+        <table style="text-align:center;background:white;border:3px inset #333;" align="center">
             <tbody>
                 <tr>
                     <td>
-                        <i><small>A Rhombicuboctahedron.</small></i><br>
+                        <i style="position:absolute;"><small>A Rhombicuboctahedron.</small></i><br>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Leonardo_polyhedra.png/220px-Leonardo_polyhedra.png"><br>
                     </td>
                     <td>
