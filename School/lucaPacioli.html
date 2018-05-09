@@ -7,9 +7,9 @@
         <style>
             body {background:repeating-radial-gradient(closest-side at 25px 35px, #f7f7b1 3.75px, #ffd 14px);background-size:50px 50px;}
             table,table:first-child td,th {background:white;border:3px inset #333;}
-            #firstName {position:relative;left:calc(50% - 30px);transition:left 2s;}
-            #lastName {position:relative;left:calc(50% + 23px);transition:left 2s;}
-            #middleName {position:relative;left:calc(50% - 50px);top:25px;transition:top 2s;}
+            #firstName {position:relative;left:calc(50% - 340px);transition:left 2s;}
+            #lastName {position:relative;left:calc(50% - 325px);transition:left 2s;}
+            #middleName {position:relative;left:calc(50% - 330px);top:0px;transition:top 2s;}
         </style>
     </head>
     <body>
@@ -73,18 +73,18 @@
         <script>
             var hasFace = false;
             var slide = false;
-            var name = true;
+            var nameThing = true;
             var nameChange = function() {
-                if (name) {
-                    document.getElementById("firstName").style.left = "calc(50% - 5px)";
-                    document.getElementById("lastName").style.left = "50%";
-                    document.getElementById("middleName").style.top = "-50px";
-                    name = false;
+                if (nameThing == true) {
+                    document.getElementById("firstName").style.left = "calc(50% - 220px)";
+                    document.getElementById("lastName").style.left = "calc(50% - 420px)";
+                    document.getElementById("middleName").style.top = "-200px";
+                    nameThing = false;
                 } else {
-                    document.getElementById("firstName").style.left = "calc(50% - 30px)";
-                    document.getElementById("lastName").style.left = "calc(50% + 23px)";
-                    document.getElementById("middleName").style.top = "25px";
-                    name = true;
+                    document.getElementById("firstName").style.left = "calc(50% - 340px)";
+                    document.getElementById("lastName").style.left = "calc(50% - 325px)";
+                    document.getElementById("middleName").style.top = "0px";
+                    nameThing = true;
                 }
             }
         </script>
