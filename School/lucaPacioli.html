@@ -17,11 +17,17 @@
                 from {right:-2000px;}
                 to {right:0px;}
             }
+            @keyframes keyPoint {
+                0% {font-size:11pt;}
+                50% {font-size:13pt;}
+                100% {font-size:11pt;}
+            }
             .table1 {position:relative;animation-name:slideLeft;animation-duration:1.2s;animation-delay:0.8s;left:-2000px;}
             .table2 {position:relative;animation-name:slideRight;animation-duration:1.2s;animation-delay:1.6s;right:-2000px;}
             #faceSwap:hover {color:blue;}
             #faceSwap:active {color:red;}
             #faceSwap {cursor:pointer;text-decoration:underline;}
+            #interestPoint {animation:keyPoint 0.75s ease 0s infinite normal;}
             @keyframes strokeRainbow {
                 0% {-webkit-text-stroke-color:red;}
                 17% {-webkit-text-stroke-color:orange;}
