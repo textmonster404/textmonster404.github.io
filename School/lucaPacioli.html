@@ -31,7 +31,7 @@
                 83% {-webkit-text-stroke-color:purple;}
                 100% {-webkit-text-stroke-color:red;}
             }
-            body {background:repeating-radial-gradient(closest-side at 25px 35px, #f7f7b1 3.75px, #ffd 14px);background-size:50px 50px;}
+            body {overflow-y:scroll;overflow-x:hidden;background:repeating-radial-gradient(closest-side at 25px 35px, #f7f7b1 3.75px, #ffd 14px);background-size:50px 50px;}
             table,td,th {background:white;border:3px inset;}
             th {background:radial-gradient(navy, #b6b688 91%);color:white;}
             h3 {transform:rotate(0deg);transition:transform 0.3s;}
@@ -45,7 +45,7 @@
             #firstName {position:relative;left:-6px;transition:left 2s;}
             #lastName {position:relative;left:8px;transition:left 2s;}
             #middleName {position:relative;left:- 60px;top:0px;transition:top 2s;}
-            #legacy {-webkit-text-stroke-width: 1px;animation-name:strokeRainbow;animation-iteration-count:infinite;animation-duration:5s;animation-timing-function:linear;}
+            #legacy {-webkit-text-stroke-width:1px;animation-name:strokeRainbow;animation-iteration-count:infinite;animation-duration:5s;animation-timing-function:linear;}
         </style>
     </head>
     <body onLoad="window.setTimeout(function() {document.getElementById('table1').style.left='0px';},800);window.setTimeout(function() {document.getElementById('table2').style.right='0px';},1600)">
