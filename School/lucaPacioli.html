@@ -22,6 +22,7 @@
                 50% {font-size:12px;}
                 100% {font-size:11px;}
             }
+            .o {transition:height 1s, opacity 0.5s;}
             .li {text-indent:0px;transition:text-indent 0.5s;}
             .li:hover {text-indent:3px;}
             .table1 {position:relative;animation-name:slideLeft;animation-duration:1.2s;animation-delay:0.8s;left:-2000px;}
@@ -115,7 +116,7 @@
                     <td colspan="2">
                         <h2 class="faceSwap" onClick="hideElse()">Paragraph</h2>
                         <div style="text-indent:2em;transition:opacity 0.5s, height 1s;opacity:0;height:0px;" id="p">
-                            Luca Bartolomeo de Pacioli <i>(Luca Pacioli for short)</i>, was a Friar, Mathematician, and Writer. &nbsp;He was born in 1447, at <span id="italy" class="faceSwap" onClick="document.getElementById('italy').textContent='where is now Italy.'">Sansepolcro, Republic of Florence</span>. &nbsp;In his Early Life, he recieved an <span id="abbaco" class="faceSwap" onClick="document.getElementById('abbaco').textContent='Education in Calculation'">Abbaco Education</span>. &nbsp;
+                            Luca Bartolomeo de Pacioli <i>(Luca Pacioli for short)</i>, was a Friar, Mathematician, and Writer. &nbsp;He was born in 1447, at <span id="italy" class="faceSwap" onClick="document.getElementById('italy').textContent='where is now Italy.'">Sansepolcro, Republic of Florence</span>. &nbsp;In his Early Life, he recieved an <span id="abbaco" class="faceSwap" onClick="document.getElementById('abbaco').textContent='Education in Calculation'">Abbaco Education</span>. &nbsp;His father was Bartolomeo Pacioli, though he is said to have lived 
                         </div>
                     </td>
                 </tr>
@@ -141,17 +142,19 @@
             }
             var ohs = document.getElementsByClassName("o");
             var p = document.getElementById("p");
-            for (var i=0;i<ohs.length;i++) {ohs[i].style.tranition = "opacity 0.5s, height 1s";};
+            var pHeight = p.style.height;
+            var heights = [];
+            for (var i=0;i<ohs.length;i++) {heights[i]=ohs[i].style.height;};
             var hideElse = function() {
                 if (elseHide) {
-                    for (var i=0;i<ohs.length;i++) {ohs[i].style.height="auto";window.setTimeout(function() {ohs[i].style.opacity = '1'},1000);}
+                    for (var i=0;i<ohs.length;i++) {ohs[i].style.height=heights[i];window.setTimeout(function() {ohs[i].style.opacity = '1'},1000);}
                     p.style.opacity="0";
                     p.style.height="0px";
                     elseHide=false;
                 } else {
                     for (var i=0;i<ohs.length;i++) {ohs[i].style.opacity="0";window.setTimeout(function() {ohs[i].style.height = '0px'},500);}
                     p.style.opacity="1";
-                    p.style.height="auto";
+                    p.style.height=pHeight;
                     elseHide=true;
                 }
             }
