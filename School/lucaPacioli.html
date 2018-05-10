@@ -22,8 +22,8 @@
                 50% {font-size:13pt;}
                 100% {font-size:11pt;}
             }
-            li {text-indent:0px;transition:text-indent 0.5s;}
-            li:hover {text-indent:3px;}
+            .li {text-indent:0px;transition:text-indent 0.5s;}
+            .li:hover {text-indent:3px;}
             .table1 {position:relative;animation-name:slideLeft;animation-duration:1.2s;animation-delay:0.8s;left:-2000px;}
             .table2 {position:relative;animation-name:slideRight;animation-duration:1.2s;animation-delay:1.6s;right:-2000px;}
             #faceSwap:hover {color:blue;}
@@ -70,16 +70,16 @@
                 <tr>
                     <td>
                         <ul style="list-style-type:circle;">
-                            <li>Inventive
-                            <li>Religious
-                            <li>Methodical
-                            <li>Unusual
+                            <li class="li">Inventive
+                            <li class="li">Religious
+                            <li class="li">Methodical
+                            <li class="li">Unusual
                         </ul>
                     </td>
                     <td>
                         <ul>
-                            <li>He was a Friar, Mathematician, and Writer.
-                            <li>He wrote an unpublished treatice on chess.
+                            <li class="li">He was a Friar, Mathematician, and Writer.
+                            <li class="li">He wrote an unpublished treatice on chess.
                             <li><b id="interestPoint">He had collaborated with Leonardo da Vinci.</b>
                             <li onClick="if (!hasFace) {document.getElementById('face').style.height='326px';window.setTimeout(function() {document.getElementById('face').style.opacity='1';document.getElementById('face').style.cursor='pointer'},1000);hasFace=true} else {document.getElementById('face').style.opacity='0';window.setTimeout(function() {document.getElementById('face').style.height='0px';document.getElementById('face').style.cursor='auto'},500);hasFace=false}"><span id="faceSwap">Made a woodcut of the porportions of the human face.</span><br>
                             <img id="face" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Divina_proportione.png/220px-Divina_proportione.png" style="height:0px;opacity:0;transition:height 1s, opacity 0.5s;">
@@ -87,14 +87,14 @@
                     </td>
                     <td>
                         <ol>
-                            <li>He was born in 1447, at Sansepolcro, Republic of Florence.
-                            <li>He lived with the Befolci family.
-                            <li>He recieved an abbaco education. <i>(calculation education)</i>
-                            <li>He moved to Venice.
-                            <li>He wrote the books, <i>Summa de Arithmetica</i>, and <i>De Divina Proportione</i>.
-                            <li>He invented Double-Entry Bookkeeping <i>(Accounting)</i>.
-                            <li>He fled Milan when Louis XII of France siezed the city and drove out his patron.
-                            <li>He died in 1517, at Sansepolcro, Republic of Florence.
+                            <li class="li">He was born in 1447, at Sansepolcro, Republic of Florence.
+                            <li class="li">He lived with the Befolci family.
+                            <li class="li">He recieved an abbaco education. <i>(calculation education)</i>
+                            <li class="li">He moved to Venice.
+                            <li class="li">He wrote the books, <i>Summa de Arithmetica</i>, and <i>De Divina Proportione</i>.
+                            <li class="li">He invented Double-Entry Bookkeeping <i>(Accounting)</i>.
+                            <li class="li">He fled Milan when Louis XII of France siezed the city and drove out his patron.
+                            <li class="li">He died in 1517, at Sansepolcro, Republic of Florence.
                         </ol>
                     </td>
                 </tr>
