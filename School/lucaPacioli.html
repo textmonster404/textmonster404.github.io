@@ -6,8 +6,8 @@
         <link rel="icon" href="../icon/icon.ico">
         <style>
             @keyframes slideTop {
-                from {top:-200px;left:2000px;}
-                to {top:0px;left:0px;}
+                from {top:-200px;}
+                to {top:0px;}
             }
             @keyframes slideLeft {
                 from {left:-2000px;}
@@ -17,8 +17,8 @@
                 from {right:-2000px;}
                 to {right:0px;}
             }
-            .table1 {position:relative;animation-name:slideLeft;animation-duration:1.2s;animation-delay:0.8s;}
-            .table2 {position:relative;animation-name:slideRight;animation-duration:1.2s;animation-delay:1.6s;}
+            .table1 {position:relative;animation-name:slideLeft;animation-duration:1.2s;animation-delay:0.8s;left:-2000px;}
+            .table2 {position:relative;animation-name:slideRight;animation-duration:1.2s;animation-delay:1.6s;right:-2000px;}
             #faceSwap:hover {color:blue;}
             #faceSwap:active {color:red;}
             @keyframes strokeRainbow {
@@ -48,7 +48,7 @@
         </style>
     </head>
     <body>
-        <table align="center" class="table1">
+        <table align="center" class="table1" id="table1" onLoad="window.setTimeout(function() {document.getElementById('table1').style.left='0px';},800)">
             <caption onClick="nameChange()"><h1 style="cursor:pointer;color:#1f1f1f;text-shadow:1px 1px springgreen;position:relative;animation-name:slideTop;animation-duration:1s;"><span id="firstName">Luca </span><span id="middleName">Bartolomeo de </span><span id="lastName">Pacioli</span></h1></caption>
             <thead>
                 <tr>
@@ -91,7 +91,7 @@
                 </tr>
             </tbody>
         </table>
-        <table align="center" style="text-align:center;" class="table2">
+        <table align="center" style="text-align:center;" class="table2" id="table2" onLoad="window.setTimeout(function() {document.getElementById('table2').style.right='0px';},1600)">
             <tbody>
                 <tr>
                     <td class="t2">
