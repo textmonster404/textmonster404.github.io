@@ -113,8 +113,8 @@
                 </tr>
                 <tr id="paragraph" style="transition:height 1s;height:60px;" valign="top">
                     <td colspan="2"><h2 class="faceSwap" onClick="hideElse()" style="z-index:1;">Paragraph</h2>
-                        <div style="text-indent:2em;transition:opacity 0.5s, top 1s;opacity:0;top:-30px;position:absolute;cursor:default;z-index:0;" id="p">
-                            Luca Bartolomeo de Pacioli <i>(Luca Pacioli for short)</i>, was a Friar, Mathematician, and Writer. &nbsp;He was born in 1447, at <span id="italy" class="faceSwap" onClick="document.getElementById('italy').textContent='where is now Italy.'">Sansepolcro, Republic of Florence</span>. &nbsp;In his Early Life, he recieved an <span id="abbaco" class="faceSwap" onClick="document.getElementById('abbaco').textContent='Education in Calculation'">Abbaco Education</span>. &nbsp;His father was Bartolomeo Pacioli, though he is said to have lived 
+                        <div style="text-indent:2em;transition:opacity 0.5s, top 1s;opacity:0;top:-30px;position:absolute;cursor:default;z-index:0;" id="p" class="cur">
+                            Luca Bartolomeo de Pacioli <i>(Luca Pacioli for short)</i>, was a Friar, Mathematician, and Writer. &nbsp;He was born in 1447, at <span id="italy" class="faceSwap cur" onClick="document.getElementById('italy').textContent='where is now Italy.'">Sansepolcro, Republic of Florence</span>. &nbsp;In his Early Life, he recieved an <span id="abbaco" class="faceSwap cur" onClick="document.getElementById('abbaco').textContent='Education in Calculation'">Abbaco Education</span>. &nbsp;His father was Bartolomeo Pacioli, though he is said to have lived 
                         </div>
                     </td>
                 </tr>
@@ -141,13 +141,18 @@
             var p = document.getElementById("p");
             var paragraph = document.getElementById("paragraph");
             var elseHide = false;
+            var cur = document.getElementsByClassName("cur");
+            var curTypes = [];
+            for (var i=0;i<cur.length;i++) {curTypes[i]=cur[i].style.cursor;};
             var hideElse = function() {
                 if (elseHide) {
                     p.style.opacity="0";
+                    for (var i=0;i<cur.length;i++) {cur[i].style.cursor="default"};
                     p.style.cursor="default";
                     window.setTimeout(function() {p.style.top="-30px";paragraph.style.height = "60px";},500);
                     elseHide=false;
                 } else {
+                    for (var i=0;i<cur.length;i++) {cur[i].style.cursor=curTypes[i]};
                     p.style.cursor="auto";
                     window.setTimeout(function() {p.style.opacity="1";},1000);
                     p.style.top="50px";
