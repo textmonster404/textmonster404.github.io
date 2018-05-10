@@ -115,7 +115,7 @@
                 <tr>
                     <td colspan="2">
                         <h2 class="faceSwap" onClick="hideElse()">Paragraph</h2>
-                        <div style="text-indent:2em;transition:opacity 0.5s, height 1s;opacity:0;height:0px;" id="p">
+                        <div style="text-indent:2em;transition:opacity 0.5s, top 1s;opacity:0;top:-20px;position:relative;" id="p">
                             Luca Bartolomeo de Pacioli <i>(Luca Pacioli for short)</i>, was a Friar, Mathematician, and Writer. &nbsp;He was born in 1447, at <span id="italy" class="faceSwap" onClick="document.getElementById('italy').textContent='where is now Italy.'">Sansepolcro, Republic of Florence</span>. &nbsp;In his Early Life, he recieved an <span id="abbaco" class="faceSwap" onClick="document.getElementById('abbaco').textContent='Education in Calculation'">Abbaco Education</span>. &nbsp;His father was Bartolomeo Pacioli, though he is said to have lived 
                         </div>
                     </td>
@@ -140,21 +140,15 @@
                     nameThing = true;
                 }
             }
-            var ohs = document.getElementsByClassName("o");
             var p = document.getElementById("p");
-            var pHeight = p.style.height;
-            var heights = [];
-            for (var i=0;i<ohs.length;i++) {heights[i]=ohs[i].style.height;};
             var hideElse = function() {
                 if (elseHide) {
-                    for (var i=0;i<ohs.length;i++) {ohs[i].style.height=heights[i];window.setTimeout(function() {ohs[i].style.opacity = '1'},1000);}
                     p.style.opacity="0";
-                    p.style.height="0px";
+                    p.style.top="-20px";
                     elseHide=false;
                 } else {
-                    for (var i=0;i<ohs.length;i++) {ohs[i].style.opacity="0";window.setTimeout(function() {ohs[i].style.height = '0px'},500);}
                     p.style.opacity="1";
-                    p.style.height=pHeight;
+                    p.style.top="0px";
                     elseHide=true;
                 }
             }
