@@ -26,9 +26,9 @@
             .li:hover {text-indent:3px;}
             .table1 {position:relative;animation-name:slideLeft;animation-duration:1.2s;animation-delay:0.8s;left:-2000px;}
             .table2 {position:relative;animation-name:slideRight;animation-duration:1.2s;animation-delay:1.6s;right:-2000px;}
-            #faceSwap:hover {color:blue;}
-            #faceSwap:active {color:red;}
-            #faceSwap {cursor:pointer;text-decoration:underline;}
+            .faceSwap:hover {color:blue;}
+            .faceSwap:active {color:red;}
+            .faceSwap {cursor:pointer;text-decoration:underline;}
             #interestPoint {animation:keyPoint 0.35s ease 0s infinite normal;}
             @keyframes strokeRainbow {
                 0% {-webkit-text-stroke-color:red;}
@@ -40,14 +40,13 @@
                 100% {-webkit-text-stroke-color:red;}
             }
             body {overflow-y:scroll;overflow-x:hidden;background:repeating-radial-gradient(closest-side at 25px 35px, #f7f7b1 3.75px, #ffd 14px);background-size:50px 50px;}
-            table,td,th {background:white;border:3px inset;}
+            table,td,th,.table2 tr {background:white;border:3px inset;}
             th {background:radial-gradient(navy, #b6b688 91%);color:white;}
             h3 {transform:rotate(0deg);transition:transform 0.3s;}
             h3:hover {transform:rotate(10deg);}
             td {background:radial-gradient(white, #b6b688 91%);}
             td.t2 {border:none;background:transparent;}
-            .table2 tr {position:relative;background:radial-gradient(white, #b6b688 91%);z-index:5;}
-            .table2 {position:relative;background:radial-gradient(transparent, #b6b688 91%);z-index:4;}
+            .table2 tr {background:radial-gradient(white, #b6b688 91%);}
             .table2 td {position:relative;z-index:2;}
             img {border:2px outset #b6b688;}
             #firstName {position:relative;left:-6px;transition:left 2s;}
@@ -58,7 +57,7 @@
     </head>
     <body onLoad="window.setTimeout(function() {document.getElementById('table1').style.left='0px';},800);window.setTimeout(function() {document.getElementById('table2').style.right='0px';},1600)">
         <h1 onClick="nameChange()" style="cursor:pointer;color:#1f1f1f;text-shadow:1px 1px springgreen;position:relative;animation-name:slideTop;animation-duration:1s;left:calc(50% - 189px);"><span id="firstName">Luca </span><span id="middleName">Bartolomeo de </span><span id="lastName">Pacioli</span></h1>
-        <table align="center" class="table1" id="table1" style="width:1150px;">
+        <table align="center" class="table1 o" id="table1" style="width:1150px;">
             <thead>
                 <tr>
                     <th><h3>Character Traits:</h3></th>
@@ -81,7 +80,7 @@
                             <li class="li">He was a Friar, Mathematician, and Writer.
                             <li class="li">He wrote an unpublished treatice on chess.
                             <li><b id="interestPoint">He had collaborated with Leonardo da Vinci.</b>
-                            <li onClick="if (!hasFace) {document.getElementById('face').style.height='326px';window.setTimeout(function() {document.getElementById('face').style.opacity='1';document.getElementById('face').style.cursor='pointer'},1000);hasFace=true} else {document.getElementById('face').style.opacity='0';window.setTimeout(function() {document.getElementById('face').style.height='0px';document.getElementById('face').style.cursor='auto'},500);hasFace=false}"><span id="faceSwap">Made a woodcut of the porportions of the human face.</span><br>
+                            <li onClick="if (!hasFace) {document.getElementById('face').style.height='326px';window.setTimeout(function() {document.getElementById('face').style.opacity='1';document.getElementById('face').style.cursor='pointer'},1000);hasFace=true} else {document.getElementById('face').style.opacity='0';window.setTimeout(function() {document.getElementById('face').style.height='0px';document.getElementById('face').style.cursor='auto'},500);hasFace=false}"><span class="faceSwap">Made a woodcut of the porportions of the human face.</span><br>
                             <img id="face" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Divina_proportione.png/220px-Divina_proportione.png" style="height:0px;opacity:0;transition:height 1s, opacity 0.5s;">
                         </ul>
                     </td>
@@ -102,7 +101,7 @@
         </table>
         <table align="center" style="text-align:center;" class="table2" id="table2">
             <tbody>
-                <tr>
+                <tr class="o">
                     <td class="t2">
                         <i style="position:relative;left:10px;top:100px;z-index:1;transition:top 0.25s;" id="captionSlide"><small>A Rhombicuboctahedron.</small></i><br>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Leonardo_polyhedra.png/220px-Leonardo_polyhedra.png" onClick="if (slide) {document.getElementById('captionSlide').style.top='100px';slide=false} else {document.getElementById('captionSlide').style.top='5px';slide=true}" style="position:relative;z-index:2;cursor:help;"><br>
@@ -112,12 +111,21 @@
                         <b>He advanced Mathematics and revolutionized Accounting.</b>
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2">
+                        <h2 class="faceSwap" onClick="hideElse()">Paragraph</h2>
+                        <div style="text-indent:2em;transition:opacity 0.5s, height 1s;opacity:0;height:0px;" id="p">
+                            Luca Bartolomeo de Pacioli <i>(Luca Pacioli for short)</i>, was a Friar, Mathematician, and Writer. &nbsp;He was born in 1447, at <span id="italy" class="faceSwap" onClick="document.getElementById('italy').textContent='where is now Italy.'">Sansepolcro, Republic of Florence</span>. &nbsp;In his Early Life, he recieved an <span id="abbaco" class="faceSwap" onClick="document.getElementById('abbaco').textContent='Education in Calculation'">Abbaco Education</span>. &nbsp;
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <script>
             var hasFace = false;
             var slide = false;
             var nameThing = true;
+            var elseHide = false;
             var nameChange = function() {
                 if (nameThing == true) {
                     document.getElementById("firstName").style.left = "90px";
@@ -129,6 +137,22 @@
                     document.getElementById("lastName").style.left = "8px";
                     document.getElementById("middleName").style.top = "0px";
                     nameThing = true;
+                }
+            }
+            var ohs = document.getElementsByClassName("o");
+            var p = document.getElementById("p");
+            for (var i=0;i<ohs.length;i++) {ohs[i].style.tranition = "opacity 0.5s, height 1s";};
+            var hideElse = function() {
+                if (elseHide) {
+                    for (var i=0;i<ohs.length;i++) {ohs[i].style.height="auto";window.setTimeout(function() {ohs[i].style.opacity = '1'},1000);}
+                    p.style.opacity="0";
+                    p.style.height="0px";
+                    elseHide=false;
+                } else {
+                    for (var i=0;i<ohs.length;i++) {ohs[i].style.opacity="0";window.setTimeout(function() {ohs[i].style.height = '0px'},500);}
+                    p.style.opacity="1";
+                    p.style.height="auto";
+                    elseHide=true;
                 }
             }
         </script>
