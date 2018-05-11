@@ -114,7 +114,7 @@
                 <tr id="paragraph" style="transition:height 1s;height:60px;" valign="top">
                     <td colspan="2"><h2 class="faceSwap" onClick="hideElse()" style="z-index:1;">Paragraph</h2>
                         <div style="text-indent:2em;transition:opacity 0.5s, top 1s;opacity:0;top:-30px;position:absolute;cursor:default;z-index:0;" id="p" class="cur">
-                            Luca Bartolomeo de Pacioli <i>(Luca Pacioli for short)</i>, was a Friar, Mathematician, and Writer. &nbsp;He was born in 1447, at <span id="italy" class="faceSwap cur" onClick="document.getElementById('italy').textContent='where is now Italy.'">Sansepolcro, Republic of Florence</span>. &nbsp;In his Early Life, he recieved an <span id="abbaco" class="faceSwap cur" onClick="document.getElementById('abbaco').textContent='Education in Calculation'">Abbaco Education</span>. &nbsp;His father was Bartolomeo Pacioli, though he is said to have lived 
+                            Luca Bartolomeo de Pacioli <i>(Luca Pacioli for short)</i>, was a Friar, Mathematician, and Writer. &nbsp;He was born in 1447, at <span id="italy" class="faceSwap cur" onClick="if (italy) {document.getElementById('italy').textContent='Sansepolcro, Republic of Florence';italy=false} else {document.getElementById('italy').textContent='where is now Italy';italy=true}">Sansepolcro, Republic of Florence</span>. &nbsp;In his Early Life, he recieved an <span id="abbaco" class="faceSwap cur" onClick="if (abbaco) {document.getElementById('abbaco').textContent='Abbaco Education';abbaco=false} else {document.getElementById('abbaco').textContent='Education in Calculation';abbaco=true}">Abbaco Education</span>. &nbsp;His father was Bartolomeo Pacioli, though he is said to have lived 
                         </div>
                     </td>
                 </tr>
@@ -125,6 +125,8 @@
             var slide = false;
             var nameThing = true;
             var elseHide = false;
+            var italy = false;
+            var abbaco = false;
             var nameChange = function() {
                 if (nameThing == true) {
                     document.getElementById("firstName").style.left = "90px";
