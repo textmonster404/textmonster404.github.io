@@ -1,9 +1,3 @@
-/*
-Bookmark this:
-
-javascript:document.body.innerHTML+="<script src='https://textmonster404.github.io/h/Khan Answers/khanAnswers.js'></script>";
-
-*/
 var khanAnswers = {};
 khanAnswers.algebra = {};
 khanAnswers.miscFunctions = {};
