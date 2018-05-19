@@ -1,0 +1,21 @@
+Hi!
+This is Josh.
+In this directory, you may add a file to this folder any time.
+I recommend bookmarking this as soon as possible.
+Uploading files: Drag & Drop
+Deleting files:
+ 1.  Add a blank file (perferrably a .txt file) that has the same name as the file you want to delete but with "delete " at the front of the name.
+ 2.  Wait for me to delete it myself.
+Renaming files:
+ 1.  Add a blank file (perferrably a .txt file) called, "rename [your original file name here] to [new file name]".
+ 2.  Wait for me to rename the file.
+ 
+ 
+ 
+Let's say I have uploaded a file named "potato.html".
+I soon after want to rename it to "apple.php".
+I upload a blank text file called "rename potato.html to apple.php.txt".
+Later, Josh checks the directory and renames "potato.html" to "apple.php" and deletes "rename potato.html to apple.php.txt".
+Now I want to delete "apple.php".
+I upload a blank text file called "delete apple.php.txt".
+Josh later deletes "apple.php" and "delete apple.php.txt".
