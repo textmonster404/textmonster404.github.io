@@ -1,3 +1,80 @@
+::-webkit-scrollbar, ::-webkit-scrollbar:horizontal, ::-webkit-scrollbar:vertical {
+	width: 13px !important;
+	height: 13px !important;
+	background-color: #000000 !important;
+}
+::-webkit-scrollbar-thumb:hover {
+	box-shadow: inset 0 0 1.3px #000000 !important;
+}
+::-webkit-scrollbar-thumb:vertical:active {
+	background:linear-gradient(darkred,darkorange,darkgoldenrod,darkgreen,darkblue,darkmagenta);
+}
+::-webkit-scrollbar-horizontal {
+	background:linear-gradient(90deg,darkred,darkorange,darkgoldenrod,darkgreen,darkblue,darkmagenta);
+}
+::-webkit-scrollbar-track-piece {
+        background-image:"";
+}
+::-webkit-scrollbar-track-piece:vertical {
+        background:linear-gradient(red,orange,yellow,green,blue,purple);
+	box-shadow: inset 0 0 3.9px #000000 !important;
+	border: 1.105px outset #000000 !important;
+	border-radius: 0px !important;
+}
+::-webkit-scrollbar-track-piece:horizontal {
+	background:linear-gradient(90deg,red,orange,yellow,green,blue,purple);
+	box-shadow: inset 0 0 3.9px #000000 !important;
+	border: 1.105px outset #000000 !important;
+	border-radius: 0px !important;
+}
+::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 9.1px #000000 !important;
+	border-radius: 6.5px !important;
+	border: 0.975px inset #420000 !important;
+}
+::-webkit-scrollbar-thumb:vertical {
+	background:linear-gradient(red,orange,yellow,green,blue,purple);
+}
+::-webkit-scrollbar-thumb:horizontal {
+	background:linear-gradient(90deg,red,orange,yellow,green,blue,purple);
+}
+::-webkit-scrollbar-corner {
+	background:linear-gradient(-45deg,red,orange,yellow,green,blue,purple);
+}
+::-webkit-scrollbar-button {
+	background-color: #666666 !important;
+	border-radius: 0.325px !important;
+	box-shadow: inset 0 0 4.29px #000000 !important;
+	border: 0px solid #666 !important;
+	display: block !important;
+}
+::-webkit-scrollbar-button:hover {
+        box-shadow: inset 0 0 0.9px #000000 !important;
+}
+::-webkit-scrollbar-button:active {
+        background-color: #444444 !important;
+}
+::-webkit-scrollbar-button:vertical {
+	height: 18px !important;
+}
+::-webkit-scrollbar-button:horizontal {
+	width: 18px !important;
+}
+::-webkit-scrollbar-button:vertical:decrement {
+	background-image: url('chrome-extension://ddehdnnhjimbggeeenghijehnpakijod/images/defaults/up.png') !important;
+}
+::-webkit-scrollbar-button:vertical:increment {
+	background-image: url('chrome-extension://ddehdnnhjimbggeeenghijehnpakijod/images/defaults/down.png') !important;
+}
+::-webkit-scrollbar-button:horizontal:increment {
+	background-image: url('chrome-extension://ddehdnnhjimbggeeenghijehnpakijod/images/defaults/right.png') !important;
+}
+::-webkit-scrollbar-button:horizontal:decrement {
+	background-image: url('chrome-extension://ddehdnnhjimbggeeenghijehnpakijod/images/defaults/left.png') !important;
+}
+::-webkit-scrollbar-button:vertical:start:increment, ::-webkit-scrollbar-button:vertical:end:decrement, ::-webkit-scrollbar-button:horizontal:start:increment, ::-webkit-scrollbar-button:horizontal:end:decrement {
+	display: none !important;
+}
 @font-face {
     font-family:PixelHD;
     src:url(Fonts/PixelHD.ttf);
