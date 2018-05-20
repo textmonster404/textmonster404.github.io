@@ -9,7 +9,7 @@
 ::-webkit-scrollbar-thumb:vertical:active {
 	background:linear-gradient(darkred,darkorange,darkgoldenrod,darkgreen,darkblue,darkmagenta);
 }
-::-webkit-scrollbar-horizontal {
+::-webkit-scrollbar-thumb:horizontal:active {
 	background:linear-gradient(90deg,darkred,darkorange,darkgoldenrod,darkgreen,darkblue,darkmagenta);
 }
 ::-webkit-scrollbar-track-piece {
