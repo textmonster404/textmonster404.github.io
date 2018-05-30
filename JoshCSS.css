@@ -905,3 +905,6 @@ counter, counter-increment {counter-increment:counterforcounter;}
 counter::before {content:counter(counterforcounter);}
 counter-reset::before {content: "";counter-reset:counterforcounter;}
 /* <counter-reset /> */
+bullet::before {content:"●";}
+bullet[type="circle"]::before {content:"○";}
+bullet[type="square"]::before {content:"■";}
