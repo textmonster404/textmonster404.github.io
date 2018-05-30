@@ -909,6 +909,6 @@ bullet {display:inline-block;}
 bullet::before {content:"●";}
 bullet[type="circle"]::before {content:"○";}
 bullet[type="square"]::before {content:"■";}
-speech {background:red;border-radius:4px;display:block;margin-left:17.3205px;}
-speech-triangle {content:" ";background:red;clip-path:polygon(0px 50%, 17.3205px 40%, 17.3205px 60%);position:relative;left:-17.3205px;width:17.3205px;color:transparent;display:inline-block;}/*0.866025*/
+speech {background:inherit;border-radius:4px;display:block;margin-left:17.3205px;}
+speech-triangle {content:" ";background:inherit;clip-path:polygon(0px 50%, 17.3205px 40%, 17.3205px 60%);position:relative;left:-17.3205px;width:17.3205px;color:transparent;display:inline-block;}/*0.866025*/
 speech-content {position:absolute;}
