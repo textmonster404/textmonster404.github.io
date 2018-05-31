@@ -930,3 +930,951 @@ white-space-normal {white-space:normal;}
 visibility-hidden {visiblity:hidden;}
 list-style-position-inside {list-style-position:inside;}
 list-style-position-outside {list-style-position:outside;}
+/* Cool Text Styles start here */
+@-webkit-keyframes shine {
+    0% {background-position: top left;}
+    100% {background-position: top right;}
+}
+@keyframes mymove {
+    from {top: 0px;}
+    to {
+        top: 75px;
+        transform:rotate(720deg);
+    }
+}
+@keyframes spin {
+    from {}
+    to {transform:rotate(360deg);}
+}
+@keyframes spinner {
+    from {
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+    to {
+        -moz-transform: rotateY(-360deg);
+        -ms-transform: rotateY(-360deg);
+        transform: rotateY(-360deg);
+    }
+}
+@keyframes colorchange{
+    from {background:linear-gradient(90deg, red, orange, yellow, green, blue, purple);}
+    to {background:linear-gradient(90deg, purple, blue, green, yellow, orange, red);}
+}
+@keyframes changedaColor {
+    0% {color:red;}
+    12.5% {color:orange;}
+    25% {color:yellow;}
+    37.5% {color:green;}
+    50% {color:springgreen}
+    62.5% {color:cyan;}
+    75% {color:blue;}
+    87.5% {color:purple;}
+    100% {color:red;}
+}
+@keyframes shake {
+    0% {font-size:16.0px;}
+    12.5% {font-size:22.0px;}
+    25% {font-size:17.0px;}
+    40% {font-size:30.0px;}
+    58% {font-size:10.0px;}
+    74% {font-size:20.0px;}
+    86% {font-size:25.0px;}
+    100% {font-size:16.0px;}
+}
+@keyframes cooltextscroll {
+    0% {
+        left:100%;
+        font-size:250%;
+        border:6px solid green;
+        padding-left:3.8%;
+        padding-right:4%;
+        padding-top:1.14%;
+        padding-bottom:1%;
+        top:1%;
+        width:32%;
+        height:9%;
+        z-index:10;
+        box-shadow:6px 6px 5.5px #303530;
+    }
+    100% {}
+}
+@keyframes topvanish {
+    0% {
+        background:#E2E2E2;
+        border-bottom:3px solid #929292;
+        height:18%;
+        display:inline;
+    }
+    37% {
+        background:rgba(220,235,233,0.6);
+        border-bottom:4px solid rgba(170,185,183,0.46);
+        height:11.5%;
+        display:inline;
+    }
+    100% {}
+}
+@keyframes rotationcool {
+    0% {
+        transform:rotateX(0deg);
+        transform:rotateY(0deg);
+        transform:rotateZ(0deg);
+    }
+    33.3333% {
+        transform:rotateX(0deg);
+        transform:rotateY(0deg);
+        transform:rotateZ(360deg);
+    }
+    66.6666% {
+        transform:rotateX(0deg);
+        transform:rotateY(360deg);
+        transform:rotateZ(0deg);
+    }
+    100% {
+        transform:rotateX(360deg);
+        transform:rotateY(0deg);
+        transform:rotateZ(0deg);
+    }
+}
+@keyframes orbit {
+    0% {
+        left:25%;
+        z-index:0;
+    }
+    50% {
+        left:65%;
+        z-index:0;
+    }
+    100% {
+        left:25%;
+        z-index:4;
+    }
+}
+@keyframes bobblelittle{
+    0% {font-size:32px;}
+    50% {font-size:38px;}
+    100% {font-size:32px;}
+}
+@keyframes circlerotate {
+    0% {transform:rotate(0deg);}
+    100% {transform:rotate(360deg);}
+}
+@keyframes circletranslate {
+    0% {transform:translate(-25%,-25%);}
+    5% {transform:translate(0%,0%);}
+    50% {transform:translate(25%,25%);}
+    75% {transform:translate(0%,0%);}
+    100% {transform:translate(-25%,-25%);}
+}
+@keyframes flashEffect {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+@keyframes anione {
+    0% {
+        margin-top:2.5px;
+        left:50%;
+        z-index:0;
+        background:#888;
+        font-size:1em;
+        border-radius:5px;
+    }
+    25% {
+        left:43%;
+        font-size:1.5em;
+        background:#AAA;
+        border-radius:7.5px;
+        z-index:1;
+        margin-top:0px;
+    }
+    50% {
+        font-size:2em;
+        left:50%;
+        background:#BBB;
+        border-radius:10px;
+        z-index:2;
+        margin-top:0px;
+    }
+    75% {
+        font-size:1.5em;
+        left:57%;
+        background:#989898;
+        border-radius:7.5px;
+        z-index:1;
+        margin-top:0px;
+    }
+    100% {
+        left:50%;
+        z-index:0;
+        background:#888;
+        font-size:1em;
+        border-radius:5px;
+        margin-top:2.5px;
+    }
+}
+@keyframes anitwo {
+    0% {
+        font-size:2em;
+        left:50%;
+        background:#BBB;
+        border-radius:10px;
+        z-index:2;
+        margin-top:0px;
+    }
+    25% {
+        font-size:1.5em;
+        left:57%;
+        background:#989898;
+        border-radius:7.5px;
+        z-index:1;
+        margin-top:0px;
+    }
+    50% {
+        left:50%;
+        z-index:0;
+        background:#888;
+        font-size:1em;
+        border-radius:5px;
+        margin-top:2.5px;
+    }
+    75% {
+        left:43%;
+        font-size:1.5em;
+        background:#AAA;
+        border-radius:7.5px;
+        z-index:1;
+        margin-top:0px;
+    }
+    100% {
+        font-size:2em;
+        left:50%;
+        background:#BBB;
+        border-radius:10px;
+        z-index:2;
+        margin-top:0px;
+    }
+}
+cool-text-beforenowafter:before {
+    content:"Card 1";
+    position:absolute;
+    animation-name:anione;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
+    animation-timing-function:ease-in-out;
+}
+cool-text-beforenowafter:after {
+    content:"Card 2";
+    position:absolute;
+    animation-name:anitwo;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
+    animation-timing-function:ease-in-out;
+}
+cool-text-circle1a,cool-text-circle2a,cool-text-circle3a,cool-text-circle4a,cool-text-circle5a {
+    animation-name:circletranslate;
+    animation-duration:3s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+    border-radius:50%;
+}
+cool-text-circle1a {
+    width:75px;
+    height:75px;
+    background-color:#222;
+    margin-left:100px;
+}
+cool-text-circle2a {
+    width:60px;
+    height:60px;
+    background-color:#444;
+}
+cool-text-circle3a {
+    width:45px;
+    height:45px;
+    background-color:#666;
+}
+cool-text-circle4a {
+    width:30px;
+    height:30px;
+    background-color:#888;
+}
+cool-text-circle5a {
+    width:15px;
+    height:15px;
+    background-color:#AAA;
+}
+cool-text-circle1,cool-text-circle2,cool-text-circle3,cool-text-circle4,cool-text-circle5 {
+    animation-name:circlerotate;
+    animation-duration:3s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+    border-radius:50%;
+}
+cool-text-circle1 {
+    width:50px;
+    height:50px;
+    background-color:#222;
+}
+cool-text-circle2 {
+    width:40px;
+    height:40px;
+    background-color:#444;
+}
+cool-text-circle3 {
+    width:30px;
+    height:30px;
+    background-color:#666;
+}
+cool-text-circle4 {
+    width:20px;
+    height:20px;
+    background-color:#888;
+}
+cool-text-circle5 {
+    width:10px;
+    height:10px;
+    background-color:#AAA;
+}
+cool-text-moon {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#808080;
+    color:#1F1F1F;
+    animation-name:orbit;
+    animation-duration:2s;
+    animation-iteration-count:infinite;
+    animation-timing-function:ease-in-out;
+    position:absolute;
+    margin-top:50px;
+    text-align:center;
+    line-height:50px;
+}
+cool-text-earth {
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    left:40%;
+    background:#5555FF;
+    color:white;
+    z-index:1;
+    position:absolute;
+    margin:auto;
+    text-align:center;
+    line-height:150px;
+}
+cool-text-superstyle:active {font-weight:bold;}
+cool-text-checkerb:checked + .superstyle {border-radius:5px;}
+cool-text-superstyle:focus {background:#44FE44;}
+cool-text-superstyle:hover {font-size:20px;}
+cool-text-superstyle::selection {color:blue;}
+cool-text-section {counter-increment: cool-counter;}
+cool-text-section:after {content: " section element(s)";}
+cool-text-section:before {content: counter(cool-counter);}
+cool-text-rotate3d {
+    animation-name:rotationcool;
+    animation-duration:6s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+    background:rgba(63, 63, 63, 0.6);
+    font-weight:bold;
+    color:#111;
+    text-align:center;
+    position:absolute;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    margin:3%;
+}
+cool-text-text-image {
+    background:rgba(0,0,0,0) url("https://textmonster404.github.io/h/Images/Metal.jpg") repeat fixed left;
+    color: rgba(0,0,0,0);
+    background-clip: text;
+    -ms-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+}
+cool-text-first-letter::first-letter {
+    font-weight:bold;
+    color:#333;
+    background:#CDCDCD;
+    border-radius:25%;
+}
+cool-text-first-letter {
+    width:33.33%;
+    border:3px inset #555555;
+    padding-left:3px;
+    padding-right:3px;
+    border-radius:1px;
+}
+cool-text-appear-hover {
+    opacity:0.0;
+    transition:opacity 0.2s linear;
+}
+cool-text-appear-hover:hover {opacity:0.75;}
+input[type=checkbox]cool-text-responsive-check:checked + cool-text-label-responsive-check-2 {
+    border:2px solid #128001;
+    background:linear-gradient(45deg,#008000,#139113,#008000);
+    border-radius:50px;
+    font-weight:bold;
+    padding:auto;
+    color:#AAFFAA;
+}
+cool-text-delete-back {width:265px;border:3px double grey;}
+cool-text-red-blue-cursor {
+    color:#EEEEEE;
+    font-size:22px;
+    font-weight:900;
+    cursor:url('https://textmonster404.github.io/h/Images/red-blue-cursor.png'), auto;
+}
+cool-text-border-img { 
+    text-align:center;
+    letter-spacing: 4px;
+    border: 10px solid transparent;
+    padding: 15px;
+    -webkit-border-image: url(https://textmonster404.github.io/h/Images/border.png) 30% stretch;
+    -o-border-image: url(https://textmonster404.github.io/h/Images/border.png) 30% stretch;
+    border-image: url(https://textmonster404.github.io/h/Images/border.png) 30% stretch;
+}
+cool-text-border-img-1 {
+    border: 10px solid transparent;
+    padding: 15px;
+    -webkit-border-image: url(https://textmonster404.github.io/h/Images/border.png) 45 round;
+    -o-border-image: url(https://textmonster404.github.io/h/Images/border.png) 45 round;
+    border-image: url(https://textmonster404.github.io/h/Images/border.png) 45 round;
+}
+cool-text-border-img-2 {
+    border: 10px solid transparent;
+    padding: 15px;
+    -webkit-border-image: url(https://textmonster404.github.io/h/Images/border.png) 22% round;
+    -o-border-image: url(https://textmonster404.github.io/h/Images/border.png) 22% round;
+    border-image: url(https://textmonster404.github.io/h/Images/border.png) 22% round;
+}
+cool-text-border-img-3 {
+    border: 10px solid transparent;
+    padding: 15px;
+    -webkit-border-image: url(https://textmonster404.github.io/h/Images/border.png) 90% round;
+    -o-border-image: url(https://textmonster404.github.io/h/Images/border.png) 90% round;
+    border-image: url(https://textmonster404.github.io/h/Images/border.png) 90% round;
+}
+cool-text-border-img-4 {
+    border: 10px solid transparent;
+    padding: 15px;
+    -webkit-border-image: url(https://textmonster404.github.io/h/Images/border.png) 3 round;
+    -o-border-image: url(https://textmonster404.github.io/h/Images/border.png) 3 round;
+    border-image: url(https://textmonster404.github.io/h/Images/border.png) 3 round;
+}
+cool-text-top-bar {
+    background-color:rgba(0,0,0,0);
+    border-bottom:0px solid rgba(0,0,0,0);
+    position:fixed;
+    width:100%;
+    height:9%;
+    animation-name:topvanish;
+    animation-duration:4.3s;
+    animation-iteration-count:1;
+    animation-timing-function:cubic-bezier(0.42,0.28,0.30,0.53);
+    top:0%;
+    left:0%;
+    display:block;
+}
+cool-text-logo {
+    display:block;
+    animation-name:cooltextscroll;
+    animation-duration:3.3s;
+    animation-iteration-count:1;
+    animation-timing-function:cubic-bezier(0.91,0.43,0.38,0.97);
+}
+cool-text-tool-tip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted #00627E;
+    color: #00627E;
+}
+cool-text-tool-tip cool-text-tool-tip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+}
+cool-text-tool-tip cool-text-tool-tip-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+cool-text-tool-tip:hover cool-text-tool-tip-text {visibility: visible;}
+cool-text-image-list {list-style-image:url("https://textmonster404.github.io/h/Images/sqgreen.png");}
+cool-text-rainbow-change {
+    font-weight:bolder;
+    animation-name:changedaColor;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+cool-text-wiggle {
+    position:absolute;
+    animation-name:shake;
+    animation-duration:9s;
+    animation-iteration-count:infinite;
+    animation-timing-function:ease;
+}
+cool-text-cursortext {
+    animation-name:colorchange;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+cool-text-selectText {
+    display:block;
+    font-size:13pt;
+    font-family:monospace;
+}
+cool-text-select-1::selection {background:rgba(0,0,0,0);}
+cool-text-select-2::selection {
+    font-weight:900;
+    background:red;
+}
+cool-text-select-3::selection {
+    -webkit-text-stroke-color:blue;
+    -webkit-text-stroke-width:1px;
+    background:rgba(0,0,0,0);
+}
+cool-text-spinner {
+    -webkit-animation-name: spinner;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+cool-text-spinner:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+cool-text-spin:hover {
+    animation-name:spin;
+    animation-duration:3s;
+    position:absolute;
+}
+cool-text-block {
+    width: 100px;
+    height: 100px;
+    background:red;
+    position:relative;
+    -webkit-animation: mymove 3s;
+    -webkit-animation-iteration-count: infinite;
+    animation: mymove 3s;
+    animation-iteration-count: infinite;
+}
+cool-text-ol-list-style-color ol, cool-text-ol-li-list-style-color ol {
+    background: #ff9999;
+    padding: 20px;
+}
+cool-text-ul-list-style-color ul, cool-text-ul-li-list-style-color ul {
+    background: #3399ff;
+    padding: 20px;
+}
+cool-text-ol-li-list-style-color ol li {
+    background: #ffe5e5;
+    padding: 5px;
+    margin-left: 35px;
+}
+cool-text-ul-li-list-style-color ul li {
+    background: #cce5ff;
+    margin: 5px;
+}
+cool-text-glow:hover {
+    text-shadow:-2px 0px 5px yellow;
+    text-shadow:-2px -2px 5px yellow;
+    text-shadow:0px -2px 5px yellow;
+    text-shadow:2px -2px 5px yellow;
+    text-shadow:2px 0px 5px yellow;
+    text-shadow:2px 2px 5px yellow;
+    text-shadow:0px 2px 5px yellow;
+    text-shadow:-2px 2px 5px yellow;
+    text-shadow:0px 0px 5px yellow;
+}
+cool-text-glow {
+    background:black;
+    color:white;
+    line-height:200%;
+    text-align:center;
+}
+cool-text-shine {
+    font-size: 3em;
+    margin: 0 auto;
+    width: 700px;
+}
+cool-text-shine{
+    background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+    -webkit-background-size: 125px;
+    color: rgba(255, 255, 255, 0.1);
+    -webkit-background-clip: text;
+    -webkit-animation-name: shine;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+}
+cool-text-text-gradient {
+    background:linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+    color: rgba(0,0,0,0);
+    background-clip: text;
+    -ms-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+}
+cool-text-red-blue {
+    display:inline;
+    position:relative;
+    font:100px Helvetica, Sans-Serif;
+    letter-spacing:-5px;
+    color:rgba(0,0,255,0.5);
+}
+cool-text-red-blue::after {
+    content:"Hello";
+    position:absolute;
+    top:5px;
+    left:10px;
+    color:rgba(255,0,0,0.5);
+}
+cool-text-input-click-me-style:focus {
+    background-color:orange;
+    outline:5px solid black;
+    font-size:200%;
+}
+cool-text-my-table-style table {
+    width:400px;
+    background-color:#eee;
+    border-collapse:collapse;
+}
+cool-text-my-table-style table th {
+    background-color:#000;
+    color:white;
+    width:50%;
+}
+cool-text-my-table-style table td, cool-text-my-table-style table th {
+    padding:5px;
+    border:1px solid #000;
+}
+cool-text-rainbow-change {
+    font-weight:bolder;
+    animation-name:changedaColor;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+cool-text-wiggle {
+    position:absolute;
+    animation-name:shake;
+    animation-duration:9s;
+    animation-iteration-count:infinite;
+    animation-timing-function:ease;
+}
+cool-text-very-cool-hi {
+    text-shadow:1px 1px rgba(127,0,0,0.5),0px 1px rgba(255,127,0,0.5),-1px 1px rgba(255,255,0,0.5),-1px 0px rgba(127,255,0,0.5),-1px -1px rgba(0,255,0,0.5),0px -1px rgba(0,255,255,0.5),1px -1px rgba(0,0,255,0.5),1px 0px rgba(127,0,127,0.5);
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: auto;
+    border: none;
+    postition: absolute;
+    -webkit-border-radius: 27px / 12px;
+    border-radius: 27px / 12px;
+    font-weight:bold;
+    text-decoration:none;
+    font-style:italic;
+    font-family:"Lucida Console", Monaco, monospace;
+    color: rgba(58,55,55,0.99);
+    text-align: center;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    letter-spacing: 1px;
+    height:40px;
+    background: -webkit-linear-gradient(-100deg, rgba(232,242,237,1) 0, rgba(72,234,167,1) 50%, rgba(229,34,34,1) 51%, rgba(237,196,196,1) 100%);
+    background: -moz-linear-gradient(190deg, rgba(232,242,237,1) 0, rgba(72,234,167,1) 50%, rgba(229,34,34,1) 51%, rgba(237,196,196,1) 100%);
+    background: linear-gradient(190deg, rgba(232,242,237,1) 0, rgba(72,234,167,1) 50%, rgba(229,34,34,1) 51%, rgba(237,196,196,1) 100%);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    -webkit-background-origin: padding-box;
+    background-origin: padding-box;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-background-size: auto auto;
+    background-size: auto auto;
+    -webkit-box-shadow: 1px 2px 5px 1.4px rgba(0,0,0,0.75);
+    box-shadow: 1px 2px 5px 1.4px rgba(0,0,0,0.75);
+}
+cool-text-very-cool-hi-2 {
+    position:relative;
+    animation-name:bobblelittle;
+    animation-duration:0.75s;
+    animation-iteration-count:infinite; 
+    transition:animation-play-state 1s,color 0.33s, font-size 1s;
+    cursor:help;
+}
+cool-text-very-cool-hi-2:hover {
+    color:#737373;
+    transform:rotate(18deg);
+    animation-play-state:paused;
+    font-size:41px;
+}
+cool-text-very-cool-hi-2::selection {
+    background:rgba(2,152,188,0.51);
+    color:#CFCFCF;
+}
+cool-text-orange-hover:hover {
+    color:orange;
+}
+cool-text-bold-hover:hover {
+    font-weight:bold;
+}
+cool-text-green-hover:hover {
+    color:green;
+}
+cool-text-center-hover:hover {
+    text-align:center;
+}
+cool-text-underline-hover:hover {
+    text-decoration:underline;
+}
+cool-text-dark-cyan-hover:hover {
+    color:darkcyan;
+}
+cool-text-blue-hover:hover {
+    color:blue;
+}
+cool-text-overline-hover:hover {
+    text-decoration:overline;
+}
+cool-text-font-size-250%-click:active {
+    font-size:250%;
+}
+cool-text-dark-turquoise-click:active {
+    color:darkturquoise;
+}
+cool-text-font-size-50%-click:active {font-size:50%;}
+cool-text-default-style-link-style:visited {
+    color:black;
+    text-decoration:none;
+}
+cool-text-default-style-link-style:hover {
+    color:black;
+    text-decoration:none;
+}
+cool-text-default-style-link-style:active {
+    color:black;
+    text-decoration:none;
+}
+cool-text-default-style-link-style {
+    color:black;
+    text-decoration:none;
+}
+cool-text-rainbow {
+    background:-webkit-linear-gradient(top, red, orange, yellow, green, blue, indigo, violet);
+    color:black;
+    padding:6px;
+}
+cool-text-box {
+    border-style:solid;
+    border-width:1px;
+    display:block;
+    width:100px;
+    height:100px;
+    background-color:#0000FF;
+    -webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+    transition:width 2s, height 2s, background-color 2s, transform 2s;
+}
+cool-text-box:hover {
+    background-color: #FFCCCC;
+    width:200px;
+    height:200px;
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+cool-text-example-1-style a:hover {
+    text-decoration:none;
+    color:orange;
+    font-weight:bold;
+}
+cool-text-example-2-style a:hover {
+    font-size:600%;
+    background-color:orange;
+    color:white;
+    text-transform:uppercase;
+    border:6px double black;
+    padding:20px;
+    font-weight:bold;
+    font-style:italic;
+    text-decoration:none;
+}
+cool-text-cooltextlogo {
+    font-size:175%;
+    border:3px solid green;
+    padding-left:2.5%;
+    padding-right:2.5%;
+    padding-top:0.57%;
+    padding-bottom:0.5%;
+    position:fixed;
+    left:0%;
+    top:0%;
+    background:#E8E8E8;
+    width:12%;
+    height:5%;
+    text-align:center;
+    box-shadow:3px 3px 4px #303030;
+    font-family:monospace;
+    color:#131313;
+    text-shadow:1px 1px rgba(117,0,0,0.05),0px 1px rgba(245,117,0,0.05),-1px 1px rgba(245,245,0,0.05),-1px 0px rgba(117,245,0,0.05),-1px -1px rgba(0,245,0,0.05),0px -1px rgba(0,245,245,0.05),1px -1px rgba(0,0,245,0.05),1px 0px rgba(117,0,117,0.05);
+    font-weight:900;
+    z-index:10;
+    display:inline-block;
+}
+cool-text-no-underline {text-decoration:none;}
+cool-text-line-through {text-decoration:line-through;}
+cool-text-drop-shadow-1 {
+    font-size:18px;
+    color:orange;
+    text-shadow:1px 1px 1px #666;
+}
+cool-text-drop-shadow-2 {
+    font-size:18px;
+    color:orange;
+    text-shadow:1px 1px 1px #000;
+}
+cool-text-drop-shadow-3 {
+    font-size:18px;
+    text-shadow:4px 4px 4px #666;
+}
+cool-text-drop-shadow-4 {
+    font-size:18px;
+    color:orange;
+    text-shadow:4px 4px 8px #666;
+}
+cool-text-drop-shadow-5 {
+    font-size:18px;
+    color:#fff;
+    text-shadow:1px 1px 8px #000;
+}
+cool-text-samp-font-code {
+    font:italic small-caps bold 18px/24px Garamond, Georgia, Times, Serif;
+    width:200px;
+}
+cool-text-12px {font-size:12px;}
+cool-text-12pt {font-size:12pt;}
+cool-text-130-percent {font-size:130%;}
+cool-text-font-medium {font-size:medium;}
+cool-text-font-larger {font-size:larger;}
+cool-text-weight-normal {font-weight:normal;}
+cool-text-bolder {font-weight:bolder;}
+cool-text-lighter {font-weight:lighter;}
+cool-text-weight-100 {font-weight:100;}
+cool-text-weight-200 {font-weight:200;}
+cool-text-weight-300 {font-weight:300;}
+cool-text-weight-400 {font-weight:400;}
+cool-text-weight-500 {font-weight:500;}
+cool-text-weight-600 {font-weight:600;}
+cool-text-weight-700 {font-weight:700;}
+cool-text-weight-800 {font-weight:800;}
+cool-text-weight-900 {font-weight:900;}
+cool-text-small-caps {font-variant:small-caps;}
+cool-text-YES {
+    font-size:140px;
+    font-weight:bold;
+    color:rgba(255,205,0,0.7);
+}
+cool-text-bottom-border-1 {border-bottom:1px solid black;}
+cool-text-bottom-border-2 {border-bottom:1px dotted black;}
+cool-text-bottom-border-3 {border-bottom:10px double orange;}
+cool-text-bottom-border-4 {border-bottom:1px dashed green;}
+cool-text-fake-link-1 {
+    font-weight:bold;
+    text-decoration:underline;
+}
+cool-text-html-code-example-1 {border:2px dashed #000099;}
+cool-text-html-code-example-2 {background-color:#000099;}
+cool-text-background-black {background-color:black}
+cool-text-bottom-border-5 {border-bottom:1px dashed}
+cool-text-bottom-border-6 {border-bottom:3px double}
+cool-text-bottom-border-7 {border-bottom:3px groove}
+cool-text-bottom-border-8 {border-bottom:3px ridge}
+cool-text-bottom-border-9 {border-bottom:3px inset}
+cool-text-bottom-border-10 {border-bottom:3px outset}
+cool-text-red {color:red;}
+cool-text-blue {color:blue;}
+cool-text-background-lime {background-color:lime;}
+cool-text-background-yellow {background-color:yellow;}
+cool-text-comic-sans {font-family:comic sans ms,cursive;}
+cool-text-courier-new {font-family:courier new,courier,monospace;}
+cool-text-georgia {font-family:georgia,serif;}
+cool-text-tahoma {font-family:tahoma,geneva,sans-serif;}
+cool-text-times-new-roman {font-family:times new roman,times,serif;}
+cool-text-trebuchet {font-family:trebuchet ms,helvetica,sans-serif;}
+cool-text-verdana {font-family:verdana,geneva,sans-serif;}
+cool-text-tile1 {
+    background: repeating-radial-gradient(closest-side at 25px 35px, #ccc 15%, #eee 40%);
+    background-size:60px 60px;
+    min-height:200px;
+}
+cool-text-tile2 {
+    background:linear-gradient(30deg, #bdbdbd 12%, transparent 12.5%, transparent 87%, #bdbdbd 87.5%, #bdbdbd 0), linear-gradient(150deg, #bdbdbd 12%, transparent 12.5%, transparent 87%, #bdbdbd 87.5%, #bdbdbd 0), linear-gradient(30deg, #bdbdbd 12%, transparent 12.5%, transparent 87%, #bdbdbd 87.5%, #bdbdbd 0), linear-gradient(150deg, #bdbdbd 12%, transparent 12.5%, transparent 87%, #bdbdbd 87.5%, #bdbdbd 0), linear-gradient(60deg, #dbdbdb 25%, transparent 25.5%, transparent 75%, #dbdbdb 75%, #dbdbdb 0), linear-gradient(60deg, #dbdbdb 25%, transparent 25.5%, transparent 75%, #dbdbdb 75%, #dbdbdb 0), #ccc;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+    background-size: 80px 140px;
+    min-height:200px;
+}
+cool-text-really-orange {
+    color:orange;
+    border:3px double orange;
+}
+cool-text-upside-down {transform:rotate(180deg);}
+cool-text-border-radius-example-1 {
+    border:double green;
+    border-radius:5em;
+}
+cool-text-border-radius-example-2 {
+    border:1px dashed red;
+    border-radius:20px 10px 2em  50%;
+}
+cool-text-border-radius-example-3 {
+    border:1px dotted blue;
+    border-radius:70px 2em;
+}
+cool-text-border-radius-example-4 {
+    border:solid;
+    border-radius:1em 25% 30px;
+}
+cool-text-border-radius-example-5 {
+    border:purple outset;
+    border-radius:1px 300%;
+}
+cool-text-text-bullet ul {
+    list-style:none;
+    margin-left:0;
+    padding-left:1.2em;
+    text-indent: -1.2em;
+}
+cool-text-text-bullet ul li:before {
+    content:"*";
+    display:block;
+    float:left;
+    width:1.2em;
+}
+/* Cool Text Styles End Here */
