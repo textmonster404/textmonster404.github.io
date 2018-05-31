@@ -913,3 +913,4 @@ speech {background-color:inherit;border-radius:4px;display:-webkit-box;margin-le
 speech-triangle {content:" ";background-color:inherit;clip-path:polygon(0px 10px, 17.3205px 4px, 17.3205px 16px);position:relative;left:-17.3205px;width:17.3205px;color:transparent;display:inline-block;}/*0.866025*/
 speech-content {position:relative;}
 speech-triangle::selection {color:rgba(0,0,0,0);background-color:rgba(0,0,0,0);}
+speech-text {position:relative;left:-17.3205px;}
