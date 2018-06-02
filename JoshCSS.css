@@ -2131,6 +2131,6 @@ padding-8px {padding:8px;}
 i-ready-round-corners {border-radius:20px;border:inherit;}
 stack-overflow-header {left:0;top:0;box-shadow:0 1px 0 rgba(12,13,14,0.1), 0 1px 6px rgba(59,64,69,0.1);position:fixed;min-width:auto;border-top:3px solid #F48024;width:100%;z-index:1050;transition:box-shadow cubic-bezier(.165, .84, .44, 1) .25s;background-color:#fafafb;height:50px;box-sizing:border-box;font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;display:block;}
 box-sizing-border-box {box-sizing:border-box;}
-stach-overflow-header-background-color {background-color:#fafafb;}
+stack-overflow-header-background-color {background-color:#fafafb;}
 z-index-1050 {z-index:1050;}
 stack-overflow-header-border-top {border-top:3px solid #f48024;}
