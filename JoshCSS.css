@@ -2123,7 +2123,7 @@ w3-border-pale-blue,w3-hover-border-pale-blue:hover{border-color:#e7ffff!importa
 /* w3.css styles end */
 i-ready-alert {font-size:13px;padding-left:30px;width:890px;display:inline-block;background:url('https://cdn.i-ready.com/client/images/alert-icon.png') no-repeat scroll 5px 50% transparent;}
 i-ready-alert-container {display:block;float:left;width:930px;padding:8px;margin:10px 0px 0px 4px;background:#fdebd1;border:1px solid #f7af44;}
-i-ready-alert-contaner-round-corners {display:block;float:left;width:930px;padding:8px;margin:10px 0px 0px 4px;background:#fdebd1;border:1px solid #f7af44;border-radius:20px;}
+i-ready-alert-container-round-corners {display:block;float:left;width:930px;padding:8px;margin:10px 0px 0px 4px;background:#fdebd1;border:1px solid #f7af44;border-radius:20px;}
 i-ready-alert-background-color {background-color:#fdebd1;}
 i-ready-alert-border {border:1px solid #f7af44;}
 float-left {float:left;}
