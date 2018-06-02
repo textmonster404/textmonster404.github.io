@@ -845,7 +845,7 @@ position-absolute-style {position:absolute;display:inline;}
 position-relative-style {position:relative;display:inline;}
 position-fixed-style {position:fixed;display:inline;}
 position-static-style {position:static;display:inline;}
-position-sticky-style {position:-webkit-sticky;position:sticky;display:inline;}
+position-sticky-style {position:-webkit-sticky;position:sticky;display:inline;left:inherit;right:inherit;top:inherit;bottom:inherit;}
 circle {border-radius:50%;display:inline-block;}
 column-count-1 {column-count:1;}
 column-count-2 {column-count:2;}
