@@ -2134,3 +2134,24 @@ box-sizing-border-box {box-sizing:border-box;}
 stack-overflow-header-background-color {background-color:#fafafb;}
 z-index-1050 {z-index:1050;}
 stack-overflow-header-border-top {border-top:3px solid #f48024;}
+@keyframes keyPoint {
+    0% {font-size:11px;}
+    50% {font-size:12px;}
+    100% {font-size:11px;}
+}
+textmonster404-luca-pacioli-interest-point {animation:keyPoint 0.35s ease 0s infinite normal;}
+@keyframes strokeRainbow {
+    0% {-webkit-text-stroke-color:red;}
+    17% {-webkit-text-stroke-color:orange;}
+    33% {-webkit-text-stroke-color:yellow;}
+    50% {-webkit-text-stroke-color:green;}
+    67% {-webkit-text-stroke-color:blue;}
+    83% {-webkit-text-stroke-color:purple;}
+    100% {-webkit-text-stroke-color:red;}
+}
+textmonster404-luca-pacioli-background {background:repeating-radial-gradient(closest-side at 25px 35px, #f7f7b1 3.75px, #ffd 14px);background-size:50px 50px;}
+textmonster404-luca-pacioli-table-header {display:table-cell;vertical-align:inherit;font-weight:bold;text-align:center;background:radial-gradient(navy, #b6b688 91%);color:white;}
+textmonster404-luca-pacioli-header-level-3 {display:block;font-size:1.17em;margin-top:1em;margin-bottom:1em;margin-left:0;margin-right:0;font-weight:bold;transform:rotate(0deg);transition:transform 0.3s;}
+textmonster404-luca-pacioli-header-level-3:hover {transform:rotate(10deg);}
+textmonster404-luca-pacioli-table-cell {display:table-cell;vertical-align: inherit;}
+textmonster404-luca-pacioli-legacy {-webkit-text-stroke-width:1px;animation-name:strokeRainbow;animation-iteration-count:infinite;animation-duration:5s;animation-timing-function:linear;}
