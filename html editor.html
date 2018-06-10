@@ -8,20 +8,38 @@
         <style>
             body {text-align:center;}
         </style>
+        <script>
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                    var pair = vars[i].split("=");
+                    if(pair[0] == variable){return pair[1];}
+                }
+                return(false);
+            }
+            function start() {
+                if (getQueryVariable("code")==false) {} else { document.getElementById("input").value=decodeURIComponent(getQueryVariable("code")).replace("[lb]",`
+`);}
+            }
+        </script>
     </head>
-    <body>
+    <body onLoad="start();">
         <textarea placeholder="Enter HTML code here!" id="input"></textarea><br>
         <iframe id="output"></iframe><br>
         <input type="text" id="fileName"/>
         <input type="button" value="Load" onClick="document.getElementById('input').value = localStorage.getItem(document.getElementById('fileName').value);"/><br>
         <input type="button" value="Save" onclick="localStorage.setItem(document.getElementById('fileName').value, document.getElementById('input').value);" id="save">
         <input type="button" value="Delete Save" onclick="localStorage.removeItem(document.getElementById('fileName').value);" id="del"><br>
+        <input id="url">
+        <br>
         <a href="Homepage.html">Back</a>
         <script>
             var oldtextareavalue = "";
             function doThing(){
                 var output = $("#output").contents().find('body');
-                if (oldtextareavalue !== document.getElementById('input').value) {var textareaValue = $("textarea").val();output.html(textareaValue);}
+                if (oldtextareavalue !== document.getElementById('input').value) {var textareaValue = $("textarea").val();output.html(textareaValue);document.getElementById("url").value="https://textmonster404.github.io/html%20editor.html?code="+document.getElementById("input").value.replace(`
+`,"[lb]")}
                 oldtextareavalue = document.getElementById('input').value;
                 if (document.getElementById('input').value == "") {document.getElementById('save').disabled=true;document.getElementById('del').disabled=true} else {document.getElementById('save').disabled=false;document.getElementById('del').disabled=false}
             }
