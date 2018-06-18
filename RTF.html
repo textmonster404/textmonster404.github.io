@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>RTF Editor</title>
+        <link rel="icon" href="icon/icon.ico">
+    </head>
+    <body>
+        <div style="width:30em;border:2px outset #bbb;">
+            <div style="text-align:center;">
+                <input type="button" value="Bold" style="font-weight:bold;" onClick="document.execCommand('bold',false,null);"><input type="button" value="Italic" style="font-style:italic;" onClick="document.execCommand('italic',false,null);"><input type="button" value="Underline" style="text-decoration:underline;" onClick="document.execCommand('underline',false,null);"> | <font size="1"><input type="button" value="1" onClick="document.execCommand('fontsize',false,1);"></font><font size="2"><input type="button" value="2" onClick="document.execCommand('fontsize',false,2);"></font><font size="3"><input type="button" value="3" onClick="document.execCommand('fontsize',false,3);"></font><font size="4"><input type="button" value="4" onClick="document.execCommand('fontsize',false,4);"></font><font size="5"><input type="button" value="5" onClick="document.execCommand('fontsize',false,5);"></font><font size="6"><input type="button" value="6" onClick="document.execCommand('fontsize',false,6);"></font><font size="7"><input type="button" value="7" onClick="document.execCommand('fontsize',false,7);"></font><br><input type="button" value="Font Name" onClick="document.execCommand('fontName',false,document.getElementById('font').value);"><input id="font"> | <input type="color" id="color"> <input type="button" value="Color" onClick="document.execCommand('forecolor',false,document.getElementById('color').value);"><input type="button" value="BG Color" onClick="document.execCommand('hilitecolor',false,document.getElementById('color').value);"><br><input type="button" value="Numbered List" onClick="document.execCommand('insertOrderedList',false,null);"><input type="button" value="Bulleted List" onClick="document.execCommand('insertUnorderedList',false,null);"> | <input type="button" value="Justify Left" onClick="document.execCommand('justifyLeft',false,null);"><input type="button" value="Justify Center" onClick="document.execCommand('justifyCenter',false,null);"><input type="button" value="Justify Right" onClick="document.execCommand('justifyRight',false,null);"><input type="button" value="Justify Full" onClick="document.execCommand('justifyFull',false,null);"> | <sup><input type="button" value="Superscript" onClick="document.execCommand('superscript',false,null);"></sup><sub><input type="button" value="Subscript" onClick="document.execCommand('subscript',false,null);"></sub> | <input type="button" value="Indent" onClick="document.execCommand('indent',false,null);"><input type="button" value="Insert Horizontal Line" onClick="document.execCommand('insertHorizontalRule',false,null);"><br><input style="text-decoration:underline;color:blue;" type="button" value="Link" onClick="document.execCommand('createlink',false,document.getElementById('link').value);"><input id="link"><br><input type="button" value="Image" onClick="document.execCommand('insertImage',false,document.getElementById('image').value);"><input id="image"><br><input type="button" value="Add HTML" onClick="document.execCommand('insertHTML',false,document.getElementById('tags').value);"><input id="tags"><br><input type="button" value="Add Table" onClick="document.execCommand('insertHTML',false,table());"><input type="number" id="cols" value="1"><input type="number" id="rows" value="1">
+            </div>
+            <hr>
+            <div style="border:1px solid black;" id="editor" contenteditable></div>
+            <script>
+                var table = function() {
+                    var str = "<table border=1>";
+                    for (var i=0;i<document.getElementById("rows").value;i++) {str+="<tr>";for (var j=0;j<document.getElementById("cols").value;j++) {str+="<td>Content</td>";};str+="</tr>";}
+                    str+="</table>";
+                    return(str)
+                }
+                document.execCommand('enableInlineTableEditing',false,true);
+                document.execCommand('enableObjectResizing',false,true);
+            </script>
+        </div>
+    </body>
+</html>
