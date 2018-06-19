@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Josh</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
-<textarea id="command">
-</textarea>
-<button onClick="document.getElementById('command').value=josh(document.getElementById('command').value);">Ask</button>
+    <head>
+        <meta charset="UTF-8">
+        <title>Josh</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="icon" href="../icon/icon.ico">
+    </head>
+    <body>
+        <textarea id="command">
+        </textarea>
+        <button onClick="document.getElementById('command').value=josh(document.getElementById('command').value);">Ask</button>
 <script>
 String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
@@ -235,5 +236,5 @@ var josh = function(command) {
   } else {window.open("https://www.google.com/search?q=" + command, "_blank");}
 }
 </script>
-</body>
+    </body>
 </html>
