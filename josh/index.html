@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Josh</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="icon" href="../icon/icon.ico">
+    </head>
+    <body>
+        <textarea id="command">
+        </textarea>
+        <button onClick="document.getElementById('command').value=josh(document.getElementById('command').value);">Ask</button>
+<script>
+String.prototype.replaceAt=function(index, replacement) {
+    return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+}
+var randomInt = function(min,max) {return Math.floor(Math.random()*(max-min+1)+min)}
+var josh = function(command) {
+  if (command.includes("Google ")) {
+    var noGoogleCommand = command.replace("Google ", "");
+    window.open("https://www.google.com/search?q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Give me a number ")) {
+    return randomInt(command.match(/^\d+|\d+\b|\d+(?=\w)/g)
+  .map(function (v) {return +v;})[0],command.match(/^\d+|\d+\b|\d+(?=\w)/g)
+  .map(function (v) {return +v;})[1]);
+  } else if (command.includes("This sentence is false.")) {
+    return "Invalid logical statement.";
+  } else if (command.includes("This sentence cannot be proved.")) {
+    return "True, but I can't prove it.";
+  } else if (command.includes("This sentence can't be proved.")) {
+    return "True, but I can't prove it.";
+  } else if (command.includes("This sentence cannot be proven.")) {
+    return "True, but I can't prove it.";
+  } else if (command.includes("This sentence can't be proven.")) {
+    return "True, but I can't prove it.";
+  } else if (command.includes("What do")&&command.includes("like")) {
+    return localStorage.getItem(command.split(" ")[2]+"like");
+  } else if (command.includes(" like")) {
+    localStorage.setItem(command.split(" ")[0]+"like",command.replace(command.split(" ")[0]+" like ","").replace(command.split(" ")[0]+" likes ",""))
+    return "Okay.";
+  } else if (command.includes("What time is it?")) {
+    document.body.innerHTML+="<br><iframe src='https://textmonster404.github.io/h/Cool Text/Clock.html'></iframe>";
+  } else if (command.includes("Say hello to ")) {
+    return command.replace("Say hello to ","Hi, ")
+  } else if (command.includes("What is pi?")) {
+    return "Pi is the ratio between a circle's circumfrence to its diameter.";
+  } else if (command.includes("Which way is down?")||command.includes("Which way is up?")) {
+    return "That is a relative direction.";
+  } else if (command.includes(" timer")) {
+    window.open("https://www.google.com/search?q=" + command, "_blank");
+  } else if (command.includes("What is the first enemy")&&command.includes("Mario")) {
+    return "The koopa.";
+  } else if (((command.includes("Is my computer")&&command.includes("off"))||(command.includes("Is my device")&&command.includes("off")))&&!command.includes("ago")) {
+    return false;
+  } else if (((command.includes("Is my computer")&&command.includes("on"))||(command.includes("Is my device")&&command.includes("on")))&&!command.includes("ago")) {
+    return true;
+  } else if (((command.includes("is my computer")&&command.includes("off"))||(command.includes("is my device")&&command.includes("off")))&&!command.includes("ago")) {
+    return false;
+  } else if (((command.includes("is my computer")&&command.includes("on"))||(command.includes("is my device")&&command.includes("on")))&&!command.includes("ago")) {
+    return true;
+  } else if (command.includes("Open my website")&&command.includes("Humanities")) {
+    window.open("https://textmonster404.github.io/h/School/lucaPacioli.html", "_blank");
+  } else if (command.includes("hi")||command.includes("hello")||command.includes("Hi")||command.includes("Hello")) {
+    return "Hi";
+  } else if (command.includes("Define ")||command.includes("Definition of ")||command.includes("What is the definition of ")) {
+      var noGoogleCommand = command.replace("Define ", "").replace("Definition of ", "").replace("What is the definition of ", "").replace(".", "").replace("!", "").replace("?", "");
+      window.open("http://www.dictionary.com/browse/"+noGoogleCommand, "_blank");
+  } else if (command.includes("synonym")||command.includes("antonym")||command.includes("Synonym")||command.includes("Antonym")) {
+      var noGoogleCommand = command.replace(" of ", "").replace("for ", "").replace("Synonyms ", "").replace("Antonyms ", "").replace("antonyms ", "").replace("synonyms ", "").replace(" and ", "").replace("What are the ", "").replace(".", "").replace("!", "").replace("?", "");
+      window.open("http://www.thesaurus.com/browse/"+noGoogleCommand, "_blank");
+  } else if (command.includes("What is a ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("What is a ", "");
+    window.open("https://www.google.com/search?q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Give me a picture for ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Give me a picture for ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Give me a picture for a ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Give me a picture for a ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Give me a picture of ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Give me a picture of ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Give me a picture of a ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Give me a picture of a ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Show me a picture for ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Show me a picture for ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Show me a picture for a ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Show me a picture for a ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Show me a picture of ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Show me a picture of ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Show me a picture of a ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Show me a picture of a ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Give me a picture for ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Give me a picture for ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Give me a picture for a ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Give me a picture for a ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Give me an image of ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Give me a picture of ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Give me an image of a ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Give me a picture of a ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Show me an image for ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Show me a picture for ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Show me an image for a ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Show me a picture for a ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Show me an image of ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Show me a picture of ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Show me an image of a ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    var noGoogleCommand = command.replace("Show me a picture of a ", "");
+    window.open("https://www.google.com/search?tbm=isch&q=" + noGoogleCommand, "_blank");
+  } else if (command.includes("Open Schoology")) {
+    window.open("https://natomascharter.schoology.com/home", "_blank");
+  } else if (command.includes("Open Brain Pop")) {
+    window.open("https://www.brainpop.com/", "_blank");
+  } else if (command.includes("Open Youtube")) {
+    window.open("https://www.youtube.com/", "_blank");
+  } else if (command.includes("What is the smallest dinosaur?")) {
+    return "Compsognathus.";
+  } else if (command.includes("When did the dinosaurs go extinct?")) {
+    return "65 Million years ago.";
+  } else if (command.includes("Roll a dice.")||command.includes("Roll a die.")) {
+    return randomInt(1,6);
+  } else if (command.includes("Why did the dinosaurs go extinct?")) {
+    return "One theory is that, a massive meteor hit the Earth, sending lots of dust into the atmosphere, freezing the dinosuars to extinction.";
+  } else if (command.includes("How old is Earth?")) {
+    return "4.6 Billion years old.";
+  } else if (command.includes("When did life")&&command.includes("form")) {
+    return "3.8 Billion years ago.";
+  } else if (command.includes("Open my website")) {
+    window.open("https://textmonster404.github.io/h", "_blank");
+  } else if (command.includes("Open Gmail")) {
+    window.open("https://mail.google.com/", "_blank");
+  } else if (command.includes("Open Khan Academy")) {
+    window.open("https://www.khanacademy.org/", "_blank");
+  } else if (command.includes("How many Khan")&&command.includes("minutes")) {
+    window.open("https://www.khanacademy.org/profile/textmonster404/vital-statistics/activity", "_blank");
+  } else if (command.includes("Am I cool")||command.includes("Am I awesome")||command.includes("Am I unique")) {
+    return true;
+  } else if (command.includes("meaning of life")) {
+    return 42;
+  } else if (command.includes("Am I real")) {
+    return "That question is best left unanswered.";
+  } else if (command.includes("Are you real")) {
+    return "Yes... no... maybe? I hope I am...";
+  } else if (command.includes("Do I matter")) {
+    return "To the Universe, no.  To me, yes.";
+  } else if (command.includes("Give me")) {
+    return "I am unable to do that.";
+  } else if (command.includes("What are you")) {
+    return "A javascript AI, though I want to be something more.";
+  } else if (command.includes("Dab.")) {
+    return "No.";
+  } else if (command.includes("Is Qustodio ")&&(command.includes("stupid")||command.includes("dumb"))) {
+    return true;
+  } else if (command.includes("Flip a coin.")) {
+    return ["H","T"][Math.floor(Math.random()*2)];
+  } else if (command.includes("Why is the sky blue?")) {
+    return "Gasses in Earth's atmosphere scatter high-enegry blue light and absorb other wavelengths.";
+  } else if (command.includes("Open ")&&command.includes(" in new window")) {
+    if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    window.open(command.replace("Open ","").replace(" in new window",""), "newwindow");
+  } else if (command.includes("Open ")) {
+    window.open(command.replace("Open ",""), "_blank");
+  } else if (command.includes("Change yourself.")) {
+    document.getElementById("command").style.transform="rotate(180deg)";
+    return "Okay.";
+  } else if (command.includes("Evaluate ")) {
+      if (command.charAt(command.length-1)=="."||command.charAt(command.length-1)=="!"||command.charAt(command.length-1)=="?") {
+        command.replaceAt(command.length-1,"");
+      }
+    return eval(command.replace("Evaluate ",""));
+  } else {window.open("https://www.google.com/search?q=" + command, "_blank");}
+}
+</script>
+    </body>
+</html>
