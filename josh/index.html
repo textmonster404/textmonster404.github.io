@@ -25,6 +25,8 @@ var josh = function(command) {
   .map(function (v) {return +v;})[1]);
   } else if (command.includes("This sentence is false.")) {
     return "Invalid logical statement.";
+  } else if (command == "What is the Japaneese currency?" || command == "What is the currency of Japan?") {
+    return "Yen.";
   } else if (command.includes("This sentence cannot be proved.")) {
     return "True, but I can't prove it.";
   } else if (command.includes("This sentence can't be proved.")) {
