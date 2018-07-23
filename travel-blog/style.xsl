@@ -34,9 +34,9 @@
                                         </td>
                                         <td>
                                             <ul>
-                                                <xsl:for-each select="note">
+                                                <xsl:for-each select="info">
                                                     <li>
-                                                        <xsl:value-of select="info"/>
+                                                        <xsl:value-of select="note"/>
                                                     </li>
                                                 </xsl:for-each>
                                             </ul>
