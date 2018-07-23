@@ -18,3 +18,19 @@ Syntax:
 
 Multiple <event>/<note> tags are allowed.
 -->
+<entry>
+    <date>7-22-2018</date>
+    <description>My road trip with Grandpa and Yvonne.</description>
+    <event>
+        <time>~10:00</time>
+        <note>Left to go to peach festival.</note>
+        <note>Went on Highway 70 to Highway 20.</note>
+        <note>Went 2 miles east on Highway 20 to Marysville.</note>
+        <note>Stopped at the peach festival.</note>
+        <note>Went on 20 to 99 then forked onto 113.</note>
+        <note>We traveled the entire length of 113 for the first time.</note>
+        <note>Went down 12 to Rio Vista and ate at the head restaurant.</note>
+        <note>Went on the road arcoss the river from 160 back home.</note>
+        <note>Arrived at 3:00</note>
+    </event>
+</entry>
