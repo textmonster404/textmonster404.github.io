@@ -33,13 +33,15 @@
                                             </i>
                                         </td>
                                         <td>
-                                            <ul>
-                                                <xsl:for-each select="info">
-                                                    <li>
-                                                        <xsl:value-of select="note"/>
-                                                    </li>
-                                                </xsl:for-each>
-                                            </ul>
+                                            <xsl:for-each select="info">
+                                                <ul>
+                                                    <xsl:for-each select="note">
+                                                        <li>
+                                                            <xsl:value-of select="note_value">
+                                                        </li>
+                                                    </xsl:for-each>
+                                                </ul>
+                                            </xsl:for-each>
                                         </td>
                                     </tr>
                                 </xsl:for-each>
