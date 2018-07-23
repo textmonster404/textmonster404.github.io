@@ -3,9 +3,8 @@
     <xsl:template match="/">
         <html>
             <head>
-                <title>
-                    <xsl:value-of select="title"/>
-                </title>
+                <title><xsl:value-of select="title"/></title>
+                <style><xsl:value-of select="style"/></style>
             </head>
             <body>
                 <h1><xsl:value-of select="header"/></h1>
