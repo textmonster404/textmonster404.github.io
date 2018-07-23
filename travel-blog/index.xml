@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<title>Josh's Travel Journal</title>
+<header>Josh's (online) Travel Journal</header>
 
 <!--
+
+Syntax:
+
 <entry>
     <date></date>
     <description></description>
@@ -10,4 +15,7 @@
         <note></note>
     </event>
 </entry>
+
+
+Multiple <event>/<note> tags are allowed.
 -->
