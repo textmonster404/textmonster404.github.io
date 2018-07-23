@@ -8,7 +8,7 @@
                 <link rel="icon" href="../icon/icon.ico"/>
             </head>
             <body>
-                <h1><xsl:value-of select="header"/></h1>
+                <h1>Josh's (online) Travel Journal</h1>
                 <hr/>
                 <xsl:for-each select="entry">
                     <p>
