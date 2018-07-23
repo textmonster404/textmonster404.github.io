@@ -5,6 +5,7 @@
             <head>
                 <title><xsl:value-of select="title"/></title>
                 <style><xsl:value-of select="style"/></style>
+                <link rel="icon" href="../icon/icon.ico"/>
             </head>
             <body>
                 <h1><xsl:value-of select="header"/></h1>
