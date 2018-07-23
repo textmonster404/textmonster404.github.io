@@ -37,7 +37,7 @@
                                                 <ul>
                                                     <xsl:for-each select="note">
                                                         <li>
-                                                            <xsl:value-of select="note_value">
+                                                            <xsl:value-of select="note_value"/>
                                                         </li>
                                                     </xsl:for-each>
                                                 </ul>
