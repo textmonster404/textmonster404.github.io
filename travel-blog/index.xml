@@ -12,7 +12,9 @@ Syntax:
     <event>
         <time></time>
         <info>
-            <note></note>
+            <note>
+                <note_value></note_value>
+            </note>
         </info>
     </event>
 </entry>
