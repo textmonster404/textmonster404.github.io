@@ -3,10 +3,10 @@
     <xsl:template match="/">
         <html>
             <head>
-                <title>Josh's Blog</title>
+                <title><xsl:value-of select="title"/></title>
             </head>
             <body>
-                <h1>Josh's Travel Blog</h1>
+                <h1><xsl:value-of select="header"/></h1>
                 <hr/>
                 <xsl:for-each select="entry">
                     <p>
