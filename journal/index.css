@@ -1,7 +1,3 @@
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-hr {
-    text-align:center;
+td {
+    padding: 5px
 }
