@@ -19,9 +19,9 @@
                 return(false);
             }
             function start() {
-                if (getQueryVariable("code")==false) {if (getQueryVariable("name")==false) {} else {document.getElementById("input").value=getQueryVariable("name")}} else { document.getElementById("input").value=decodeURIComponent(getQueryVariable("code")).replace("[lb]",`
+                if (getQueryVariable("code")==false) {if (getQueryVariable("name")==false) {} else {document.getElementById("input").value=localStorage.getItem(getQueryVariable("name"));}} else { document.getElementById("input").value=decodeURIComponent(getQueryVariable("code")).replace("[lb]",`
 `);}
-                if (getQueryVariable("code")==false) {if (getQueryVariable("name")==false) {} else {document.getElementById("input").value=getQueryVariable("name")}} else { document.getElementById("input").value=decodeURIComponent(getQueryVariable("code"));}
+                if (getQueryVariable("code")==false) {if (getQueryVariable("name")==false) {} else {document.getElementById("input").value=localStorage.getItem(getQueryVariable("name"));}} else { document.getElementById("input").value=decodeURIComponent(getQueryVariable("code"));}
             }
         </script>
     </head>
