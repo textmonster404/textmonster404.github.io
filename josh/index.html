@@ -41,7 +41,34 @@ var questions = [
 ["What is the value of V in Scrabble?","4."],
 ["What is the value of X in Scrabble?","8."],
 ["What is the value of Y in Scrabble?","4."],
-["What is the value of Z in Scrabble?","10."]
+["What is the value of Z in Scrabble?","10."],
+["What is a powerful noble?","A lord."],
+["What is an estate built up by a lord?","A manor."],
+["What is exchanged in a fuedal contract?","Obligations."],
+["What is the medieval political and military system?","Feudalism."],
+["Who is at the bottom of the medieval hierarchy?","Serfs."],
+["Who is above serfs in the medieval hierarchy?","Peasants."],
+["Who is at the top of the medieval hierarchy?","The Pope."],
+["Who is a warrior in the medieval era?","A knight."],
+["What is a warrior in the medieval era?","A knight."],
+["What is a stone dwelling for a lord?","A castle."],
+["What is given to a vassal by the lord?","Land."],
+["What is another name for a manor?","A fief."],
+["What is another name for a coat of arms?","Heraldry."],
+["What is a circular, watery ditch?","A moat."],
+["What is the lowest rank in medieval society?","A serf."],
+["What is the first stage of knighthood?","A page."],
+["What is a mock battle on a tournament field?","A joust."],
+["What is the name for the living quarters of a royal family?","The \"keep\"."],
+["What is exchanged between parties in a feudal contract?","Obligations."],
+["What is the person watching and overseeing the work done on a manor?","A vassal."],
+["What is the second stage of knighthood?","A squire."],
+["What is the code to be up-held by a knight?","Chivalry"],
+["How many days do vassals give per year to lords in military service?","10"],
+["What is a knight's oath to his lord?","Loyalty."],
+["What is the economic goal of every medieval manor?","To be self-sufficient."],
+["What is the water cycle?","The biochemical cycle that recycles water."],
+["What are 2 ways water returns to the atmosphere?","1. Evaporation.\n2. Transpiration."]
 ]
 var josh = function(command) {
   var worked = false;
@@ -271,7 +298,7 @@ var josh = function(command) {
         command.replaceAt(command.length-1,"");
       }
       return eval(command.replace("Evaluate ",""));
-    } else {window.open("https://www.google.com/search?q=" + command, "_blank");}
+    } else {return "I don't know or understand that."}
   }
   worked = false;
 }
