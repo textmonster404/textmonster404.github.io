@@ -8,39 +8,39 @@
     </head>
     <body>
         <textarea id="command"></textarea>
-        <button onClick="document.getElementById('command').value=josh(document.getElementById('command').value);">Ask</button>
+        <button onClick="document.getElementById('command').value=josh(document.getElementById('command').value);if (document.getElementById('command').value==='undefined') {document.getElementById('command').value='';}">Ask</button>
 <script>
 String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
 }
 var randomInt = function(min,max) {return Math.floor(Math.random()*(max-min+1)+min)}
 var questions = [
-["Tell me the first 100 digits of pi.","3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679"]
-["What is the value of A in Scrabble?","1."]
-["What is the value of B in Scrabble?","3."]
-["What is the value of C in Scrabble?","3."]
-["What is the value of D in Scrabble?","2."]
-["What is the value of E in Scrabble?","1."]
-["What is the value of F in Scrabble?","4."]
-["What is the value of G in Scrabble?","2."]
-["What is the value of H in Scrabble?","4."]
-["What is the value of I in Scrabble?","1."]
-["What is the value of J in Scrabble?","8."]
-["What is the value of K in Scrabble?","5."]
-["What is the value of L in Scrabble?","1."]
-["What is the value of M in Scrabble?","3."]
-["What is the value of N in Scrabble?","1."]
-["What is the value of O in Scrabble?","1."]
-["What is the value of P in Scrabble?","3."]
-["What is the value of Q in Scrabble?","10."]
-["What is the value of R in Scrabble?","1."]
-["What is the value of S in Scrabble?","1."]
-["What is the value of T in Scrabble?","1."]
-["What is the value of U in Scrabble?","1."]
-["What is the value of V in Scrabble?","4."]
-["What is the value of V in Scrabble?","4."]
-["What is the value of X in Scrabble?","8."]
-["What is the value of Y in Scrabble?","4."]
+["Tell me the first 100 digits of pi.","3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679"],
+["What is the value of A in Scrabble?","1."],
+["What is the value of B in Scrabble?","3."],
+["What is the value of C in Scrabble?","3."],
+["What is the value of D in Scrabble?","2."],
+["What is the value of E in Scrabble?","1."],
+["What is the value of F in Scrabble?","4."],
+["What is the value of G in Scrabble?","2."],
+["What is the value of H in Scrabble?","4."],
+["What is the value of I in Scrabble?","1."],
+["What is the value of J in Scrabble?","8."],
+["What is the value of K in Scrabble?","5."],
+["What is the value of L in Scrabble?","1."],
+["What is the value of M in Scrabble?","3."],
+["What is the value of N in Scrabble?","1."],
+["What is the value of O in Scrabble?","1."],
+["What is the value of P in Scrabble?","3."],
+["What is the value of Q in Scrabble?","10."],
+["What is the value of R in Scrabble?","1."],
+["What is the value of S in Scrabble?","1."],
+["What is the value of T in Scrabble?","1."],
+["What is the value of U in Scrabble?","1."],
+["What is the value of V in Scrabble?","4."],
+["What is the value of V in Scrabble?","4."],
+["What is the value of X in Scrabble?","8."],
+["What is the value of Y in Scrabble?","4."],
 ["What is the value of Z in Scrabble?","10."]
 ]
 var josh = function(command) {
