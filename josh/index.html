@@ -8,7 +8,7 @@
     </head>
     <body>
         <textarea id="command"></textarea>
-        <button onClick="document.getElementById('command').value=josh(document.getElementById('command').value);if (document.getElementById('command').value=='undefined') {document.getElementById('command').value='';}">Ask</button>
+        <button onClick="document.getElementById('command').value=josh(document.getElementById('command').value);">Ask</button>
 <script>
 String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
