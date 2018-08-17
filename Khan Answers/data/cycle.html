@@ -16,8 +16,9 @@
             var input2 = document.getElementById("input2");
             var input3 = document.getElementById("input3");
             var output = document.getElementById("output");
+            var input1new = JSON.parse("["+input1.value+"]");
             var calculate = function() {
-                output.value = JSON.parse("["+input1.value+"]")[(input2-1)+input3 % JSON.parse("["+input1.value+"]").length-1];
+                output.value = input1new[(input2-1)+input3 % input1new.length-1];
             }
         </script>
     </body>
