@@ -34,18 +34,18 @@
                 }
                 if (text.value !== lastText && timeFinish == false && text.value != "") {
                     timeStart = true;
-                    wpm.textContent = WordCount(text.value)*60/time;
-                    cpm.textContent = text.value.length*60/time;
+                    wpm.textContent = Math.floor(WordCount(text.value)*60/time);
+                    cpm.textContent = Math.floor(text.value.length*60/time);
                 }
                 var lastText = text;
             }
             var secondUpdate = function() {
                 if (timeStart == true) {
-                    time++;
-                    timer.textContent = time;
+                    time += 0.001;
+                    timer.textContent = Math.floor(time*10)/10;
                 }
             }
-            window.setInterval(secondUpdate, 1000);
+            window.setInterval(secondUpdate, 1);
             window.setInterval(update, 1)
         </script>
     </body>
