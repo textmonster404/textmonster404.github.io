@@ -37,15 +37,15 @@
                     wpm.textContent = Math.floor(WordCount(text.value)*60/time);
                     cpm.textContent = Math.floor(text.value.length*60/time);
                 }
-                var lastText = text;
+                var lastText = text.value;
             }
             var secondUpdate = function() {
                 if (timeStart == true) {
-                    time += 0.001;
-                    timer.textContent = Math.floor(time*10)/10;
+                    time += 0.1;
+                    timer.textContent = time;
                 }
             }
-            window.setInterval(secondUpdate, 1);
+            window.setInterval(secondUpdate, 100);
             window.setInterval(update, 1)
         </script>
     </body>
