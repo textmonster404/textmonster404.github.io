@@ -42,7 +42,7 @@
             var secondUpdate = function() {
                 if (timeStart == true) {
                     time += 0.1;
-                    timer.textContent = time;
+                    timer.textContent = Math.floor(time*10)/10;
                 }
             }
             window.setInterval(secondUpdate, 100);
