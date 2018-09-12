@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="icon/icon.ico"/>
+        <title>Typing Test (For real)</title>
+    </head>
+    <body>
+        <h1>The first typing test that lets you type your own text!</h1>
+        <div>Start typing to start, press enter to stop.</div>
+        <br/><br/>
+        <span id="timer">0</span>s<br/>
+        <textarea id="text" name="text"></textarea><br/>
+        <span id="wpm">0</span>wpm<br/>
+        <span id="cpm">0</span>cpm<br/>
+        <script>
+            var time = 0;
+            var timeStart = false;
+            var timeFinish = false;
+            
+            var text = document.getElementById("text");
+            var timer = document.getElementById("timer");
+            var wpm = document.getElementById("wpm");
+            var cpm = document.getElementById("cpm");
+            
+            function WordCount(str) { 
+                return str.split(" ").length;
+            }
+            var lastText = text.value;
+            var update = function() {
+                if (text.value.includes("\n") && !timeFinish && timeStart) {
+                    timeFinish = true;
+                    timeStart = false;
+                }
+                if (text.value !== lastText && timeFinish == false && text.value != "") {
+                    timeStart = true;
+                    wpm.textContent = WordCount(text.value)*60/time;
+                    cpm.textContent = text.value.length*60/time;
+                }
+                var lastText = text;
+            }
+            var secondUpdate = function() {
+                if (timeStart == true) {
+                    time++;
+                    timer.textContent = time;
+                }
+            }
+            window.setInterval(secondUpdate, 1000);
+            window.setInterval(update, 1)
+        </script>
+    </body>
+</html>
