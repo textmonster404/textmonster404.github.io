@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="icon/icon.ico">
+        <title>Page Jumper</title>
+    </head>
+    <body>
+        <input id="input" name="input"/><br/>
+        <a href="" id="a" name="a"></a>
+        <script>
+            var a = document.getElementById("a");
+            var input = document.getElementById("input");
+            var update = function() {
+                a.href = input.value;
+                a.textContent = input.value;
+            }
+            window.setInterval(update, 0);
+        </script>
+    </body>
+</html>
