@@ -13,9 +13,9 @@
         <a id="link">Door where you came from...</a>
         <a id="door2Times">Door</a>
         <script>
-            var hrefs = ["loop","hole2"];
+            var hrefs = ["loop.html","hole2.html"];
             document.getElementById("link").href = hrefs[Math.floor(Math.random()*2)];
-            var change = function() { document.getElementById('door2Times').href='doorAgain';document.getElementById('door2Times').style.color="blue";document.getElementById('door2Times').style.textDecoration="underline";document.getElementById('door2Times').style.cursor="pointer";}
+            var change = function() { document.getElementById('door2Times').href='doorAgain.html';document.getElementById('door2Times').style.color="blue";document.getElementById('door2Times').style.textDecoration="underline";document.getElementById('door2Times').style.cursor="pointer";}
         </script>
     </body>
 </html>
