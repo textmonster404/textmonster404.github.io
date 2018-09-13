@@ -39,7 +39,7 @@
             var oldtextareavalue = "";
             function doThing(){
                 var output = $("#output").contents().find('body');
-                if (oldtextareavalue !== document.getElementById('input').value) {var textareaValue = $("textarea").val();output.html(textareaValue);document.getElementById("url").value="https://textmonster404.github.io/html%20editor?code="+document.getElementById("input").value.replace(`
+                if (oldtextareavalue !== document.getElementById('input').value) {var textareaValue = $("textarea").val();output.html(textareaValue);document.getElementById("url").value="https://textmonster404.github.io/html%20editor.html?code="+document.getElementById("input").value.replace(`
 `,"%0A").replace("&","%26")}
                 oldtextareavalue = document.getElementById('input').value;
                 if (document.getElementById('input').value == "") {document.getElementById('save').disabled=true;document.getElementById('del').disabled=true} else {document.getElementById('save').disabled=false;document.getElementById('del').disabled=false}
