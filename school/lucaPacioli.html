@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Luca Pacioli</title>
+        <link rel="icon" href="https://textmonster404.github.io/icon/icon.ico">
+        <style>
+            @keyframes slideTop {
+                from {top:-200px;}
+                to {top:0px;}
+            }
+            @keyframes slideLeft {
+                from {left:-2000px;}
+                to {left:0px;}
+            }
+            @keyframes slideRight {
+                from {right:-2000px;}
+                to {right:0px;}
+            }
+            @keyframes keyPoint {
+                0% {font-size:11px;}
+                50% {font-size:12px;}
+                100% {font-size:11px;}
+            }
+            .li {text-indent:0px;transition:text-indent 0.5s;}
+            .li:hover {text-indent:3px;}
+            .table1 {position:relative;animation-name:slideLeft;animation-duration:1.2s;animation-delay:0.8s;left:-2000px;}
+            .table2 {position:relative;animation-name:slideRight;animation-duration:1.2s;animation-delay:1.6s;right:-2000px;}
+            .faceSwap:hover {color:blue;}
+            .faceSwap:active {color:red;}
+            .faceSwap {cursor:pointer;text-decoration:underline;}
+            #interestPoint {animation:keyPoint 0.35s ease 0s infinite normal;}
+            @keyframes strokeRainbow {
+                0% {-webkit-text-stroke-color:red;}
+                17% {-webkit-text-stroke-color:orange;}
+                33% {-webkit-text-stroke-color:yellow;}
+                50% {-webkit-text-stroke-color:green;}
+                67% {-webkit-text-stroke-color:blue;}
+                83% {-webkit-text-stroke-color:purple;}
+                100% {-webkit-text-stroke-color:red;}
+            }
+            body {overflow-y:scroll;overflow-x:hidden;background:repeating-radial-gradient(closest-side at 25px 35px, #f7f7b1 3.75px, #ffd 14px);background-size:50px 50px;}
+            table,td,th,.table2 tr {background:white;border:3px inset;}
+            th {background:radial-gradient(navy, #b6b688 91%);color:white;}
+            h3 {transform:rotate(0deg);transition:transform 0.3s;}
+            h3:hover {transform:rotate(10deg);}
+            td {background:radial-gradient(white, #b6b688 91%);}
+            td.t2 {border:none;background:transparent;}
+            .table2 tr {background:radial-gradient(white, #b6b688 91%);}
+            .table2 td {position:relative;z-index:2;}
+            img {border:2px outset #b6b688;}
+            #firstName {position:relative;left:-6px;transition:left 2s;}
+            #lastName {position:relative;left:8px;transition:left 2s;}
+            #middleName {position:relative;left:- 60px;top:0px;transition:top 2s;}
+            #legacy {-webkit-text-stroke-width:1px;animation-name:strokeRainbow;animation-iteration-count:infinite;animation-duration:5s;animation-timing-function:linear;}
+        </style>
+    </head>
+    <body onLoad="window.setTimeout(function() {document.getElementById('table1').style.left='0px';},800);window.setTimeout(function() {document.getElementById('table2').style.right='0px';},1600)">
+        <h1 onClick="nameChange()" style="cursor:pointer;color:#1f1f1f;text-shadow:1px 1px springgreen;position:relative;animation-name:slideTop;animation-duration:1s;left:calc(50% - 189px);"><span id="firstName">Luca </span><span id="middleName">Bartolomeo de </span><span id="lastName">Pacioli</span></h1>
+        <table align="center" class="table1 o" id="table1" style="width:1150px;">
+            <thead>
+                <tr>
+                    <th><h3>Character Traits:</h3></th>
+                    <th><h3>Facts:</h3></th>
+                    <th><h3>Life:</h3></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <ul style="list-style-type:circle;">
+                            <li class="li">Inventive
+                            <li class="li">Religious
+                            <li class="li">Methodical
+                            <li class="li">Unusual
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li class="li">He was a Friar, Mathematician, and Writer.
+                            <li class="li">He wrote an unpublished treatice on chess.
+                            <li><b id="interestPoint">He had collaborated with Leonardo da Vinci.</b>
+                            <li onClick="if (!hasFace) {document.getElementById('face').style.height='326px';window.setTimeout(function() {document.getElementById('face').style.opacity='1';document.getElementById('face').style.cursor='pointer'},1000);hasFace=true} else {document.getElementById('face').style.opacity='0';window.setTimeout(function() {document.getElementById('face').style.height='0px';document.getElementById('face').style.cursor='auto'},500);hasFace=false}"><span class="faceSwap">Made a woodcut of the porportions of the human face.</span><br>
+                            <img id="face" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Divina_proportione.png/220px-Divina_proportione.png" style="height:0px;opacity:0;transition:height 1s, opacity 0.5s;">
+                        </ul>
+                    </td>
+                    <td>
+                        <ol>
+                            <li class="li">He was born in 1447, at Sansepolcro, Republic of Florence.
+                            <li class="li">He lived with the Befolci family.
+                            <li class="li">He recieved an abbaco education. <i>(calculation education)</i>
+                            <li class="li">He moved to Venice.
+                            <li class="li">He wrote the books, <i>Summa de Arithmetica</i>, and <i>De Divina Proportione</i>.
+                            <li class="li">He invented Double-Entry Bookkeeping <i>(Accounting)</i>.
+                            <li class="li">He fled Milan when Louis XII of France siezed the city and drove out his patron.
+                            <li class="li">He died in 1517, at Sansepolcro, Republic of Florence.
+                        </ol>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table align="center" style="text-align:center;" class="table2" id="table2">
+            <tbody>
+                <tr class="o">
+                    <td class="t2">
+                        <i style="position:relative;left:10px;top:100px;z-index:1;transition:top 0.25s;" id="captionSlide"><small>A Rhombicuboctahedron.</small></i><br>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Leonardo_polyhedra.png/220px-Leonardo_polyhedra.png" onClick="if (slide) {document.getElementById('captionSlide').style.top='100px';slide=false} else {document.getElementById('captionSlide').style.top='5px';slide=true}" style="position:relative;z-index:2;cursor:help;"><br>
+                    </td>
+                    <td class="t2" id="legacy">
+                        <h3 style="margin-bottom:5px;">Legacy:</h3>
+                        <b>He advanced Mathematics and revolutionized Accounting.</b>
+                    </td>
+                </tr>
+                <tr id="paragraph" style="transition:height 1s;height:60px;" valign="top">
+                    <td colspan="2"><h2 class="faceSwap" onClick="hideElse()" style="z-index:1;">Paragraph</h2>
+                        <div style="text-indent:2em;transition:opacity 0.5s, top 1s;opacity:0;top:-30px;position:absolute;cursor:default;z-index:0;" id="p" class="cur">
+                            Luca Bartolomeo de Pacioli <i>(Luca Pacioli for short)</i>, was a Friar, Mathematician, and Writer. &nbsp;He was born in 1447, at <span id="italy" class="faceSwap cur" onClick="if (italy) {document.getElementById('italy').textContent='Sansepolcro, Republic of Florence';italy=false} else {document.getElementById('italy').textContent='where is now Italy';italy=true}">Sansepolcro, Republic of Florence</span>. &nbsp;In his Early Life, he recieved an <span id="abbaco" class="faceSwap cur" onClick="if (abbaco) {document.getElementById('abbaco').textContent='Abbaco Education';abbaco=false} else {document.getElementById('abbaco').textContent='Education in Calculation';abbaco=true}">Abbaco Education</span>. &nbsp;His father was Bartolomeo Pacioli, though he is said to have lived 
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            var hasFace = false;
+            var slide = false;
+            var nameThing = true;
+            var elseHide = false;
+            var italy = false;
+            var abbaco = false;
+            var nameChange = function() {
+                if (nameThing == true) {
+                    document.getElementById("firstName").style.left = "90px";
+                    document.getElementById("lastName").style.left = "-110px";
+                    document.getElementById("middleName").style.top = "-200px";
+                    nameThing = false;
+                } else {
+                    document.getElementById("firstName").style.left = "-6px";
+                    document.getElementById("lastName").style.left = "8px";
+                    document.getElementById("middleName").style.top = "0px";
+                    nameThing = true;
+                }
+            }
+            var p = document.getElementById("p");
+            var paragraph = document.getElementById("paragraph");
+            var elseHide = false;
+            var cur = document.getElementsByClassName("cur");
+            var curTypes = [];
+            for (var i=0;i<cur.length;i++) {curTypes[i]=cur[i].style.cursor;};
+            for (var i=0;i<cur.length;i++) {cur[i].style.cursor="default"};
+            var hideElse = function() {
+                if (elseHide) {
+                    p.style.opacity="0";
+                    for (var i=0;i<cur.length;i++) {cur[i].style.cursor="default"};
+                    p.style.cursor="default";
+                    window.setTimeout(function() {p.style.top="-30px";paragraph.style.height = "60px";},500);
+                    elseHide=false;
+                } else {
+                    for (var i=0;i<cur.length;i++) {cur[i].style.cursor=curTypes[i]};
+                    p.style.cursor="auto";
+                    window.setTimeout(function() {p.style.opacity="1";},1000);
+                    p.style.top="50px";
+                    paragraph.style.height = "120px";
+                    elseHide=true;
+                }
+            }
+        </script>
+    </body>
+</html>
