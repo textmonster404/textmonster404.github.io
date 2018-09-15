@@ -11,11 +11,13 @@
         <script>
             var iframe = document.getElementById("iframe");
             var input = document.getElementById("input");
+            var lastInputValue = input.value;
             var update = function() {
-                if (input.value !== iframe.src) {
+                if (input.value !== lastInputValue) {
                     iframe.src = input.value;
                     iframe.contentDocument.body.contentEditable = true;
                 }
+                lastInputValue = input.value;
             }
             window.setInterval(update, 0);
         </script>
