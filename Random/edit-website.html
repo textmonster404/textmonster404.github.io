@@ -12,10 +12,10 @@
             var iframe = document.getElementById("iframe");
             var input = document.getElementById("input");
             var lastInputValue = input.value;
-            iframe.contentDocument.body.contentEditable = true;
             var update = function() {
                 if (lastInputValue !== input.value) {
                     iframe.src = input.value;
+                    iframe.contentDocument.body.contentEditable = true;
                 }
                 lastInputValue = input.value;
             }
