@@ -6,18 +6,16 @@
     </head>
     <body>
         <a href="random.html">Back</a><br/>
-        <input type="text" id="input" name="input"/>
-        <iframe src="../index.html" width="800px" height="600px" id="iframe" name="iframe"></iframe>
+        <input type="text" id="input" name="input" value="../index.html"/>
+        <iframe src="" width="800px" height="600px" id="iframe" name="iframe"></iframe>
         <script>
             var iframe = document.getElementById("iframe");
             var input = document.getElementById("input");
-            var lastInputValue = input.value;
             var update = function() {
-                if (lastInputValue !== input.value) {
+                if (input.value !== iframe.src) {
                     iframe.src = input.value;
                     iframe.contentDocument.body.contentEditable = true;
                 }
-                lastInputValue = input.value;
             }
             window.setInterval(update, 0);
         </script>
