@@ -1,0 +1,19 @@
+P,TD,TH,UL	{
+		Font-family: Arial, Sans serif;
+		Color: #000000;
+	}
+BODY {
+		Font-family: Arial, Sans serif;
+		Color: #000000;
+		text-align: center;
+	}
+
+span.element { background-color: cyan; }
+span.rawhtml { background-color: yellow; }
+span.dcacode { background-color: lightgreen; }
+
+
+a:link 		{  color: #C14032}
+a:active	{  color: #2E3192}
+a:visited	{  color: #9C5E58}
+a:hover		{  color: #2E3192}
