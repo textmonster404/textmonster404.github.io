@@ -6,7 +6,7 @@
     </head>
     <body>
         <a href="random.html">Back</a><br/>
-        <input type="text" id="input" name="input" value="../index.html"/>
+        <input type="text" id="input" name="input" value="../index.html"/><br/>
         <iframe src="" width="800px" height="600px" id="iframe" name="iframe"></iframe>
         <script>
             var iframe = document.getElementById("iframe");
@@ -16,9 +16,7 @@
                 if (input.value !== lastInputValue) {
                     iframe.src = input.value;
                 }
-                if (iframe.contentDocument.body != null) {
-                    iframe.contentDocument.body.contentEditable = true;
-                }
+                iframe.contentDocument.body.contentEditable = true;
                 lastInputValue = input.value;
             }
             window.setInterval(update, 0);
