@@ -9,7 +9,7 @@
         <br/>
         <i>Hello, </i><span id="name"></span><i>!</i>
         <script>
-            var query = window.location.search.substring(1);
+            var query = decodeURIComponent(window.location.search.substring(1));
             var nameObj = document.getElementById("name");
             nameObj.innerHTML = query;
         </script>
