@@ -7,11 +7,12 @@
     <body>
         <a href="random.html">Back</a><br/>
         <input type="text" id="input" name="input"/>
-        <iframe src="../index.html" width="100%" height="1200px" contentEditable="true" id="iframe" name="iframe"></iframe>
+        <iframe src="../index.html" width="100%" height="1200px" id="iframe" name="iframe"></iframe>
         <script>
             var iframe = document.getElementById("iframe");
             var input = document.getElementById("input");
             var lastInputValue = input.value;
+            iframe.contentDocument.body.contentEditable
             var update = function() {
                 if (lastInputValue !== input.value) {
                     iframe.src = input.value;
