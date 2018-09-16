@@ -167,6 +167,12 @@ textmonster404
         </pre>-->
         <pre id="text">textmonster404</pre>
         <script>
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+            }
+            
             var text = document.getElementById("text");
             var currentPath = [0,0,0,false];
             var path = [
@@ -237,7 +243,8 @@ textmonster404
             var update = function() {
                 for (var i=0;i<path.length;i++) {
                     if (path[i][0] == text.textContent && currentPath[3] == false) {
-                        currentPath = [i,path[i][Math.floor(Math.random()*(path[i].length-1)+1)],0,true];
+                        var temp = getRandomInt(0,path[i].length);
+                        currentPath = [i,path[i][temp][getRandomInt(1,path[i][temp].length)],0,true];
                     }
                 }
                 if (currentPath[3]) {
