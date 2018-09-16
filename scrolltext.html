@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="icon.ico"/>
+        <title></title>
+    </head>
+    <body><!--
+        <pre id="text">
+textmonster404
+ textmonster404
+  textmonster404
+   textmonster404
+    textmonster404
+     textmonster404
+      textmonster404
+       textmonster404
+      textmonster404
+     textmonster404
+    textmonster404
+   textmonster404
+  textmonster404
+ textmonster404
+textmonster404
+textmonster40 4
+textmonster4 04
+textmonster 404
+textmonste r404
+textmonst er404
+textmons ter404
+textmon ster404
+textmo nster404
+textm onster404
+text monster404
+tex tmonster404
+te xtmonster404
+t extmonster404
+ textmonster404
+textmonster404
+ textmonster404
+   textmonster404
+      textmonster404
+          textmonster404
+               textmonster404
+                   textmonster404
+                      textmonster404
+                        textmonster404
+                         textmonster404
+                        textmonster404
+                      textmonster404
+                   textmonster404
+                 textmonster404
+                textmonster404
+                textmonster404
+               t extmonster404
+              t e xtmonster404
+             t e x tmonster404
+            t e x t monster404
+           t e x t m onster404
+          t e x t m o nster404
+         t e x t m o n ster404
+        t e x t m o n s ter404
+       t e x t m o n s t er404
+      t e x t m o n s t e r404
+     t e x t m o n s t e r 404
+    t e x t m o n s t e r 4 04
+   t e x t m o n s t e r 4 0 4
+    te x t m o n s t e r 4 04
+     tex t m o n s t e r 404
+      text m o n s t e r404
+       textm o n s t er404
+        textmo n s ter404
+         textmon ster404
+          textmonster404
+          4textmonster40
+          04textmonster4
+          404textmonster
+          r404textmonste
+          er404textmonst
+          ter404textmons
+          ster404textmon
+          nster404textmo
+          onster404textm
+          monster404text
+          tmonster404tex
+          xtmonster404te
+          extmonster404t
+          textmonster404
+          4textmonster40
+          04textmonster4
+          404textmonster
+          r404textmonste
+          er404textmonst
+          ter404textmons
+          ster404textmon
+          nster404textmo
+          onster404textm
+          monster404text
+          tmonster404tex
+          xtmonster404te
+          extmonster404t
+          textmonster404
+           textmonster404
+             textmonster404
+                textmonster404
+                    textmonster404
+                         textmonster404
+                               textmonster404
+                                    textmonster404
+                                        textmonster404
+                                           textmonster404
+                                             textmonster404
+                                              textmonster404
+                                               textmonster404
+                                                textmonster404
+                                               textmonster404
+                                              textmonster404
+                                             textmonster404
+                                            textmonster404
+                                             textmonster404
+                                              textmonster404
+                                               textmonster404
+                                                 textmonster404
+                                                    textmonster404
+                                                      textmonster404
+                                                       textmonster404
+                                                       textmonster404
+                                                      textmonster404
+                                                    textmonster404
+                                                 textmonster404
+                                               textmonster404
+                                              textmonster404
+                                             textmonster404
+                                             textmonster404
+                                              textmonster404
+                                               textmonster404
+                                                 textmonster404
+                                                    textmonster404
+                                                      textmonster404
+                                                       textmonster404
+                                                       textmonster404
+                                                      textmonster404
+                                                    textmonster404
+                                                 textmonster404
+                                               textmonster404
+                                              textmonster404
+                                             textmonster404
+                                             textmonster404
+                                              textmonster404
+                                               textmonster404
+                                                 textmonster404
+                                                    textmonster404
+                                                      textmonster404
+                                                       textmonster404
+                                                       textmonster404
+                                                      textmonster404
+                                                    textmonster404
+                                                 textmonster404
+                                               textmonster404
+                                              textmonster404
+                                             textmonster404
+                                            t extmonster404
+                                           t  extmonster404
+                                          t   extmonster404
+                                         t    extmonster404
+                                        t     extmonster404
+        </pre>-->
+        <pre id="text"></pre>
+        <script>
+            var text = document.getElementById("text");
+            var currentPath = [0,0,0,false];
+            var path = [
+                ["textmonster404",
+                    [
+                        " textmonster404",
+                        "  textmonster404",
+                        "   textmonster404",
+                        "    textmonster404",
+                        "     textmonster404",
+                        "      textmonster404",
+                        "       textmonster404"
+                    ],
+                    [
+                        "textmonster40 4",
+                        "textmonster4 04",
+                        "textmonster 404",
+                        "textmonste r404",
+                        "textmonst er404",
+                        "textmons ter404",
+                        "textmon ster404",
+                        "textmo nster404",
+                        "textm onster404",
+                        "text monster404",
+                        "tex tmonster404",
+                        "te xtmonster404",
+                        "t extmonster404",
+                        " textmonster404",
+                        "textmonster404"
+                    ],
+                    [
+                        " textmonster404",
+                        "   textmonster404",
+                        "      textmonster404",
+                        "          textmonster404",
+                        "               textmonster404",
+                        "                   textmonster404",
+                        "                      textmonster404",
+                        "                        textmonster404",
+                        "                         textmonster404"
+                    ]
+                ],
+                ["       textmonster404",
+                    [
+                        "      textmonster404",
+                        "     textmonster404",
+                        "    textmonster404",
+                        "   textmonster404",
+                        "  textmonster404",
+                        " textmonster404",
+                        "textmonster404"
+                    ],
+                ],
+                ["                         textmonster404",
+                    [
+                        "                        textmonster404",
+                        "                      textmonster404",
+                        "                   textmonster404",
+                        "               textmonster404",
+                        "          textmonster404",
+                        "      textmonster404",
+                        "   textmonster404",
+                        " textmonster404",
+                        "textmonster404"
+                    ]
+                ]
+            ];
+            Array.prototype.random = function() {
+                return this[Math.floor(Math.random()*(this.length-1)+1)]
+            }
+            var update = function() {
+                for (var i=0;i<path.length;i++) {
+                    if (path[i][0] == text.textContent && currentPath[3] == false) {
+                        currentPath = [i,path[i].random(),0,true];
+                    }
+                }
+                if (currentPath[3]) {
+                    if (currentPath[2]<path.length) {
+                        text.textContent = [currentPath[0]][currentPath[1]][currentPath[2]]
+                        currentPath[2]++;
+                    } else {
+                        currentPath[3] = false;
+                    }
+                }
+            }
+            window.setInterval(update, 100);
+        </script>
+    </body>
+</html>
