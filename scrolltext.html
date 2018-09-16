@@ -244,8 +244,8 @@ textmonster404
                     }
                 }
                 if (currentPath[3]) {
-                    if (currentPath[2]<path.length) {
-                        text.textContent = [currentPath[0]][currentPath[1]][currentPath[2]]
+                    if (currentPath[2]<path[currentPath[0]][currentPath[1]].length) {
+                        text.textContent = path[currentPath[0]][currentPath[1]][currentPath[2]]
                         currentPath[2]++;
                     } else {
                         currentPath[3] = false;
