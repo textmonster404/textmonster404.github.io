@@ -234,13 +234,10 @@ textmonster404
                     ]
                 ]
             ];
-            Array.prototype.random = function() {
-                return this[Math.floor(Math.random()*(this.length-1)+1)]
-            }
             var update = function() {
                 for (var i=0;i<path.length;i++) {
                     if (path[i][0] == text.textContent && currentPath[3] == false) {
-                        currentPath = [i,path[i].random(),0,true];
+                        currentPath = [i,path[i][Math.floor(Math.random()*(path[i].length-1)+1)],0,true];
                     }
                 }
                 if (currentPath[3]) {
