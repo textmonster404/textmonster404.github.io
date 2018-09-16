@@ -243,8 +243,7 @@ textmonster404
             var update = function() {
                 for (var i=0;i<path.length;i++) {
                     if (path[i][0] == text.textContent && currentPath[3] == false) {
-                        var temp = getRandomInt(0,path[i].length);
-                        currentPath = [i,path[i][temp][getRandomInt(1,path[i][temp].length)],0,true];
+                        currentPath = [i,path[i][getRandomInt(1,path[i].length)],0,true];
                     }
                 }
                 if (currentPath[3]) {
