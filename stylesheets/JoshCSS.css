@@ -1,6 +1,6 @@
 @font-face {
   font-family:PixelHD;
-  src:url("http://textmonster404.github.io/h/Fonts/PixelHD.ttf");
+  src:url("../Fonts/PixelHD.ttf");
 }
 decimal-leading-zero-list-style ol {list-style-type:decimal-leading-zero;}
 lower-roman-list-style ol {list-style-type:lower-roman;}
