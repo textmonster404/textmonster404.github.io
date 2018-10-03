@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="../icon/icon.ico"/>
+        <title>Replace Text</title>
+    </head>
+    <body>
+        <a href="../tools.html">Back</a>
+        <br/>
+        <center>
+            <textarea id="in"></textarea><br/>
+            <input type="text" value="" placeholder="text" id="text"/>
+            <input type="text" value="" placeholder="replace" id="replace"/>
+            <input type="button" value="Replace!" onClick="document.getElementById('out').value=document.getElementById('in').value.replace(document.getElementById('text').value,document.getElementById('replace').value);"/><br/>
+            <textarea id="out"></textarea>
+        </center>
+    </body>
+</html>
