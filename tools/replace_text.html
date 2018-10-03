@@ -4,6 +4,12 @@
         <meta charset="UTF-8"/>
         <link rel="icon" href="../icon/icon.ico"/>
         <title>Replace Text</title>
+        <script>
+            String.prototype.replaceAll = function(search, replacement) {
+                var target = this;
+                return target.split(search).join(replacement);
+            };
+        </script>
     </head>
     <body>
         <a href="../tools.html">Back</a>
@@ -12,7 +18,7 @@
             <textarea id="in" style="margin: 0px; width: 472px; height: 163px;"></textarea><br/>
             <input type="text" value="" placeholder="text" id="text"/>
             <input type="text" value="" placeholder="replace" id="replace"/>
-            <input type="button" value="Replace!" onClick="document.getElementById('out').value=document.getElementById('in').value.replace(document.getElementById('text').value,document.getElementById('replace').value);"/><br/>
+            <input type="button" value="Replace!" onClick="document.getElementById('out').value=document.getElementById('in').value.replaceAll(document.getElementById('text').value,document.getElementById('replace').value);"/><br/>
             <textarea id="out" style="margin: 0px; width: 472px; height: 163px;"></textarea>
         </center>
     </body>
