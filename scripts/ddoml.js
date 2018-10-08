@@ -46,7 +46,7 @@ function ldoml(string) {
         .replaceAll("<#>","&nbsp;&nbsp;&nbsp;&nbsp;")
         + "</code></div>";
 }
-function ddoml(string) {
+function tdoml(string) {
 	return "<div><code>" + string.replaceAll("\n","<br/>")
         .replaceAll("<---","<h3>")
         .replaceAll("--->","</h3>")
