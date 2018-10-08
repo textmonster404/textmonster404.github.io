@@ -3,7 +3,8 @@ String.prototype.replaceAll = function(search, replacement) {
     return target.split(search).join(replacement);
 };
 function lml(string) {
-	return "<div><code>" + string.replaceAll("<------","<h6>")
+	return "<div><code>" + string.replaceAll("\n","<br/>")
+        .replaceAll("<------","<h6>")
         .replaceAll("------>","</h6>")
         .replaceAll("<-----","<h5>")
         .replaceAll("----->","</h5>")
