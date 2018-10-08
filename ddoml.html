@@ -33,6 +33,47 @@
                     } else if (document.getElementById("myfile").value.includes(".oml")) {
                         document.getElementById("out").innerHTML = oml(evt.target.result);
                     } else if (document.getElementById("myfile").value.includes(".jseval")) {
+                        var E = Math.E;
+                        var LN2 = Math.LN2;
+                        var LN10= Math.LN10;
+                        var LOG2E = Math.LOG2E;
+                        var LOG10E = Math.LOG10E;
+                        var PI = Math.PI;
+                        var SQRT1_2 = Math.SQRT1_2;
+                        var SQRT2 = Math.SQRT2;
+                        var abs = Math.abs;
+                        var acos = Math.acos;
+                        var acosh = Math.acosh;
+                        var asin = Math.asin;
+                        var asinh = Math.asinh;
+                        var atan = Math.atan;
+                        var atanh = Math.atanh;
+                        var cbrt = Math.cbrt;
+                        var clz32 = Math.clz32;
+                        var cos = Math.cos;
+                        var cosh = Math.cosh;
+                        var exp = Math.exp;
+                        var expml = Math.expml;
+                        var floor = Math.floor;
+                        var fround = Math.fround;
+                        var hypot = Math.hypot;
+                        var imul = Math.imul;
+                        var log = Math.log;
+                        var log1p = Math.log1p;
+                        var log2 = Math.log2;
+                        var log10 = Math.log10;
+                        var max = Math.max;
+                        var min = Math.min;
+                        var pow = Math.pow;
+                        var random = Math.random;
+                        var round = Math.round;
+                        var sign = Math.sign;
+                        var sin = Math.sin;
+                        var sinh = Math.sinh;
+                        var sqrt = Math.sqrt;
+                        var tan = Math.tan;
+                        var tanh = Math.tanh;
+                        var trunc = Math.trunc;
                         document.getElementById("out").innerHTML = "<code>"+eval(evt.target.result)+"</code>";
                     }
                 };
