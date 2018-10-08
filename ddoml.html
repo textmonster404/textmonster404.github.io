@@ -10,7 +10,7 @@
         <div id="out">&nbsp;</div>
         <form id="myform">
             <p>
-                <input id="myfile" name="files[]" type="file" accept=".ddoml,.doml,.dml,.ldoml,.ldml,.lml,.tdml,.tdoml" />
+                <input id="myfile" name="files[]" type="file" accept=".ddoml,.doml,.dml,.ldoml,.ldml,.lml,.tdml,.tdoml,.tml,.toml,.oml" />
             </p>
         </form>
         <script>
@@ -28,8 +28,10 @@
                         document.getElementById("out").innerHTML = ddoml(evt.target.result);
                     } else if (document.getElementById("myfile").value.includes(".ldoml") || document.getElementById("myfile").value.includes(".ldml") || document.getElementById("myfile").value.includes(".lml")) {
                         document.getElementById("out").innerHTML = ldoml(evt.target.result);
-                    } else if (document.getElementById("myfile").value.includes(".tdml") || document.getElementById("myfile").value.includes(".tdoml")) {
+                    } else if (document.getElementById("myfile").value.includes(".tdml") || document.getElementById("myfile").value.includes(".tdoml") || document.getElementById("myfile").value.includes(".toml") || document.getElementById("myfile").value.includes(".tml")) {
                         document.getElementById("out").innerHTML = tdoml(evt.target.result);
+                    } else if (document.getElementById("myfile").value.includes(".oml")) {
+                        document.getElementById("out").innerHTML = oml(evt.target.result);
                     }
                 };
                 reader.readAsText(evt.target.files[0]);
