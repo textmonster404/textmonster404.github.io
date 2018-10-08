@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="icon/icon.ico"/>
+        <title>LML Interpreter</title>
+        <script src="scripts/lml.js"></script>
+    </head>
+    <body>
+        <div id="out">&nbsp;</div>
+        <form id="myform">
+            <p>
+                <input id="myfile" name="files[]" type="file" accept=".lml" />
+            </p>
+        </form>
+        <script>
+            document.forms['myform'].elements['myfile'].onchange = function(evt) {
+                if(!window.FileReader) return; // Browser is not compatible
+                var reader = new FileReader();
+                reader.onload = function(evt) {
+                    if(evt.target.readyState != 2) return;
+                    if(evt.target.error) {
+                        alert('Error while reading file');
+                        return;
+                    }
+                    filecontent = evt.target.result;
+                    document.body.getElementById(out).innerHTML = lml(evt.target.result);
+                };
+                reader.readAsText(evt.target.files[0]);
+            };
+        </script>
+    </body>
+</html>
