@@ -74,7 +74,7 @@
                         var tan = Math.tan;
                         var tanh = Math.tanh;
                         var trunc = Math.trunc;
-                        document.getElementById("out").innerHTML = "<code>"+eval(evt.target.result)+"</code>";
+                        document.getElementById("out").innerHTML = "<code>"+evalString(evt.target.result)+"</code>";
                     }
                 };
                 reader.readAsText(evt.target.files[0]);
