@@ -1,20 +1,23 @@
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
 function lml(string) {
-	return "<div><code>" + string.replace("\n","<br/>")
-        .replace("<-","<h1>")
-        .replace("->","</h1>")
-        .replace("<--","<h2>")
-        .replace("-->","</h2>")
-        .replace("<---","<h3>")
-        .replace("--->","</h3>")
-        .replace("<----","<h4>")
-        .replace("---->","</h4>")
-        .replace("<-----","<h5>")
-        .replace("----->","</h5>")
-        .replace("<------","<h6>")
-        .replace("------>","</h6>")
-        .replace("*"," • ")
-        .replace("**"," ○ ")
-        .replace("--","<hr/>")
-        .replace("<#>","&nbsp;&nbsp;&nbsp;&nbsp;")
+	return "<div><code>" + string.replaceAll("<------","<h6>")
+        .replaceAll("------>","</h6>")
+        .replaceAll("<-----","<h5>")
+        .replaceAll("----->","</h5>")
+        .replaceAll("<----","<h4>")
+        .replaceAll("---->","</h4>")
+        .replaceAll("<---","<h3>")
+        .replaceAll("--->","</h3>")
+        .replaceAll("<--","<h2>")
+        .replaceAll("-->","</h2>")
+        .replaceAll("<-","<h1>")
+        .replaceAll("->","</h1>")
+        .replaceAll("*"," • ")
+        .replaceAll("**"," ○ ")
+        .replaceAll("--","<hr/>")
+        .replaceAll("<#>","&nbsp;&nbsp;&nbsp;&nbsp;")
         + "</code></div>";
 }
