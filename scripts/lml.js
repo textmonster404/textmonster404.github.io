@@ -16,8 +16,8 @@ function lml(string) {
         .replaceAll("-->","</h2>")
         .replaceAll("<-","<h1>")
         .replaceAll("->","</h1>")
-        .replaceAll("*"," • ")
-        .replaceAll("**"," ○ ")
+        .replaceAll("*","&nbsp;\u2022&nbsp;")
+        .replaceAll("**","&nbsp;\u25CB&nbsp;")
         .replaceAll("--","<hr/>")
         .replaceAll("<#>","&nbsp;&nbsp;&nbsp;&nbsp;")
         + "</code></div>";
