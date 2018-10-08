@@ -1,0 +1,20 @@
+function lml(string) {
+	return "<div><code>" + string.replace("\n","<br/>")
+        .replace("<-","<h1>")
+        .replace("->","</h1>")
+        .replace("<--","<h2>")
+        .replace("-->","</h2>")
+        .replace("<---","<h3>")
+        .replace("--->","</h3>")
+        .replace("<----","<h4>")
+        .replace("---->","</h4>")
+        .replace("<-----","<h5>")
+        .replace("----->","</h5>")
+        .replace("<------","<h6>")
+        .replace("------>","</h6>")
+        .replace("*"," • ")
+        .replace("**"," ○ ")
+        .replace("--","<hr/>")
+        .replace("<#>","&nbsp;&nbsp;&nbsp;&nbsp;")
+        + "</code></div>";
+}
