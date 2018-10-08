@@ -2,7 +2,51 @@ String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.split(search).join(replacement);
 };
-function sddoml(string) {
+function ddoml(string) {
+	return "<div><code>" + string.replaceAll("\n","<br/>")
+        .replaceAll("<---","<h3>")
+        .replaceAll("--->","</h3>")
+        .replaceAll("<--","<h2>")
+        .replaceAll("-->","</h2>")
+        .replaceAll("<-","<h1>")
+        .replaceAll("->","</h1>")
+        .replaceAll("[-","<div style='text-align:right;'>")
+        .replaceAll("-]","</div>")
+        .replaceAll("{-","<div style='text-align:center;'>")
+        .replaceAll("-}","</div>")
+        .replaceAll("<_","<u>")
+        .replaceAll("_>","</u>")
+        .replaceAll("<**","<b>")
+        .replaceAll("**>","</b>")
+        .replaceAll("<*","<i>")
+        .replaceAll("*>","</i>")
+        .replaceAll("***","&nbsp;\u2023&nbsp;")
+        .replaceAll("**","&nbsp;\u25CB&nbsp;")
+        .replaceAll("*","&nbsp;\u2022&nbsp;")
+        .replaceAll("--","<hr/>")
+        .replaceAll("<#>","&nbsp;&nbsp;&nbsp;&nbsp;")
+        + "</code></div>";
+}
+function ldoml(string) {
+	return "<div><code>" + string.replaceAll("\n","<br/>")
+        .replaceAll("<---","<h3>")
+        .replaceAll("--->","</h3>")
+        .replaceAll("<--","<h2>")
+        .replaceAll("-->","</h2>")
+        .replaceAll("<-","<h1>")
+        .replaceAll("->","</h1>")
+        .replaceAll("<_","<u>")
+        .replaceAll("_>","</u>")
+        .replaceAll("<**","<b>")
+        .replaceAll("**>","</b>")
+        .replaceAll("<*","<i>")
+        .replaceAll("*>","</i>")
+        .replaceAll("*","&nbsp;\u2022&nbsp;")
+        .replaceAll("--","<hr/>")
+        .replaceAll("<#>","&nbsp;&nbsp;&nbsp;&nbsp;")
+        + "</code></div>";
+}
+function ddoml(string) {
 	return "<div><code>" + string.replaceAll("\n","<br/>")
         .replaceAll("<---","<h3>")
         .replaceAll("--->","</h3>")
@@ -26,10 +70,7 @@ function sddoml(string) {
         .replaceAll("**>","</b>")
         .replaceAll("<*","<i>")
         .replaceAll("*>","</i>")
-        .replaceAll("***","&nbsp;\u2023&nbsp;")
-        .replaceAll("**","&nbsp;\u25CB&nbsp;")
         .replaceAll("*","&nbsp;\u2022&nbsp;")
         .replaceAll("--","<hr/>")
-        .replaceAll("<#>","&nbsp;&nbsp;&nbsp;&nbsp;")
         + "</code></div>";
 }
