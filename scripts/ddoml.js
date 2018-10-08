@@ -2,6 +2,17 @@ String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.split(search).join(replacement);
 };
+function evalString(string) {
+	var tempT = string.split("\n");
+	for (var i=0;i<tempT.length;i++) {
+		tempT[i] = eval(tempT[i]);
+	}
+    var tempString = tempT[0].toString();
+	for (var i=1;i<tempT.length;i++) {
+		tempString += "\n"+tempT[i].toString();
+	}
+	return tempString;
+}
 function ddoml(string) {
 	return "<div><code>" + string.replaceAll("\n","<br/>")
         .replaceAll("<---","<h3>")
