@@ -58,7 +58,7 @@ function tdoml(string) {
         .replaceAll("-]","</div>")
         .replaceAll("{-","<div style='text-align:center;'>")
         .replaceAll("-}","</div>")
-	.replaceAll("[==","<table>")
+	.replaceAll("[==","<table border=1>")
 	.replaceAll("==]","</table>")
 	.replaceAll("[=","<tr>")
 	.replaceAll("=]","</tr>")
