@@ -24,7 +24,7 @@
                         return;
                     }
                     filecontent = evt.target.result;
-                    document.body.getElementById(out).innerHTML = lml(evt.target.result);
+                    document.getElementById("out").innerHTML = lml(evt.target.result);
                 };
                 reader.readAsText(evt.target.files[0]);
             };
