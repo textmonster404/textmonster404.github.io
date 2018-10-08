@@ -10,7 +10,7 @@
         <div id="out">&nbsp;</div>
         <form id="myform">
             <p>
-                <input id="myfile" name="files[]" type="file" accept=".ddoml,.doml,.dml,.ldoml,.ldml,.lml,.tdml,.tdoml,.tml,.toml,.oml" />
+                <input id="myfile" name="files[]" type="file" accept=".ddoml,.doml,.dml,.ldoml,.ldml,.lml,.tdml,.tdoml,.tml,.toml,.oml,.jseval" />
             </p>
         </form>
         <script>
@@ -32,6 +32,8 @@
                         document.getElementById("out").innerHTML = tdoml(evt.target.result);
                     } else if (document.getElementById("myfile").value.includes(".oml")) {
                         document.getElementById("out").innerHTML = oml(evt.target.result);
+                    } else if (document.getElementById("myfile").value.includes(".jseval")) {
+                        document.getElementById("out").innerHTML = "<code>"+eval(evt.target.result)+"</code>";
                     }
                 };
                 reader.readAsText(evt.target.files[0]);
