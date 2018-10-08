@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8"/>
         <link rel="icon" href="icon/icon.ico"/>
-        <title>LML Interpreter</title>
-        <script src="scripts/lml.js"></script>
+        <title>DDOML Interpreter</title>
+        <script src="scripts/ddoml.js"></script>
     </head>
     <body>
         <div id="out">&nbsp;</div>
         <form id="myform">
             <p>
-                <input id="myfile" name="files[]" type="file" accept=".lml" />
+                <input id="myfile" name="files[]" type="file" accept=".ddoml" />
             </p>
         </form>
         <script>
@@ -24,7 +24,7 @@
                         return;
                     }
                     filecontent = evt.target.result;
-                    document.getElementById("out").innerHTML = lml(evt.target.result);
+                    document.getElementById("out").innerHTML = ddoml(evt.target.result);
                 };
                 reader.readAsText(evt.target.files[0]);
             };
