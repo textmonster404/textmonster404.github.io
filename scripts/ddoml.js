@@ -50,7 +50,7 @@ function evalString(string) {
 	}
     var tempString = tempT[0].toString();
 	for (var i=1;i<tempT.length;i++) {
-		tempString += "\n"+tempT[i].toString();
+		tempString += "<br/>"+tempT[i].toString();
 	}
 	return tempString;
 }
