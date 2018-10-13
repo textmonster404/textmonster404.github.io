@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8"/>
         <link rel="icon" href="icon/icon.ico"/>
-        <title>DDOML Interpreter</title>
-        <script src="scripts/ddoml.js"></script>
+        <title>OML Interpreter</title>
+        <script src="scripts/oml.js"></script>
     </head>
     <body>
         <div id="out">&nbsp;</div>
         <form id="myform">
             <p>
-                <input id="myfile" name="files[]" type="file" accept=".ddoml,.doml,.dml,.ldoml,.ldml,.lml,.tdml,.tdoml,.tml,.toml,.oml,.jseval" />
+                <input id="myfile" name="files[]" type="file" accept=".ddoml,.doml,.dml,.ldoml,.ldml,.lml,.tdml,.tdoml,.tml,.toml,.oml,.jseval,.ltxt" />
             </p>
         </form>
         <script>
@@ -34,6 +34,8 @@
                         document.getElementById("out").innerHTML = oml(evt.target.result);
                     } else if (document.getElementById("myfile").value.includes(".jseval")) {
                         document.getElementById("out").innerHTML = "<code>"+evalString(evt.target.result)+"</code>";
+                    } else if (document.getElementById("myfile").value.includes(".ltxt")) {
+                        document.getElementById("out").innerHTML = ltxt(evt.target.result)";
                     }
                 };
                 reader.readAsText(evt.target.files[0]);
