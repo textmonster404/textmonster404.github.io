@@ -265,3 +265,11 @@ function oml(string) {
         .replaceAll("--","<hr/>")
         + "</code></div>";
 }
+
+function ltxt(string) {
+	return "<div><code>" + string.replaceAll("\n","<br/>")
+        .replaceAll("[","<a href='")
+	.replaceAll("|","'>")
+        .replaceAll("]","</a>")
+        + "</code></div>";
+}
