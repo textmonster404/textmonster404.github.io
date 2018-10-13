@@ -35,7 +35,7 @@
                     } else if (document.getElementById("myfile").value.includes(".jseval")) {
                         document.getElementById("out").innerHTML = "<code>"+evalString(evt.target.result)+"</code>";
                     } else if (document.getElementById("myfile").value.includes(".ltxt")) {
-                        document.getElementById("out").innerHTML = ltxt(evt.target.result)";
+                        document.getElementById("out").innerHTML = ltxt(evt.target.result);
                     }
                 };
                 reader.readAsText(evt.target.files[0]);
