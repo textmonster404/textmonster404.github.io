@@ -271,6 +271,6 @@ function ltxt(string) {
         .replaceAll("[","<a href='")
 	.replaceAll("|","'>")
         .replaceAll("]","</a>")
-	.replaceAll(" ","&nbsp;")
+	.replaceAll("  ","&nbsp;&nbsp;")
         + "</code></div>";
 }
