@@ -27,7 +27,7 @@ B-|-:     |-:-!-:-|   |-:-L
 
     :-S-!-|-----:---!-|
 B-|-:     |-:-!-:-|   |-:-!-L
-  |---S-!---:-----|-!---:</textarea><input type="button" onClick="start();" value="Update"/>
+  |---S-!---:-----|-!---:</textarea><input type="button" onClick="start();" value="Update"/><input type="number" id="timer" value="100"/>
         <div>
 <code id="code">
 
@@ -41,6 +41,8 @@ B-|-:     |-:-!-:-|   |-:-!-L
                 };
                 var text=document.getElementById("text");
                 var code=document.getElementById("code");
+                var timer=document.getElementById("timer");
+                var timerTime = timer.value;
                 code.innerHTML = "";
                 var totalText=text.value.split("\n");
                 for (var i=0;i<totalText.length;i++) {
@@ -226,7 +228,7 @@ B-|-:     |-:-!-:-|   |-:-!-L
                         }
                         ready = true;
                     }
-                    window.setInterval(updates[row],100);
+                    window.setInterval(updates[row],timerTime);
                 }
             }
             start();
