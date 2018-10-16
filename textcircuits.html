@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8"/>
+        <link rel="icon" href="icon/icon.ico"/>
         <title>TextCircuits</title>
     </head>
     <body>
@@ -209,8 +210,9 @@ B-|-:     |-:-!-:-|   |-:-!-L
                                     document.getElementById(parseInt(S[i].id)+"r"+(parseInt(S[i].id.split("r")[1])+1)).lit=false;
                                 }
                             }
+                            S[i].style.cursor = "pointer";
                             if (S[i].lit==true) {
-                                S[i].style.color="yellow";
+                                S[i].style.color="green";
                             } else {
                                 S[i].style.color="black";
                             }
