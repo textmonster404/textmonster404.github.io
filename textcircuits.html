@@ -20,7 +20,20 @@ B-+--|-S-:-!-|
 |=+======|          |--L
 | |-!-|-----:---!-|
 |     |-:-!-:-|   |-:--L
-|---!---:-----|-!---:</textarea><input type="button" onClick="start();" value="Update"/><input type="number" id="timer" value="100"/>
+|---!---:-----|-!---:
+
+B----S--|--P-|
+        | :--+---|
+        | :  |   |
+  |=====+=+==+===|
+:-|-!--|| :==|
+:      ||--------|
+:======+=====:   |-P-|
+       |     :-------+-----L
+:-:-!--+-----:   |===|
+: :    |         |
+: :====+=========|
+:======|</textarea><input type="button" onClick="start();" value="Update"/><input type="number" id="timer" value="100"/>
         <div>
 <code id="code">
 
@@ -50,6 +63,8 @@ B-+--|-S-:-!-|
                         }
                         if (totalText[i][j]=="S") {
                             resultHTML += "<span onclick=\"if (document.getElementById('"+i+"r"+j+"').on==true) {document.getElementById('"+i+"r"+j+"').on = false;} else {document.getElementById('"+i+"r"+j+"').on = true;}\" class='"+totalText[i][j]+"' id='" + i + "r" + j + "'>"+totalText[i][j]+"</span>";
+                        } else if (totalText[i][j]=="P") {
+                            resultHTML += "<span onmousedown=\"document.getElementById('"+i+"r"+j+"').on=true\" onmouseup=\"document.getElementById('"+i+"r"+j+"').on=false\" class='"+totalText[i][j]+"' id='" + i + "r" + j + "'>"+totalText[i][j]+"</span>";
                         } else {
                             resultHTML += "<span class='"+totalText[i][j]+"' id='" + i+"r"+j + "'>"+totalText[i][j]+"</span>";
                         }
@@ -61,6 +76,7 @@ B-+--|-S-:-!-|
                 for (var row=0;row<document.getElementsByClassName("row").length;row++) {
                     var B = document.getElementsByClassName("B");
                     var S = document.getElementsByClassName("S");
+                    var P = document.getElementsByClassName("P");
                     var L = document.getElementsByClassName("L");
                     var not = document.getElementsByClassName("!");
                     var wireH = document.getElementsByClassName("-");
@@ -113,7 +129,7 @@ B-+--|-S-:-!-|
                         }
                         for (var i=0;i<wireH.length;i++) {
                             if (document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1))!==null) {
-                                if ((document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="-" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="S" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="L" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="|" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent==":" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="!") && wireH[i].lit==true && document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).lit!==true) {
+                                if ((document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="-" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="S" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="P" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="L" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="|" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent==":" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="!") && wireH[i].lit==true && document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).lit!==true) {
                                     document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).lit=true;
                                 }
                                 if ((document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="-" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="S" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="L" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="|" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent==":" || document.getElementById(parseInt(wireH[i].id)+"r"+(parseInt(wireH[i].id.split("r")[1])+1)).textContent=="!") && wireH[i].lit==false) {
@@ -251,6 +267,22 @@ B-+--|-S-:-!-|
                                 S[i].style.color="green";
                             } else {
                                 S[i].style.color="black";
+                            }
+                        }
+                        for (var i=0;i<P.length;i++) {
+                            if (document.getElementById(parseInt(P[i].id)+"r"+(parseInt(P[i].id.split("r")[1])+1))!==null) {
+                                if (document.getElementById(parseInt(P[i].id)+"r"+(parseInt(P[i].id.split("r")[1])+1)).textContent=="-" && document.getElementById(parseInt(P[i].id)+"r"+(parseInt(P[i].id.split("r")[1])+1)).lit!==true && P[i].lit==true && P[i].on==true) {
+                                    document.getElementById(parseInt(P[i].id)+"r"+(parseInt(P[i].id.split("r")[1])+1)).lit=true;
+                                }
+                                if (document.getElementById(parseInt(P[i].id)+"r"+(parseInt(P[i].id.split("r")[1])+1)).textContent=="-" && (P[i].lit==false || P[i].on==false)) {
+                                    document.getElementById(parseInt(P[i].id)+"r"+(parseInt(P[i].id.split("r")[1])+1)).lit=false;
+                                }
+                            }
+                            P[i].style.cursor = "pointer";
+                            if (P[i].lit==true) {
+                                P[i].style.color="green";
+                            } else {
+                                P[i].style.color="black";
                             }
                         }
                         for (var i=0;i<L.length;i++) {
