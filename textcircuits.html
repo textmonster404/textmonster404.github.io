@@ -27,7 +27,15 @@ B-|-:     |-:-!-:-|   |-:-L
 
     :-S-!-|-----:---!-|
 B-|-:     |-:-!-:-|   |-:-!-L
-  |---S-!---:-----|-!---:</textarea><input type="button" onClick="start();" value="Update"/><input type="number" id="timer" value="100"/>
+  |---S-!---:-----|-!---:
+
+  |======:
+B-+--|-S-:-!-|
+  |  |-S-|-!-|-!----|
+|=+======|          |--L
+| |-!-|-----:---!-|
+|     |-:-!-:-|   |-:--L
+|---!---:-----|-!---:</textarea><input type="button" onClick="start();" value="Update"/><input type="number" id="timer" value="100"/>
         <div>
 <code id="code">
 
@@ -74,6 +82,7 @@ B-|-:     |-:-!-:-|   |-:-!-L
                     var wireV = document.getElementsByClassName("|");
                     var wireU = document.getElementsByClassName(":");
                     var wireL = document.getElementsByClassName("=");
+                    var cross = document.getElementsByClassName("+");
                     var ready = true;
                     updates[row] = function() {
                         for (var i=0;i<B.length;i++) {
@@ -130,6 +139,46 @@ B-|-:     |-:-!-:-|   |-:-!-L
                                 wireH[i].style.color="yellow";
                             } else {
                                 wireH[i].style.color="black";
+                            }
+                        }
+                        for (var i=0;i<cross.length;i++) {
+                            if (document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])+1))!==null &&document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])-1))!==null) {
+                                if ((document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])+1)).textContent=="-" && document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])-1)).textContent=="-") && document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])+1)).lit!==true && document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])-1)).lit==true) {
+                                    document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])+1)).lit=true;
+                                }
+                                if ((document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])+1)).textContent=="-" && document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])-1)).textContent=="-") && document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])-1)).lit==false) {
+                                    document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])+1)).lit=false;
+                                }
+                            }
+                            if (document.getElementById((parseInt(cross[i].id)+1)+"r"+(parseInt(cross[i].id.split("r")[1])))!==null &&document.getElementById((parseInt(cross[i].id)-1)+"r"+(parseInt(cross[i].id.split("r")[1])))!==null) {
+                                if ((document.getElementById((parseInt(cross[i].id)+1)+"r"+(parseInt(cross[i].id.split("r")[1]))).textContent=="|" && document.getElementById((parseInt(cross[i].id)-1)+"r"+(parseInt(cross[i].id.split("r")[1]))).textContent=="|") && document.getElementById((parseInt(cross[i].id)-1)+"r"+(parseInt(cross[i].id.split("r")[1]))).lit!==false) {
+                                    document.getElementById((parseInt(cross[i].id)+1)+"r"+(parseInt(cross[i].id.split("r")[1]))).lit=true;
+                                }
+                                if ((document.getElementById((parseInt(cross[i].id)+1)+"r"+(parseInt(cross[i].id.split("r")[1]))).textContent=="|" && document.getElementById((parseInt(cross[i].id)-1)+"r"+(parseInt(cross[i].id.split("r")[1]))).textContent=="|") && document.getElementById((parseInt(cross[i].id)-1)+"r"+(parseInt(cross[i].id.split("r")[1]))).lit!==true) {
+                                    document.getElementById((parseInt(cross[i].id)+1)+"r"+(parseInt(cross[i].id.split("r")[1]))).lit=false;
+                                }
+                            }
+                            if (document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])-1))!==null &&document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])+1))!==null) {
+                                if ((document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])-1)).textContent=="=" && document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])+1)).textContent=="=") && document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])+1)).lit==true) {
+                                    document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])-1)).lit=true;
+                                }
+                                if ((document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])-1)).textContent=="=" && document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])+1)).textContent=="=") && document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])+1)).lit==false) {
+                                    document.getElementById(parseInt(cross[i].id)+"r"+(parseInt(cross[i].id.split("r")[1])-1)).lit=false;
+                                }
+                            }
+                            if (document.getElementById((parseInt(cross[i].id)-1)+"r"+(parseInt(cross[i].id.split("r")[1])))!==null &&document.getElementById((parseInt(cross[i].id)+1)+"r"+(parseInt(cross[i].id.split("r")[1])))!==null) {
+                                if ((document.getElementById((parseInt(cross[i].id)-1)+"r"+(parseInt(cross[i].id.split("r")[1]))).textContent==":" && document.getElementById((parseInt(cross[i].id)+1)+"r"+(parseInt(cross[i].id.split("r")[1]))).textContent==":") && document.getElementById((parseInt(cross[i].id)-1)+"r"+(parseInt(cross[i].id.split("r")[1]))).lit!==true && document.getElementById((parseInt(cross[i].id)+1)+"r"+(parseInt(cross[i].id.split("r")[1]))).lit!==false) {
+                                    document.getElementById((parseInt(cross[i].id)-1)+"r"+(parseInt(cross[i].id.split("r")[1]))).lit=true;
+                                }
+                                if ((document.getElementById((parseInt(cross[i].id)-1)+"r"+(parseInt(cross[i].id.split("r")[1]))).textContent==":" && document.getElementById((parseInt(cross[i].id)+1)+"r"+(parseInt(cross[i].id.split("r")[1]))).textContent==":") && document.getElementById((parseInt(cross[i].id)+1)+"r"+(parseInt(cross[i].id.split("r")[1]))).lit!==true) {
+                                    document.getElementById((parseInt(cross[i].id)-1)+"r"+(parseInt(cross[i].id.split("r")[1]))).lit=false;
+                                }
+                            }
+                            cross[i].lit=true;
+                            if (cross[i].lit==true) {
+                                cross[i].style.color="orange";
+                            } else {
+                                cross[i].style.color="black";
                             }
                         }
                         for (var i=0;i<not.length;i++) {
