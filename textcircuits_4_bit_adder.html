@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="icon/icon.ico"/>
+        <title>TextCircuits | 4 Bit Adder</title>
+    </head>
+    <body>
+        <textarea id="text">
+B-S-|
+ a0 |-S-----|-----|
+ b0 |-S-----+---|-A-| :----L
+    |       |   |   |-+---|
+    |       |---X-----:   |
+    |           |=====|===|
+ a1 |-S-|---|   | :---+----L
+ b1 |-S-+-|-X-|-X-:   |
+    |   | |   |-----| |
+    |   |-A-------| |-A-|
+    |             |-----|-|
+    |           |=====|===|
+ a2 |-S-|---|   | :---+----L
+ b2 |-S-+-|-X-|-X-:   |
+    |   | |   |-----| |
+    |   |-A-------| |-A-|
+    |             |-----|-|
+    |           |=====|===|
+ a3 |-S-|---|   | :---+----L
+ b3 |-S-+-|-X-|-X-:   |
+        | |   |-----| |
+        |-A-------| |-A-|
+                  |-----|--L</textarea><input type="button" onClick="start();" value="Update"/><input type="number" id="timer" value="100"/>
+        <div>
+<code id="code">
+
+</code>
+        </div>
+        <script src="scripts/textcircuits.js"></script>
+    </body>
+</html>
