@@ -49,6 +49,10 @@
                     var cross = document.getElementsByClassName("+");
                     var ready = true;
                     for (var i=0;i<T.length;i++) {T[i].lit=false;}
+                    for (var i=0;i<wireH.length;i++) {T[i].lit=false;}
+                    for (var i=0;i<wireV.length;i++) {T[i].lit=false;}
+                    for (var i=0;i<wireL.length;i++) {T[i].lit=false;}
+                    for (var i=0;i<wireU.length;i++) {T[i].lit=false;}
                     updates[row] = function() {
                         for (var i=0;i<B.length;i++) {
                             if (document.getElementById(parseInt(B[i].id)+"r"+(parseInt(B[i].id.split("r")[1])+1)).textContent=="-" && document.getElementById(parseInt(B[i].id)+"r"+(parseInt(B[i].id.split("r")[1])+1)).lit!==true) {
