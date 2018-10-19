@@ -5,7 +5,31 @@
         <link rel="icon" href="../icon/icon.ico"/>
         <title>Long Walk to Water</title>
         <style>
-            td {width:40%;}
+            @keyframes intro {
+                0% {transform:scalex(0.0);}
+                50% {transform:scalex(1.0);}
+                100% {transform:scalex(1.0);}
+            }
+            @keyframes introTable {
+                0% {transform:scalex(0.0);}
+                50% {transform:scalex(0.0);}
+                100% {transform:scalex(1.0);}
+            }
+            @keyframes introQuote {
+                0% {opacity:0;}
+                50% {opacity:0;}
+                100% {opacity:1;}
+            }
+            @keyframes introName {
+                0% {opacity:0;transform:scalex(5.0);}
+                50% {opacity:0;transform:scalex(3.0);}
+                100% {opacity:1;transform:scalex(1.0);}
+            }
+            body {animation-name:intro;animation-duration:1s;}
+            table {animation-name:introTable;animation-duration:1s;}
+            td,th {max-width:400px;}
+            q {animation-name:introQuote;animation-duration:2s;}
+            .name {animation-name:introName;animation-duration:3s;}
         </style>
     </head>
     <body>
@@ -19,7 +43,7 @@
             <thead>
                 <tr>
                     <th style="border-right:2px solid black;">
-                        <center>
+                        <center class="name">
                             <font color="red">
                                 <u>
                                     Nya
@@ -28,7 +52,7 @@
                         </center>
                     </th>
                     <th style="border-left:2px solid black;">
-                        <center>
+                        <center class="name">
                             <font color="darkcyan">
                                 <u>
                                     Salva
