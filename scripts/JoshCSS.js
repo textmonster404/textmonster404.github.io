@@ -230,10 +230,10 @@ if (document.documentElement.innerHTML.includes("<use-style math")) {
     document.write("<script src='https://www.w3.org/scripts/MathJax/2/MathJax.js'><\/script>");
 }
 if (document.documentElement.innerHTML.includes("<use-tag js-insert pi")) {
-    document.write('<script>for (var i=0;i<document.getElementsByTagName("js-insert").length;i++) { document.body.innerHTML=document.body.innerHTML.replace("<js-insert pi=\"\"></js-insert>","<js-insert pi=\"\">"+Math.PI+"</js-insert>");}</script>');
+    document.write('<script>for (var i=0;i<document.getElementsByTagName("js-insert").length;i++) { document.body.innerHTML=document.body.innerHTML.replace("<js-insert pi=\"\"></js-insert>","<js-insert pi=\"\">"+Math.PI+"</js-insert>");}<\/script>');
 }
 if (document.documentElement.innerHTML.includes("<use-tag js-insert phi")) {
-    document.write('<script>for (var i=0;i<document.getElementsByTagName("js-insert").length;i++) {document.body.innerHTML=document.body.innerHTML.replace("<js-insert phi=\"\"></js-insert>","<js-insert phi=\"\">"+((1+Math.sqrt(5))/2)+"</js-insert>");}</script>');
+    document.write('<script>for (var i=0;i<document.getElementsByTagName("js-insert").length;i++) {document.body.innerHTML=document.body.innerHTML.replace("<js-insert phi=\"\"></js-insert>","<js-insert phi=\"\">"+((1+Math.sqrt(5))/2)+"</js-insert>");}<\/script>');
 }
 for (var i=0;i<document.getElementsByTagName("title-icon").length;i++) {
     document.getElementsByTagName("title-icon")[i].innerHTML = "<link rel='icon' href='"+document.getElementsByTagName("title-icon")[i].href+"'/>";
