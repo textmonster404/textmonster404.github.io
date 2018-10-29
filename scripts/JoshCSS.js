@@ -224,10 +224,10 @@ function ltxt(string) {
 }
 if (document.documentElement.innerHTML.includes("<use-style joshcss")) {
     document.write("<link rel='stylesheet' href='https://textmonster404.github.io/stylesheets/JoshCSS.css'>");
-    document.write("<script>var triangles = document.getElementsByTagName('speech-triangle');for (var i=0;i<triangles.length;i++) {triangles[i].innerHTML='&nbsp;';}</script>");
+    var triangles = document.getElementsByTagName('speech-triangle');for (var i=0;i<triangles.length;i++) {triangles[i].innerHTML='&nbsp;';};
 }
 if (document.documentElement.innerHTML.includes("<use-style math")) {
-    document.write("<script src='https://www.w3.org/scripts/MathJax/2/MathJax.js'></script>");
+    document.write("<script src='https://www.w3.org/scripts/MathJax/2/MathJax.js'><\/script>");
 }
 if (document.documentElement.innerHTML.includes("<use-tag js-insert phi")) {
     document.body.innerHTML = document.body.innerHTML.replaceAll("<js-insert phi/>","<js-insert phi>"+((1+Math.sqrt(5))/2)+"</js-insert>").replaceAll("<js-insert phi></js-insert>","<js-insert phi>3.141592653589</js-insert>");
