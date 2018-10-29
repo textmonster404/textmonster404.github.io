@@ -250,42 +250,42 @@ if (document.head.innerHTML.includes("<use-tag js-eval")) {
     }
 }
 if (document.head.innerHTML.includes("<use-tag oml")) {
-    for (var i=0;i<document.getElementByTagName("ddoml").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("ddoml").length;i++) {
         document.getElementsByTagName("ddoml")[i].innerHTML=ddoml(document.getElementsByTagName("ddoml")[i].innerHTML);
     }
-    for (var i=0;i<document.getElementByTagName("doml").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("doml").length;i++) {
         document.getElementsByTagName("doml")[i].innerHTML=ddoml(document.getElementsByTagName("doml")[i].innerHTML);
     }
-    for (var i=0;i<document.getElementByTagName("dml").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("dml").length;i++) {
         document.getElementsByTagName("dml")[i].innerHTML=ddoml(document.getElementsByTagName("dml")[i].innerHTML);
     }
-    for (var i=0;i<document.getElementByTagName("ldoml").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("ldoml").length;i++) {
         document.getElementsByTagName("ldoml")[i].innerHTML=ldoml(document.getElementsByTagName("ldoml")[i].innerHTML);
     }
-    for (var i=0;i<document.getElementByTagName("ldml").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("ldml").length;i++) {
         document.getElementsByTagName("ldml")[i].innerHTML=ldoml(document.getElementsByTagName("ldml")[i].innerHTML);
     }
-    for (var i=0;i<document.getElementByTagName("lml").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("lml").length;i++) {
         document.getElementsByTagName("lml")[i].innerHTML=ldoml(document.getElementsByTagName("lml")[i].innerHTML);
     }
-    for (var i=0;i<document.getElementByTagName("ddoml").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("ddoml").length;i++) {
         document.getElementsByTagName("ddoml")[i].innerHTML=tdoml(document.getElementsByTagName("ddoml")[i].innerHTML);
     }
-    for (var i=0;i<document.getElementByTagName("ldml").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("ldml").length;i++) {
         document.getElementsByTagName("ddml")[i].innerHTML=tdoml(document.getElementsByTagName("ddml")[i].innerHTML);
     }
-    for (var i=0;i<document.getElementByTagName("lml").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("lml").length;i++) {
         document.getElementsByTagName("dml")[i].innerHTML=tdoml(document.getElementsByTagName("dml")[i].innerHTML);
     }
-    for (var i=0;i<document.getElementByTagName("toml").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("toml").length;i++) {
         document.getElementsByTagName("toml")[i].innerHTML=tdoml(document.getElementsByTagName("toml")[i].innerHTML);
     }
-    for (var i=0;i<document.getElementByTagName("oml").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("oml").length;i++) {
         document.getElementsByTagName("oml")[i].innerHTML=oml(document.getElementsByTagName("oml")[i].innerHTML);
     }
 }
 if (document.head.innerHTML.includes("<use-tag ltxt")) {
-    for (var i=0;i<document.getElementByTagName("ltxt").length;i++) {
+    for (var i=0;i<document.getElementsByTagName("ltxt").length;i++) {
         document.getElementsByTagName("ltxt")[i].innerHTML=ltxt(document.getElementsByTagName("ltxt")[i].innerHTML);
     }
 }
