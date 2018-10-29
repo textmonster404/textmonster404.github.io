@@ -236,7 +236,7 @@ if (document.body.innerHTML.includes("<use-tag js-insert phi")) {
     document.write("<link rel='stylesheet' href='https://textmonster404.github.io/stylesheets/js-insert_phi.css'>");
 }
 for (var i=0;i<document.getElementsByTagName("title-icon").length;i++) {
-    document.getElementsByTagName("title-icon")[i].innerHTML = "<link rel='icon' href='"+document.getElementsByTagName("title-icon")[i].href+"'/>";
+    document.getElementsByTagName("title-icon")[i].innerHTML = "<link rel='icon' href='"+document.getElementsByTagName("title-icon")[i].getAttribute("href")+"'/>";
 }
 if (document.documentElement.innerHTML.includes("<use-tag title-alt")) {
     window.setInterval(function() {if (document.getElementsByTagName("title")[0].innerHTML==document.getElementsByTagName("title-alt")[0].innerHTML) {document.getElementsByTagName("title")[0].innerHTML = document.getElementsByTagName("title-alt-2")[0].innerHTML} else {document.getElementsByTagName("title")[0].innerHTML = document.getElementsByTagName("title-alt")[0].innerHTML}},document.getElementsByTagName("title-speed")[0].value);
