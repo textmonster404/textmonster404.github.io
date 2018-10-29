@@ -194,13 +194,13 @@ function oml(string) {
         .replaceAll("-]","</div>")
         .replaceAll("{-","<div style='text-align:center;'>")
         .replaceAll("-}","</div>")
-	.replaceAll("1[==","<table border=1>")
-	.replaceAll("0[==","<table border=0>")
-	.replaceAll("==]","</table>")
-	.replaceAll("[=","<tr>")
-	.replaceAll("=]","</tr>")
-	.replaceAll("[","<td>")
-	.replaceAll("]","</td>")
+        .replaceAll("1[==","<table border=1>")
+        .replaceAll("0[==","<table border=0>")
+        .replaceAll("==]","</table>")
+        .replaceAll("[=","<tr>")
+        .replaceAll("=]","</tr>")
+        .replaceAll("[","<td>")
+        .replaceAll("]","</td>")
         .replaceAll("<_","<u>")
         .replaceAll("_>","</u>")
         .replaceAll("<**","<b>")
@@ -215,11 +215,11 @@ function oml(string) {
 }
 
 function ltxt(string) {
-	return "<div><code>" + string.replaceAll("\n","<br/>")
+    return "<div><code>" + string.replaceAll("\n","<br/>")
         .replaceAll("[","<a href='")
-	.replaceAll("|","'>")
+        .replaceAll("|","'>")
         .replaceAll("]","</a>")
-	.replaceAll("  ","&nbsp;&nbsp;")
+        .replaceAll("  ","&nbsp;&nbsp;")
         + "</code></div>";
 }
 if (document.documentElement.innerHTML.includes("<use-style joshcss")) {
@@ -231,14 +231,16 @@ if (document.documentElement.innerHTML.includes("<use-style math")) {
 }
 if (document.documentElement.innerHTML.includes("<use-tag js-insert pi")) {
     for (var i=0;i<document.getElementsByTagName("js-insert").length;i++) {
-	if (document.getElementsByTagName("js-insert")[i].getAttribute("pi")!==null) {
-        document.getElementsByTagName("js-insert")[i].innerHTML=Math.PI;
+	    if (document.getElementsByTagName("js-insert")[i].getAttribute("pi")!==null) {
+            document.getElementsByTagName("js-insert")[i].innerHTML=Math.PI;
+        }
     }
 }
 if (document.documentElement.innerHTML.includes("<use-tag js-insert phi")) {
     for (var i=0;i<document.getElementsByTagName("js-insert").length;i++) {
-	if (document.getElementsByTagName("js-insert")[i].getAttribute("phi")!==null) {
-        document.getElementsByTagName("js-insert")[i].innerHTML=(1+Math.sqrt(5))/2;
+	    if (document.getElementsByTagName("js-insert")[i].getAttribute("phi")!==null) {
+            document.getElementsByTagName("js-insert")[i].innerHTML=(1+Math.sqrt(5))/2;
+        }
     }
 }
 for (var i=0;i<document.getElementsByTagName("title-icon").length;i++) {
