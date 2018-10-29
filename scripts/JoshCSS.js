@@ -229,10 +229,10 @@ if (document.documentElement.innerHTML.includes("<use-style joshcss")) {
 if (document.documentElement.innerHTML.includes("<use-style math")) {
     document.write("<script src='https://www.w3.org/scripts/MathJax/2/MathJax.js'><\/script>");
 }
-if (document.documentElement.innerHTML.includes("<use-tag js-insert pi")) {
+if (document.body.innerHTML.includes("<use-tag js-insert pi")) {
     document.write("<link rel='stylesheet' href='https://textmonster404.github.io/stylesheets/js-insert_pi.css'>");
 }
-if (document.documentElement.innerHTML.includes("<use-tag js-insert phi")) {
+if (document.body.innerHTML.includes("<use-tag js-insert phi")) {
     document.write("<link rel='stylesheet' href='https://textmonster404.github.io/stylesheets/js-insert_phi.css'>");
 }
 for (var i=0;i<document.getElementsByTagName("title-icon").length;i++) {
