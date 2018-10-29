@@ -222,34 +222,34 @@ function ltxt(string) {
 	.replaceAll("  ","&nbsp;&nbsp;")
         + "</code></div>";
 }
-if (document.head.innerHTML.includes("<use-style joshcss")) {
+if (document.documentElement.innerHTML.includes("<use-style joshcss")) {
     document.write("<link rel='stylesheet' href='https://textmonster404.github.io/stylesheets/JoshCSS.css'>");
     document.write("<script>var triangles = document.getElementsByTagName('speech-triangle');for (var i=0;i<triangles.length;i++) {triangles[i].innerHTML='&nbsp;';}</script>");
 }
-if (document.head.innerHTML.includes("<use-style math")) {
+if (document.documentElement.innerHTML.includes("<use-style math")) {
     document.write("<script src='https://www.w3.org/scripts/MathJax/2/MathJax.js'></script>");
 }
-if (document.head.innerHTML.includes("<use-tag js-insert phi")) {
+if (document.documentElement.innerHTML.includes("<use-tag js-insert phi")) {
     document.body.innerHTML = document.body.innerHTML.replaceAll("<js-insert phi/>","<js-insert phi>"+((1+Math.sqrt(5))/2)+"</js-insert>").replaceAll("<js-insert phi></js-insert>","<js-insert phi>3.141592653589</js-insert>");
 }
-if (document.head.innerHTML.includes("<use-tag js-insert pi")) {
+if (document.documentElement.innerHTML.includes("<use-tag js-insert pi")) {
     document.body.innerHTML = document.body.innerHTML.replaceAll("<js-insert pi/>","<js-insert pi>"+Math.PI+"</js-insert>").replaceAll("<js-insert pi></js-insert>","<js-insert pi>"+Math.PI+"</js-insert>");
 }
 for (var i=0;i<document.getElementsByTagName("title-icon").length;i++) {
     document.getElementsByTagName("title-icon")[i].innerHTML = "<link rel='icon' href='"+document.getElementsByTagName("title-icon")[i].href+"'/>";
 }
-if (document.head.innerHTML.includes("<use-tag title-alt")) {
+if (document.documentElement.innerHTML.includes("<use-tag title-alt")) {
     title1 = document.getElementsByTagName("title")[0].innerHTML;
     title2 = document.getElementsByTagName("title-alt")[0].innerHTML;
     titleSpeed = document.getElementsByTagName("title-speed")[0].value;
     window.setInterval(function() {if (document.getElementsByTagName("title")[0].innerHTML==title1) {document.getElementsByTagName("title")[0].innerHTML = title2} else {document.getElementsByTagName("title")[0].innerHTML = title1}},titleSpeed);
 }
-if (document.head.innerHTML.includes("<use-tag js-eval")) {
+if (document.documentElement.innerHTML.includes("<use-tag js-eval")) {
     for (var i=0;i<document.getElementsByTagName("js-eval").length;i++) {
         document.getElementsByTagName("js-eval")[i].innerHTML=eval(document.getElementsByTagName("js-eval")[i].innerHTML);
     }
 }
-if (document.head.innerHTML.includes("<use-tag oml")) {
+if (document.documentElement.innerHTML.includes("<use-tag oml")) {
     for (var i=0;i<document.getElementsByTagName("ddoml").length;i++) {
         document.getElementsByTagName("ddoml")[i].innerHTML=ddoml(document.getElementsByTagName("ddoml")[i].innerHTML);
     }
@@ -284,7 +284,7 @@ if (document.head.innerHTML.includes("<use-tag oml")) {
         document.getElementsByTagName("oml")[i].innerHTML=oml(document.getElementsByTagName("oml")[i].innerHTML);
     }
 }
-if (document.head.innerHTML.includes("<use-tag ltxt")) {
+if (document.documentElement.innerHTML.includes("<use-tag ltxt")) {
     for (var i=0;i<document.getElementsByTagName("ltxt").length;i++) {
         document.getElementsByTagName("ltxt")[i].innerHTML=ltxt(document.getElementsByTagName("ltxt")[i].innerHTML);
     }
