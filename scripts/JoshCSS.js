@@ -229,11 +229,17 @@ if (document.documentElement.innerHTML.includes("<use-style joshcss")) {
 if (document.documentElement.innerHTML.includes("<use-style math")) {
     document.write("<script src='https://www.w3.org/scripts/MathJax/2/MathJax.js'><\/script>");
 }
-if (document.documentElement.innerHTML.includes("<use-tag js-insert phi")) {
-    document.body.innerHTML = document.body.innerHTML.replaceAll("<js-insert phi/>","<js-insert phi>"+((1+Math.sqrt(5))/2)+"</js-insert>").replaceAll("<js-insert phi></js-insert>","<js-insert phi>3.141592653589</js-insert>");
-}
 if (document.documentElement.innerHTML.includes("<use-tag js-insert pi")) {
-    document.body.innerHTML = document.body.innerHTML.replaceAll("<js-insert pi/>","<js-insert pi>"+Math.PI+"</js-insert>").replaceAll("<js-insert pi></js-insert>","<js-insert pi>"+Math.PI+"</js-insert>");
+    for (var i=0;i<document.getElementsByTagName("js-insert").length;i++) {
+	if (document.getElementsByTagName("js-insert")[i].getAttribute("pi")=="") {
+        document.getElementsByTagName("js-insert")[i].innerHTML=Math.PI;
+    }
+}
+if (document.documentElement.innerHTML.includes("<use-tag js-insert phi")) {
+    for (var i=0;i<document.getElementsByTagName("js-insert").length;i++) {
+	if (document.getElementsByTagName("js-insert")[i].getAttribute("phi")=="") {
+        document.getElementsByTagName("js-insert")[i].innerHTML=(1+Math.sqrt(5))/2;
+    }
 }
 for (var i=0;i<document.getElementsByTagName("title-icon").length;i++) {
     document.getElementsByTagName("title-icon")[i].innerHTML = "<link rel='icon' href='"+document.getElementsByTagName("title-icon")[i].href+"'/>";
