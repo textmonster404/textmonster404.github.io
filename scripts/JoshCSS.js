@@ -231,16 +231,12 @@ if (document.documentElement.innerHTML.includes("<use-style math")) {
 }
 if (document.documentElement.innerHTML.includes("<use-tag js-insert pi")) {
     for (var i=0;i<document.getElementsByTagName("js-insert").length;i++) {
-        if (document.getElementsByTagName("js-insert")[i].getAttribute("pi")!==null) {
-            document.getElementsByTagName("js-insert")[i].textContent=Math.PI;
-        }
+        document.body.innerHTML=document.body.innerHTML.replace("<js-insert pi=\"\"></js-insert>","<js-insert pi=\"\">"+Math.PI+"</js-insert>");
     }
 }
 if (document.documentElement.innerHTML.includes("<use-tag js-insert phi")) {
     for (var i=0;i<document.getElementsByTagName("js-insert").length;i++) {
-        if (document.getElementsByTagName("js-insert")[i].getAttribute("phi")!==null) {
-            document.getElementsByTagName("js-insert")[i].textContent=(1+Math.sqrt(5))/2;
-        }
+	    document.body.innerHTML=document.body.innerHTML.replace("<js-insert phi=\"\"></js-insert>","<js-insert phi=\"\">"+((1+Math.sqrt(5))/2)+"</js-insert>");
     }
 }
 for (var i=0;i<document.getElementsByTagName("title-icon").length;i++) {
