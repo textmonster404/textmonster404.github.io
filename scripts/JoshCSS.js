@@ -286,8 +286,10 @@ if (document.documentElement.innerHTML.includes("<use-tag ltxt")) {
         document.getElementsByTagName("ltxt")[i].innerHTML=ltxt(document.getElementsByTagName("ltxt")[i].innerHTML);
     }
 }
-if (document.querySelector("meta[http-equiv='reset-on-load']").getAttribute("content")=="true") {
-    window.onbeforeunload = function() {
-        window.scrollTo(0, 0);
+if (document.querySelector("meta[http-equiv='reset-on-load']")!==null) {
+    if (document.querySelector("meta[http-equiv='reset-on-load']").getAttribute("content")=="true") {
+        window.onbeforeunload = function() {
+            window.scrollTo(0, 0);
+        }
     }
 }
