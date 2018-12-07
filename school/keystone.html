@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Keystone</title>
+        <style>
+            body {overflow:hidden;}
+            
+            @keyframes joshua {
+                0% {visibility:hidden;}
+                1% {visibility:visible;}
+                100% {visibility:visible;}
+            }
+            
+            @keyframes joshua-oliver {
+                0% {transform:rotate(0deg) scaleX(1.0) scaleY(1.0);transform-origin:50% 80%;display:block;}
+                40% {transform:rotate(0deg) scaleX(1.0) scaleY(1.0);transform-origin:50% 80%;display:block;}
+                50% {transform:rotate(-15deg) scaleX(0.9) scaleY(0.9);transform-origin:50% 80%;display:block;}
+                98% {transform:rotate(300deg) scaleX(6.0) scaleY(6.0);transform-origin:50% 80%;display:block;}
+                100% {transform:rotate(300deg) scaleX(6.0) scaleY(6.0);transform-origin:50% 80%;display:block;}
+                
+            }
+            
+            #joshua-oliver #joshua {
+                visibility:hidden;
+                animation-name:joshua;
+                animation-delay:1s;
+                animation-duration:10s;
+                color:green;
+                font-size:100px;
+                position:relative;
+            }
+            #joshua-oliver #oliver {
+                visibility:hidden;
+                animation-name:joshua;
+                animation-delay:1.4s;
+                animation-duration:10s;
+                color:olive;
+                font-size:100px;
+                position:relative;
+                left:100px;
+            }
+            #joshua-oliver #keystone {
+                visibility:hidden;
+                animation-name:joshua;
+                animation-delay:1.8s;
+                animation-duration:10s;
+                color:lime;
+                font-size:100px;
+                position:relative;
+                left:-280px;
+                top:160px;
+                transform:rotate(90deg);
+            }
+            #joshua-oliver {
+                animation-name:joshua-oliver;
+                animation-delay:0s;
+                animation-duration:5s;
+                font-size:100px;
+                position:relative;
+                transform:rotate(0deg) scaleX(0.0) scaleY(0.0);
+            }
+            
+            
+            @keyframes date {
+                0% {transform:rotate(0deg) scaleX(0.0) scaleY(0.0);}
+                25% {transform:rotate(360deg) scaleX(1.0) scaleY(1.0);}
+                30% {transform:rotate(350deg) scaleX(1.0) scaleY(1.0);}
+                53% {transform:rotate(360deg) scaleX(2.0) scaleY(2.0);}
+                56% {transform:rotate(-15deg)scaleX(1.6) scaleY(1.6) translateX(0px) translateY(0px);}
+                66% {transform:rotate(-200deg) scaleX(0.0) scaleY(0.0) translateX(-500px) translateY(-100px);}
+                100% {transform:rotate(-200deg) scaleX(0.0) scaleY(0.0) translateX(-500px) translateY(-100px);}
+            }
+            
+            .no-break {display:inline;}
+            
+            #date {
+                animation-name:date;
+                animation-delay:3.5s;
+                animation-duration:10s;
+                font-size:80px;
+                position:absolute;
+                transform:rotate(0deg) scaleX(0.0) scaleY(0.0);
+                left:calc( 50% - 210px );
+                top:calc( 50% - 46.5px );
+                
+            }
+            
+            #december,#sixth,#twenty-eighteen {color:orange;}
+        </style>
+    </head>
+    <body>
+        <div id="joshua-oliver">
+            <div id="joshua">Joshua</div>
+            <div id="oliver">Oliver</div>
+            <div id="keystone">Keystone</div>
+        </div>
+        
+        <div id="date">
+            <div class="no-break" id="december">12</div>
+            <div class="slash no-break">/</div>
+            <div class="no-break" id="sixth">6</div>
+            <div class="slash no-break">/</div>
+            <div class="no-break" id="twenty-eighteen">2018</div>
+        </div>
+        <!-- Thanks for teaching me! -->
+    </body>
+</html>
