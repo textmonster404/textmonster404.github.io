@@ -76,7 +76,7 @@
             
             #date {
                 animation-name:date;
-                animation-delay:8.5s;
+                animation-delay:7.5s;
                 animation-duration:10s;
                 font-size:80px;
                 position:absolute;
@@ -87,6 +87,75 @@
             }
             
             #december,#sixth,#twenty-eighteen {color:orange;}
+            
+            
+            @keyframes myself {
+                0% {visibility:hidden;left:0px;top:0px;}
+                50% {visibility:hidden;left:0px;top:0px;}
+                51% {visibility:visible;left:0px;top:0px;}
+                80% {visibility:visible;left:0px;top:0px;}
+                99% {visibility:visible;left:-200px;top:0px;}
+                100% {visibility:hidden;}
+            }
+            
+            @keyframes hello {
+                0% {
+                    font-size:100px;
+                    left:1400px;
+                    top:calc( 50% - 35.5px );
+                }
+                20% {
+                    font-size:100px;
+                    left:calc( 50% - 77px );
+                    top:calc( 50% - 35.5px );
+                }
+                
+            } 
+            
+            @keyframes aboutme {
+                0% {
+                    left:-400px;
+                    top:150px;
+                }
+                10% {
+                    left:20px;
+                    top:150px;
+                }
+                80% {
+                    left:20px;
+                    top:150px;
+                }
+                100% {
+                    left:-400px;
+                    top:150px;
+                }
+            }
+            
+            #myself #hello {
+                animation-name:hello;
+                animation-delay:14.5s;
+                animation-duration:10s;
+                font-size:60px;
+                position:absolute;
+                left:20px;
+                top:50px;
+            }
+            #aboutme {
+                animation-name:aboutme;
+                animation-delay:21.5s;
+                animation-duration:10s;
+                position:relative;
+                top:150px;
+                left:-400px;
+            }
+            #myself {
+                visibility:hidden;
+                animation-name:myself;
+                animation-delay:0s;
+                animation-duration:30.5s;
+                position:absolute;
+                left:-300px;top:0px;
+            }
         </style>
     </head>
     <body>
@@ -102,6 +171,11 @@
             <div class="no-break" id="sixth">6</div>
             <div class="slash no-break">/</div>
             <div class="no-break" id="twenty-eighteen">2018</div>
+        </div>
+        
+        <div id="myself">
+            <div id="hello">Hello!</div>
+            <div id="aboutme">I am Josh.<br/>I am thirteen years old.<br/>I like science, Mathematics, and other stem subjects.</div>
         </div>
         <!-- Thanks for teaching me! -->
     </body>
