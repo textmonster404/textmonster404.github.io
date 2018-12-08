@@ -136,6 +136,32 @@
                 }
             }
             
+            @keyframes iamjosh {
+                0% {left:0px;transform:rotate(0deg);}
+                25% {left:100px;transform:rotate(0deg);}
+                40% {left:150px;}
+                65% {left:100px;}
+                75% {left:-10px;transform:rotate(360deg);}
+                100% {left:0px;transform:rotate(360deg);}
+            }
+            @keyframes thirteenyears {
+                0% {left:0px;transform:rotate(0deg);top:0px;}
+                15% {left:75px;transform:rotate(0deg);top:20px;}
+                40% {left:150px;top:20px;}
+                40% {left:150px;top:-10px;}
+                65% {left:100px;top:50px;}
+                75% {left:-10px;transform:rotate(-360deg);top:-4px;}
+                100% {left:0px;transform:rotate(-360deg);top:0px;}
+            }
+            @keyframes like {
+                0% {left:0px;transform:rotateY(540deg);top:240px;}
+                25% {left:225px;transform:rotateY(540deg);top:210px;}
+                40% {left:350px;top:90px;}
+                65% {left:225px;}
+                75% {left:-10px;transform:rotateY(0deg);top:0px;}
+                100% {left:0px;transform:rotateY(0deg);}
+            }
+            
             #myself #hello {
                 animation-name:hello;
                 animation-delay:14.5s;
@@ -161,6 +187,30 @@
                 position:absolute;
                 left:-300px;top:0px;
             }
+            #iamjosh {
+                animation-name:iamjosh;
+                animation-delay:21s;
+                animation-duration:3s;
+                position:relative;
+                transform:rotate(360deg);
+                display:inline-block;
+            }
+            #thirteenyears {
+                animation-name:thirteenyears;
+                animation-delay:21.5s;
+                animation-duration:3s;
+                position:relative;
+                transform:rotate(-360deg);
+                display:inline-block;
+            }
+            #like {
+                animation-name:like;
+                animation-delay:21s;
+                animation-duration:5s;
+                position:relative;
+                transform:rotateY(0deg);
+                display:inline-block;
+            }
         </style>
     </head>
     <body>
@@ -180,7 +230,7 @@
         
         <div id="myself">
             <div id="hello">Hello!</div>
-            <div id="aboutme">I am Josh.<br/>I am thirteen years old.<br/>I like science, Mathematics, and other stem subjects.</div>
+            <div id="aboutme"><div id="iamjosh">I am Josh.</div><br/><div id="thirteenyears">I am thirteen years old.</div><br/><div id="like">I like science, Mathematics, and other stem subjects.</div></div>
         </div>
         <!-- Thanks for teaching me! -->
     </body>
