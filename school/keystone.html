@@ -24,7 +24,7 @@
             #joshua-oliver #joshua {
                 visibility:hidden;
                 animation-name:joshua;
-                animation-delay:6s;
+                animation-delay:3s;
                 animation-duration:10s;
                 color:green;
                 font-size:100px;
@@ -33,7 +33,7 @@
             #joshua-oliver #oliver {
                 visibility:hidden;
                 animation-name:joshua;
-                animation-delay:6.4s;
+                animation-delay:3.4s;
                 animation-duration:10s;
                 color:olive;
                 font-size:100px;
@@ -43,7 +43,7 @@
             #joshua-oliver #keystone {
                 visibility:hidden;
                 animation-name:joshua;
-                animation-delay:6.8s;
+                animation-delay:3.8s;
                 animation-duration:10s;
                 color:lime;
                 font-size:100px;
@@ -54,7 +54,7 @@
             }
             #joshua-oliver {
                 animation-name:joshua-oliver;
-                animation-delay:5s;
+                animation-delay:2s;
                 animation-duration:5s;
                 font-size:100px;
                 position:relative;
@@ -76,8 +76,8 @@
             
             #date {
                 animation-name:date;
-                animation-delay:7.5s;
-                animation-duration:10s;
+                animation-delay:4.5s;
+                animation-duration:7s;
                 font-size:80px;
                 position:absolute;
                 transform:rotate(0deg) scaleX(0.0) scaleY(0.0);
@@ -136,6 +136,12 @@
                 }
             }
             
+            @keyframes bornth {
+                0% {top:0px;}
+                10% {top:-6px;}
+                100% {top:-6px;}
+            }
+            
             @keyframes iamjosh {
                 0% {left:0px;transform:rotate(0deg);}
                 25% {left:100px;transform:rotate(0deg);}
@@ -164,8 +170,8 @@
             
             #myself #hello {
                 animation-name:hello;
-                animation-delay:14.5s;
-                animation-duration:10s;
+                animation-delay:9.5s;
+                animation-duration:5s;
                 font-size:60px;
                 position:absolute;
                 left:20px;
@@ -173,7 +179,7 @@
             }
             #aboutme {
                 animation-name:aboutme;
-                animation-delay:21.5s;
+                animation-delay:12.1s;
                 animation-duration:10s;
                 position:relative;
                 top:150px;
@@ -182,34 +188,41 @@
             #myself {
                 visibility:hidden;
                 animation-name:myself;
-                animation-delay:6s;
-                animation-duration:30.5s;
+                animation-delay:3s;
+                animation-duration:22.5s;
                 position:absolute;
                 left:-300px;top:0px;
             }
             #iamjosh {
                 animation-name:iamjosh;
-                animation-delay:21s;
-                animation-duration:3s;
+                animation-delay:12s;
+                animation-duration:2s;
                 position:relative;
                 transform:rotate(360deg);
                 display:inline-block;
             }
             #thirteenyears {
                 animation-name:thirteenyears;
-                animation-delay:21.5s;
-                animation-duration:3s;
+                animation-delay:12.5s;
+                animation-duration:2s;
                 position:relative;
                 transform:rotate(-360deg);
                 display:inline-block;
             }
             #like {
                 animation-name:like;
-                animation-delay:21s;
-                animation-duration:5s;
+                animation-delay:12s;
+                animation-duration:3s;
                 position:relative;
                 transform:rotateY(0deg);
                 display:inline-block;
+            }
+            #bornth {
+                animation-name:bornth;
+                animation-delay:15s;
+                animation-duration:10s;
+                position:relative;
+                top:0px;
             }
         </style>
     </head>
@@ -230,7 +243,7 @@
         
         <div id="myself">
             <div id="hello">Hello!</div>
-            <div id="aboutme"><div id="iamjosh">I am Josh.</div><br/><div id="thirteenyears">I am thirteen years old.</div><br/><div id="like">I like science, Mathematics, and other stem subjects.</div></div>
+            <div id="aboutme"><div id="iamjosh">I am Josh.<br/>My full name is Joshua Daniel Oliver.<br/>My middle name, "Daniel" comes from my grandpa, Daniel.</div><br/><div id="thirteenyears">I am thirteen years old.<br/> I was born on September 18<div class="no-break" id="bornth">th</div>, 2005</div><br/><div id="like">I like science, Mathematics, and other stem subjects.</div></div>
         </div>
         <!-- Thanks for teaching me! -->
     </body>
