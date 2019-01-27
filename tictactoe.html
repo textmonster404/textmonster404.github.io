@@ -118,8 +118,8 @@
                             params[1] = instructions[i];
                             for (var x=0;x<params[0];x++) {
                                 for (var j=0;j<params[1];j++) {
-                                    if (table[position.y+j][position.x+x] !== null) {
-                                        table[position.y+j][position.x+x] = 1;
+                                    if (table[position.x+x][position.x+j] !== null) {
+                                        table[position.x+x][position.x+j] = 1;
                                     }
                                 }
                             }
@@ -129,8 +129,8 @@
                         params[0] = instructions[i];
                         for (var x=0;x<params[0];x++) {
                             for (var j=0;j<params[0];j++) {
-                                if (table[position.y+x][position.x+j] !== null) {
-                                    table[position.y+x][position.x+j] = 1;
+                                if (table[position.x+x][position.y+j] !== null) {
+                                    table[position.x+x][position.y+j] = 1;
                                 }
                             }
                         }
@@ -138,8 +138,8 @@
                     if (instruction == 2) {
                         params[0] = instructions[i];
                         for (var x=0;x<4;x++) {
-                            if (table[position.y][position.x+x] !== null) {
-                                table[position.y][position.x+x] = parseInt(tobinary(params[0]).charAt(i));
+                            if (table[position.x+x][position.y] !== null) {
+                                table[position.x+x][position.y] = parseInt(tobinary(params[0]).charAt(i));
                             }
                         }
                         position.y++;
@@ -155,8 +155,8 @@
                             params[2] = instructions[i];
                             for (var x=0;x<params[2];x++) {
                                 for (var j=0;j<params[2];j++) {
-                                    if (table[position.y+j][position.x+x] !== 0) {
-                                        table[position.y+j][position.x+x] = 1;
+                                    if (table[position.x+x][position.y+j] !== 0) {
+                                        table[position.x+x][position.y+j] = 1;
                                     }
                                 }
                             }
@@ -169,7 +169,7 @@
                         } else {
                             params[1] = instructions[i];
                             position.y = params[1];
-                            table[position.y][position.x] = 1;
+                            table[params[0]][params[1]] = 1;
                         }
                     }
                     if (instruction == 14) {
@@ -179,7 +179,7 @@
                         } else {
                             params[1] = instructions[i];
                             position.y = params[1];
-                            table[params[1]][params[0]] = 0;
+                            table[params[0]][params[1]] = 0;
                         }
                     }
                     parameters = parameters - 1;
