@@ -118,8 +118,8 @@
                             params[1] = instructions[i];
                             for (var x=0;x<params[0];x++) {
                                 for (var j=0;j<params[1];j++) {
-                                    if (table[position.x+x] !== null) {
-                                        if (table[position.x+x][position.y+j] !== null) {
+                                    if (position.x+x < 16) {
+                                        if (position.y+j < 16) {
                                             table[position.x+x][position.y+j] = 1;
                                         }
                                     }
