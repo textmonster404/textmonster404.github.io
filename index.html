@@ -44,7 +44,7 @@
                             <li><a href="RTF.html">RTF Editor</a></li>
                             <li><a href="page-jumper.html">Page Jumper</a></li>
                             <li><a href="typing-speed.html">Typing Test</a></li>
-                            <li><a href="https://textmonster404.000webhostapp.com/">textmonster404.000webhostapp.com</a></li>
+                            <li><a href="https://textmonster404.000webhostapp.com/">My Domains</a></li>
                             <li><a href="https://github.com/textmonster404/textmonster404.github.io/archive/master.zip">Download this Website!</a></li>
                         </ul>
                     </td>
@@ -55,10 +55,24 @@
                             <li><a href="Games/Cookie Clicker Offline/index.html">Cookie Clicker</a></li>
                             <li><a href="Games/doge2048/doge2048.html" style="font-family:'Comic Sans', 'Comic Sans', Chalkboard, Helvetica, Arial, sans-serif;">Doge 2048</a></li>
                             <li><a href="maze/maze.html">Link Maze</a></li>
+                            <li><a href="tictactoe_asm.html">Tic Tac Toe ASM</a></li>
+                            <li id="tictactop"><a id="tictac" href="tictactoe">Random Tic Tac Toe Board</a></li>
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <script>
+            var tictac = document.getElementById("tictac");
+            var tictactop = document.getElementById("tictactop");
+            var number = decodeURIComponent(window.location.search.substring(1));
+            if (window.location.href.includes("textmonster404.github.io/?")) {
+                window.location.replace("https://textmonster404.github.io/index?"+parseInt(number)+".html");
+            } else if (number !== null && number !== "") {
+                tictac.href = "tictactoe?"+parseInt(number)+".html";
+            } else {
+                tictactop.outerHTML = "";
+            }
+        </script>
     </body>
 </html>
