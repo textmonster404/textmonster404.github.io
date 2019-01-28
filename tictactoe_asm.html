@@ -27,7 +27,7 @@ Number.prototype.toFixedSpecial = function(n) {
                 var link = document.getElementById("link");
                 var instructions = code.value;
                 var number = parseInt(instructions.replaceAll("10","ten").replaceAll("11","eleven").replaceAll("12","twelve").replaceAll("13","thirteen").replaceAll("14","fourteen").replaceAll("15","fifteen").replaceAll("0","0000").replaceAll("1","0001").replaceAll("ten","1010").replaceAll("eleven","1011").replaceAll("twelve","1100").replaceAll("thirteen","1101").replaceAll("fourteen","1110").replaceAll("fifteen","1111").replaceAll("2","0010").replaceAll("3","0011").replaceAll("4","0100").replaceAll("5","0101").replaceAll("6","0110").replaceAll("7","0111").replaceAll("8","1000").replaceAll("9","1001").replaceAll("rectangleat","1001").replaceAll("rectangleoff","0110").replaceAll("rectangle","1111").replaceAll("writex","1010").replaceAll("write","0010").replaceAll("lineoff","1000").replaceAll("line","0100").replaceAll("squareat","0011").replaceAll("squareoff","0101").replaceAll("square","0001").replaceAll("position","0111").replaceAll("players","1011").replaceAll("row","1100").replaceAll("on","1101").replaceAll("off","1110").replaceAll(" ","").replaceAll("\n","").replaceAll(",",""),2);
-                var address = "https://textmonster404.github.io/tictactoe?"+number.toFixedSpecial+".html";
+                var address = "https://textmonster404.github.io/tictactoe?"+number.toFixedSpecial(0)+".html";
                 link.innerHTML = address;
                 link.href = address;
             }
