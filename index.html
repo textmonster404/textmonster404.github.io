@@ -68,7 +68,7 @@
             var number = decodeURIComponent(window.location.search.substring(1));
             if (window.location.href.includes("textmonster404.github.io/?")) {
                 window.location.replace("https://textmonster404.github.io/index?"+number+".html");
-            } else if (number !== null && number !== "") {
+            } else if (number !== null && number !== "" && number !== "random.html") {
                 tictac.href = "tictactoe?"+parseInt(number)+".html";
             } else if (number == "random.html") {
                 tictac.href = "tictactoe?"+Math.floor(Math.random()*1000000000+1)+".html";
