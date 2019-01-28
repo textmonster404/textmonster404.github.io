@@ -29,7 +29,9 @@
             function todecimal(number) {return parseInt(number,2)}
             var number = parseInt(decodeURIComponent(window.location.search.substring(1)));
             var binaryNumber = digits4(tobinary(number))
-            var position = {x:0,y:0};
+            var position = {};
+            position.x = 0;
+            position.y = 0;
             var parameters = 0;
             var instructions = [];
             var table = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -131,7 +133,7 @@
                         params[0] = instructions[i];
                         for (var x=0;x<params[0];x++) {
                             for (var j=0;j<params[0];j++) {
-                                if (table[position.x+x][position.y+j] !== null) {
+                                if (position.x+x<16 && position.y+j<16) {
                                     table[position.x+x][position.y+j] = 1;
                                 }
                             }
@@ -140,7 +142,7 @@
                     if (instruction == 2) {
                         params[0] = instructions[i];
                         for (var x=0;x<4;x++) {
-                            if (table[position.x+x][position.y] !== null) {
+                            if (position.x+x<16 && position.y<16) {
                                 table[position.x+x][position.y] = parseInt(tobinary(params[0]).charAt(i));
                             }
                         }
@@ -149,16 +151,14 @@
                     if (instruction == 3) {
                         if (parameters==3) {
                             params[0] = instructions[i];
-                            position.x = params[0]
                         } else if (parameters==2) {
                             params[1] = instructions[i];
-                            position.y = params[1]
                         } else {
                             params[2] = instructions[i];
                             for (var x=0;x<params[2];x++) {
                                 for (var j=0;j<params[2];j++) {
-                                    if (table[position.x+x][position.y+j] !== null) {
-                                        table[position.x+x][position.y+j] = 1;
+                                    if (params[0]+x<16 && params[1]+j<16) {
+                                        table[params[0]+x][params[1]+j] = 1;
                                     }
                                 }
                             }
@@ -171,11 +171,11 @@
                             params[1] = instructions[i];
                             for (var r=0;r<params[1];r++) {
                                 if (params[0]%2==0) {
-                                    if (table[position.x+r][position.y] !== null) {
+                                    if (position.x+r<16 && position.y<16) {
                                         table[position.x+r][position.y] = 1;
                                     }
                                 } else {
-                                    if (table[position.x][position.y+r] !== null) {
+                                    if (position.x+r<16 && position.y<16) {
                                         table[position.x][position.y+r] = 1;
                                     }
                                 }
@@ -186,7 +186,7 @@
                         params[0] = instructions[i];
                         for (var x=0;x<params[0];x++) {
                             for (var j=0;j<params[0];j++) {
-                                if (table[position.x+x][position.y+j] !== null) {
+                                if (position.x+x<16 && position.y+j<16) {
                                     table[position.x+x][position.y+j] = 0;
                                 }
                             }
@@ -199,7 +199,7 @@
                             params[1] = instructions[i];
                             for (var x=0;x<params[0];x++) {
                                 for (var j=0;j<params[1];j++) {
-                                    if (table[position.x+x][position.x+j] !== null) {
+                                    if (position.x+x<16 && position.y+j<16) {
                                         table[position.x+x][position.x+j] = 0;
                                     }
                                 }
@@ -222,11 +222,11 @@
                             params[1] = instructions[i];
                             for (var r=0;r<params[1];r++) {
                                 if (params[0]%2==0) {
-                                    if (table[position.x+r][position.y] !== null) {
+                                    if (position.x+r<16 && position.y<16) {
                                         table[position.x+r][position.y] = 0;
                                     }
                                 } else {
-                                    if (table[position.x][position.y+r] !== null) {
+                                    if (tposition.x<16 && position.y+r<16) {
                                         table[position.x][position.y+r] = 0;
                                     }
                                 }
@@ -246,8 +246,8 @@
                             params[3] = instructions[i];
                             for (var x=0;x<params[2];x++) {
                                 for (var j=0;j<params[3];j++) {
-                                    if (table[position.x+x][position.y+j] !== 0) {
-                                        table[position.x+x][position.y+j] = 1;
+                                    if (position.x+x<16 && position.y+j<16) {
+                                        table[params[0]+x][params[1]+j] = 1;
                                     }
                                 }
                             }
@@ -260,7 +260,7 @@
                             params[1] = instructions[i];
                             for (var iterations=0;iterations<params[1];iterations++) {
                                 for (var x=0;x<4;x++) {
-                                    if (table[position.x+x][position.y] !== null) {
+                                    if (position.x+x<16 && position.y<16) {
                                         table[position.x+x][position.y] = parseInt(tobinary(params[0]).charAt(i));
                                     }
                                 }
@@ -321,9 +321,10 @@
                          [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                          [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                          [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+                position.y = 0;
                 for (var r=0;r<instructions.length;r++) {
                     for (var i=0;i<4;i++) {
-                        if (table[position.y][position.x+i] !== null) {
+                        if (position.y+i<16) {
                             table[position.y][position.x+i] = parseInt(digits4(tobinary(instructions[r])).charAt(i));
                         }
                     }
