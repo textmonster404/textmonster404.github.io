@@ -27,7 +27,7 @@
                 }
             }
             function todecimal(number) {return parseInt(number,2)}
-            var number = decodeURIComponent(window.location.search.substring(1));
+            var number = decodeURIComponent(window.location.search.substring(1)).split(".")[0];
             var binaryNumber = digits4(number)
             var position = {x:0,y:0};
             var parameters = 0;
