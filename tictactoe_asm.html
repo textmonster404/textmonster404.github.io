@@ -8,29 +8,35 @@
         <textarea id="code">square 3</textarea>
         <a href="" id="link">&nbsp;</a>
         <script>
-function removeExponent(s) {
-    var ie = s.indexOf('e');
-    if (ie != -1) {
-        if (s.charAt(ie + 1) == '-') {
-            // negative exponent, prepend with .0s
-            var n = s.substr(ie + 2).match(/[0-9]+/);
-            s = s.substr(2, ie - 2); // remove the leading '0.' and exponent chars
-            for (var i = 0; i < n; i++) {
-                s = '0' + s;
-            }
-            s = '.' + s;
-        } else {
-            // positive exponent, postpend with 0s
-            var n = s.substr(ie + 1).match(/[0-9]+/);
-            s = s.substr(0, ie); // strip off exponent chars            
-            for (var i = 0; i < n; i++) {
-                s += '0';
-            }       
+function numberToString(num)
+{
+    let numStr = String(num);
+
+    if (Math.abs(num) < 1.0)
+    {
+        let e = parseInt(num.toString().split('e-')[1]);
+        if (e)
+        {
+            let negative = num < 0;
+            if (negative) num *= -1
+            num *= Math.pow(10, e - 1);
+            numStr = '0.' + (new Array(e)).join('0') + num.toString().substring(2);
+            if (negative) numStr = "-" + numStr;
         }
     }
-    return s;
-}
-            String.prototype.replaceAll = function(search, replacement) {
+    else
+    {
+        let e = parseInt(num.toString().split('+')[1]);
+        if (e > 20)
+        {
+            e -= 20;
+            num /= Math.pow(10, e);
+            numStr = num.toString() + (new Array(e + 1)).join('0');
+        }
+    }
+
+    return numStr;
+}            String.prototype.replaceAll = function(search, replacement) {
                 var target = this;
                 return target.split(search).join(replacement);
             };
@@ -39,7 +45,7 @@ function removeExponent(s) {
                 var link = document.getElementById("link");
                 var instructions = code.value;
                 var number = parseInt(instructions.replaceAll("10","ten").replaceAll("11","eleven").replaceAll("12","twelve").replaceAll("13","thirteen").replaceAll("14","fourteen").replaceAll("15","fifteen").replaceAll("0","0000").replaceAll("1","0001").replaceAll("ten","1010").replaceAll("eleven","1011").replaceAll("twelve","1100").replaceAll("thirteen","1101").replaceAll("fourteen","1110").replaceAll("fifteen","1111").replaceAll("2","0010").replaceAll("3","0011").replaceAll("4","0100").replaceAll("5","0101").replaceAll("6","0110").replaceAll("7","0111").replaceAll("8","1000").replaceAll("9","1001").replaceAll("rectangleat","1001").replaceAll("rectangleoff","0110").replaceAll("rectangle","1111").replaceAll("writex","1010").replaceAll("write","0010").replaceAll("lineoff","1000").replaceAll("line","0100").replaceAll("squareat","0011").replaceAll("squareoff","0101").replaceAll("square","0001").replaceAll("position","0111").replaceAll("players","1011").replaceAll("row","1100").replaceAll("on","1101").replaceAll("off","1110").replaceAll(" ","").replaceAll("\n","").replaceAll(",",""),2);
-                var address = "https://textmonster404.github.io/tictactoe?"+removeExponent(number.toString())+".html";
+                var address = "https://textmonster404.github.io/tictactoe?"+numberToString(number)+".html";
                 link.innerHTML = address;
                 link.href = address;
             }
