@@ -15,7 +15,7 @@
                 return(false);
             }
             function start() {
-                if (getQueryVariable("code")==false) {if (getQueryVariable("name")==false) {} else {document.body.innerHTML=localStorage.getItem(getQueryVariable("name"));}} else { document.body.innerHTML=decodeURIComponent(getQueryVariable("code"));}
+                if (getQueryVariable("code")==false) {if (getQueryVariable("name")==false) {} else {document.body.innerHTML=localStorage.getItem(getQueryVariable("name"));}} else  { document.body.innerHTML=decodeURIComponent(window.location.search.substring(1).split(".html")[0];}
             }
         </script>
     </head>
