@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Tic-tac-toe</title>
+        <style>
+            /*table {border-collapse:collapse;}*/
+            td,th {width:1em;height:1em;font-weight:normal;}
+            td {border:1px solid white;}
+            th {border:1px solid black;}
+        </style>
+    </head>
+    <body>
+        <div id="board">
+        </div>
+        <script>
+            function tobinary(number) {return number.toString(2)}
+            function digits4(number) {
+                if (number.length%4==0) {
+                    return number;
+                } else if (number.length%4==1) {
+                    return "000"+number;
+                } else if (number.length%4==2) {
+                    return "00"+number;
+                } else if (number.length%4==3) {
+                    return "0"+number;
+                }
+            }
+            function todecimal(number) {return parseInt(number,2)}
+            var number = decodeURIComponent(window.location.search.substring(1));
+            var binaryNumber = digits4(number)
+            var position = {x:0,y:0};
+            var parameters = 0;
+            var instructions = [];
+            var table = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+            var index = 0;
+            for (var i=0;i<binaryNumber.length/4;i++) {
+                instructions[index] = todecimal(binaryNumber.substring(i*4,(i+1)*4));
+                index = index+1;
+            }
+            index = 0;
+            var instruction = instructions[0];
+            var params = [];
+            var players = [2,2];
+            var row = 3;
+            for (var i=0;i<instructions.length;i++) {
+                if (parameters==0) {
+                    params = []
+                    if (instructions[i]==0) {
+                        instruction = instructions[i];
+                        parameters = 2;
+                    } else if (instructions[i]==1) {
+                        instruction = instructions[i];
+                        parameters = 1;
+                    } else if (instructions[i]==2) {
+                        instruction = instructions[i];
+                        parameters = 1;
+                    } else if (instructions[i]==3) {
+                        instruction = instructions[i];
+                        parameters = 3;
+                    } else if (instructions[i]==4) {
+                        instruction = instructions[i];
+                        parameters = 2;
+                    } else if (instructions[i]==5) {
+                        instruction = instructions[i];
+                        parameters = 1;
+                    } else if (instructions[i]==6) {
+                        instruction = instructions[i];
+                        parameters = 2;
+                    } else if (instructions[i]==7) {
+                        instruction = instructions[i];
+                        parameters = 2;
+                    } else if (instructions[i]==8) {
+                        instruction = instructions[i];
+                        parameters = 2;
+                    } else if (instructions[i]==9) {
+                        instruction = instructions[i];
+                        parameters = 4;
+                    } else if (instructions[i]==10) {
+                        instruction = instructions[i];
+                        parameters = 2;
+                    } else if (instructions[i]==11) {
+                        instruction = instructions[i];
+                        parameters = 2;
+                    } else if (instructions[i]==12) {
+                        instruction = instructions[i];
+                        parameters = 1;
+                    } else if (instructions[i]==13) {
+                        instruction = instructions[i];
+                        parameters = 2;
+                    } else if (instructions[i]==14) {
+                        instruction = instructions[i];
+                        parameters = 2;
+                    } else if (instructions[i]==15) {
+                        instruction = instructions[i];
+                        parameters = 2;
+                    }
+                } else {
+                    if (instruction == 0 || instruction == 15) {
+                        if (parameters==2) {
+                            params[0] = instructions[i];
+                        } else if (parameters==1) {
+                            params[1] = instructions[i];
+                            for (var x=0;x<params[0];x++) {
+                                for (var j=0;j<params[1];j++) {
+                                    if (position.x+x < 16) {
+                                        if (position.y+j < 16) {
+                                            table[position.x+x][position.y+j] = 1;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (instruction == 1) {
+                        params[0] = instructions[i];
+                        for (var x=0;x<params[0];x++) {
+                            for (var j=0;j<params[0];j++) {
+                                if (table[position.x+x][position.y+j] !== null) {
+                                    table[position.x+x][position.y+j] = 1;
+                                }
+                            }
+                        }
+                    }
+                    if (instruction == 2) {
+                        params[0] = instructions[i];
+                        for (var x=0;x<4;x++) {
+                            if (table[position.x+x][position.y] !== null) {
+                                table[position.x+x][position.y] = parseInt(tobinary(params[0]).charAt(i));
+                            }
+                        }
+                        position.y++;
+                    }
+                    if (instruction == 3) {
+                        if (parameters==3) {
+                            params[0] = instructions[i];
+                            position.x = params[0]
+                        } else if (parameters==2) {
+                            params[1] = instructions[i];
+                            position.y = params[1]
+                        } else {
+                            params[2] = instructions[i];
+                            for (var x=0;x<params[2];x++) {
+                                for (var j=0;j<params[2];j++) {
+                                    if (table[position.x+x][position.y+j] !== null) {
+                                        table[position.x+x][position.y+j] = 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (instruction == 4) {
+                        if (parameters==2) {
+                            params[0] = instructions[i];
+                        } else if (parameters==1) {
+                            params[1] = instructions[i];
+                            for (var r=0;r<params[1];r++) {
+                                if (params[0]%2==0) {
+                                    if (table[position.x+r][position.y] !== null) {
+                                        table[position.x+r][position.y] = 1;
+                                    }
+                                } else {
+                                    if (table[position.x][position.y+r] !== null) {
+                                        table[position.x][position.y+r] = 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (instruction == 5) {
+                        params[0] = instructions[i];
+                        for (var x=0;x<params[0];x++) {
+                            for (var j=0;j<params[0];j++) {
+                                if (table[position.x+x][position.y+j] !== null) {
+                                    table[position.x+x][position.y+j] = 0;
+                                }
+                            }
+                        }
+                    }
+                    if (instruction == 6) {
+                        if (parameters==2) {
+                            params[0] = instructions[i];
+                        } else if (parameters==1) {
+                            params[1] = instructions[i];
+                            for (var x=0;x<params[0];x++) {
+                                for (var j=0;j<params[1];j++) {
+                                    if (table[position.x+x][position.x+j] !== null) {
+                                        table[position.x+x][position.x+j] = 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (instruction == 7) {
+                        if (parameters==1) {
+                            params[0] = instructions[i];
+                            position.x = params[0];
+                        } else if (parameters==1) {
+                            params[1] = instructions[i];
+                            position.y = params[1];
+                        }
+                    }
+                    if (instruction == 8) {
+                        if (parameters==2) {
+                            params[0] = instructions[i];
+                        } else if (parameters==1) {
+                            params[1] = instructions[i];
+                            for (var r=0;r<params[1];r++) {
+                                if (params[0]%2==0) {
+                                    if (table[position.x+r][position.y] !== null) {
+                                        table[position.x+r][position.y] = 0;
+                                    }
+                                } else {
+                                    if (table[position.x][position.y+r] !== null) {
+                                        table[position.x][position.y+r] = 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (instruction == 9) {
+                        if (parameters==4) {
+                            params[0] = instructions[i];
+                            position.x = params[0]
+                        } else if (parameters==3) {
+                            params[1] = instructions[i];
+                            position.y = params[1]
+                        } else if (parameters==2) {
+                            params[2] = instructions[i];
+                        } else {
+                            params[3] = instructions[i];
+                            for (var x=0;x<params[2];x++) {
+                                for (var j=0;j<params[3];j++) {
+                                    if (table[position.x+x][position.y+j] !== 0) {
+                                        table[position.x+x][position.y+j] = 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (instruction == 10) {
+                        if (parameters==2) {
+                            params[0] = instructions[i];
+                        } else {
+                            params[1] = instructions[i];
+                            for (var iterations=0;iterations<params[1];iterations++) {
+                                for (var x=0;x<4;x++) {
+                                    if (table[position.x+x][position.y] !== null) {
+                                        table[position.x+x][position.y] = parseInt(tobinary(params[0]).charAt(i));
+                                    }
+                                }
+                                position.y++;
+                            }
+                        }
+                    }
+                    if (instruction == 11) {
+                        if (parameters==1) {
+                            params[0] = instructions[i];
+                            players[0] = params[0];
+                        } else if (parameters==1) {
+                            params[1] = instructions[i];
+                            players[1] = params[1];
+                        }
+                    }
+                    if (instruction == 12) {
+                        params[0] = instructions[i];
+                        row = params[0];
+                    }
+                    if (instruction == 13) {
+                        if (parameters==2) {
+                            params[0] = instructions[i];
+                            position.x = params[0];
+                        } else {
+                            params[1] = instructions[i];
+                            position.y = params[1];
+                            table[params[0]][params[1]] = 1;
+                        }
+                    }
+                    if (instruction == 14) {
+                        if (parameters==2) {
+                            params[0] = instructions[i];
+                            position.x = params[0];
+                        } else {
+                            params[1] = instructions[i];
+                            position.y = params[1];
+                            table[params[0]][params[1]] = 0;
+                        }
+                    }
+                    parameters = parameters - 1;
+                }
+            }
+            if (parameters!==0) {
+                table = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+                for (var r=0;r<instructions.length;r++) {
+                    for (var i=0;i<4;i++) {
+                        if (table[position.y][position.x+i] !== null) {
+                            table[position.y][position.x+i] = parseInt(digits4(tobinary(instructions[r])).charAt(i));
+                        }
+                    }
+                    position.y++;
+                }
+            }
+            if (players[0]==players[1]) {
+                var tablestr = "<p>Players: "+players[0]+"</p><p>"+row+" In a row."+"<table><tbody><tr>";
+            } else {
+                var tablestr = "<p>Players: "+players[0]+"-"+players[1]+"</p><p>"+row+" In a row."+"<table><tbody><tr>";
+            }
+            for (var x=0;x<16;x++) {
+                tablestr+="<tr/><tr>";
+                for (var y=0;y<16;y++) {
+                    if (table[y][x]==0) {
+                        tablestr+="<td>&nbsp;</td>";
+                    } else if (table[y][x]==1) {
+                        tablestr+="<th>&nbsp;</th>";
+                    }
+                }
+            }
+            tablestr+="</tr></tbody></table>";
+            document.getElementById("board").innerHTML=tablestr;
+        </script>
+    </body>
+</html>
