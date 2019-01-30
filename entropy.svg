@@ -1,0 +1,47 @@
+<!-- Using turbulence filters for entropy. -->
+
+<svg xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {font-size:40px;}
+  </style>
+  <filter id="turbulence5">
+    <feTurbulence type="turbulence" baseFrequency="0.05"
+        numOctaves="1" result="turbulence"/>
+    <feDisplacementMap in2="turbulence" in="SourceGraphic"
+        scale="5" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="turbulence6">
+    <feTurbulence type="turbulence" baseFrequency="0.05"
+        numOctaves="1" result="turbulence"/>
+    <feDisplacementMap in2="turbulence" in="SourceGraphic"
+        scale="6" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="turbulence8">
+    <feTurbulence type="turbulence" baseFrequency="0.05"
+        numOctaves="1" result="turbulence"/>
+    <feDisplacementMap in2="turbulence" in="SourceGraphic"
+        scale="8" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="turbulence13">
+    <feTurbulence type="turbulence" baseFrequency="0.05"
+        numOctaves="1" result="turbulence"/>
+    <feDisplacementMap in2="turbulence" in="SourceGraphic"
+        scale="13" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="turbulence15">
+    <feTurbulence type="turbulence" baseFrequency="0.05"
+        numOctaves="2" result="turbulence"/>
+    <feDisplacementMap in2="turbulence" in="SourceGraphic"
+        scale="15" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="turbulence16">
+    <feTurbulence type="turbulence" baseFrequency="0.05"
+        numOctaves="3" result="turbulence"/>
+    <feDisplacementMap in2="turbulence" in="SourceGraphic"
+        scale="16" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+
+  <text x="0" y="40">
+    <tspan>e</tspan><tspan tyle="filter:url(#turbulence5)">n</tspan><tspan style="filter:url(#turbulence6)">t</tspan><tspan style="filter:url(#turbulence8)">r</tspan><tspan style="filter:url(#turbulence13)">o</tspan><tspan style="filter:url(#turbulence15)">p</tspan><tspan style="filter:url(#turbulence16)">y</tspan>
+    </text>
+</svg>
