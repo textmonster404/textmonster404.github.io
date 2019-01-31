@@ -1,0 +1,9 @@
+
+<!-- Mem Coin -->
+<svg xmlns="http://www.w3.org/2000/svg">
+  <circle cx="53" cy="53" r="49" stroke="#222222" stroke-width="4" fill="#FEFEFE"/>
+  <text style="font-size:70px;" x="29" y="73">B</text>
+  <rect rx="2" ry="2" x="25" y="19" width="52" height="7"/>
+  <rect rx="2" ry="2" x="25" y="74" width="52" height="7"/>
+  <text x="38" y="93" style="font-weight:bold;">1.00</text>
+</svg>
