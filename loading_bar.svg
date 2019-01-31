@@ -1,0 +1,23 @@
+<!-- loading bar -->
+<?xml version="1.0"?>
+<svg width="300" height="12" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+  
+  <rect x="0" y="1" width="30" height="10" rx="3" ry="5" fill="lime" opacity="0.8">
+    <animate attributeType="XML" attributeName="x" from="-300" to="300"
+        dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="0" y="0" width="300" height="10" rx="3" ry="5" fill="#999999" opacity="0.2" stroke="#222222"/>
+  <polygon points="15,1 , 25,1 , 15,10 , 5,10" opacity="0.4" fill="#99AA99"/>
+  <polygon points="40,1 , 50,1 , 40,10 , 30,10" opacity="0.4" fill="#99AA99"/>
+  <polygon points="65,1 , 75,1 , 65,10 , 55,10" opacity="0.4" fill="#99AA99"/>
+  <polygon points="90,1 , 100,1 , 90,10 , 80,10" opacity="0.4" fill="#99AA99"/>
+  <polygon points="115,1 , 125,1 , 115,10 , 105,10" opacity="0.4" fill="#99AA99"/>
+  <polygon points="140,1 , 150,1 , 140,10 , 130,10" opacity="0.4" fill="#99AA99"/>
+  <polygon points="165,1 , 175,1 , 165,10 , 155,10" opacity="0.4" fill="#99AA99"/>
+  <polygon points="190,1 , 200,1 , 190,10 , 180,10" opacity="0.4" fill="#99AA99"/>
+  <polygon points="215,1 , 225,1 , 215,10 , 205,10" opacity="0.4" fill="#99AA99"/>
+  <polygon points="240,1 , 250,1 , 240,10 , 230,10" opacity="0.4" fill="#99AA99"/>
+  <polygon points="265,1 , 275,1 , 265,10 , 255,10" opacity="0.4" fill="#99AA99"/>
+  <polygon points="290,1 , 300,1 , 290,10 , 280,10" opacity="0.4" fill="#99AA99"/>
+</svg>
