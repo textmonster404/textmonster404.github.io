@@ -1,0 +1,8 @@
+<!-- Mem Coin -->
+<svg xmlns="http://www.w3.org/2000/svg">
+  <circle cx="53" cy="53" r="49" stroke="#222222" stroke-width="4" fill="#FEFEFE"/>
+  <text style="font-size:70px;" x="22" y="73">M</text>
+  <rect rx="2" ry="2" x="13" y="40" width="80" height="7"/>
+  <rect rx="2" ry="2" x="13" y="52" width="80" height="7"/>
+  <text x="38" y="93" style="font-weight:bold;">0.25</text>
+</svg>
