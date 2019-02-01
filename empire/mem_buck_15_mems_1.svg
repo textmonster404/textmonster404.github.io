@@ -8,5 +8,5 @@
   <rect x="1000" y="235" width="45" height="4" rx="1" ry="1"/>
   <text x="0" y="250" style="font-size:50px;font-weight:bold;">15 MEMS</text>
   <text x="826" y="40" style="font-size:50px;font-weight:bold;">15 MEMS</text>
-  <image xlink:src="https://www.lifewire.com/thmb/-CU6ZJSPKLr2BwEoK4cVHyPVj4M=/806x640/filters:no_upscale()/Cat9_canhaz-5aab0850ff1b78003653a2eb.jpg" y="0" height="250" x="365" />
+  <image src="https://www.lifewire.com/thmb/-CU6ZJSPKLr2BwEoK4cVHyPVj4M=/806x640/filters:no_upscale()/Cat9_canhaz-5aab0850ff1b78003653a2eb.jpg" y="0" height="250" x="365" />
 </svg>
