@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Langton's Ant</title>
+<style>
+table {border-collapse:collapse;}
+td {border:1px solid black;cursor:crosshair;}
+</style>
+</head>
+<body>
+<div id="output">
+
+</div>
+<button onClick="start()">Start</button>
+
+<script>
+var rules = decodeURIComponent(window.location.search.substring(1));
+
+var output = document.getElementById("output");
+var table = [];
+var tablestr = "<table>";
+for (var y=0;y<100;y++) {
+    tablestr+="<tr>";
+    table[y] = [];
+    for (var x=0;x<100;x++) {
+        tablestr+="<td onmousedown=\"if (event.shiftKey){updateCell("+x+","+y+",true);antPos("+x+","+y+");}\" onmouseover=\"if (event.shiftKey){updateCell("+x+","+y+",false);togglePos("+x+","+y+")}\" id=\""+x+","+y+"\"></td>";
+        table[y][x] = false;
+    }
+    tablestr+="</tr>";
+}
+tablestr+="</table>";
+output.innerHTML = tablestr;
+var getCell = function(x,y) {
+    return document.getElementById(x+","+y);
+}
+var updateCell = function(x,y,ant) {
+    if (ant===true) {
+        getCell(x,y).style.background = "red";
+    } else {
+        if (table[y][x]==true) {
+            getCell(x,y).style.background = "black";
+        } else {
+            getCell(x,y).style.background = "white";
+        }
+    }
+}
+var togglePos = function(x,y) {
+    if (table[y][x]==true) {
+         table[y][x] = false;
+    } else if (table[y][x]==false) {
+         table[y][x] = true;
+    }
+}
+/*
+1 = up
+2 = right
+3 = down
+4 = left
+*/
+
+var direction = 1;
+var antX = 50;
+var antY = 50;
+var advance = function() {
+    if (direction==1) {
+        antY--;
+    } else if (direction==2) {
+        antX++;
+    } else if (direction==3) {
+        antY++;
+    } else if (direction==4) {
+        antX--;
+    }
+    if (antX==100) {
+        antX=0;
+    }
+    if (antY==100) {
+        antY=0;
+    }
+    if (antX==-1) {
+        antX=99;
+    }
+    if (antY==-1) {
+        antY=99;
+    }
+}
+var right = function() {
+    direction = (direction%4)+1;
+}
+var left = function() {
+    direction = direction-1;
+    if (direction==0) {
+        direction=4;
+    }
+}
+var direction = 1;
+var antX = 50;
+var antY = 50;
+function antPos(x,y) {
+    updateCell(antX,antY,false);
+    antX = x;
+    antY = y;
+}
+function advanceAnt() {
+    updateCell(antX,antY,false);
+    if (table[antY][antX]==true) {
+        right();
+    } else {
+        left();
+    }
+    advance();
+    togglePos(antX,antY);
+    updateCell(antX,antY,true);
+}
+function start() {
+    window.setInterval(advanceAnt,10);
+}
+</script>
+</body>
+</html>
