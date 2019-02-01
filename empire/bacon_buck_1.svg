@@ -1,0 +1,11 @@
+<!-- Bacon Buck -->
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="257">
+  <text x="0" y="40" style="font-size:50px;">B</text>
+  <text x="400" y="250" style="font-size:50px;">B</text>
+  <rect x="0" y="0" width="35" height="4" rx="1" ry="1"/>
+  <rect x="0" y="43" width="35" height="4" rx="1" ry="1"/>
+  <rect x="400" y="210" width="35" height="4" rx="1" ry="1"/>
+  <rect x="400" y="253" width="35" height="4" rx="1" ry="1"/>
+  <text x="0" y="250" style="font-size:50px;font-weight:bold;">1 BACON</text>
+  <text x="226" y="40" style="font-size:50px;font-weight:bold;">1 BACON</text>
+</svg>
