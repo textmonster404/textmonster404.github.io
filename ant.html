@@ -14,15 +14,15 @@ td {border:1px solid black;cursor:crosshair;}
 <button onClick="start()">Start</button>
 
 <script>
-var rules = decodeURIComponent(window.location.search.substring(1));
-
+var rules = parseInt(decodeURIComponent(window.location.search.substring(1)));
+if (decodeURIComponent(window.location.search.substring(1)) == "") {rules=100;}
 var output = document.getElementById("output");
 var table = [];
 var tablestr = "<table>";
-for (var y=0;y<100;y++) {
+for (var y=0;y<rules;y++) {
     tablestr+="<tr>";
     table[y] = [];
-    for (var x=0;x<100;x++) {
+    for (var x=0;x<rules;x++) {
         tablestr+="<td onmousedown=\"if (event.shiftKey){updateCell("+x+","+y+",true);antPos("+x+","+y+");}\" onmouseover=\"if (event.shiftKey){updateCell("+x+","+y+",false);togglePos("+x+","+y+")}\" id=\""+x+","+y+"\"></td>";
         table[y][x] = false;
     }
@@ -59,8 +59,8 @@ var togglePos = function(x,y) {
 */
 
 var direction = 1;
-var antX = 50;
-var antY = 50;
+var antX = Math.floor(rules/2);
+var antY = Math.floor(rules/2);
 var advance = function() {
     if (direction==1) {
         antY--;
@@ -71,17 +71,17 @@ var advance = function() {
     } else if (direction==4) {
         antX--;
     }
-    if (antX==100) {
+    if (antX==rules) {
         antX=0;
     }
-    if (antY==100) {
+    if (antY==rules) {
         antY=0;
     }
     if (antX==-1) {
-        antX=99;
+        antX=rules-1;
     }
     if (antY==-1) {
-        antY=99;
+        antY=rules-1;
     }
 }
 var right = function() {
@@ -93,9 +93,6 @@ var left = function() {
         direction=4;
     }
 }
-var direction = 1;
-var antX = 50;
-var antY = 50;
 function antPos(x,y) {
     updateCell(antX,antY,false);
     antX = x;
