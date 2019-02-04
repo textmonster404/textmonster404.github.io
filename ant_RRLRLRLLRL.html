@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Langton's Ant RRLRLRLLRL</title>
+<style>
+table {border-collapse:collapse;}
+td {border:1px solid black;cursor:crosshair;}
+</style>
+</head>
+<body>
+<div id="output">
+
+</div>
+<script>
+var rules = parseInt(decodeURIComponent(window.location.search.substring(1)));
+if (decodeURIComponent(window.location.search.substring(1)) == "") {rules=100;}
+var output = document.getElementById("output");
+var table = [];
+var tablestr = "<table>";
+for (var y=0;y<rules;y++) {
+    tablestr+="<tr>";
+    table[y] = [];
+    for (var x=0;x<rules;x++) {
+        tablestr+="<td onmousedown=\"if (event.shiftKey){updateCell("+x+","+y+",true);antPos("+x+","+y+");}\" onmouseover=\"if (event.shiftKey){updateCell("+x+","+y+",false);togglePos("+x+","+y+")}\" id=\""+x+","+y+"\"></td>";
+        table[y][x] = 0;
+    }
+    tablestr+="</tr>";
+}
+tablestr+="</table>";
+output.innerHTML = tablestr;
+
+// parameters //
+
+    var colorRules = ["R","R","L","R","L","R","L","L","R","L"];
+    var totalColors = colorRules.length;
+
+// parameters end //
+
+
+var getCell = function(x,y) {
+    return document.getElementById(x+","+y);
+}
+var updateCell = function(x,y,ant) {
+    if (ant===true) {
+        getCell(x,y).style.background = "red";
+    } else {
+        getCell(x,y).style.background = "rgb("+(255/totalColors)*(table[y][x]+1)+","+(255/totalColors)*(table[y][x]+1)+","+(255/totalColors)*(table[y][x]+1)+")";
+    }
+}
+var togglePos = function(x,y) {
+    table[y][x]++;
+    if (table[y][x]==totalColors) {
+        table[y][x]=0;
+    }
+}
+/*
+1 = up
+2 = right
+3 = down
+4 = left
+*/
+
+var direction = 1;
+var antX = Math.floor(rules/2);
+var antY = Math.floor(rules/2);
+var advance = function() {
+    if (direction==1) {
+        antY--;
+    } else if (direction==2) {
+        antX++;
+    } else if (direction==3) {
+        antY++;
+    } else if (direction==4) {
+        antX--;
+    }
+    if (antX==rules) {
+        antX=0;
+    }
+    if (antY==rules) {
+        antY=0;
+    }
+    if (antX==-1) {
+        antX=rules-1;
+    }
+    if (antY==-1) {
+        antY=rules-1;
+    }
+}
+var right = function() {
+    direction = (direction%4)+1;
+}
+var left = function() {
+    direction = direction-1;
+    if (direction==0) {
+        direction=4;
+    }
+}
+function antPos(x,y) {
+    updateCell(antX,antY,false);
+    antX = x;
+    antY = y;
+}
+function advanceAnt() {
+    updateCell(antX,antY,false);
+    advance();
+    if (colorRules[table[antY][antX]]=="R") {
+        right();
+    } else {
+        left();
+    }
+    togglePos(antX,antY);
+    updateCell(antX,antY,true);
+}
+window.setInterval(advanceAnt,0);
+</script>
+</body>
+</html>
