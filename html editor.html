@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,15 +20,14 @@
                 return(false);
             }
             function start() {
-                if (getQueryVariable("code")==false) {if (getQueryVariable("name")==false) {} else {document.getElementById("input").value=localStorage.getItem(getQueryVariable("name"));}} else { document.getElementById("input").value=decodeURIComponent(getQueryVariable("code")).replace("[lb]",`
-`);}
+                if (getQueryVariable("code")==false) {if (getQueryVariable("name")==false) {} else {document.getElementById("input").value=localStorage.getItem(getQueryVariable("name"));}} else { document.getElementById("input").value=decodeURIComponent(getQueryVariable("code"));}
                 if (getQueryVariable("code")==false) {if (getQueryVariable("name")==false) {} else {document.getElementById("input").value=localStorage.getItem(getQueryVariable("name"));}} else { document.getElementById("input").value=decodeURIComponent(getQueryVariable("code"));}
             }
         </script>
     </head>
     <body onLoad="start();">
         <textarea placeholder="Enter HTML code here!" id="input"></textarea><br>
-        <iframe id="output"></iframe><br>
+        <iframe id="output" width="100%" height="80%"></iframe><br>
         <input type="text" id="fileName"/>
         <input type="button" value="Load" onClick="document.getElementById('input').value = localStorage.getItem(document.getElementById('fileName').value);"/><br>
         <input type="button" value="Save" onclick="localStorage.setItem(document.getElementById('fileName').value, document.getElementById('input').value);" id="save">
