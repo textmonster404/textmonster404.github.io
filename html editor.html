@@ -27,7 +27,7 @@
     </head>
     <body onLoad="start();">
         <textarea placeholder="Enter HTML code here!" id="input"></textarea><br>
-        <iframe id="output" width="100%" height="80%"></iframe><br>
+        <iframe id="output" width="100%" height="300%"></iframe><br>
         <input type="text" id="fileName"/>
         <input type="button" value="Load" onClick="document.getElementById('input').value = localStorage.getItem(document.getElementById('fileName').value);"/><br>
         <input type="button" value="Save" onclick="localStorage.setItem(document.getElementById('fileName').value, document.getElementById('input').value);" id="save">
