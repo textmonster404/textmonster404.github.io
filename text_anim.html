@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charse="UTF-8"/>
+        <link rel="icon" href="icon/icon.ico"/>
+        <title>Text Anim</title>
+        <style>
+            h1 {
+                position:absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="obj1">Text</h1>
+        <h1 id="obj2">Text</h1>
+        <h1 id="obj3">Text</h1>
+        <h1 id="obj4">Text</h1>
+        <h1 id="obj5">Text</h1>
+        <h1 id="obj6">Text</h1>
+        <script>
+            var obj1 = document.getElementById("obj1");
+            var obj2 = document.getElementById("obj2");
+            var obj3 = document.getElementById("obj3");
+            var obj4 = document.getElementById("obj4");
+            var obj5 = document.getElementById("obj5");
+            var obj6 = document.getElementById("obj6");
+            var angle = 0;
+            function update() {
+                obj1.style.top = 10*Math.cos(angle)+"px";
+                obj1.style.left = 10*Math.sin(angle)+"px";
+                obj2.style.top = 8*Math.cos(angle)+"px";
+                obj2.style.left = 8*Math.sin(angle)+"px";
+                obj3.style.top = 6*Math.cos(angle)+"px";
+                obj3.style.left = 6*Math.sin(angle)+"px";
+                obj4.style.top = 4*Math.cos(angle)+"px";
+                obj4.style.left = 4*Math.sin(angle)+"px";
+                obj5.style.top = 2*Math.cos(angle)+"px";
+                obj5.style.left = 2*Math.sin(angle)+"px";
+                obj6.style.top = "0px";
+                obj6.style.left = "0px";
+                angle = angle + Math.PI/180;
+            }
+            window.setInterval(update,0);
+        </script>
+    </body>
+</html>
