@@ -80,9 +80,10 @@ function update() {
                 e.speedX = k.speedX;
                 k.speedX = temp;
                 if (e.y<k.y && e.speedY>0) {
-                    e.y = k.y - e.height - 1;
+                    e.y = k.y - e.clientHeight;
+                    k.y = e.y + e.clientHeight;
                     e.speedY = e.speedY*(-0.6);
-                    k.speedY = k.speedY*(0.4);
+                    k.speedY = k.speedY+1;
                     k.collided = true;
                 } else {
                     if (e.x<k.x && e.speedX>0) {
