@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="icon/icon.ico"/>
+        <title>Sort</title>
+        <style>
+            div {display:inline-block;}
+        </style>
+    </head>
+    <body>
+        <div id="display"></div>
+        <span id="status">Generating...</span>
+        <script>
+            var n = 200;
+            if (decodeURIComponent(window.location.search.substring(1))!=="") {
+                n = parseInt(decodeURIComponent(window.location.search.substring(1)));
+            }
+            
+            var display = document.getElementById("display");
+            var statusEl = document.getElementById("status");
+            var table=[];
+            function createBars(i) {
+                display.innerHTML+="<div id=\""+i+"\" style=\"height:"+i+"px;width:1px;background-color:hsl("+((i/n)*360)+",100%,50%);\"></div>";
+                table[i] = document.getElementById(i.toString());
+            }
+            for (var i=0;i<n;i++) {
+                window.setTimeout(createBars,i*10,i);
+            }
+            function shuffleBars(i) {
+                var temp = document.getElementById(i.toString()).outerHTML;
+                var selected = n-i;
+                document.getElementById(i.toString()).outerHTML = document.getElementById(selected.toString()).outerHTML;
+                document.getElementById(selected.toString()).outerHTML = temp;
+                statusEl.innerHTML = "Shuffling...";
+            }
+            for (var i=0;i<n;i++) {
+                window.setTimeout(shuffleBars,i*10+10*n,i);
+            }
+            function getBar(index) {
+                return display.children[index];
+            }
+            function swapBars(a,b) {
+                var temp = document.getElementById("display").children[a].outerHTML;
+                document.getElementById("display").children[a].outerHTML = document.getElementById("display").children[b].outerHTML;
+                document.getElementById("display").children[b].outerHTML = temp;
+            }
+            function sort(i) {
+                if (document.getElementById("display").children[i].id!==i.toString()) {
+                    swapBars(document.getElementById("display").children[i].id,i);
+                    completed = false;
+                }
+                statusEl.innerHTML = "Sorting...";
+            }
+            var completed = false;
+            var done = false;
+            var its = 0;
+            function ex(i) {
+                window.setTimeout(sort,i*10,i);
+            }
+            var waiting = false;
+            function doSort() {
+                waiting = true;
+                completed = true;
+                var previousDisplay = display;
+                for (var i=0;i<n;i++) {
+                    window.setTimeout(sort,10*i,i);
+                }
+                window.setTimeout(up,10*n);
+                its++;
+            }
+            function up() {
+                if (completed==false) {
+                    doSort();
+                } else {
+                    statusEl.innerHTML = "Done.";
+                }
+            }
+            window.setTimeout(up,30*n);
+        </script>
+    </body>
+</html>
