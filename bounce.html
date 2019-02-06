@@ -82,23 +82,23 @@ function update() {
                 if (e.y+e.height>=k.y && e.y<k.y && e.speedY>0) {
                     e.y = k.y - e.clientHeight;
                     k.y = e.y + e.clientHeight;
-                    e.speedY = e.speedY*(-0.6);
-                    k.speedY = k.speedY+1;
+                    e.speedY = Math.abs(e.speedY)*(-0.6);
+                    k.speedY = k.speedY+Math.abs(e.speedY);
                     k.collided = true;
-                } else if (k.collided==false && e.y+e.speedY>k.y && e.y+e.speedY<k.y+k.height) {
+                    e.collided = true;
+                } else if (k.collided==false) {
                     if (e.x<k.x && e.speedX>0) {
                         e.x = k.x - e.clientWidth;
-                        k.collided = true;
                     }
                     if (e.x>k.x && e.speedX<0) {
-                        e.x = k.x + k.width;
-                        k.collided = true;
+                        e.x = k.x + k.clientWidth;
                     }
                 }
-            } else if (k.collided==true) {
+            } else {
                 k.collided = false;
             }
         }
+        e.collided = false;
         if ((e.y+e.height+e.originalY*4) >= window.innerHeight) {
             e.speedY = e.speedY*(-0.6);
             e.y = window.innerHeight - e.clientHeight-e.originalY*4;
