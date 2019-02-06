@@ -83,12 +83,6 @@ function update() {
                     k.y = e.y + e.height + 1;
                     e.speedY = Math.abs(e.speedY)*(-0.6);
                     k.speedY = k.speedY-e.speedY;
-                    if (e.x<k.x+k.width/2 && e.speedX>0) {
-                        e.x = - k.x + e.width;
-                    }
-                    if (e.x>k.x+k.width/2 && e.speedX<0) {
-                        e.x = - k.x - k.width;
-                    }
                 } else {
                     if (e.x<k.x+k.width/2 && e.speedX>0 && !(e.y<k.y && e.speedY>0)) {
                         e.x = k.x - e.width;
