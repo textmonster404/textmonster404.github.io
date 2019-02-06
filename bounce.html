@@ -95,8 +95,8 @@ function update() {
                     }
                 }
             }
-            e.collided = false;
         }
+        e.collided = false;
         if ((e.y+e.height+e.originalY*4) >= window.innerHeight) {
             e.speedY = e.speedY*(-0.6);
             e.y = window.innerHeight - e.clientHeight-e.originalY*4;
