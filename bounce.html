@@ -79,7 +79,7 @@ function update() {
                 var temp = e.speedX;
                 e.speedX = k.speedX;
                 k.speedX = temp;
-                if (e.y<k.y && e.speedY>0) {
+                if (e.y+e.height>=k.y && e.y<k.y && e.speedY>0) {
                     e.y = k.y - e.clientHeight;
                     k.y = e.y + e.clientHeight;
                     e.speedY = e.speedY*(-0.6);
