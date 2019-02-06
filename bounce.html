@@ -86,7 +86,7 @@ function update() {
                     k.speedY = k.speedY+Math.abs(e.speedY);
                     k.collided = true;
                     e.collided = true;
-                } else if (k.collided==false) {
+                } else if (k.collided==false && e.y-e.speedY>k.y && e.collided == false) {
                     if (e.x<k.x && e.speedX>0) {
                         e.x = k.x - e.clientWidth;
                     }
