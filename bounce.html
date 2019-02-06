@@ -75,7 +75,7 @@ function update() {
         e.x += e.speedX;
         for (var j=0;j<elements.length;j++) {
             var k = elements[j];
-            if (isCollide(k,e) && !k.collided) {
+            if (isCollide(k,e) && k.collided==false) {
                 var temp = e.speedX;
                 e.speedX = k.speedX;
                 k.speedX = temp;
@@ -85,9 +85,9 @@ function update() {
                     e.speedY = e.speedY*(-0.6);
                     k.speedY = k.speedY+1;
                     k.collided = true;
-                } else {
+                } else if (k.collided==false) {
                     if (e.x<k.x && e.speedX>0) {
-                        e.x = k.x - e.width;
+                        e.x = k.x - e.clientWidth;
                         k.collided = true;
                     }
                     if (e.x>k.x && e.speedX<0) {
@@ -95,7 +95,7 @@ function update() {
                         k.collided = true;
                     }
                 }
-            } else if (k.collided) {
+            } else if (k.collided==true) {
                 k.collided = false;
             }
         }
