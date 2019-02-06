@@ -74,14 +74,15 @@ function update() {
         e.x += e.speedX;
         for (var j=0;j<elements.length;j++) {
             var k = elements[j];
-            if (isCollide(k,e)) {
+            if (isCollide(k,e) && e!==k) {
                 var temp = e.speedX;
                 e.speedX = k.speedX;
                 k.speedX = temp;
                 if (e.y<k.y && e.speedY>0) {
-                    e.y = k.y - e.height - 1;
+                    e.y = k.y - e.height;
+                    k.y = e.y + e.height + 1;
                     e.speedY = Math.abs(e.speedY)*(-0.6);
-                    k.speedY = k.speedY*(1.4);
+                    k.speedY = k.speedY-e.speedY;
                     if (e.x<k.x+k.width/2 && e.speedX>0) {
                         e.x = - k.x + e.width;
                     }
