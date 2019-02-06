@@ -75,11 +75,11 @@ function update() {
         e.x += e.speedX;
         for (var j=0;j<elements.length;j++) {
             var k = elements[j];
-            if (isCollide(k,e) && k.collided==false) {
+            if (isCollide(k,e)) {
                 var temp = e.speedX;
                 e.speedX = k.speedX;
                 k.speedX = temp;
-                if (e.y+e.height>=k.y && e.y<k.y && e.speedY>0) {
+                if (e.y+e.height>=k.y && e.y<k.y+k.height && e.speedY>0) {
                     e.y = k.y - e.clientHeight;
                     k.y = e.y + e.clientHeight;
                     e.speedY = Math.abs(e.speedY)*(-0.6);
@@ -94,9 +94,8 @@ function update() {
                         e.x = k.x + k.clientWidth;
                     }
                 }
-            } else {
-                k.collided = false;
             }
+            k.collided = false;
         }
         e.collided = false;
         if ((e.y+e.height+e.originalY*4) >= window.innerHeight) {
