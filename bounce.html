@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <link rel="icon" href="icon/icon.ico"/>
-        <title>Melon Bounce</title>
+        <title>Bounce</title>
     </head>
     <body>
         <!-- Put elements here! -->
@@ -56,6 +56,7 @@ for (var i=0;i<elements.length;i++) {
     elements[i].originalY = parseInt(elements[i].offsetTop);
     elements[i].height = elements[i].clientHeight;
     elements[i].width = elements[i].clientWidth;
+    elements[i].counter = 0;
     if (elements[i].style.display !== "none") {
         elements[i].style.display;
         elements[i].style.top = elements[i].y;
@@ -69,21 +70,23 @@ function update() {
         var e = elements[i];
         e.height = e.clientHeight;
         e.width = e.clientWidth;
-        e.speedY += 0.125;
+        e.speedY += 0.0625;
         e.y += e.speedY;
         e.x += e.speedX;
         for (var j=0;j<elements.length;j++) {
             var k = elements[j];
-            if (isCollide(k,e) && e!==k) {
-                var temp = e.speedX;
-                e.speedX = k.speedX;
-                k.speedX = temp;
+            if (isCollide(k,e)) {
                 if (e.y<k.y && e.speedY>0) {
                     e.y = k.y - e.height;
                     k.y = e.y + e.height + 1;
                     e.speedY = Math.abs(e.speedY)*(-0.6);
                     k.speedY = k.speedY-e.speedY;
-                } else {
+                    e.counter = 1;
+                    k.counter = 1;
+                } else if (e.counter==0 && k.counter==0) {
+                    var temp = e.speedX;
+                    e.speedX = k.speedX;
+                    k.speedX = temp;
                     if (e.x<k.x+k.width/2 && e.speedX>0 && !(e.y<k.y && e.speedY>0)) {
                         e.x = k.x - e.width;
                     }
@@ -91,6 +94,9 @@ function update() {
                         e.x = k.x + k.width;
                     }
                 }
+            } else {
+                e.counter = 0;
+                k.counter = 0;
             }
         }
         if ((e.y+e.height+e.originalY*4) >= window.innerHeight) {
@@ -112,7 +118,6 @@ function update() {
             e.onCursor = false;
             console.log(true);
         }
-        
         e.style.top = (e.y)+"px";
         e.style.left = (e.x)+"px";
     }
