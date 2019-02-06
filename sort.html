@@ -12,28 +12,33 @@
         <div id="display"></div>
         <span id="status">Generating...</span>
         <script>
+            var n = 200;
+            if (decodeURIComponent(window.location.search.substring(1))!=="") {
+                n = parseInt(decodeURIComponent(window.location.search.substring(1)));
+            }
+            
             var display = document.getElementById("display");
             var statusEl = document.getElementById("status");
             var table=[];
             function createBars(i) {
-                display.innerHTML+="<div id=\""+i+"\" style=\"height:"+i+"px;width:1px;background-color:hsl("+((i/200)*360)+",100%,50%);\"></div>";
+                display.innerHTML+="<div id=\""+i+"\" style=\"height:"+i+"px;width:1px;background-color:hsl("+((i/n)*360)+",100%,50%);\"></div>";
                 table[i] = document.getElementById(i.toString());
             }
-            for (var i=0;i<200;i++) {
+            for (var i=0;i<n;i++) {
                 window.setTimeout(createBars,i*10,i);
             }
             function shuffleBars(i) {
                 var temp = document.getElementById(i.toString()).outerHTML;
-                var selected = Math.floor(Math.random()*200);
+                var selected = Math.floor(Math.random()*n);
                 document.getElementById(i.toString()).outerHTML = document.getElementById(selected.toString()).outerHTML;
                 document.getElementById(selected.toString()).outerHTML = temp;
                 statusEl.innerHTML = "Shuffling...";
             }
-            for (var i=0;i<200;i++) {
-                window.setTimeout(shuffleBars,i*10+2000,i);
-                window.setTimeout(shuffleBars,i*10+4000,i);
-                window.setTimeout(shuffleBars,i*10+6000,i);
-                window.setTimeout(shuffleBars,i*10+8000,i);
+            for (var i=0;i<n;i++) {
+                window.setTimeout(shuffleBars,i*10+10*n,i);
+                window.setTimeout(shuffleBars,i*10+20*n,i);
+                window.setTimeout(shuffleBars,i*10+30*n,i);
+                window.setTimeout(shuffleBars,i*10+40*n,i);
             }
             function getBar(index) {
                 return display.children[index];
@@ -61,10 +66,10 @@
                 waiting = true;
                 completed = true;
                 var previousDisplay = display;
-                for (var i=0;i<200;i++) {
+                for (var i=0;i<n;i++) {
                     window.setTimeout(sort,10*i,i);
                 }
-                window.setTimeout(up,2000);
+                window.setTimeout(up,10*n);
                 its++;
             }
             function up() {
@@ -74,7 +79,7 @@
                     statusEl.innerHTML = "Done.";
                 }
             }
-            window.setTimeout(up,10000);
+            window.setTimeout(up,50*n);
         </script>
     </body>
 </html>
