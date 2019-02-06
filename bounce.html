@@ -90,10 +90,10 @@ function update() {
                         e.x = - k.x - k.width;
                     }
                 } else {
-                    if (e.x<k.x+k.width/2 && e.speedX>0) {
+                    if (e.x<k.x+k.width/2 && e.speedX>0 && !(e.y<k.y && e.speedY>0)) {
                         e.x = k.x - e.width;
                     }
-                    if (e.x>k.x+k.width/2 && e.speedX<0) {
+                    if (e.x>k.x+k.width/2 && e.speedX<0 && !(e.y<k.y && e.speedY>0)) {
                         e.x = k.x + k.width;
                     }
                 }
