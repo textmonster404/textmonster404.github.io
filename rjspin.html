@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="icon/icon.ico"/>
+        <title>RJ Spin</title>
+        <style>
+
+@keyframes changedaColor {
+    0% {color:red;}
+    12.5% {color:orange;}
+    25% {color:yellow;}
+    37.5% {color:green;}
+    50% {color:springgreen}
+    62.5% {color:cyan;}
+    75% {color:blue;}
+    87.5% {color:purple;}
+    100% {color:red;}
+}   
+span {
+    font-weight:bolder;
+    animation-name:changedaColor;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+        </style>
+    </head>
+    <body>
+        <!-- Put elements here! -->
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <span>RJ</span>
+        <script>
+            var elements = document.body.children;
+document.body.style.overflow = "hidden";
+
+function isCollide(a, b) {
+    var aRect = a.getBoundingClientRect();
+    var bRect = b.getBoundingClientRect();
+
+    return !(
+        ((aRect.top + aRect.height) < (bRect.top)) ||
+        (aRect.top > (bRect.top + bRect.height)) ||
+        ((aRect.left + aRect.width) < bRect.left) ||
+        (aRect.left > (bRect.left + bRect.width))
+    );
+}
+
+var mouseX = 0;
+var mouseY = 0;
+var previousMouseX = 0;
+var previousMouseY = 0;
+var mouseSpeedX = 0;
+var mouseSpeedY = 0;
+function updateMouse(event) {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+    mouseSpeedX = mouseX - previousMouseX;
+    mouseSpeedY = mouseY - previousMouseY;
+    previousMouseX = mouseX;
+    previousMouseY = mouseY;
+}
+function cursorOver(event) {
+    event.target.onCursor = true;
+}
+document.addEventListener('mousemove', updateMouse);
+for (var i=0;i<elements.length;i++) {
+    elements[i].speedX = 0;
+    elements[i].speedY = 0;
+    elements[i].x = Math.random()*window.innerWidth;
+    elements[i].originalX = parseInt(elements[i].offsetLeft);
+    elements[i].y = Math.random()*window.innerHeight;
+    elements[i].originalY = parseInt(elements[i].offsetTop);
+    elements[i].height = elements[i].clientHeight;
+    elements[i].width = elements[i].clientWidth;
+    elements[i].angleSpeed = Math.random()*7.2-3.6;
+    elements[i].angle = 0;
+    if (elements[i].style.display !== "none") {
+        elements[i].style.display;
+        elements[i].style.top = elements[i].y;
+        elements[i].style.left = elements[i].x;
+        elements[i].style.position = "absolute";
+    }
+    elements[i].addEventListener('mousemove', cursorOver);
+}
+function update() {
+    for (var i=0;i<elements.length;i++) {
+        var e = elements[i];
+        e.height = e.clientHeight;
+        e.width = e.clientWidth;
+        e.speedY += 0.0625;
+        e.y += e.speedY;
+        e.x += e.speedX;
+        e.angle += e.angleSpeed;
+        for (var j=0;j<elements.length;j++) {
+            var k = elements[j];
+            if (isCollide(k,e)) {
+                var temp = e.speedX;
+                e.speedX = k.speedX;
+                k.speedX = temp;
+                if (e.y<k.y && e.speedY>0) {
+                    e.y = k.y - e.height - 1;
+                    e.speedY = e.speedY*(-0.6);
+                    k.speedY = k.speedY*(0.4)
+                } else {
+                    if (e.x<k.x && e.speedX>0) {
+                        e.x = k.x - e.width;
+                    }
+                    if (e.x>k.x && e.speedX<0) {
+                        e.x = k.x + k.width;
+                    }
+                }
+            }
+        }
+        if ((e.y+e.height+e.originalY*4) >= window.innerHeight) {
+            e.speedY = e.speedY*(-0.6);
+            e.y = window.innerHeight - e.clientHeight-e.originalY*4;
+            e.speedX = e.speedX*(0.98);
+        }
+        if ((e.x+e.width+e.originalX) >= window.innerWidth) {
+            e.speedX = e.speedX*(-0.8);
+            e.x = window.innerWidth - e.width - e.originalX;
+        }
+        if ((e.x+e.width+e.originalX) <= 0) {
+            e.speedX = e.speedX*(-0.8);
+            e.x = 0 - e.originalX;
+        }
+        if (e.onCursor) {
+            e.speedX = mouseSpeedX*2;
+            e.speedY = mouseSpeedY*2;
+            e.onCursor = false;
+            console.log(true);
+        }
+        e.style.transform = "rotate("+e.angle+"deg)";
+        e.style.top = (e.y)+"px";
+        e.style.left = (e.x)+"px";
+        
+    }
+}
+window.setTimeout(function() {window.setInterval(update,10);},1000);
+        </script>
+    </body>
+</html>
