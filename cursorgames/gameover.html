@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'/>
+        <title>Cursor Games!</title>
+        <meta http-equiv="refresh" id="refresh" content="5; URL=titlescreen.html"/>
+        <style>
+            @keyframes title-slide {
+                from {right:-2000px;}
+                to {right:0px;}
+            }
+            @keyframes title-slide-2 {
+                from {left:-2000px;}
+                to {left:0px;}
+            }
+            @keyframes start {
+                from {top:2000px;}
+                to {top:-50px;}
+            }
+            body {overflow:hidden;}
+            .title {
+                animation-name:title-slide;
+                animation-duration:1s;
+                position:relative;
+                text-align:center;
+                top:100px;
+                font-size:128px;
+            }
+            .title2 {
+                animation-name:title-slide-2;
+                animation-duration:2s;
+                position:relative;
+                text-align:center;
+                top:-50px;
+                font-size:96px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="title">Game</h1>
+        <h2 class="title2">Over</h2>
+    </body>
+</html>

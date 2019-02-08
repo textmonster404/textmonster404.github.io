@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'/>
+        <title>Cursor Games!</title>
+        <style>
+            @keyframes title-slide {
+                0% {right:-2000px;}
+                40% {right:calc( 40% - 50px );}
+                60% {right:calc( 40% + 50px );}
+                100% {right:2000px;}
+            }
+            body {overflow:hidden;}
+            .title {
+                animation-name:title-slide;
+                animation-duration:3s;
+                position:absolute;
+                top:100px;
+                font-size:128px;
+                right:2000px;
+            }
+            .bad {
+                color:red;
+                font-size:60px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="title">Dodge!</h1>
+        <span class="bad">bad</span>
+        <span class="bad">bad</span>
+        <span class="bad">bad</span>
+        <span class="bad">bad</span>
+        <span class="bad">bad</span>
+        <span class="bad">bad</span>
+        <span class="bad">bad</span>
+        <span class="bad">bad</span>
+        <span class="bad">bad</span>
+        <span class="bad">bad</span>
+        <span class="bad">bad</span>
+        <span class="bad">bad</span>
+        <script>
+            var elements = document.getElementsByClassName("bad");
+document.body.style.overflow = "hidden";
+
+var mouseX = 0;
+var mouseY = 0;
+var previousMouseX = 0;
+var previousMouseY = 0;
+var mouseSpeedX = 0;
+var mouseSpeedY = 0;
+function updateMouse(event) {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+    mouseSpeedX = mouseX - previousMouseX;
+    mouseSpeedY = mouseY - previousMouseY;
+    previousMouseX = mouseX;
+    previousMouseY = mouseY;
+}
+function cursorOver(event) {
+    event.target.onCursor = true;
+}
+document.addEventListener('mousemove', updateMouse);
+for (var i=0;i<elements.length;i++) {
+    elements[i].speedX = 0;
+    elements[i].speedY = 0;
+    elements[i].x = -2000;
+    elements[i].y = -2000;
+    elements[i].onScreenYet = false;
+    elements[i].height = elements[i].clientHeight;
+    elements[i].width = elements[i].clientWidth;
+    elements[i].ai = 0;
+    if (elements[i].style.display !== "none") {
+        elements[i].style.top = "-2000px";
+        elements[i].style.left = "-2000px";
+        elements[i].style.position = "absolute";
+    }
+    elements[i].addEventListener('mousemove', cursorOver);
+}
+var numActive = 0;
+var timer = 0;
+function lose() {
+    window.location.href = "gameover.html";
+}
+var win = function() {
+    window.location.href = "win.html";
+}
+function update() {
+    for (var i=0;i<elements.length;i++) {
+        var e = elements[i];
+        if (e.ai == 0) {
+            e.x = -2000;
+            e.y = -2000;
+        } else if (e.ai == 1) {
+            e.height = e.clientHeight;
+            e.width = e.clientWidth;
+            e.speedY += 0.005;
+            e.y += e.speedY;
+            e.x += e.speedX;
+            if ((e.y+e.height) >= window.innerHeight) {
+                if (e.onScreenYet===true) {
+                    e.speedY = -e.speedY;
+                    e.y = window.innerHeight - e.clientHeight;
+                }
+            }
+            if ((e.x+e.width) >= window.innerWidth) {
+                if (e.onScreenYet===true) {
+                    e.speedX = -e.speedX;
+                    e.x = window.innerWidth - e.clientWidth;
+                }
+            }
+            if ((e.x) <= 0) {
+                if (e.onScreenYet===true) {
+                    e.speedX = -e.speedX;
+                    e.x = 0;
+                }
+            }
+            if (!((e.x+e.width) <= 0) && !((e.x+e.width) >= window.innerWidth) && !((e.y+e.height) >= window.innerHeight)) {
+                e.onScreenYet = true;
+            }
+            if ((e.y+e.height) >= window.innerHeight+300) {
+                var edge = Math.floor(Math.random()*4);
+                if (edge==0) {
+                    e.x = Math.random()*window.innerWidth;
+                    e.y = -s.clientHeight;
+                    e.speedX = Math.random()*window.innerWidth/200-window.innerWidth/400;
+                }
+                if (edge==1) {
+                    e.y = Math.random()*window.innerHeight;
+                    e.x = -e.clientWidth;
+                    e.speedX = Math.random()*window.innerWidth/200;
+                    e.speedY = Math.random()*window.innerHeight/100;
+                }
+                if (edge==2) {
+                    e.x = Math.random()*window.innerWidth;
+                    e.y = window.innerHeight+e.clientHeight;
+                    e.speedX = Math.random()*window.innerWidth/200-window.innerWidth/400;
+                    e.speedY = Math.random()*window.innerHeight/100;
+                }
+                if (edge==3) {
+                    e.y = Math.random()*window.innerHeight;
+                    e.x = window.innerWidth+e.clientWidth;
+                    e.speedX = -Math.random()*window.innerWidth/200;
+                    e.speedY = Math.random()*window.innerHeight/100;
+                }
+            }
+            if (e.onCursor) {
+                lose();
+                e.onCursor = false;
+            }
+            e.style.top = (e.y)+"px";
+            e.style.left = (e.x)+"px";
+        }
+    }
+    if (timer%1000 == 0) {
+        select();
+    }
+    timer++;
+}
+var select = function() {
+    if (numActive ==12) {
+        win();
+    } else {
+        selectFunc();
+        numActive++;
+    }
+}
+var selectFunc = function() {
+    var s = elements[numActive];
+    if (s.ai == 0) {
+        s.ai = 1;
+        var edge = Math.floor(Math.random()*4);
+        if (edge==0) {
+            s.x = Math.random()*window.innerWidth;
+            s.y = -s.clientHeight;
+            s.speedX = Math.random()*window.innerWidth/200-window.innerWidth/400;
+        }
+        if (edge==1) {
+            s.y = Math.random()*window.innerHeight;
+            s.x = -s.clientWidth;
+            s.speedX = Math.random()*window.innerWidth/200;
+            s.speedY = Math.random()*window.innerHeight/100;
+        }
+        if (edge==2) {
+            s.x = Math.random()*window.innerWidth;
+            s.y = window.innerHeight+s.clientHeight;
+            s.speedX = Math.random()*window.innerWidth/200-window.innerWidth/400;
+            s.speedY = Math.random()*window.innerHeight/100;
+        }
+        if (edge==3) {
+            s.y = Math.random()*window.innerHeight;
+            s.x = window.innerWidth+s.clientWidth;
+            s.speedX = -Math.random()*window.innerWidth/200;
+            s.speedY = Math.random()*window.innerHeight/100;
+        }
+    }
+}
+window.setTimeout(function() {window.setInterval(update,1);},3000);
+        </script>
+    </body>
+</html>

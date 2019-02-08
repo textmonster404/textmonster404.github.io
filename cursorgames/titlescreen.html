@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'/>
+        <title>Cursor Games!</title>
+        <style>
+            @keyframes title-slide {
+                from {right:-2000px;}
+                to {right:0px;}
+            }
+            @keyframes title-slide-2 {
+                from {left:-2000px;}
+                to {left:0px;}
+            }
+            @keyframes start {
+                from {top:2000px;}
+                to {top:-50px;}
+            }
+            body {overflow:hidden;}
+            .title {
+                animation-name:title-slide;
+                animation-duration:1s;
+                position:relative;
+                text-align:center;
+                top:100px;
+                font-size:128px;
+            }
+            .title2 {
+                animation-name:title-slide-2;
+                animation-duration:2s;
+                position:relative;
+                text-align:center;
+                top:-50px;
+                font-size:96px;
+            }
+            .start {
+                animation-name:start;
+                animation-duration:3s;
+                position:relative;
+                text-align:center;
+                top:-50px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="title">Cursor</h1>
+        <h2 class="title2">Games</h2>
+        <div class="start" onmouseover="start()">Hover to<br/>Start</div>
+        <script>
+            function start() {
+                window.location.href = ["dodgeeasyroom1.html","dodgehardroom1.html"][Math.floor(Math.random()*2)];
+            }
+        </script>
+    </body>
+</html>
