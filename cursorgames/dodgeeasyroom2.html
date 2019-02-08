@@ -123,7 +123,7 @@ function update() {
             if (!((e.x+e.width) <= 0) && !((e.x+e.width) >= window.innerWidth) && !((e.y+e.height) >= window.innerHeight)) {
                 e.onScreenYet = true;
             }
-            if ((e.y+e.height) >= window.innerHeight+300) {
+            if ((e.y+e.height) >= window.innerHeight+300 || (e.y+e.height) <= -300) {
                 var edge = Math.floor(Math.random()*4);
                 if (edge==0) {
                     e.x = Math.random()*window.innerWidth;
