@@ -37,7 +37,7 @@ svg.style.transform = "scale(0.0)";
 window.setTimeout(function(){svg.style.transform = "scale(1.0)";},1000);
 var div = document.getElementsByTagName("div")[0];
 svg.innerHTML=`<circle cx="50" cy="50" r="45" stroke="#dba51c" fill="#ffd447" stroke-width="5"/>`;
-  for (var i=0;i<Math.floor(Math.random()*(num-1)+1);i++) {
+  for (var i=0;i<Math.floor(Math.random()*(num)+1);i++) {
   svg.innerHTML+=`<circle cx="50" cy="50" r="4" stroke="#a51d1a" fill="#ce302d" stroke-width="2"/>`;
 }
 var circles = document.getElementsByTagName("circle");
@@ -53,7 +53,7 @@ for (var i=1;i<circles.length;i++) {
 }
 function resetPizza() {
   window.setTimeout(function(){svg.innerHTML=`<circle cx="50" cy="50" r="45" stroke="#dba51c" fill="#ffd447" stroke-width="5"/>`;
-  for (var i=0;i<Math.floor(Math.random()*(num-1)+1);i++) {
+  for (var i=0;i<Math.floor(Math.random()*(num)+1);i++) {
   svg.innerHTML+=`<circle cx="50" cy="50" r="4" stroke="#a51d1a" fill="#ce302d" stroke-width="2"/>`;
 }
 var circles = document.getElementsByTagName("circle");
