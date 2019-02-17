@@ -1,0 +1,9 @@
+<svg width="32" height="32" id="gary" xmlns="http://www.w3.org/2000/svg">
+  <polygon fill="black" points="8,4.5 , 10,4 , 10,12 , 8,12"/>
+  <polygon fill="black" points="2,12 , 28,12 , 27.5,14 , 1,14"/>
+  <polygon fill="black" points="2,20 , 28,20 , 27.5,22 , 1,22"/>
+  <path fill="none" stroke="black" stroke-width="2" d="M 20 13 A 9 9 0 0 0 11 22"/>
+  <polygon fill="black" points="10,22 , 12,22 , 11.5,30 , 10,30"/>
+  <polygon fill="black" points="2,30 , 22,30 , 22,32 , 3.5,31.5"/>
+  <path fill="none" stroke="black" stroke-width="2" d="M 27.06417777247591 30.57115043874616 A 4 4 0 0 0 20.060768987951167 27.30540728933228" />
+</svg>
