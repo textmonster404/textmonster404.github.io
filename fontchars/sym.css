@@ -1,0 +1,66 @@
+sym_gary,sym_hi,sym_exclm,sym_h,sym_i,sym_eye,sym_dp,sym_a,sym_ay,sym_wood,sym_how,sym_ch,sym_much,sym_ecl {display:inline-block;width:32px;height:32px;}
+sym_gary {background-image:url("sym/gary.svg");}
+sym_hi {background-image:url("sym/hi.svg");}
+sym_i {background-image:url("sym/i.svg");}
+sym_h {background-image:url("sym/h.svg");}
+sym_eye {background-image:url("sym/eye.svg");}
+sym_exclm {background-image:url("sym/!.svg");}
+sym_dp {background-image:url("sym/dp.svg");}
+sym_ay {background-image:url("sym/ay.svg");}
+sym_a {background-image:url("sym/a.svg");}
+sym_wood {background-image:url("sym/wood.svg");}
+sym_how {background-image:url("sym/how.svg");}
+sym_ch {background-image:url("sym/ch.svg");}
+sym_much {background-image:url("sym/much.svg");}
+sym_ecl {background-image:url("sym/ecl.svg");background-position:8px 6px;}
+@font-face {
+    font-family: 'MusiSync';
+    src: url('MusiSync.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MiscSym1';
+    src: url('MiscSym1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SYM1';
+    src: url('SYM1.eot');
+    src: url('SYM1.eot?#iefix') format('embedded-opentype'),
+         url('SYM1.ttf') format('truetype'),
+         url('SYM1.svg#SYM1') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+symFont_block1 {
+    display: inline-block;
+    font-family: 'SYM1';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    letter-spacing:-4px;
+    font-size:80pt;
+}
+MusiSync {
+    display: inline-block;
+    font-family: 'MusiSync';
+    font-style: normal;
+    font-weight: normal;
+    font-size:40pt;
+}
+MiscSym1 {
+    display: inline-block;
+    font-family: 'MiscSym1';
+    font-style: normal;
+    font-weight: normal;
+    font-size:40pt;
+}
+indent::before {
+    content:" ";
+    display:inline-block;
+    font-size:12pt;
+    width:1em;
+    height:1px;
+}
