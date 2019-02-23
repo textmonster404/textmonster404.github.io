@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'/>
+        <title>Text Icons</title>
+    </head>
+    <body>
+        <h2>Text from Favicons!</h2>
+        <p>This is a tool to make text out of icons!<br/> Please unblock popups from this site for this to work.</p>
+        <p>For better effect on Chrome, pin all of the tabs that pop up.</p>
+        <input id="input" value="Text"/><button onClick="go();">Go!</button>
+        <script>
+            var input = document.getElementById("input");
+            var go = function() {
+                for (var j=0;j<input.value.split(" ").length;j++) {
+                    for (var i=0;i<input.value.split(" ")[j].length/2;i++) {
+                        window.open("text_icon.html?"+input.value.split(" ")[j].substring(i*2,i*2+2));
+                    }
+                    window.open("text_icon.html");
+                }
+            }
+        </script>
+    </body>
+</html>

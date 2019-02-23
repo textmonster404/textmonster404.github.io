@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'/>
+        <title>Icon</title>
+        <link rel="icon" href="" type="image/png" id="favicon">
+        <style>
+            .hidden {display:none;}
+        </style>
+    </head>
+    <body>
+        <div class="hidden">
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" class="favicon">
+                <text fill="black" x="0" y="14" style="font-size:12px;font-weight:bold;" id="text"></text>
+            </svg>
+            <canvas id="canvas-image" width="16" height="16"></canvas>
+            <div id="png-container"></div>
+        </div>
+        <script>
+            var text = document.getElementById("text");
+            text.innerHTML = decodeURIComponent(window.location.search.substring(1));
+            var svgString = new XMLSerializer().serializeToString(document.querySelector('svg.favicon'));
+var favicon = document.getElementById("favicon");
+var canvas = document.getElementById("canvas-image");
+var ctx = canvas.getContext("2d");
+var DOMURL = self.URL || self.webkitURL || self;
+var img = new Image();
+var svg = new Blob([svgString], {type: "image/svg+xml;charset=utf-8"});
+var url = DOMURL.createObjectURL(svg);
+img.onload = function() {
+    ctx.drawImage(img, 0, 0);
+    var png = canvas.toDataURL("image/png");
+    document.querySelector('#png-container').innerHTML = '<img src="'+png+'"/>';
+    DOMURL.revokeObjectURL(png);
+    favicon.href = png;
+};
+img.src = url;
+        </script>
+    </body>
+</html>
