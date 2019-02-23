@@ -16,6 +16,13 @@
             <canvas id="canvas-image" width="16" height="16"></canvas>
             <div id="png-container"></div>
         </div>
+        <div id="hideme"><input placeholder="Enter text here."/><a href=""></a></div>
+        <script>
+            window.setInterval(function(){document.getElementsByTagName("a")[0].href="https://textmonster404.github.io/text_icon_cycle.html?"+document.getElementsByTagName("input")[0].value;document.getElementsByTagName("a")[0].textContent="https://textmonster404.github.io/text_icon_cycle.html?"+document.getElementsByTagName("input")[0].value;},0);
+            if (decodeURIComponent(window.location.search.substring(1))!=="") {
+                document.getElementById("hideme").innerHTML = "";
+            }
+        </script>
         <script>
 var str = decodeURIComponent(window.location.search.substring(1));
 var text = document.getElementById("text");
