@@ -27,7 +27,10 @@ Ghost
 Graceful
 Graffiti
 Impossible
-Isometric1Isometric2Isometric3Isometric4
+Isometric1
+Isometric2
+Isometric3
+Isometric4
 JS Bracket Letters
 Lil Devil
 Merlin1
