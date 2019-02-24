@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'/>
+        <title>Korean Independence Movement</title>
+        <link rel="icon" href="" type="image/png" id="favicon">
+        <style>
+            body {overflow-x:hidden;}
+            /* *:not(hr) {border:1px dotted gray;} */
+            
+            .hidden {display:none;}
+            .invisible {visibility:hidden;}
+            .right {text-align:right;}
+            .less-spacing {margin-top:0.5em;margin-bottom:0.5em;}
+            .little-spacing {margin-top:0.2em;margin-bottom:0.2em;}
+            .inline-block {display:inline-block;}
+            .justify {text-align:justify;}
+            
+            li {text-indent:0px;transition:text-indent 0.5s, transform 1s;position:relative;}
+            li:hover {text-indent:3px;}
+            a:visited {color:blue;}
+            
+            li[arrow] {list-style-type:none;}
+            li[arrow]::before {content:"➢";position:absolute;left:-1.5em;transform:translateY(-2px);}
+            li[star] {list-style-type:none;}
+            li[star]::before {content:"❖";position:absolute;left:-1.5em;transform:translateY(-1px);}
+            li[none] {list-style-type:none;}
+            
+            @keyframes audio {
+                from {left:200%;}
+                to {left:calc( 790px + calc( calc( calc( 100% - 790px ) - 300px ) / 2 ) );}
+            }
+            
+            @keyframes overview { 
+                from {left:-200%;}
+                to {left:16px;}
+            }
+            
+            @keyframes img1 { 
+                from {left:-100%;}
+                to {left:416px;}
+            }
+            
+            @keyframes title-main {
+                from {left:-200%;}
+                to {left:0%;}
+            }
+            
+            @keyframes namedate {
+                from {left:100%;}
+                to {left:0%;}
+            }
+            
+            @keyframes hr {
+                from {left:-100%;}
+                to {left:0%;}
+            }
+            
+            @keyframes h3 {
+                from {left:100%;}
+                to {left:0%;}
+            }
+            
+            @keyframes info {
+                from {transform:scale(0.0);}
+                to {transform:scale(1.0);}
+            }
+            
+            @keyframes i {
+                from {transform:rotate(720deg);}
+                to {transform:rotate(0deg);}
+            }
+            
+            #overview {position:absolute;left:16px;top:128px;width:400px;animation-name:overview;animation-duration:2.6s;}
+            #img1 {position:absolute;left:416px;top:179px;height:276.38px;text-align:center;line-height:138.562px;animation-name:img1;animation-duration:2.4s;}
+            #audiot {position:absolute;left:calc( 790px + calc( calc( calc( 100% - 790px ) - 300px ) / 2 ) );top:130px;width:300px;text-align:center;animation-name:audio;animation-duration:3s;}
+            #audio {position:absolute;left:calc( 790px + calc( calc( calc( 100% - 790px ) - 300px ) / 2 ) );width:300px;height:2em;border-radius:1em;top:180px;text-align:center;line-height:2em;animation-name:audio;animation-duration:3s;border:3px double black;}
+            #info {animation-name:info;animation-duration:4s;position:relative;}
+            #title-main {animation-name:title-main;animation-duration:2s;position:relative;}
+            #name,#date {animation-name:namedate;animation-duration:1.8s;position:relative;}
+            hr {animation-name:hr;animation-duration:3s;position:relative;}
+            h3 {animation-name:h3;animation-duration:2.5s;position:relative;}
+            img {animation-name:info;animation-duration:1s;position:relative;}
+            div {animation-name:hr;animation-duration:1s;position:relative;}
+            i {animation-name:i;animation-duration:3.5s;position:absolute;}
+        </style>
+    </head>
+    <body>
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td><h1 id="title-main">Korean Independence Movement</h1></td>
+                    <td>
+                        <div class="right" id="name">Joshua Oliver</div>
+                        <div class="right" id="date">2/24/2019</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr/>
+        <div id="overview">
+            <h2 class="less-spacing">Overview:</h2>
+            <div>
+            <hr/>
+            <div class="little-spacing justify" style="margin-left:8px;margin-right:8px;"><span style="white-space:pre">	</span>The Korean Independence Movement was a military and diplomatic campaign. Its purpose was to gain the independence of Korea from Japan.</div>
+            <div class="little-spacing justify" style="margin-left:8px;margin-right:8px;"><span style="white-space:pre">	</span>The end of the short-lived Korean Empire in 1910 started the Japanese Rule. The Japanese Rule gave rise to many Koren resistance movements. The domestic resistance of Korea peaked in the March 1st Movement. The March 1st Movement was chrushed.</div>
+            <div class="little-spacing justify" style="margin-left:8px;margin-right:8px;"><span style="white-space:pre">	</span>The Japanese Rule ended at the end of World War II. The date of the surrender of Japan is now a annual holiday. In South korea, it is called Gwangbokjeol ("Restoration of Light Day"). In North Korea, it is called Chogukhaebangŭi nal ("Fatherland Liberation Day").</div>
+            </div>
+        </div>
+        <img src="img1.png" alt="" id="img1"/>
+        <h3 id="audiot">Audio Title</h3>
+        <div id="audio">Audio</div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><hr/>
+        <div id="info">
+            <h1>Information</h1>
+        </div>
+        <h3>History</h3>
+        <div class="little-spacing justify" style="margin-left:8px;margin-right:8px;"><span style="white-space:pre">	</span>The Korean Independence Movement all started back in 1876. The conflicts between Japan and Korea were the underlying source of the Korean Independence Movement. The Japanese Rule gave rise to many Korea resistance movements. The Japanese rule and Korea under Japanese rule were outcomes of a process that began with the Japan–Korea Treaty of 1876.</div>
+        <div class="little-spacing justify" style="margin-left:8px;margin-right:8px;"><span style="white-space:pre">	</span>The Japan-Korea Treaty of 1876 was to integrate Korea politically and economically into the Empire of Japan. The last independent Korean monarchy was the Joseon dynasty. The Joseon dynasty lasted for over 500 years (1392-1910), first as the Joseon Kingdom and later as the Empire of Korea. The Empire of Korea was very short-lived. Korea under Japanese rule began with the end of the korean empire in 1910.</div>
+        <center>
+            <img src="img2.png"/><br/><i style="left:calc( 50% - 113px );"><small>Seal of the Government-General of Korea</small></i><br/>
+            <img alt="Korea (dark red) within the Empire of Japan (light red) at its furthest extent" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Korea_in_Empire_of_Japan.svg/250px-Korea_in_Empire_of_Japan.svg.png" width="250" title="Korea (dark red) within the Empire of Japan (light red) at its furthest extent"/><br/>
+            <i style="left:calc( 50% - 205.5px );"><small>Korea (dark red) within the Empire of Japan (light red) at its furthest extent</small></i><br/>
+        </center>
+        <div class="little-spacing justify" style="margin-left:8px;margin-right:8px;"><span style="white-space:pre">	</span>After the Japanese annexation of Korea, domestic resistance of Korea peaked in March 1st Movement. The March 1st Movement is also known as the Samil Independence Movement. The March 1st Movement was crushed and sent Korean leaders to flee into China. While in China, korean independence activists made ties with the National Government of the Republic of China. The empire of Japan invaded and occupied northeast China. The nationalist government of China avoided declaring war against Japan. China declared war on Japan when the empire directly attacked Beijing in 1937. This sparked the Second Sino-Japanese War.</div>
+        <div class="little-spacing justify" style="margin-left:8px;margin-right:8px;"><span style="white-space:pre">	</span>After the US declared war on Japan in 1941, China became an ally of World War II. Japanese rule ended at the end of World War II (1945) when U.S. and Soviet forces captured the peninsula.</div>
+        <hr/>
+        <div style="text-align:center;">
+        <h3>Geographic Location</h3>Korea is a region in East Asia. Korea is bordered by China to the northwest, Russia to the northeast, and neighbours Japan to the east by the Korea Strait and the Sea of Japan (East Sea).<br/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Korea_%28orthographic_projection%29.svg/250px-Korea_%28orthographic_projection%29.svg.png" alt="Location of Â KoreaÂ Â (green)" width="250" /></div>
+        <hr id="note"/>
+        <br/><br/>
+        <div>
+            <h3>Notes:</h3>
+            <ul>
+                <li/>military and diplomatic campaign<sup>[1]</sup>
+                <li/>get the independence of Korea from Japan<sup>[1]</sup>
+                <li/>after the Japanese annexation of Korea<sup>[1]</sup>
+                <li/>the Japanese anexation of Korea happened in 1910<sup>[1]</sup>
+                <li/>domestic resistance of Korea peaked in March 1st Movement<sup>[1]</sup>
+                <li/>the Japanese rule gave rise to many Korean resistance movements<sup>[1]</sup>
+                <li arrow/>Japanese Rule notes:
+                <ul>
+                    <li/>outcome of a process that began with the Japan–Korea Treaty of 1876<sup>[6]</sup>
+                    <li/>Japan–Korea Treaty of 1876 integrate Korea politically and economically into the Empire of Japan<sup>[6]</sup>
+                    <li/>Korea under Japanese rule began with the end of the korean empire in 1910<sup>[6]</sup>
+                    <li/>the korean empire was very short-lived<sup>[6]</sup>
+                    <li/>the last independent Korean monarchy was the Joseon dynasty<sup>[1]</sup>
+                    <li/>the Joseon dynasty lasted for over 500 years (1392-1910)<sup>[1]</sup>
+                    <li/>it was both the Joseon Kingdom and later it was the Empire of Korea<sup>[1]</sup>
+                    <li none/><br/>
+                    <li/>ended at the end of World War II<sup>[6]</sup>
+                    <li/>ended when U.S. and Soviet forces captured the peninsula<sup>[6]</sup>
+                    <li/>World War II ended in 1945<sup>[6]</sup>
+                </ul>
+                <li arrow/>March 1st Movement notes:
+                <ul>
+                    <li/>aka Samil Independence Movement<sup>[4]</sup>
+                    <li/>crushed<sup>[1]</sup>
+                    <li/>korean leaders had to flee into China<sup>[1]</sup>
+                    <li/>while in China, korean independence activists made ties with the National Government of the Republic of China.<sup>[1]</sup>
+                </ul>
+                <li none/><br/>
+                <li/>the rise of the Western imperialism boosted by the Industrial Revolution and other major trends made Korea vulnerable to foreign maneuvering and encroachment<sup>[1]</sup>
+                <li/>the empire of Japan invaded and occupied northeast China<sup>[1]</sup>
+                <li/>the nationalist government of China avoided declaring war against Japan<sup>[1]</sup>
+                <li/>China declared war on Japan when the empire directly attacked Beijing<sup>[1]</sup>
+                <li/>the empire attacked Beijing in 1937<sup>[1]</sup>
+                <li/>sparked the Second Sino-Japanese War<sup>[1]</sup>
+                <li/>after the US declared war on Japan, China became an ally of World War II<sup>[1]</sup>
+                <li/>the US declared war on Japan in 1941<sup>[1]</sup>
+                <li none/><br/>
+                <li/>the date of the surrender of Japan is an annual holiday<sup>[1]</sup>
+                <li/>in South Korea it is called Gwangbokjeol ("Restoration of Light Day")<sup>[1]</sup>
+                <li/>in North Korea it is called Chogukhaebangŭi nal ("Fatherland Liberation Day")<sup>[1]</sup>
+                <li none/><br/>
+                <li star/>Philip Jaisohn is the first Korean to receive American citizenship.<sup>[2]</sup>
+                <li star/>March 1, 1919, group of korean intellectuals in Seoul introduce the Korean Declaration of Independence.<sup>[2]</sup>
+                <li star/>Korean Declaration of Independence inspired by President Woodrow Wilson’s Fourteen Points.<sup>[2]</sup>
+                <li star/>News of the Korean Declaration of Independence was getting to newspapers in America.<sup>[2]</sup>
+            </ul>
+        </div>
+        <div>
+            <h3>Citation:</h3>
+            <ul>
+                <li/><div><a href="https://en.wikipedia.org/wiki/Korean_independence_movement" target="_blank">https://en.wikipedia.org/wiki/Korean_independence_movement</a><sup>[1]</sup></div>
+                <li/><div><a href="http://www.bu.edu/cgcm/research/korean-diaspora-project/issues/korean-independence/" target="_blank">http://www.bu.edu/cgcm/research/korean-diaspora-project/issues/korean-independence/</a><sup>[2]</sup></div>
+                <li/><div><a href="https://en.wikipedia.org/wiki/March_1st_Movement" target="_blank">https://en.wikipedia.org/wiki/March_1st_Movement</a><sup>[3]</sup></div>
+                <li/><div><a href="https://www.britannica.com/event/March-First-Movement" target="_blank">https://www.britannica.com/event/March-First-Movement</a><sup>[4]</sup></div>
+                <li/><div><a href="https://providencemag.com/2016/07/christianity-korean-independence-movement-1895-1945/" target="_blank">https://providencemag.com/2016/07/christianity-korean-independence-movement-1895-1945/</a><sup>[5]</sup></div>
+                <li/><div><a href="https://en.wikipedia.org/wiki/Korea_under_Japanese_rule" target="_blank">https://en.wikipedia.org/wiki/Korea_under_Japanese_rule</a><sup>[6]</sup></div>
+            </ul>
+        </div>
+        <script>
+            var urls = ["img2.png","img3.png"];
+            var url = true;
+            var update = function() {
+                if (url) {
+                    document.getElementById("favicon").href = urls[1];
+                } else {
+                    document.getElementById("favicon").href = urls[0];
+                }
+                url = !url;
+            }
+            scrollTo(0,0);
+            var notepoint = document.getElementById("note");
+            update();
+            window.setInterval(update,1000);
+            var gotoposition = function(el) {
+                el.style.transform = "translateX(0px)";
+            }
+            var li = document.getElementsByTagName("li");
+            for (var i=0;i<li.length;i++) {
+                li[i].style.transform = "translateX(-100%)";
+            }
+            var notes = function() {
+                for (var i=0;i<li.length;i++) {
+                    window.setTimeout(gotoposition,100*i,li[i]);
+                }
+            }
+            window.setInterval(function(){if((window.innerHeight/2)>=notepoint.getBoundingClientRect().y){notes();}},0);
+        </script>
+    </body>
+</html>
