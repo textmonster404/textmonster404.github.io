@@ -32,7 +32,7 @@
                             <li><a href="Cool Text.html">Cool Text</a></li>
                             <li><a href="school/index.html">School Stuff</a></li>
                             <li><a href="randompage/index.html">Random Page!</a></li>
-                            <li id="ruri"><a href="random_uri/index.html">Random URI</a></li>
+                            <li id="rurl"><a href="random_url/index.html">Random URL</a></li>
                             <li><a href="wellspring/index.html">Wellspring Archive</a></li>
                             <li><a href="asciiart.html">ASCII Art</a></li>
                         </ul>
@@ -71,7 +71,7 @@
         <script>
             var tictac = document.getElementById("tictac");
             var tictactop = document.getElementById("tictactop");
-            var ruri = document.getElementById("ruri");
+            var rurl = document.getElementById("rurl");
             var number = decodeURIComponent(window.location.search.substring(1));
             if (window.location.href.includes("textmonster404.github.io/?")) {
                 window.location.replace("https://textmonster404.github.io/index?"+number+".html");
@@ -81,7 +81,7 @@
                 tictac.href = "tictactoe?"+Math.floor(Math.random()*1000000000+1)+".html";
             } else {
                 tictactop.outerHTML = "";
-                ruri.outerHTML = "";
+                rurl.outerHTML = "";
             }
         </script>
     </body>
