@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Icon</title>
+        <link rel="icon" href="" id="favicon"/>
+        <script>document.getElementById("favicon").href=decodeURIComponent(window.location.search.substring(1));</script>
+    </head>
+    <body>
+        <span id="anus"><input placeholder="Paste link to image here."/><a href=""></a></span>
+        <br/><img src="" id="img"/>
+        <script>
+            window.setInterval(function(){document.getElementsByTagName("a")[0].href="https://textmonster404.github.io/img_icon.html?"+document.getElementsByTagName("input")[0].value;document.getElementsByTagName("a")[0].textContent="https://textmonster404.github.io/img_icon.html?"+document.getElementsByTagName("input")[0].value;},0);
+            if (decodeURIComponent(window.location.search.substring(1))!=="") {
+                document.getElementById("anus").innerHTML = "";
+                document.getElementById("img").src = decodeURIComponent(window.location.search.substring(1));
+            }
+        </script>
+    </body>
+</html>
