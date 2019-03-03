@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon/icon.ico"/>
+        <title>Particle Chaos (JS Canvas)</title>
+        <style>
+body {background:black;text-align:center;overflow:hidden;margin:0px;padding:0px;}
+canvas {left:calc( 50% - 1000px );position:absolute;top:calc( 50% - 500px );}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="2000" height="1000"></canvas>
+        <script>
+var t = 0;
+
+// Function to edit
+var f = function(x,y) {
+  var x_1 = Math.sin(Math.sin(t**2))-x;
+  var y_1 = Math.cos(Math.cos(t**2))-y;
+  
+  return [x_1,y_1];
+}
+
+
+/* get canvas */
+var c = document.getElementById("canvas");
+var ctx = c.getContext("2d");
+ctx.fillRect(0,0,2000,1000); // set bg
+
+/* points */
+var point_limit = 200; // How many points?
+var points = []; // point table
+
+// You may edit this
+var speed = 0.02;
+
+// create points //
+var u = function() {
+  points[0] = {}
+  points[0].x = f(t,t)[0];
+  points[0].y = f(t,t)[1];
+  for (var i=1;i<point_limit;i++) {
+    points[i] = {};
+    points[i].x = f(points[i-1].x,points[i-1].y)[0];
+    points[i].y = f(points[i-1].x,points[i-1].y)[1];
+    //console.log(f(points[i-1].x,points[i-1].y));
+  }
+  t += speed;
+}
+var d = function() {
+  ctx.fillStyle = "#FFFFFF";
+  for (var i=0;i<points.length;i++) {
+    ctx.fillRect(2000/2+points[i].x*10,1000/2+points[i].y*10,1,1);
+  }
+  ctx.fillStyle = "#00000004";
+  ctx.fillRect(0,0,2000,1000);
+}
+var g = function() {
+  u();
+  d();
+}
+window.setInterval(g,1);
+        </script>
+    </body>
+</html>
