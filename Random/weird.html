@@ -38,7 +38,9 @@
             </tr>
         </table>
         <script>
-            document.getElementById("megan_lenny").href=["../infinite_le_lenny.html","../infinite_megan.html"][Math.floor(Math.random()*2)];
+            var n = Math.floor(Math.random()*2);
+            document.getElementById("megan_lenny").href=["../infinite_le_lenny.html","../infinite_megan.html"][n];
+            document.getElementById("megan_lenny").innerHTML=["Infinite Le Lenny","Infinite Megan"][n];
         </script>
     </body>
 </html>
