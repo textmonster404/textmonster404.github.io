@@ -1,0 +1,4 @@
+.domino {position:absolute;font-size:50px;cursor:grab;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+.domino:active {cursor:grabbing;}
+#r {position:fixed;bottom:8px;right:8px;}
+#boneyard {font-weight:bold;text-decoration:underline;}
