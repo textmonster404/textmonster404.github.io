@@ -1,0 +1,9 @@
+.piece {position:absolute;font-size:24px;cursor:grab;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;height:28px;}
+.piece:active {cursor:grabbing;}
+#r {position:fixed;bottom:8px;right:8px;}
+#t {position:absolute;top:0px;left:0px;border-collapse:collapse;z-index:-1;}
+#t td {border:1px solid black;width:17px;height:17px;}
+[black] {background:gray;}
+.white {transform:rotate(180deg) translateY(-5px);}
+#d {transition:transform 1s;width:161px;height:161px;top:26px;left:18px;position:absolute;z-index:-1;}
+#p {position:relative;top:-26px;left:-18px;}
