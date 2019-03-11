@@ -7,7 +7,7 @@ var s = function(e){
         mu();
     }
 }
-var theta = 0;
+var theta = 1;
 var mdID=-1;function md(event){if(mdID==-1){mdID=window.setInterval(s,1,event);event.target.style.zIndex="2"}};function mu(event){if(mdID!=-1){clearInterval(mdID);mdID=-1;event.target.style.zIndex="1";event.target.style.top=(Math.floor((event.target.offsetTop+10)/20)*20)+"px";event.target.style.left=(Math.floor((event.target.offsetLeft+10)/20)*20)+"px";}};
 function mp(event) {
     if (((theta)%2)==0) {
