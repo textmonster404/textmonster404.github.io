@@ -7,3 +7,4 @@
 .white {transform:rotate(180deg) translateY(-5px);}
 #d {transition:transform 1s;width:161px;height:161px;top:26px;left:18px;position:absolute;z-index:-1;}
 #p {position:relative;top:-26px;left:-18px;}
+body {font-family:Tinos;}
