@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Start game.</title>
+    </head>
+    <body>
+        <script>
+            localStorage.setItem("game_dir","");
+            window.setInterval(function(){if (document.hasFocus()){window.open("go_left.html","_blank");window.open("go_right.html","_blank");window.open("where_do_you_go.html");}},0);
+        </script>
+    </body>
+</html>

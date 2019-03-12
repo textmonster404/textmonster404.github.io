@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Go Left.</title>
+    </head>
+    <body>
+        <script>
+            window.setInterval(function(){if (document.hasFocus()){localStorage.setItem("game_dir","left");window.location.href="you_went_left.html";};if (localStorage.getItem("game_dir")=="right") {window.close();}},0);
+        </script>
+    </body>
+</html>
