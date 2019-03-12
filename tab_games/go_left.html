@@ -6,7 +6,7 @@
     </head>
     <body>
         <script>
-            window.setInterval(function(){if (document.hasFocus()){localStorage.setItem("game_dir","left");};if (localStorage.getItem("game_dir")!=="") {window.close();}},0);
+            window.setInterval(function(){if (document.hasFocus()&&localStorage.getItem("game_dir")==""){localStorage.setItem("game_dir","left");};if (localStorage.getItem("game_dir")!=="") {window.close();}},0);
         </script>
     </body>
 </html>
