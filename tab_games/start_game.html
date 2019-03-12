@@ -7,7 +7,7 @@
     <body>
         <script>
             localStorage.setItem("game_dir","");
-            window.setInterval(function(){if (document.hasFocus()){window.open("go_left.html","_blank");window.open("go_right.html","_blank");window.open("where_do_you_go.html");}},0);
+            window.setInterval(function(){if (document.hasFocus()){window.open("go_left.html","_blank");window.open("go_right.html","_blank");window.open("where_do_you_go.html");};if(localStorage.getItem("game_dir")=="left"){window.location.href="you_went_left.html";};if(localStorage.getItem("game_dir")=="right"){window.location.href="you_went_right.html";};},0);
         </script>
     </body>
 </html>
