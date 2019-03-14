@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: #fcfcf7;
+  color: #087d6c;
+  font-family: 'Hanalei Fill', cursive;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+#wrapper {
+  width: 1000px;
+  perspective: 1000px;
+  perspective-origin: 50% 100px;
+  margin: 100px auto 0 auto;
+}
+
+.container {
+   position: absolute;
+   transform-style: preserve-3d;
+   width: 1000px;
+   height: 500px;
+   margin: 0 auto;
+}
+.one {
+ transform:  rotateY(-45deg) rotateX(0deg);
+-webkit-clip-path: polygon(50% 0%, 50% 100%, 100% 100%);
+clip-path: polygon(50% 0%, 50% 100%, 100% 100%);
+}
+
+.two {
+  transform:  rotateY(45deg) rotateX(0deg);
+-webkit-clip-path: polygon(50% 0%, 0 100%, 50% 100%);
+clip-path: polygon(50% 0%, 0 100%, 50% 100%);
+}
+
+#left {
+  float: left;
+  height: 500px;
+  width: 500px;
+  shape-outside: polygon(0.33% 3px, 100.23% 0.17%, 2px 99.73%);
+
+
+}
+#right {
+  float: right;
+  height: 500px;
+  width: 500px;
+  shape-outside: polygon(100.13% 1px, 0.72% 0.48%, 497px 100.36%);
+  
+}
+
+p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+
+
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="container one">
+                <div id="left"></div>
+                <div id="right"></div>
+                <p>Tri Lorem ipsum dolor siet amett oernetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit! Doloribus doloremque quisquam quasi cum deserunt illo neque, ea fugiat unde libero eaque sit.Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit! . Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit!Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Magni repellat recusand! adipisicing elit. Magni repellat recusand! adipisicing elit. Magni repellat recusand recusan som et. Lorem ipsum dolor Lorem ipsum dolor Lsores! Doloribus doloremque quisquam
+      quasi cum deserunt illo neque, ea fugiat unde libero eaque sit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit! Doloribus doloremque quisquam quasi cum deserunt illo neque,
+      ea fugiat unde libero eaque sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. The Lorem ipsum Triangle!!!</p>
+  </div>
+
+  <div class="container two">
+    <div id="left"></div>
+    <div id="right"></div>
+    <p>Tri Lorem ipsum dolor siet amett oernetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit! Doloribus doloremque quisquam quasi cum deserunt illo neque, ea fugiat unde libero eaque sit.Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit! . Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit!Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Magni repellat recusand! adipisicing elit. Magni repellat recusand! adipisicing elit. Magni repellat recusand recusan som et. Lorem ipsum dolor Lorem ipsum dolor Lsores! Doloribus doloremque quisquam
+      quasi cum deserunt illo neque, ea fugiat unde libero eaque sit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni repellat recusandae quisquam distinctio excepturi tempore odit! Doloribus doloremque quisquam quasi cum deserunt illo neque,
+      ea fugiat unde libero eaque sit.Lorem ipsum dolor sit amet consectetur adipisicing elit. The Lorem ipsum Triangle!!!</p>
+  </div>
+
+</div>
+<!-- end wrapper -->
+    </body>
+</html>
