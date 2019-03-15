@@ -6,13 +6,13 @@
     <body>
         <script>
             String.prototype.removeHTML = function() {if (this.substring(this.length-5)==".html") {return this.substring(0,this.length-5)} else {return this;}}
-            String.prototype.nullCharacter = function(char) {var temp="";for (var i=0;i<this.split(char).length;i++) {temp+=this.split(char)[i].substring(1-Math.ceil(1/this.split(char)[i].length));};return temp;}
+            String.prototype.replaceNullCharacter = function(w,x,char) {var temp="";for (var i=0;i<this.length;i++) {if (this.charAt(i)==w&&this.charAt(i-1)==char) {temp+=w;} else if (this.charAt(i)==w) {temp+=x;} else if (this.charAt(i)!==char) {temp+=this.charAt(i)};};return temp;}
             var WEB_data = decodeURIComponent(window.location.search.substring(1)).removeHTML().split("~").join(" ").split("/");
             document.head.innerHTML = "<title>"+WEB_data[0]+"</title>";
             for (var i=1;i<WEB_data.length;i++) {
                 WEB_data[i].split("_checkbox_").join("<input type=\"checkbox\"/>");
                 WEB_data[i].split("_checkedbox_").join("<input type=\"checkbox\" checked/>");
-                document.body.innerHTML+=WEB_data[i].split("_-").join("</").split("-_").join(">").split("_").join("<").split("$").join("\"").split("@").join("https://textmonster404.github.io/user/?").split("#").join("https://textmonster404.github.io/user/?"+decodeURIComponent(window.location.search.substring(1))).nullCharacter("&");
+                document.body.innerHTML+=WEB_data[i].replaceNullCharacter("_-","</","&").replaceNullCharacter("-_",">","&").replaceNullCharacter("_","<","&").replaceNullCharacter("$","\"","&").replaceNullCharacter("@","https://textmonster404.github.io/user/?","&").replaceNullCharacter("#","https://textmonster404.github.io/user/?"+decodeURIComponent(window.location.search.substring(1)),"&");
                 document.body.innerHTML+="<br/>";
             }
         </script>
