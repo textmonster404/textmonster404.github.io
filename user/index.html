@@ -10,7 +10,7 @@
             for (var i=1;i<WEB_data.length;i++) {
                 WEB_data[i].split("_checkbox_").join("<input type=\"checkbox\"/>");
                 WEB_data[i].split("_checkedbox_").join("<input type=\"checkbox\" checked/>");
-                for (var j=0;j<WEB_data[i].split("_");j++) {
+                for (var j=0;j<WEB_data[i].split("_").length;j++) {
                     if (j%2==0) {
                         document.body.innerHTML+="<";
                     } else {
@@ -19,8 +19,8 @@
                     if (WEB_data[i].split("_")[j].charAt(0)=="-") {
                         document.body.innerHTML+="/";
                     }
+                    document.body.innerHTML+=WEB_data[i].split("_")[j]
                 }
-                document.body.innerHTML+=WEB_data[i];
                 document.body.innerHTML+="<br/>";
             }
         </script>
