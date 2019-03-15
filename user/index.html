@@ -7,9 +7,9 @@
         <script>
             String.prototype.removeHTML = function() {if (this.substring(this.length-5)==".html") {return this.substring(0,this.length-5)} else {return this;}}
             String.prototype.replaceNullCharacter = function(w,x,char) {var temp="";for (var i=0;i<this.length;i++) {if (this.substring(i,i+w.length)==w&&this.charAt(i-1)==char) {temp+=w;i+=w.length-1;} else if (this.substring(i,i+w.length)==w) {temp+=x;i+=w.length-1;} else if (this.charAt(i)!==char) {temp+=this.charAt(i)};};return temp;}
-            var WEB_data = decodeURIComponent(window.location.search.substring(1)).removeHTML().replaceNullCharacter("~"," ","&").replaceNullCharacter("/","<br/>","&").split("!");
+            var WEB_data = decodeURIComponent(window.location.search.substring(1)).removeHTML().replaceNullCharacter("~"," ","&").replaceNullCharacter("/","<br/>","&").split("!!");
             document.head.innerHTML = "<title>"+WEB_data[0]+"</title>";
-            document.body.innerHTML = WEB_data[1].replaceNullCharacter("_-","</","&").replaceNullCharacter("-_",">","&").replaceNullCharacter("_","<","&").replaceNullCharacter("$","\"","&").replaceNullCharacter("@","https://textmonster404.github.io/user/?","&").replaceNullCharacter("#","https://textmonster404.github.io/user/?"+decodeURIComponent(window.location.search.substring(1)),"&");
+            document.body.innerHTML = WEB_data[1].replaceNullCharacter("_-","</","&").replaceNullCharacter("-_",">","&").replaceNullCharacter("_","<","&").replaceNullCharacter("$","\"","&").split("&!").join("!!").replaceNullCharacter("@","https://textmonster404.github.io/user/?","&").replaceNullCharacter("#","https://textmonster404.github.io/user/?"+decodeURIComponent(window.location.search.substring(1)),"&");
         </script>
     </body>
 </html>
