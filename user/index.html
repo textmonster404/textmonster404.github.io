@@ -11,7 +11,7 @@
             for (var i=1;i<WEB_data.length;i++) {
                 WEB_data[i].split("_checkbox_").join("<input type=\"checkbox\"/>");
                 WEB_data[i].split("_checkedbox_").join("<input type=\"checkbox\" checked/>");
-                document.body.innerHTML+=WEB_data[i].split("_-").join("</").split("-_").join(">").split("_").join("<");
+                document.body.innerHTML+=WEB_data[i].split("_-").join("</").split("-_").join(">").split("_").join("<").split("#").join("https://textmonster404.github.io/user/?"+decodeURIComponent(window.location.search.substring(1)));
                 document.body.innerHTML+="<br/>";
             }
         </script>
