@@ -5,7 +5,8 @@
     </head>
     <body>
         <script>
-            var WEB_data = decodeURIComponent(window.location.search.substring(1)).split("~").join(" ").split("/");
+            String.prototype.removeHTML = function() {if (this.substring(this.length-5)==".html") {return this.substring(0,this.length-5)} else {return this;}}
+            var WEB_data = decodeURIComponent(window.location.search.substring(1)).removeHTML().split("~").join(" ").split("/");
             document.head.innerHTML = "<title>"+WEB_data[0]+"</title>";
             for (var i=1;i<WEB_data.length;i++) {
                 WEB_data[i].split("_checkbox_").join("<input type=\"checkbox\"/>");
