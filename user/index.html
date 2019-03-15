@@ -6,7 +6,7 @@
     <body>
         <script>
             String.prototype.removeHTML = function() {if (this.substring(this.length-5)==".html") {return this.substring(0,this.length-5)} else {return this;}}
-            String.prototype.replaceNullCharacter = function(w,x,char) {var temp="";for (var i=0;i<this.length;i++) {if (this.charAt(i)==w&&this.charAt(i-1)==char) {temp+=w;} else if (this.charAt(i)==w) {temp+=x;} else if (this.charAt(i)!==char) {temp+=this.charAt(i)};};return temp;}
+            String.prototype.replaceNullCharacter = function(w,x,char) {var temp="";for (var i=0;i<this.length;i++) {if (this.substring(i,i+w.length)==w&&this.charAt(i-1)==char) {temp+=w;i+=w.length-1;} else if (this.substring(i,i+w.length)==w) {temp+=x;i+=w.length-1;} else if (this.charAt(i)!==char) {temp+=this.charAt(i)};};return temp;}
             var WEB_data = decodeURIComponent(window.location.search.substring(1)).removeHTML().split("~").join(" ").split("/");
             document.head.innerHTML = "<title>"+WEB_data[0]+"</title>";
             for (var i=1;i<WEB_data.length;i++) {
