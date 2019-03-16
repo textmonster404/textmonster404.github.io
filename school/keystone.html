@@ -5,7 +5,13 @@
         <meta http-equiv="refresh" content="36;url=keystone_capitola.html"/>
         <title>Keystone</title>
         <style>
-            body {overflow:hidden;}
+            @keyframes body {
+                0% {background:white;}
+                94.444444444% {background:white;}
+                100% {background:cornflowerblue;}
+            }
+            
+            body {overflow:hidden;animation-name:body;animation-duration:36s;}
             
             @keyframes joshua {
                 0% {visibility:hidden;}
