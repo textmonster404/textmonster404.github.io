@@ -8,25 +8,30 @@
             @keyframes sr2 {from{right:-200px;}to{right:8px;}}
             @keyframes sr3 {from{right:-300px;}to{right:8px;}}
             
+            @keyframes b {from{transform:translateY(-200px);}to{transform:translateY(0px);}}
+            @keyframes hh {0%{transform:scale(0.0) rotate(-24deg);}33.33%{transform:scale(0.0) rotate(-24deg);}100%{transform:scale(1.0) rotate(-24deg);}}
+            @keyframes harry {from{right:400px;}to{right:0px;}}
+            
             body {background-color:cornflowerblue;color:midnightblue;overflow-x:hidden;}
             div[border] {display:inline-block;font-size:30px;border:2px inset #88f;background-color:royalblue;}
             div[b2] {display:inline-block;font-size:16pt;border:2px inset #88f;background-color:royalblue;}
             div[b1] {display:inline-block;border:2px inset #88f;background-color:royalblue;}
             table[center] * {text-align:center;}
             div[r] {position:absolute;right:8px;}
-            h1[b] {font-size:48pt;border:2px outset mediumblue;background-color:royalblue;margin-top:0px;width:calc( 100% + 8px );margin-left:-8px;position:sticky;top:0px;z-index:99;}
+            h1[b] {font-size:48pt;border:2px outset mediumblue;background-color:royalblue;margin-top:0px;width:calc( 100% + 8px );margin-left:-8px;position:sticky;top:0px;z-index:99;animation-name:b;animation-duration:4s;}
             h1[c] {text-align:center;}
-            div[hh] {position:absolute;top:205px;left:130px;transform:rotate(-24deg);font-size:26pt;font-weight:bolder;color:midnightblue;-webkit-text-stroke:cornflowerblue 0.8px;}
+            div[hh] {position:absolute;top:205px;left:130px;transform:rotate(-24deg);font-size:26pt;font-weight:bolder;color:midnightblue;-webkit-text-stroke:cornflowerblue 0.8px;animation-name:hh;animation-duration:6s;}
             div[hha] {position:relative;left:20px;font-size:32pt;font-weight:900;}
             [f] {border:3px inset lightskyblue;}
             [sr1] {animation-name:sr1;animation-duration:1s;}
             [sr2] {animation-name:sr2;animation-duration:2s;}
             [sr3] {animation-name:sr3;animation-duration:3s;}
+            [harry] {animation-name:harry;animation-duration:2.5s;}
         </style>
     </head>
     <body>
         <h1 b c>Capitola</h1>
-        <div border>Harry Potter</div><br/>
+        <div border harry>Harry Potter</div><br/>
         <div b2 r sr1>Friendship</div><br/><br/>
         <div b2 r sr2>Adventure</div><br/><br/>
         <div b2 r sr3>Discovery</div><br/><br/>
