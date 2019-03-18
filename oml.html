@@ -5,6 +5,10 @@
         <link rel="icon" href="icon/icon.ico"/>
         <title>OML Interpreter</title>
         <script src="scripts/oml.js"></script>
+        <style>
+            #myfile {tranform:opacity 0.5s;}
+            .opaque {opacity:0.0;}
+            .opaque:hover {opacity:1.0;}
     </head>
     <body>
         <div id="out">&nbsp;</div>
@@ -39,6 +43,7 @@
                     }
                 };
                 reader.readAsText(evt.target.files[0]);
+                evt.target.classList.add("opaque");
             };
         </script>
     </body>
