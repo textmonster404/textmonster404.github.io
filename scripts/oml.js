@@ -298,6 +298,8 @@ function oml(string) {
 	.replaceAll("<@","<img src=\"")
 	.replaceAll("@>","\"/>")
 	.replaceAll("@","\" width=\"")
+        .replaceAll("<**_&","<b><u><big>")
+        .replaceAll("&_**>","</big></u></b>")
         + "</code></div>";
 }
 
