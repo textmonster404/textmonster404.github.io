@@ -4,10 +4,11 @@
 <title>Page Title</title>
 </head>
 <body>
-<textarea id="ta"></textarea>
+<textarea id="ta"></textarea><br/>
+<input id="nm"/>
 <a href="data:text/plain;charset=UTF-8," id="dl" download=".oml">Download File</a>
 <script>
-window.setInterval(function(){document.getElementById("dl").href = "data:text/plain;charset=UTF-8," + encodeURIComponent();},0)
+window.setInterval(function(){document.getElementById("dl").href = "data:text/plain;charset=UTF-8," + encodeURIComponent(document.getElementById("ta").value);document.getElementById("dl").download = encodeURIComponent(document.getElementById("nm").value);},0);
 </script>
 </body>
 </html>
