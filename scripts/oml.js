@@ -293,6 +293,7 @@ function oml(string) {
         .replaceAll("**","&nbsp;\u25CB&nbsp;")
         .replaceAll("*","&nbsp;\u2022&nbsp;")
         .replaceAll("--","<hr/>")
+	.replaceAll("##","&nbsp;&nbsp;&nbsp;&nbsp;")
         + "</code></div>";
 }
 
