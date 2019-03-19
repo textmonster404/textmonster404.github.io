@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<textarea id="ta"></textarea>
+<a href="data:text/plain;charset=UTF-8," id="dl" download=".oml">Download File</a>
+<script>
+window.setInterval(function(){document.getElementById("dl").href = "data:text/plain;charset=UTF-8," + encodeURIComponent();},0)
+</script>
+</body>
+</html>
