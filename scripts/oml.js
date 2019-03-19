@@ -294,7 +294,7 @@ function oml(string) {
         .replaceAll("*","&nbsp;\u2022&nbsp;")
         .replaceAll("--","<hr/>")
 	.replaceAll("##","&nbsp;&nbsp;&nbsp;&nbsp;")
-	.replaceAll("@@","<br/><br/>")
+	.replaceAll("@@","<br/>")
         + "</code></div>";
 }
 
