@@ -289,6 +289,8 @@ function oml(string) {
         .replaceAll("&&&>","</big></big></big>")
         .replaceAll("<,","<small>")
         .replaceAll(",>","</small>")
+	.replaceAll("##*","&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\u2022&nbsp;")
+	.replaceAll("#*","&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\u2022&nbsp;")
         .replaceAll("***","&nbsp;\u2023&nbsp;")
         .replaceAll("**","&nbsp;\u25CB&nbsp;")
         .replaceAll("*","&nbsp;\u2022&nbsp;")
