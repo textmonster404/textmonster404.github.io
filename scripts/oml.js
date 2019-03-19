@@ -295,6 +295,9 @@ function oml(string) {
         .replaceAll("--","<hr/>")
 	.replaceAll("##","&nbsp;&nbsp;&nbsp;&nbsp;")
 	.replaceAll("@@","<br/>")
+	.replaceAll("<@","<img src=\"")
+	.replaceAll("@>","\"/>")
+	.replaceAll("@","\" width=\"")
         + "</code></div>";
 }
 
