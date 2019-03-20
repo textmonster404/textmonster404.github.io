@@ -107,7 +107,30 @@
                 }
                 window.setInterval(function(){document.getElementById("dl").href = "data:text/plain;charset=UTF-8," + encodeURIComponent(un_oml(document.getElementById("editor").innerHTML));document.getElementById("dl").download = encodeURIComponent(document.getElementById("in").value+".oml");},0);
             </script>
+            <form id="myform">
+                <p>
+                    <input id="myfile" name="files[]" type="file" accept=".oml" />
+                </p>
+            </form>
         </div>
+        <script>
+            document.forms['myform'].elements['myfile'].onchange = function(evt) {
+                if(!window.FileReader) return; // Browser is not compatible
+                var reader = new FileReader();
+                reader.onload = function(evt) {
+                    if(evt.target.readyState != 2) return;
+                    if(evt.target.error) {
+                        alert('Error while reading file');
+                        return;
+                    }
+                    filecontent = evt.target.result;
+                    if (document.getElementById("myfile").value.includes(".oml")) {
+                        document.getElementById("editor").innerHTML = oml(evt.target.result);
+                    }
+                };
+                reader.readAsText(evt.target.files[0]);
+            };
+        </script>
         <a href="index.html" id="back">Back</a>
     </body>
 </html>
