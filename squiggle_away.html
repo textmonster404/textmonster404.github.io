@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Squiggle Text</title>
+        <link rel="icon" href="https://textmonster404.github.io/favicon.ico"/>
+        <style>
+            body {filter:url(#turb);}
+        </style>
+    </head>
+    <body>
+        <h1>Squiggle</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <filter id="turb">
+                    <feTurbulence  id="tf" type="turbulence" baseFrequency="0.08" numOctaves="1" result="turbulence"/>
+                    <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="0" xChannelSelector="R" yChannelSelector="G" id="turb-scale"/>
+                </filter>
+            </defs>
+        </svg>
+        <script>
+            document.getElementById("tf").setAttribute("baseFrequency",Math.random()/5);
+            window.setInterval(function(){document.getElementById("turb-scale").setAttribute("scale",parseFloat(document.getElementById("turb-scale").getAttribute("scale"))+0.025);},0);
+        </script>
+    </body>
+</html>
