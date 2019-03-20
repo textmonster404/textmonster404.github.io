@@ -38,7 +38,7 @@
                     var target = this;
                     return target.split(search).join(replacement);
                 };
-                var un_oml(value) {
+                var un_oml = function(value) {
                     return string.replaceAll("\n","")
                         .replaceAll("<h6>","<------")
                         .replaceAll("</h6>","------>")
@@ -105,7 +105,7 @@
 	                    .replaceAll("\" width=\"","@")
                         .replaceAll("<br>","@@")
                 }
-                window.setInterval(function(){document.getElementById("dl").href = "data:text/plain;charset=UTF-8," + encodeURIComponent(document.getElementById("editor").innerHTML);document.getElementById("dl").download = encodeURIComponent(document.getElementById("in").value+".oml");},0);
+                window.setInterval(function(){document.getElementById("dl").href = "data:text/plain;charset=UTF-8," + encodeURIComponent(un_oml(document.getElementById("editor").innerHTML));document.getElementById("dl").download = encodeURIComponent(document.getElementById("in").value+".oml");},0);
             </script>
         </div>
         <a href="index.html" id="back">Back</a>
