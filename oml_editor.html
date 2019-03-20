@@ -104,8 +104,9 @@
                         .replaceAll("\"/>","@>")
                         .replaceAll("\" width=\"","@")
                         .replaceAll("<br>","@@")
-                        .replaceAll("<div>","")
+                        .replaceAll("<div>","<\\")
                         .replaceAll("<code>","")
+                        .replaceAll("</code>","")
                 }
                 function oml(string) {
 	return "<div><code>" + string.replaceAll("\n","<br/>")
@@ -176,6 +177,7 @@
 	.replaceAll("<@","<img src=\"")
 	.replaceAll("@>","\"/>")
 	.replaceAll("@","\" width=\"")
+	.replaceAll("<\\","<div>")
         + "</code></div>";
 }
                 window.setInterval(function(){document.getElementById("dl").href = "data:text/plain;charset=UTF-8," + encodeURIComponent(un_oml(document.getElementById("editor").innerHTML));document.getElementById("dl").download = encodeURIComponent(document.getElementById("in").value+".oml");},0);
