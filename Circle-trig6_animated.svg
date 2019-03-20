@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1250" height="800" style="fill: rgb(0, 0, 0); stroke: none; stroke-width: 1.415; stroke-miterlimit: 8; font: 16px/1.2 sans-serif; text-anchor: start; text-align: start;">
+
+	<metadata>
+		<title>Unit Circle</title>
+		<subject>Trigonometry</subject>
+
+		<description>A unit circle with sine (sin), cosine (cos), tangent (tan), cotangent (cot), secant (sec), cosecant (csc), versine (versin), coversine (cvs), exsecant (exsec), excosecant (excsc) as well as chord (crd) and arc labeled as trigonometric functions of angle theta</description>
+
+		<author>Wikipedia: Limaner, Stevertigo, Verdy p, Taktoa, Matthiaspaul</author>
+		<type>Image</type>
+		<format>image/svg</format>
+
+	</metadata>
+	<g transform="scale(3.7) translate(0, -8)">
+		<g id="g-points" style="fill:rgb(0,0,0)" class="WLSdeIHJ_text">
+			<text x="80" y="138">O</text>
+
+			<text x="106" y="118" style="font-style:italic">θ</text>
+			<text x="139" y="42">A</text>
+			<text x="139" y="224">B</text>
+
+			<text x="139" y="120">C</text>
+			<text x="190" y="140">D</text>
+			<text x="322" y="140">E</text>
+			<text x="92" y="20">F</text>
+			<text x="80" y="60">G</text>
+
+			<text x="97" y="38">H</text>
+
+			<text x="107" y="80">1</text>
+
+		</g>
+
+		<g style="fill:none">
+			<g style="stroke:gray;stroke-dasharray:8,3">
+
+				<path id="line-BC" d="M134,208L134,125" class="WLSdeIHJ_0"></path>
+
+			</g>
+			<g style="stroke:black">
+				<path id="circle-O-HADB" d="M3.299999999999997,125A91.7,91.7 0,1,1 186.7,125A91.7,91.7 0,1,1 3.299999999999997,125" class="WLSdeIHJ_1"></path>^
+				<path id="arc-DA" style="stroke:black;stroke-width:3" d="M 186.7,125 A 91.7,91.7 0,0,0 134,42" class="WLSdeIHJ_2"></path>
+				<path id="line-OA-theta" d="M95,125L134,42" class="WLSdeIHJ_3"></path>
+
+				<g style="stroke-dasharray:8,3">
+					<path id="line-OB-minus-theta" d="M95,125L134,208" class="WLSdeIHJ_4"></path>
+				</g>
+
+				<g style="stroke-dasharray:3,4">
+
+					<path id="line-A-dashed" d="M134,42L147,14" class="WLSdeIHJ_5"></path>
+
+				</g>
+
+				<path id="path-angle-theta" d="M107,125C107,121 104,116 100,114" class="WLSdeIHJ_6"></path>
+
+				<path id="polyline-angle-ortho-O" d="M85,125L85,115L95,115" class="WLSdeIHJ_7"></path>
+
+				<path id="polyline-angle-ortho-G" d="M95,52L105,52L105,42" class="WLSdeIHJ_8"></path>
+
+				<path id="polyline-angle-ortho-C" d="M124,125L124,115L134,115" class="WLSdeIHJ_9"></path>
+				<path id="polyline-angle-ortho-A" d="M126,38L130,30L137,34" class="WLSdeIHJ_10"></path>
+
+			</g>
+			<path id="line-AD-crd" style="stroke:silver" d="M134,42L186.7,125" class="WLSdeIHJ_11"></path>
+
+			<path id="line-GA-cos" style="stroke:blue" d="M95,42L134,42" class="WLSdeIHJ_12"></path>
+
+			<path id="line-OC-cos" style="stroke:blue" d="M95,125L134,125" class="WLSdeIHJ_13"></path>
+
+			<path id="line-CD-versin" style="stroke:green" d="M134,125L186.7,125" class="WLSdeIHJ_14"></path>
+			<path id="line-DE-exsec" style="stroke:hotpink" d="M186.7,125L313,125" class="WLSdeIHJ_15"></path>
+
+			<g id="g-sec-lines" style="stroke:darkcyan">
+				<g style="stroke-dasharray:3,4">
+
+					<path id="line-O-yneg" d="M95,125L95,165" class="WLSdeIHJ_16"></path>
+
+					<path id="line-E-yneg" d="M313,125L313,165" class="WLSdeIHJ_17"></path>
+
+				</g>
+				<path id="line-sec-parallel-OE" d="M107,170L300,170" class="WLSdeIHJ_18"></path>
+				<path id="line-sec-ortho-O" d="M95,165L95,175" class="WLSdeIHJ_19"></path>
+				<path id="line-sec-ortho-E" d="M313,165L313,175" class="WLSdeIHJ_20"></path>
+
+				<g id="g-sec-arrowheads" style="stroke:none;fill:darkcyan">
+
+					<path id="polyline-sec-arrowhead-O" d="M107,165L107,175L95,170" class="WLSdeIHJ_21 WLSdeIHJ_text"></path>
+
+					<path id="polyline-sec-arrowhead-E" d="M300,165L300,175L313,170" class="WLSdeIHJ_22 WLSdeIHJ_text"></path>
+				</g>
+
+			</g>
+
+			<path id="line-CA-sin" style="stroke:red" d="M134,125L134,42" class="WLSdeIHJ_23"></path>
+			<path id="line-OG-sin" style="stroke:red" d="M95,125L95,42" class="WLSdeIHJ_24"></path>
+			<path id="line-HG-cvs" style="stroke:cyan" d="M95,42L95,33.3" class="WLSdeIHJ_25"></path>
+			<path id="line-HF-excsc" style="stroke:darkgreen" d="M95,33.3L95,24" class="WLSdeIHJ_26"></path>
+			<g id="g-csc-lines" style="stroke:pink">
+				<g style="stroke-dasharray:3,4">
+					<path id="line-O-xneg" d="M95,125L55,125" class="WLSdeIHJ_27"></path>
+
+					<path id="line-F-xneg" d="M95,24L55,24" class="WLSdeIHJ_28"></path>
+				</g>
+				<path id="line-csc-parallel-OF" d="M50,113L50,36" class="WLSdeIHJ_29"></path>
+				<path id="line-csc-ortho-O" d="M45,125L55,125" class="WLSdeIHJ_30"></path>
+
+				<path id="line-csc-ortho-F" d="M45,24L55,24" class="WLSdeIHJ_31"></path>
+				<g id="g-csc-arrowheads" style="stroke:none;fill:pink">
+
+					<path id="polyline-csc-arrowhead-O" d="M45,113L55,113L50,125" class="WLSdeIHJ_32 WLSdeIHJ_text"></path>
+					<path id="polyline-csc-arrowhead-E" d="M45,36L55,36L50,24" class="WLSdeIHJ_33 WLSdeIHJ_text"></path>
+
+				</g>
+			</g>
+
+			<path id="line-FA-cot" style="stroke:darkorange" d="M95,24L134,42" class="WLSdeIHJ_34"></path>
+
+			<path id="line-AE-tan" style="stroke:tan" d="M134,42L313,125" class="WLSdeIHJ_35"></path>
+		</g>
+		<g style="font-size:14">
+			<text x="136" y="88" style="fill:red" class="WLSdeIHJ_text">sin</text>
+			<text x="69" y="45" style="fill:cyan" class="WLSdeIHJ_text">cvs</text>
+			<text x="53" y="33" style="fill:darkgreen" class="WLSdeIHJ_text">excsc</text>
+			<text x="24" y="76" style="fill:pink" class="WLSdeIHJ_text">csc</text>
+			<text x="106" y="138" style="fill:blue" class="WLSdeIHJ_text">cos</text>
+			<text x="139" y="138" style="fill:green" class="WLSdeIHJ_text">versin</text>
+			<text x="231" y="138" style="fill:hotpink" class="WLSdeIHJ_text">exsec</text>
+			<text x="191" y="183" style="fill:darkcyan" class="WLSdeIHJ_text">sec</text>
+			<g id="g-crd" transform="rotate(56)">
+				<text x="145" y="-88" style="fill:silver" class="WLSdeIHJ_text">crd</text>
+			</g>
+			<text x="185" y="100" style="fill:black" class="WLSdeIHJ_text">arc</text>
+			<g id="g-tan" transform="rotate(25)">
+				<text x="105" y="-22" style="fill:darkorange" class="WLSdeIHJ_text">cot</text>
+				<text x="215" y="-22" style="fill:tan" class="WLSdeIHJ_text">tan</text>
+
+			</g>
+		</g>
+	</g>
+
+<style data-made-with="vivus-instant">.WLSdeIHJ_0{stroke-dasharray:83 85;stroke-dashoffset:84;animation:WLSdeIHJ_draw 2000ms ease 0ms forwards;}.WLSdeIHJ_1{stroke-dasharray:577 579;stroke-dashoffset:578;animation:WLSdeIHJ_draw 2000ms ease 28ms forwards;}.WLSdeIHJ_2{stroke-dasharray:104 106;stroke-dashoffset:105;animation:WLSdeIHJ_draw 2000ms ease 57ms forwards;}.WLSdeIHJ_3{stroke-dasharray:92 94;stroke-dashoffset:93;animation:WLSdeIHJ_draw 2000ms ease 85ms forwards;}.WLSdeIHJ_4{stroke-dasharray:92 94;stroke-dashoffset:93;animation:WLSdeIHJ_draw 2000ms ease 114ms forwards;}.WLSdeIHJ_5{stroke-dasharray:31 33;stroke-dashoffset:32;animation:WLSdeIHJ_draw 2000ms ease 142ms forwards;}.WLSdeIHJ_6{stroke-dasharray:14 16;stroke-dashoffset:15;animation:WLSdeIHJ_draw 2000ms ease 171ms forwards;}.WLSdeIHJ_7{stroke-dasharray:20 22;stroke-dashoffset:21;animation:WLSdeIHJ_draw 2000ms ease 200ms forwards;}.WLSdeIHJ_8{stroke-dasharray:20 22;stroke-dashoffset:21;animation:WLSdeIHJ_draw 2000ms ease 228ms forwards;}.WLSdeIHJ_9{stroke-dasharray:20 22;stroke-dashoffset:21;animation:WLSdeIHJ_draw 2000ms ease 257ms forwards;}.WLSdeIHJ_10{stroke-dasharray:18 20;stroke-dashoffset:19;animation:WLSdeIHJ_draw 2000ms ease 285ms forwards;}.WLSdeIHJ_11{stroke-dasharray:99 101;stroke-dashoffset:100;animation:WLSdeIHJ_draw 2000ms ease 314ms forwards;}.WLSdeIHJ_12{stroke-dasharray:39 41;stroke-dashoffset:40;animation:WLSdeIHJ_draw 2000ms ease 342ms forwards;}.WLSdeIHJ_13{stroke-dasharray:39 41;stroke-dashoffset:40;animation:WLSdeIHJ_draw 2000ms ease 371ms forwards;}.WLSdeIHJ_14{stroke-dasharray:53 55;stroke-dashoffset:54;animation:WLSdeIHJ_draw 2000ms ease 400ms forwards;}.WLSdeIHJ_15{stroke-dasharray:127 129;stroke-dashoffset:128;animation:WLSdeIHJ_draw 2000ms ease 428ms forwards;}.WLSdeIHJ_16{stroke-dasharray:40 42;stroke-dashoffset:41;animation:WLSdeIHJ_draw 2000ms ease 457ms forwards;}.WLSdeIHJ_17{stroke-dasharray:40 42;stroke-dashoffset:41;animation:WLSdeIHJ_draw 2000ms ease 485ms forwards;}.WLSdeIHJ_18{stroke-dasharray:193 195;stroke-dashoffset:194;animation:WLSdeIHJ_draw 2000ms ease 514ms forwards;}.WLSdeIHJ_19{stroke-dasharray:10 12;stroke-dashoffset:11;animation:WLSdeIHJ_draw 2000ms ease 542ms forwards;}.WLSdeIHJ_20{stroke-dasharray:10 12;stroke-dashoffset:11;animation:WLSdeIHJ_draw 2000ms ease 571ms forwards;}.WLSdeIHJ_21{stroke-dasharray:23 25;stroke-dashoffset:24;animation:WLSdeIHJ_draw 2000ms ease 600ms forwards;}.WLSdeIHJ_22{stroke-dasharray:24 26;stroke-dashoffset:25;animation:WLSdeIHJ_draw 2000ms ease 628ms forwards;}.WLSdeIHJ_23{stroke-dasharray:83 85;stroke-dashoffset:84;animation:WLSdeIHJ_draw 2000ms ease 657ms forwards;}.WLSdeIHJ_24{stroke-dasharray:83 85;stroke-dashoffset:84;animation:WLSdeIHJ_draw 2000ms ease 685ms forwards;}.WLSdeIHJ_25{stroke-dasharray:9 11;stroke-dashoffset:10;animation:WLSdeIHJ_draw 2000ms ease 714ms forwards;}.WLSdeIHJ_26{stroke-dasharray:10 12;stroke-dashoffset:11;animation:WLSdeIHJ_draw 2000ms ease 742ms forwards;}.WLSdeIHJ_27{stroke-dasharray:40 42;stroke-dashoffset:41;animation:WLSdeIHJ_draw 2000ms ease 771ms forwards;}.WLSdeIHJ_28{stroke-dasharray:40 42;stroke-dashoffset:41;animation:WLSdeIHJ_draw 2000ms ease 800ms forwards;}.WLSdeIHJ_29{stroke-dasharray:77 79;stroke-dashoffset:78;animation:WLSdeIHJ_draw 2000ms ease 828ms forwards;}.WLSdeIHJ_30{stroke-dasharray:10 12;stroke-dashoffset:11;animation:WLSdeIHJ_draw 2000ms ease 857ms forwards;}.WLSdeIHJ_31{stroke-dasharray:10 12;stroke-dashoffset:11;animation:WLSdeIHJ_draw 2000ms ease 885ms forwards;}.WLSdeIHJ_32{stroke-dasharray:23 25;stroke-dashoffset:24;animation:WLSdeIHJ_draw 2000ms ease 914ms forwards;}.WLSdeIHJ_33{stroke-dasharray:23 25;stroke-dashoffset:24;animation:WLSdeIHJ_draw 2000ms ease 942ms forwards;}.WLSdeIHJ_34{stroke-dasharray:43 45;stroke-dashoffset:44;animation:WLSdeIHJ_draw 2000ms ease 971ms forwards;}.WLSdeIHJ_35{stroke-dasharray:198 200;stroke-dashoffset:199;animation:WLSdeIHJ_draw 2000ms ease 1000ms forwards;}.WLSdeIHJ_text{animation:WLSdeIHJ_fade_2 1000ms linear;}@keyframes WLSdeIHJ_draw{100%{stroke-dashoffset:0;}}@keyframes WLSdeIHJ_fade{0%{stroke-opacity:1;}94.44444444444444%{stroke-opacity:1;}100%{stroke-opacity:0;}}@keyframes WLSdeIHJ_fade_2{0%{fill:transparent;}64.44444444444444%{fill:transparent;}100%{}}</style></svg>
