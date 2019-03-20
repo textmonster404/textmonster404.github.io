@@ -6,7 +6,8 @@
         <title>OML Interpreter</title>
         <script src="scripts/oml.js"></script>
         <style>
-            #myfile {tranform:opacity 0.5s;}
+            #myfile {transform:opacity 0.5s;}
+            #back {transform:opacity 0.5s;}
             .opaque {opacity:0.0;}
             .opaque:hover {opacity:1.0;}
         </style>
@@ -18,6 +19,7 @@
                 <input id="myfile" name="files[]" type="file" accept=".ddoml,.doml,.dml,.ldoml,.ldml,.lml,.tdml,.tdoml,.tml,.toml,.oml,.jseval,.ltxt" />
             </p>
         </form>
+        <a href="OML.html" id="back">Back</a>
         <script>
             document.forms['myform'].elements['myfile'].onchange = function(evt) {
                 if(!window.FileReader) return; // Browser is not compatible
@@ -45,6 +47,7 @@
                 };
                 reader.readAsText(evt.target.files[0]);
                 evt.target.classList.add("opaque");
+                document.getElementById("back").classList.add("opaque");
             };
         </script>
     </body>
