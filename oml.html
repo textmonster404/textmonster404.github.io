@@ -40,7 +40,9 @@
                     } else if (document.getElementById("myfile").value.includes(".oml")) {
                         if (evt.target.result.includes("\\\\\\\\")) {
                             document.getElementById("out").innerHTML = oml(evt.target.result.split("\\\\\\\\")[1]);
-                            document.body.style.background = "url("+evt.target.result.split("\\\\\\\\")[0]+")";
+                            if (evt.target.result.split("\\\\\\\\")[0]!=="") {
+                                document.body.style.background = "url("+evt.target.result.split("\\\\\\\\")[0]+")";
+                            }
                         } else {
                             document.getElementById("out").innerHTML = oml(evt.target.result);
                             document.body.style.background = "";
