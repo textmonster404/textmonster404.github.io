@@ -19,14 +19,15 @@
     <body>
         <div id="outer1">
             <div style="text-align:justify;margin-top:0em;" id="outer2">
-                <input type="button" value="Background" onClick="bg=document.getElementById('bac').value;document.getElementById('editor').style.background='url('+bg+')';"><input id="bac"> | <input type="button" value="Bold" style="font-weight:bold;" onClick="document.execCommand('bold',false,null);"><input type="button" value="Italic" style="font-style:italic;" onClick="document.execCommand('italic',false,null);"><input type="button" value="Underline" style="text-decoration:underline;" onClick="document.execCommand('underline',false,null);"><input type="button" value="Strike" style="text-decoration:line-through;" onClick="document.execCommand('strikeThrough',false,null);"> | <input type="button" value="Smaller" onClick="document.execCommand('decreaseFontSize',false,null);"><input type="button" value="Bigger" onClick="document.execCommand('increaseFontSize',false,null);"> | <input type="button" value="Header 1" onClick="document.execCommand('formatBlock',false,'<H1>');"><input type="button" value="Header 2" onClick="document.execCommand('formatBlock',false,'<H2>');"><input type="button" value="Header 3" onClick="document.execCommand('formatBlock',false,'<H3>');"><input type="button" value="Header 4" onClick="document.execCommand('formatBlock',false,'<H4>');"><input type="button" value="Header 5" onClick="document.execCommand('formatBlock',false,'<H5>');"><input type="button" value="Header 6" onClick="document.execCommand('formatBlock',false,'<H6>');"> | <input type="button" value="Bullet Point" onClick="document.execCommand('insertHTML',false,'&nbsp;\u2022&nbsp;');"> | <input type="button" value="Justify Center" onClick="document.execCommand('justifyCenter',false,null);"><input type="button" value="Justify Right" onClick="document.execCommand('justifyRight',false,null);"> | <sup><input type="button" value="Superscript" onClick="document.execCommand('superscript',false,null);"></sup><sub><input type="button" value="Subscript" onClick="document.execCommand('subscript',false,null);"></sub> | <input type="button" value="Tab" onClick="document.execCommand('insertHTML',false,'&nbsp;&nbsp;&nbsp;&nbsp;');"><input type="button" value="Insert Horizontal Line" onClick="document.execCommand('insertHorizontalRule',false,null);"> | <input style="text-decoration:underline;color:blue;" type="button" value="Link" onClick="document.execCommand('createlink',false,document.getElementById('link').value);"><input id="link"> | <input type="button" value="Image" onClick="document.execCommand('insertImage',false,document.getElementById('image').value);"><input id="image"> | <input type="button" value="Add Table" onClick="document.execCommand('insertHTML',false,table());"><input type="number" id="cols" value="1"><input type="number" id="rows" value="1"> | <input type="button" value="Copy" onClick="document.execCommand('copy',false,null);"> | <input type="button" value="Cut" onClick="document.execCommand('cut',false,null);"> | <input type="button" value="Paste" onClick="document.execCommand('paste',false,null);"> | <input type="button" value="Undo" onClick="document.execCommand('undo',false,null);"> | <input type="button" value="Redo" onClick="document.execCommand('redo',false,null);"> | <input type="button" value="Select All" onClick="document.execCommand('selectAll',false,null);"> | <input type="button" value="Remove Formatting" onClick="document.execCommand('removeFormat',false,null);">
+                <input type="button" value="Background" onClick="bg=document.getElementById('bac').value;document.getElementById('editor').style.background='url('+bg+')';"><input id="bac"><input type="button" value="Style" onClick="sty.innerHTML='#editor {'+document.getElementById('st').value+'}';"><input id="st"> | <input type="button" value="Bold" style="font-weight:bold;" onClick="document.execCommand('bold',false,null);"><input type="button" value="Italic" style="font-style:italic;" onClick="document.execCommand('italic',false,null);"><input type="button" value="Underline" style="text-decoration:underline;" onClick="document.execCommand('underline',false,null);"><input type="button" value="Strike" style="text-decoration:line-through;" onClick="document.execCommand('strikeThrough',false,null);"> | <input type="button" value="Smaller" onClick="document.execCommand('decreaseFontSize',false,null);"><input type="button" value="Bigger" onClick="document.execCommand('increaseFontSize',false,null);"> | <input type="button" value="Header 1" onClick="document.execCommand('formatBlock',false,'<H1>');"><input type="button" value="Header 2" onClick="document.execCommand('formatBlock',false,'<H2>');"><input type="button" value="Header 3" onClick="document.execCommand('formatBlock',false,'<H3>');"><input type="button" value="Header 4" onClick="document.execCommand('formatBlock',false,'<H4>');"><input type="button" value="Header 5" onClick="document.execCommand('formatBlock',false,'<H5>');"><input type="button" value="Header 6" onClick="document.execCommand('formatBlock',false,'<H6>');"> | <input type="button" value="Bullet Point" onClick="document.execCommand('insertHTML',false,'&nbsp;\u2022&nbsp;');"> | <input type="button" value="Justify Center" onClick="document.execCommand('justifyCenter',false,null);"><input type="button" value="Justify Right" onClick="document.execCommand('justifyRight',false,null);"> | <sup><input type="button" value="Superscript" onClick="document.execCommand('superscript',false,null);"></sup><sub><input type="button" value="Subscript" onClick="document.execCommand('subscript',false,null);"></sub> | <input type="button" value="Tab" onClick="document.execCommand('insertHTML',false,'&nbsp;&nbsp;&nbsp;&nbsp;');"><input type="button" value="Insert Horizontal Line" onClick="document.execCommand('insertHorizontalRule',false,null);"> | <input style="text-decoration:underline;color:blue;" type="button" value="Link" onClick="document.execCommand('createlink',false,document.getElementById('link').value);"><input id="link"> | <input type="button" value="Image" onClick="document.execCommand('insertImage',false,document.getElementById('image').value);"><input id="image"> | <input type="button" value="Add Table" onClick="document.execCommand('insertHTML',false,table());"><input type="number" id="cols" value="1"><input type="number" id="rows" value="1"> | <input type="button" value="Copy" onClick="document.execCommand('copy',false,null);"> | <input type="button" value="Cut" onClick="document.execCommand('cut',false,null);"> | <input type="button" value="Paste" onClick="document.execCommand('paste',false,null);"> | <input type="button" value="Undo" onClick="document.execCommand('undo',false,null);"> | <input type="button" value="Redo" onClick="document.execCommand('redo',false,null);"> | <input type="button" value="Select All" onClick="document.execCommand('selectAll',false,null);"> | <input type="button" value="Remove Formatting" onClick="document.execCommand('removeFormat',false,null);">
             </div>
             <hr id="hr">
-            <div id="editor" contenteditable></div>
+            <div id="editor" contenteditable><style>#editor {}</style></div>
             <b>File Name:</b> <input id="in" value="doc"/>.oml<br/>
             <a href="" download="" id="dl">Save</a>
             <script>
-		var bg = "";
+                var bg = "";
+                var sty = document.getElementById("editor").getElementsByTagName("style")[0];
                 var tables=document.getElementById("editor").getElementsByTagName("table");
                 var cells=document.getElementById("editor").getElementsByTagName("td");
                 var table = function() {
@@ -110,8 +111,8 @@
                         .replaceAll("<code>","")
                         .replaceAll("</code>","")
                         .replaceAll("\">","]|[")
-			.replaceAll("<style>#editor {","</css/")
-			.replaceAll("}</style>","\\css\\>")
+                        .replaceAll("<style>#editor {","</css/")
+                        .replaceAll("}</style>","\\css\\>")
                 }
                 function oml(string) {
 	return "<div><code>" + string.replaceAll("\n","<br/>")
@@ -134,13 +135,13 @@
         .replaceAll("-]","</div>")
         .replaceAll("{-","<div style='text-align:center;'>")
         .replaceAll("-}","</div>")
-	.replaceAll("1[==","<table border=1>")
-	.replaceAll("0[==","<table border=0>")
-	.replaceAll("==]","</table>")
-	.replaceAll("[=","<tr>")
-	.replaceAll("=]","</tr>")
-	.replaceAll("[","<td>")
-	.replaceAll("]","</td>")
+        .replaceAll("1[==","<table border=1>")
+        .replaceAll("0[==","<table border=0>")
+        .replaceAll("==]","</table>")
+        .replaceAll("[=","<tr>")
+        .replaceAll("=]","</tr>")
+        .replaceAll("[","<td>")
+        .replaceAll("]","</td>")
         .replaceAll("<**_&","<b><u><big>")
         .replaceAll("&_**>","</big></u></b>")
         .replaceAll("<***","<i><b>")
@@ -172,14 +173,14 @@
         .replaceAll("<,","<small>")
         .replaceAll(",>","</small>")
         .replaceAll("--","<hr/>")
-	.replaceAll("##","&nbsp;&nbsp;&nbsp;&nbsp;")
-	.replaceAll("@@","<br/>")
-	.replaceAll("<@","<img src=\"")
-	.replaceAll("@>","\"/>")
-	.replaceAll("@","\" width=\"")
-	.replaceAll("<\\","<div>")
-	.replaceAll("##*","&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\u2022&nbsp;")
-	.replaceAll("#*","&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\u2022&nbsp;")
+        .replaceAll("##","&nbsp;&nbsp;&nbsp;&nbsp;")
+        .replaceAll("@@","<br/>")
+        .replaceAll("<@","<img src=\"")
+        .replaceAll("@>","\"/>")
+        .replaceAll("@","\" width=\"")
+        .replaceAll("<\\","<div>")
+        .replaceAll("##*","&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\u2022&nbsp;")
+        .replaceAll("#*","&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\u2022&nbsp;")
         .replaceAll("***","&nbsp;\u2023&nbsp;")
         .replaceAll("**","&nbsp;\u25CB&nbsp;")
         .replaceAll("*","&nbsp;\u2022&nbsp;")
