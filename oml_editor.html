@@ -210,7 +210,9 @@
                     if (document.getElementById("myfile").value.includes(".oml")) {
                         if (evt.target.result.includes("\\\\\\\\")) {
                             document.getElementById("editor").innerHTML = oml(evt.target.result.split("\\\\\\\\")[1]);
-                            document.getElementById("editor").style.background = "url("+evt.target.result.split("\\\\\\\\")[0]+")";
+                            if (evt.target.result.split("\\\\\\\\")[0]!=="") {
+                                document.getElementById("editor").style.background = "url("+evt.target.result.split("\\\\\\\\")[0]+")";
+                            }
                         } else {
                             document.getElementById("editor").innerHTML = oml(evt.target.result);
                             document.getElementById("editor").style.background = "";
