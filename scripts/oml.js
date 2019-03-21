@@ -303,6 +303,8 @@ function oml(string) {
 	.replaceAll("@>","\"/>")
 	.replaceAll("@","\" width=\"")
 	.replaceAll("<\\","<div>")
+	.replaceAll("</css/","<style>body {")
+	.replaceAll("\\css\\>","}</style>")
         + "</code></div>";
 }
 
