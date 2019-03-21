@@ -38,8 +38,13 @@
                     } else if (document.getElementById("myfile").value.includes(".tdml") || document.getElementById("myfile").value.includes(".tdoml") || document.getElementById("myfile").value.includes(".toml") || document.getElementById("myfile").value.includes(".tml")) {
                         document.getElementById("out").innerHTML = tdoml(evt.target.result);
                     } else if (document.getElementById("myfile").value.includes(".oml")) {
-                        document.getElementById("out").innerHTML = oml(evt.target.result.split("\\\\\\\\")[1]);
-                        document.body.style.background = "url("+evt.target.result.split("\\\\\\\\")[0]+")";
+                        if (evt.target.result.includes("\\\\\\\\")) {
+                            document.getElementById("out").innerHTML = oml(evt.target.result.split("\\\\\\\\")[1]);
+                            document.body.style.background = "url("+evt.target.result.split("\\\\\\\\")[0]+")";
+                        } else {
+                            document.getElementById("out").innerHTML = oml(evt.target.result);
+                            document.body.style.background = "";
+                        }
                     } else if (document.getElementById("myfile").value.includes(".jseval")) {
                         document.getElementById("out").innerHTML = "<code>"+evalString(evt.target.result)+"</code>";
                     } else if (document.getElementById("myfile").value.includes(".ltxt")) {
