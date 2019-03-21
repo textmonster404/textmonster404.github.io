@@ -110,6 +110,8 @@
                         .replaceAll("<code>","")
                         .replaceAll("</code>","")
                         .replaceAll("\">","]|[")
+			.replaceAll("<style>#editor {","</css/")
+			.replaceAll("}</style>","\\css\\>")
                 }
                 function oml(string) {
 	return "<div><code>" + string.replaceAll("\n","<br/>")
@@ -181,6 +183,8 @@
         .replaceAll("***","&nbsp;\u2023&nbsp;")
         .replaceAll("**","&nbsp;\u25CB&nbsp;")
         .replaceAll("*","&nbsp;\u2022&nbsp;")
+	.replaceAll("</css/","<style>#editor {")
+	.replaceAll("\\css\\>","}</style>")
         + "</code></div>";
 }
                 window.setInterval(function(){document.getElementById("dl").href = "data:text/plain;charset=UTF-8," + encodeURIComponent(un_oml(document.getElementById("editor").innerHTML));document.getElementById("dl").download = encodeURIComponent(document.getElementById("in").value+".oml");},0);
@@ -203,8 +207,13 @@
                     }
                     filecontent = evt.target.result;
                     if (document.getElementById("myfile").value.includes(".oml")) {
-                        document.getElementById("editor").innerHTML = oml(evt.target.result.split("\\\\\\\\")[1]);
-                        document.getElementById("editor").style.background = "url("+evt.target.result.split("\\\\\\\\")[0]+")";
+                        if (evt.target.result.includes("\\\\\\\\")) {
+                            document.getElementById("editor").innerHTML = oml(evt.target.result.split("\\\\\\\\")[1]);
+                            document.getElementById("editor").style.background = "url("+evt.target.result.split("\\\\\\\\")[0]+")";
+                        } else {
+                            document.getElementById("editor").innerHTML = oml(evt.target.result);
+                            document.getElementById("editor").style.background = "";
+                        }
                     }
                 };
                 reader.readAsText(evt.target.files[0]);
