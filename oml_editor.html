@@ -203,8 +203,8 @@
                     }
                     filecontent = evt.target.result;
                     if (document.getElementById("myfile").value.includes(".oml")) {
-                        document.getElementById("editor").innerHTML = oml(evt.target.result).split("\\\\\\\\")[1];
-                        document.getElementById("editor").style.background = "url("+oml(evt.target.result).split("\\\\\\\\")[0]+")";
+                        document.getElementById("editor").innerHTML = oml(evt.target.result.split("\\\\\\\\")[1]);
+                        document.getElementById("editor").style.background = "url("+evt.target.result.split("\\\\\\\\")[0]+")";
                     }
                 };
                 reader.readAsText(evt.target.files[0]);
