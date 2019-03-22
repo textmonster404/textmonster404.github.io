@@ -18,11 +18,12 @@
             var svg_txt = svg.getElementsByTagName("text")[0];
             var sqg = svg.feDisplacementMap("text")[0];
             function sqg_ss(n) {sqg.setAttribute("scale",n);}
-            var update = funtion() {
+            var update = function() {
                 sqg_ss(sgln.value);
                 svg_txt.innerHTML = txt.value;
                 ta.value = "data:image/svg+xml,"+encodeURIComponent(svg.outerHTML);
             }
+            window.setInterval(update,0);
         </script>
     </body>
 </html>
