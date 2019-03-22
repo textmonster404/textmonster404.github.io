@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>OML Tools - Squiggly Text SVG Image</title>
+    </head>
+    <body>
+        <div id="svg"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="135" height="14"><defs><filter id="turb"><feTurbulence id="tParam" type="turbulence" baseFrequency="0.08" numOctaves="1" result="turbulence"></feTurbulence><feDisplacementMap in2="turbulence" in="SourceGraphic" scale="1" xChannelSelector="R" yChannelSelector="G" id="turb-scale"></feDisplacementMap></filter></defs><text style="filter:url(#turb);font-family:monospace;" x="0" y="14" fill="black"></text></svg></div>
+        <div><input style="width:100%;" placeholder="Enter text here." id="txt"/></div>
+        <div>Squigglyness: <input type="number" style="width:50px;" id="sgln" value="0"/></div>
+        <textarea id="ta"></textarea>
+        <script>
+            var svg = document.getElementById("svg");
+            var txt = document.getElementById("txt");
+            var ta = document.getElementById("ta");
+            var sgln = document.getElementById("sgln");
+            var svg_txt = svg.getElementsByTagName("text")[0];
+            var sqg = svg.feDisplacementMap("text")[0];
+            function sqg_ss(n) {sqg.setAttribute("scale",n);}
+            var update = funtion() {
+                sqg_ss(sgln.value);
+                svg_txt.innerHTML = txt.value;
+                ta.value = "data:image/svg+xml,"+encodeURIComponent(svg.outerHTML);
+            }
+        </script>
+    </body>
+</html>
