@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Generated Favicons</title>
+        <link rel="icon" id="icon_favicon" href=""/>
+        <style>
+            #icon_txt {font-family:consolas;font-size:12px;}
+        </style>
+        <meta http-equiv="refresh" content="1;url=generated_favicons.html"/>
+    </head>
+    <body>
+        <canvas width="16" height="16" id="icon_c"></canvas>
+        <span id="icon_txt"></span>
+        <script>
+            var c = document.getElementById("icon_c").getContext("2d");
+            var txt = document.getElementById("icon_txt");
+            var icon_favicon = document.getElementById("icon_favicon");
+            var t_f = [true,false];
+            var f_0 = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+            var r_n = function() {return Math.floor(Math.random()*2)}
+            var r_n16 = function() {return Math.floor(Math.random()*16+1)}
+            var r_c = function() {return "#"+f_0[r_n16()-1]+f_0[r_n16()-1]+f_0[r_n16()-1]+f_0[r_n16()-1]+f_0[r_n16()-1]+f_0[r_n16()-1]};
+            //var p_cir_tl = t_f[r_n()];
+            //var p_cir_tr = t_f[r_n()];
+            //var p_cir_bl = t_f[r_n()];
+            //var p_cir_br = t_f[r_n()];
+            var p_cir_m = t_f[r_n()];
+            var p_cir_m_r = /*r_n16()/2*/8;
+            var p_cir_m_c = r_c();
+            var p_txt = eval("\""+"\\u"+f_0[r_n16()-1]+f_0[r_n16()-1]+f_0[r_n16()-1]+f_0[r_n16()-1]+"\"");
+            txt.innerHTML=p_txt;
+            var p_txt_a = t_f[r_n()];
+            var p_txt_c = r_c();
+            if (p_cir_m==true) {
+                c.beginPath();
+                c.arc(8, 8, p_cir_m_r, 0, 2 * Math.PI);
+                c.fillStyle = p_cir_m_c;
+                c.fill();
+            }
+            if (/*p_txt_a*/true) {
+                c.beginPath();
+                c.font = "12px consolas"
+                c.fillStyle = p_txt_c;
+                c.fillText(p_txt, 8-txt.getBoundingClientRect().width/2, 12);
+            }
+            icon_favicon.href=document.getElementById("icon_c").toDataURL();
+        </script>
+    </body>
+</html>
