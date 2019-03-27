@@ -288,9 +288,9 @@
                     .split("&nbsp;taht&nbsp;").join("&nbsp;that&nbsp;").split("Taht&nbsp;").join("That&nbsp;").split("&nbsp;taht.").join("&nbsp;that.").split("&nbsp;tho&nbsp;").join("&nbsp;though&nbsp;").split("&nbsp;tho.").join("&nbsp;though.").split("&nbsp;i&nbsp;").join("&nbsp;I&nbsp;").split("&nbsp;taht ").join("&nbsp;that ").split("Taht&nbsp;").join("That&nbsp;").split("&nbsp;tho ").join("&nbsp;though ").split("&nbsp;i ").join("&nbsp;I ").split(" taht&nbsp;").join(" that&nbsp;").split(" taht.").join(" that.").split(" tho&nbsp;").join(" though&nbsp;").split(" tho.").join(" though.").split(" i&nbsp;").join(" I&nbsp;").split(" taht ").join(" that ").split(" tho ").join(" though ").split(" i ").join(" I ").split(" andi ").join(" and I ").split("&nbsp;andi ").join("&nbsp;and I ").split(" andi&nbsp;").join(" and I&nbsp;").split("likE").join("like").split("THat").join("That").split("fucking").join("f***ing").split("bullshit").join("bullsh*t");
             }
             var bius_html = "<input type=\"button\" value=\"B\" style=\"font-weight:bold;\" onClick=\"document.getElementById('editor').focus();document.execCommand('bold',false,null);\"><input type=\"button\" value=\"I\" style=\"font-style:italic;\" onClick=\"document.getElementById('editor').focus();document.execCommand('italic',false,null);\"><input type=\"button\" value=\"U\" style=\"text-decoration:underline;\" onClick=\"document.getElementById('editor').focus();document.execCommand('underline',false,null);\"><input type=\"button\" value=\"S\" style=\"text-decoration:line-through;\" onClick=\"document.getElementById('editor').focus();document.execCommand('strikeThrough',false,null);\"> | ";
-            if (localStorage.getItem('bius_float')==true) {
+            if (localStorage.getItem('bius_float')=="true") {
                 document.getElementById("bius").innerHTML="";
-                document.getElementById("bottom_right").innerHTML=bius_html;
+                document.getElementById("bottom_right").innerHTML=bius_html.split(" | ").join("");
             }
         </script>
         <a href="OML.html" id="back">Back</a>
