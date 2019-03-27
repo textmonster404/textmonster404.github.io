@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Word Tree Board</title>
+<style>table {border-collapse:collapse;} tr:last-child td {border-bottom-width:4px;} td {padding:0px;font-size:0px;} #add_r {position:fixed;bottom:0px;right:0px;text-align:right;}</style>
+</head>
+<body>
+<h1>Word Tree Board</h1>
+<table id="board" border="1"><tbody></tbody></table>
+<span id="add_r"><button onclick="c=14;add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();document.getElementById('c_count').textContent=c;">1 Player Board</button><br/><button onclick="c=20;add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();document.getElementById('c_count').textContent=c;">2 Player Board</button><br/><button onclick="c=30;add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();add_row();document.getElementById('c_count').textContent=c;">3 Player Board</button><br/><button onclick="add_row();">Add Row</button><button onclick="c++;document.getElementById('c_count').textContent=c;">+</button><button id="c_count">20</button><button onclick="c--;document.getElementById('c_count').textContent=c;">-</button><br/><button>Player:</button><button onclick="p++;document.getElementById('p_count').textContent=p;">+</button><button id="p_count">1</button><button onclick="p--;document.getElementById('p_count').textContent=p;">-</button></span>
+<script>
+var board = document.getElementById("board");
+var c = 20;
+var p = 1;
+var add_cells = function(el,len) {for (var j=0;j<len;j++){el.insertCell(0);}}
+var add_row = function() {var r=board.insertRow(0);add_cells(r,c);for (var i=0;i<r.cells.length;i++){r.cells[i].innerHTML="<button onclick=\"this.focus();console.log(this);\" style=\"width:0.5cm;height:0.5cm;text-align:center;padding:1px;\" contenteditable=\"true\" onfocus=\"if(this.textContent==''){this.textContent=' ';}window.setTimeout(function(el){el.textContent=''},10,this);\" onfocusout=\"if(this.textContent==''){this.textContent=' ';}this.textContent=this.textContent.toUpperCase().substring(0,1);if(p==1){this.innerHTML=this.innerHTML.split('<b>').join('</b>').split('<i>').join('</i>')}if(p==2){this.innerHTML=this.innerHTML.bold();}if(p==3){this.innerHTML=this.innerHTML.italics();}\"><span>&emsp;</span></button>";r.cells[i].style.height="0.5cm";r.cells[i].style.width="0.5cm";}}
+</script>
+</body>
+</html>
