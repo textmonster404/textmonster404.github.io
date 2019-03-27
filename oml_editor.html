@@ -280,7 +280,7 @@
                 var dd = d.getDate();
                 var mm = d.getMonth()+1;
                 var t = "doc";
-                if (document.getElementById("editor").getElementsByTagName("h1").length!==0) {t = document.getElementById("editor").getElementsByTagName("h1")[0].innerHTML.split(" ").join("_").split(",").join("").split(".").join("").split("?").join("").split(",").join("!").split("$").join("").split("%").join("").toLowerCase();}
+                if (document.getElementById("editor").getElementsByTagName("h1").length!==0) {t = document.getElementById("editor").getElementsByTagName("h1")[0].textContent.split(" ").join("_").split(",").join("").split(".").join("").split("?").join("").split(",").join("!").split("$").join("").split("%").join("").toLowerCase();}
                 var y = d.getFullYear();
                 var pm_am = "am";
                 if(h>=12){pm_am="pm";}
