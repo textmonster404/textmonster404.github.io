@@ -292,6 +292,48 @@
                 document.getElementById("bius").innerHTML="";
                 document.getElementById("bottom_right").innerHTML=bius_html.split(" | ").join("");
             }
+            onkeydown = function(e){
+                if(e.altKey && e.shiftKey && e.keyCode == 'T'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('insertHTML',false,table());
+                }
+                if(e.ctrlKey && e.shiftKey && e.keyCode == '8'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('insertUnorderedList',false,null);
+                }
+                if(e.ctrlKey && e.shiftKey && e.keyCode == '7'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('insertOrderedList',false,null);
+                }
+                if(e.altKey && e.keyCode == 'I'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('indent',false,null);
+                }
+                if(e.altKey && e.keyCode == 'O'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('outdent',false,null);
+                }
+                if(e.ctrlKey && e.shiftKey && e.keyCode == 'H'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('insertHorizontalRule',false,null);
+                }
+                if(e.ctrlKey && e.shiftKey && e.keyCode == 'L'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('justifyLeft',false,null);
+                }
+                if(e.ctrlKey && e.shiftKey && e.keyCode == 'E'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('justifyCenter',false,null);
+                }
+                if(e.ctrlKey && e.shiftKey && e.keyCode == 'R'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('justifyRight',false,null);
+                }
+                if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('justifyFull',false,null);
+                }
+            }
         </script>
         <a href="OML.html" id="back">Back</a>
     </body>
