@@ -315,6 +315,8 @@ function oml(string) {
         .replaceAll("<+6","<font size=\"6\">")
         .replaceAll("<+7","<font size=\"7\">")
         .replaceAll("+>","</font>")
+	.replaceAll("<s++","<span style=\"")
+	.replaceAll("++s>","</span>")
         + "</code></div>";
 }
 
