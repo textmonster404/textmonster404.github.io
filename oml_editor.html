@@ -129,6 +129,8 @@
                         .replaceAll("<font size=\"6\">","<+6")
                         .replaceAll("<font size=\"7\">","<+7")
                         .replaceAll("</font>","+>")
+                        .replaceAll("<span style=\"","<s++")
+	                    .replaceAll("</span>","++s>")
                         .replaceAll("#editor","body")
                 }
                 function oml(string) {
@@ -213,6 +215,8 @@
                         .replaceAll("<+6","<font size=\"6\">")
                         .replaceAll("<+7","<font size=\"7\">")
                         .replaceAll("+>","</font>")
+	                    .replaceAll("<s++","<span style=\"")
+	                    .replaceAll("++s>","</span>")
                         + "</code></div>";
                 }
                 window.setInterval(function(){document.getElementById("dl").href = "data:text/plain;charset=UTF-8," + encodeURIComponent(un_oml(document.getElementById("editor").innerHTML));document.getElementById("dl").download = encodeURIComponent(document.getElementById("in").value+".oml");},0);
