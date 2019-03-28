@@ -296,6 +296,8 @@
                 document.getElementById("bius").innerHTML="";
                 document.getElementById("bottom_right").innerHTML=bius_html.split(" | ").join("");
             }
+            var previous_key_combination = {};
+            var key_header = 0;
             onkeydown = function(e){
                 if(e.altKey && e.shiftKey && e.keyCode == 'T'.charCodeAt(0)){
                     e.preventDefault();
@@ -317,10 +319,6 @@
                     e.preventDefault();
                     document.execCommand('outdent',false,null);
                 }
-                if(e.ctrlKey && e.shiftKey && e.keyCode == 'H'.charCodeAt(0)){
-                    e.preventDefault();
-                    document.execCommand('insertHorizontalRule',false,null);
-                }
                 if(e.ctrlKey && e.shiftKey && e.keyCode == 'L'.charCodeAt(0)){
                     e.preventDefault();
                     document.execCommand('justifyLeft',false,null);
@@ -336,6 +334,26 @@
                 if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
                     e.preventDefault();
                     document.execCommand('justifyFull',false,null);
+                }
+                if(e.ctrlKey && e.shiftKey && e.keyCode == 'H'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('insertHorizontalRule',false,null);
+                } else if(e.altKey && e.ctrlKey && e.keyCode == 'H'.charCodeAt(0)){
+                    key_header++;
+                    if (key_header==7) {key_header=0;}
+                    document.execCommand("formatBlock",false,format.header("Header "+key_header));
+                } else if(e.ctrlKey && e.keyCode == 'H'.charCodeAt(0)){
+                    key_header--;
+                    if (key_header==-1) {key_header=6;}
+                    document.execCommand("formatBlock",false,format.header("Header "+key_header));
+                }
+                if(e.ctrlKey && e.shiftKey && e.keyCode == '<'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('superscript',false,null);
+                }
+                if(e.ctrlKey && e.shiftKey && e.keyCode == '>'.charCodeAt(0)){
+                    e.preventDefault();
+                    document.execCommand('subscript',false,null);
                 }
             }
         </script>
