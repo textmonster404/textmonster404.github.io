@@ -355,7 +355,10 @@
                     e.preventDefault();
                     document.execCommand('subscript',false,null);
                 }
-		console.log(e);
+                if(e.keyCode == 9){
+                    e.preventDefault();
+                    document.execCommand('insertText',false,"    ");
+                }
             }
         </script>
         <a href="OML.html" id="back">Back</a>
