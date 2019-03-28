@@ -350,14 +350,14 @@
                     if (key_header==-1) {key_header=6;}
                     document.execCommand("formatBlock",false,format.header("Header "+key_header));
                 }
-                if(e.ctrlKey && e.keyCode == '<'.charCodeAt(0)){
+                if(e.ctrlKey && e.keyCode == ','.charCodeAt(0)){
                     e.preventDefault();
                     document.execCommand('insertHTML',false,'<big>');
                 } else if(e.ctrlKey && e.shiftKey && e.keyCode == '<'.charCodeAt(0)){
                     e.preventDefault();
                     document.execCommand('superscript',false,null);
                 }
-                if(e.ctrlKey && e.keyCode == '>'.charCodeAt(0)){
+                if(e.ctrlKey && e.keyCode == '.'.charCodeAt(0)){
                     e.preventDefault();
                     document.execCommand('insertHTML',false,'<small>');
                 } else if(e.ctrlKey && e.shiftKey && e.keyCode == '>'.charCodeAt(0)){
