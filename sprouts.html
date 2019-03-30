@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Meandering Sprouts (JS Canvas)</title>
+    </head>
+    <body>
+        <canvas id="c" width="256" height="256"></canvas>
+        <script>
+            function choose(obj) {return obj[Math.floor(obj.length*Math.random())]};
+            var ctx = document.getElementById("c").getContext("2d");
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(0,0,256,256);
+            var sprouts = [];
+            function create_sprout(x,y,r,speedX,speedY,speedR,life) {
+                if ((typeof x)=="number") {
+                    sprouts[sprouts.length] = {x:x,y:y,r:r,speedX:speedX,speedY:speedY,speedR:speedR,life:(life+300)};
+                } else {
+                    var chosen_sprout = sprouts[Math.floor(Math.random()*sprouts.length)];
+                    create_sprout(chosen_sprout.x,chosen_sprout.y,chosen_sprout.r,chosen_sprout.speedX*(Math.random()*8-4),chosen_sprout.speedY*(Math.random()*4),Math.random()*90-45,chosen_sprout.life+10);
+                }
+            }
+            function redirect_sprout(sprout) {
+                sprout.speedR*=Math.random()*4-2;
+                sprout.life-=10;
+            }
+            function move_sprout(sprout) {
+                sprout.r += (sprout.speedR/180)*Math.PI; // convert to radians
+                sprout.speedX+=Math.cos((sprout.life/360)*Math.PI)/8+Math.random()*8-4;
+                sprout.x += sprout.speedX*Math.cos(sprout.r)/4 + sprout.speedX/2; // move x
+                sprout.y += sprout.speedY*Math.sin(sprout.r)/2 + sprout.speedY; // move y
+            }
+            function age_sprout(sprout) {
+                if (sprout.life>0) {
+                    sprout.life=sprout.life-1;
+                    move_sprout(sprout);
+                }
+            }
+            function draw_sprouts() {
+                ctx.fillStyle = "#FFFFFF";
+                for (var d=0;d<sprouts.length;d++) {
+                    ctx.fillRect((sprouts[d].x-128)/24+128,(sprouts[d].y-256)/6+256,1,1);
+                }
+            }
+            function update_sprouts() {
+                for (var i=0;i<sprouts.length;i++) {
+                    var sp = sprouts[i];
+                    if (sp.life>0) {
+                        age_sprout(sp);
+                        if (Math.floor(Math.random()*16)==0) {redirect_sprout(sp);}
+                    } else {
+                        sprouts = sprouts.splice(i,i+1);
+                    }
+                }
+                if (Math.floor(Math.random()*24)==0) {create_sprout();}
+                draw_sprouts();
+            }
+            create_sprout(128,256,90,Math.random()*16-8,-Math.random()*2-1,Math.random()*90-45,Math.random()*20);
+            window.setInterval(update_sprouts,10);
+        </script>
+    </body>
+</html>
