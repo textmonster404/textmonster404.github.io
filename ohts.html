@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OML Editor - OHTS Editor</title>
+    </head>
+    <body>
+        <textarea id="ta" style="width:8.5in;height:6in;"></textarea><br/>
+        <input id="nm"/><b>.ohts</b>
+        <a href="data:text/plain;charset=UTF-8," id="dl" download=".ohts">save</a>
+        <script>
+            window.setInterval(function(){document.getElementById("dl").href = "data:text/plain;charset=UTF-8," + encodeURIComponent(document.getElementById("ta").value);document.getElementById("dl").download = encodeURIComponent(document.getElementById("nm").value)+".ohts";},0);
+        </script>
+    </body>
+</html>
