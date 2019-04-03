@@ -2,9 +2,13 @@
 <html>
     <head>
         <title>OML Editor - OHTS Editor</title>
+        <style>
+            body {height:calc( 100% - 16px );}
+            html {height:100%;}
+        </style>
     </head>
     <body>
-        <textarea id="ta" style="width:8.5in;height:6in;"></textarea><br/>
+        <textarea id="ta" style="width:100%;height:calc( 100% - 60px );"></textarea><br/>
         <input id="nm"/><b>.ohts</b>
         <a href="data:text/plain;charset=UTF-8," id="dl" download=".ohts">save</a>
         <script>
