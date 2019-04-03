@@ -249,7 +249,7 @@
                     return "<DIV>"
                 }
             }
-            document.forms['mfll'].elements['mflll'].onchange = function(evt) {
+            document.forms['mflll'].elements['mfll'].onchange = function(evt) {
                 if(!window.FileReader) return; // Browser is not compatible
                 var reader = new FileReader();
                 reader.onload = function(evt) {
