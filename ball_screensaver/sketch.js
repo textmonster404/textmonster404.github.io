@@ -1,4 +1,4 @@
-var r = 5; // You may Edit this.
+var r; // You may Edit this.
 var n;
 
 
@@ -9,6 +9,7 @@ var previousMouseX;
 var previousMouseY;
 function setup() {
   n = random(40);
+  r = 5;
   createCanvas(window.innerWidth, window.innerHeight);
   for (var i=0;i<n;i++) {
     balls[i] = {};
@@ -22,6 +23,9 @@ function setup() {
   }
   previousMouseX = mouseX;
   previousMouseY = mouseY;
+}
+function mousePressed() {
+  r = random(15)+5;
 }
 function draw() {
   mouseSpeedX = mouseX-previousMouseX;
