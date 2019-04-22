@@ -1,0 +1,68 @@
+<div id="notepad" class="window">
+<h3 style="margin:0px;" id="notepaddrag">Notepad</h3>
+<textarea onclick="objFocus=this;"></textarea>
+</div><br/>
+<style>button[a] {padding:0px;width:20px;height:20px;}button[b] {padding:0px;width:30px;height:20px;}button[c] {padding:0px;width:45px;height:20px;}button[d] {padding:0px;width:35px;height:20px;}button[e]{padding:0px;width:110px;height:20px;}.window{border:2px outset #d0d0d0;display:inline-block;position:absolute;background:white;}</style>
+<div id="keyboard" class="window">
+<h3 style="margin:0px;" id="keyboarddrag">Keyboard</h3>
+<button onclick="typ('~')" a>~</button><button onclick="typ('!')" a>!</button><button onclick="typ('@')" a>@</button><button onclick="typ('#')" a>#</button><button onclick="typ('$')" a>$</button><button onclick="typ('%')" a>%</button><button onclick="typ('^')" a>^</button><button onclick="typ('&')" a>&amp;</button><button onclick="typ('*')" a>*</button><button onclick="typ('(')" a>(</button><button onclick="typ(')')" a>)</button><button onclick="typ('_')" a>_</button><button onclick="typ('+')" a>+</button><button onclick="back()" b>←</button><br/><button onclick="typ('`')" a>`</button><button onclick="typ('1')" a>1</button><button onclick="typ('2')" a>2</button><button onclick="typ('3')" a>3</button><button onclick="typ('4')" a>4</button><button onclick="typ('5')" a>5</button><button onclick="typ('6')" a>6</button><button onclick="typ('7')" a>7</button><button onclick="typ('8')" a>8</button><button onclick="typ('9')" a>9</button><button onclick="typ('0')" a>0</button><button onclick="type('-')" a>-</button><button onclick="typ('=')" a>=</button><button onclick="back()" b>←</button><br/><button onclick="typ('	')" b>tab</button><button onclick="typ('q')" a>q</button><button onclick="typ('w')" a>w</button><button onclick="typ('e')" a>e</button><button onclick="typ('r')" a>r</button><button onclick="typ('t')" a>t</button><button onclick="typ('y')" a>y</button><button onclick="typ('u')" a>u</button><button onclick="typ('i')" a>i</button><button onclick="typ('o')" a>o</button><button onclick="typ('p')" a>p</button><button onclick="typ('[')" a>[</button><button onclick="typ(']')" a>]</button><button onclick="typ('\\')" a>\</button><br/><button onclick="caps()" d>↑</button><button onclick="typ('a')" a>a</button><button onclick="typ('s')" a>s</button><button onclick="typ('d')" a>d</button><button onclick="typ('f')" a>f</button><button onclick="typ('g')" a>g</button><button onclick="typ('h')" a>h</button><button onclick="typ('j')" a>j</button><button onclick="typ('k')" a>k</button><button onclick="typ('l')" a>l</button><button onclick="typ(';')" a>;</button><button onclick="typ('\'')" a>'</button><button onclick="typ('\n')" d>enter</button><br/><button onclick="shift()" c>shift</button><button onclick="typ('z')" a>z</button><button onclick="typ('x')" a>x</button><button onclick="typ('c')" a>c</button><button onclick="typ('v')" a>v</button><button onclick="typ('b')" a>b</button><button onclick="typ('n')" a>n</button><button onclick="typ('m')" a>m</button><button onclick="typ(',')" a>,</button><button onclick="typ('.')" a>.</button><button onclick="typ('/')" a>/</button><button onclick="shift()" c>shift</button><br/><button onclick="ctrl()" c>ctrl</button><button onclick="alt()" c>alt</button><button onclick="typ(' ')" e>&nbsp;</button><button onclick="alt()" c>alt</button><button onclick="ctrl()" c>ctrl</button>
+</div>
+
+
+<script>
+var objFocus = null;
+var c = false;
+var s = false;
+var shift = function() {s=!s;}
+var caps = function() {c=!c;}
+var back = function() {document.execCommand('delete',false,null);}
+
+var typ = function(txt) {objFocus.focus();if(s==true||c==true){document.execCommand("insertText",false,txt.toUpperCase().split("[").join("{").split("]").join("}").split("\\").join("|").split(";").join(":").split("'").join("\"").split(",").join("<").split(".").join(">").split("/").join("?"));s=false;}else{document.execCommand("insertText",false,txt);}}
+
+//for(var j=0;j<document.getElementsByClassName('window').length;j++){document.getElementsByClassName('window')[j].onclick=function(e){for(var i=0;i<document.getElementsByClassName('window').length;i++){document.getElementsByClassName('window')[i].style.zIndex='1';};e.target.style.zIndex='2';}}
+
+dragElement(document.getElementById("notepad"));
+dragElement(document.getElementById("keyboard"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "drag")) {
+    document.getElementById(elmnt.id + "drag").onmousedown = dragMouseDown;
+    elmnt.onmousedown = goToTop;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+  function goToTop(e) {
+    for(var i=0;i<document.getElementsByClassName('window').length;i++){document.getElementsByClassName('window')[i].style.zIndex='1';}
+    elmnt.style.zIndex="2";
+  }
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    for(var i=0;i<document.getElementsByClassName('window').length;i++){document.getElementsByClassName('window')[i].style.zIndex='1';}
+    elmnt.style.zIndex="2";
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
