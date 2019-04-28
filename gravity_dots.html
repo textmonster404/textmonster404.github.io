@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Math</title>
+        <style>
+            body {overflow:hidden;}
+            .particle {width:4px;height:4px;border-radius:50%;background-color:black;position:absolute;}
+        </style>
+    </head>
+    <body>
+        <h1>Math Gravity Simulation</h1>
+        <p style="width:20em;text-align:justify;"><span style="white-space:pre;">            </span>I tend to use math a lot in my programming. These dots on the screen have gravity, and your mouse also acts as a source of gravity. Try moving them.</p>
+        <div id="particles"></div>
+        <script>
+            Element.prototype.remove = function() {
+                this.parentElement.removeChild(this);
+            }
+            NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+                for(var i = this.length - 1; i >= 0; i--) {
+                    if(this[i] && this[i].parentElement) {
+                        this[i].parentElement.removeChild(this[i]);
+                    }
+                }
+            }
+            var $ = function(str) {return document.getElementById(str);}
+            var particles = $("particles");
+            var n = 10;
+            if (decodeURIComponent(window.location.search.substring(1))!=="") {
+                n = parseInt(decodeURIComponent(window.location.search.substring(1)));
+            }
+            
+            var mouseX=0,mouseY=0;
+            document.onmousemove = function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            }
+            
+            for (var i=0;i<n;i++) {
+                particles.innerHTML+="<div class=\"particle\"></div>";
+            }
+            
+            var parts = particles.children;
+            
+            for (var i=0;i<parts.length;i++) {
+                var p = parts[i];
+                p.y = Math.random()*window.innerHeight;
+                p.x = Math.random()*window.innerWidth;
+                p.speedX = Math.random()*4-2;
+                p.speedY = Math.random()*4-2;
+            }
+            
+            function update() {
+                for (var i=0;i<parts.length;i++) {
+                    var forceSum = {};
+                    forceSum.x = 0;
+                    forceSum.y = 0;
+                    var p = parts[i];
+                    var xDist = p.x - mouseX;
+				    var yDist = p.y - mouseY;
+				    var distance = Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
+                    var forceMag = 1.00 * (32*128) / Math.pow(distance, 2);
+                    forceSum.x -= Math.abs(forceMag * (xDist / distance)) * Math.sign(xDist);
+  					forceSum.y -= Math.abs(forceMag * (yDist / distance)) * Math.sign(yDist);
+                    p.speedX += forceSum.x / 32;
+		            p.speedY += forceSum.y / 32;
+                    if(distance<2){n--;p.remove();}
+                    for (var j=0;j<parts.length;j++) {
+                        if (i!==j) {
+                            var forceSum = {};
+                            forceSum.x = 0;
+                            forceSum.y = 0;
+                            var p = parts[i];
+                            var xDist = p.x - parts[j].x;
+				            var yDist = p.y - parts[j].y;
+				            var distance = Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
+                            var forceMag = 1.00 * (32*32) / Math.pow(distance, 2);
+                            forceSum.x -= Math.abs(forceMag * (xDist / distance)) * Math.sign(xDist);
+  					        forceSum.y -= Math.abs(forceMag * (yDist / distance)) * Math.sign(yDist);
+                            p.speedX += forceSum.x / 32;
+		                    p.speedY += forceSum.y / 32;
+                            if(distance<1){n--;p.remove();}
+                        }
+                    }
+                    p.x+=p.speedX / 32;
+                    p.y+=p.speedY / 32;
+                    if (p.x>window.innerWidth+10) {p.x=-10};
+                    if (p.x<-10) {p.x=window.innerWidth+10};
+                    if (p.y>window.innerHeight+10) {p.y=-10};
+                    if (p.y<-10) {p.y=window.innerHeight+10};
+                    p.style.top=p.y+"px";
+                    p.style.left=p.x+"px";
+                }
+            }
+            window.setInterval(update,1000/60);
+            
+        </script>
+    </body>
+</html>
