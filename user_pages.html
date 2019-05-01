@@ -6,7 +6,7 @@
         <script>firebase.initializeApp({databaseURL:"https://user-pages.firebaseio.com/"});var data={};</script>
     </head>
     <body>
-        <textarea placeholder="head"></textarea><br/><textarea placeholder="body"></textarea><br/><button onclick="firebase.database().ref(decodeURIComponent(window.location.search)).set({'head':document.getElementsByTagName('textarea')[0].value,'body':document.getElementsByTagName('textarea')[1].value});">Add Page</button>
-        <script>firebase.database().ref(decodeURIComponent(window.location.search)).once("value").then(function(d){if(typeof d.val()=="object"&&decodeURIComponent(window.location.search)!==""){document.head.innerHTML=d.val().head;document.body.innerHTML=d.val().body;}});</script>
+        
+        <script>firebase.database().ref(decodeURIComponent(window.location.search)).once("value").then(function(d){document.body.innerHTML="<textarea placeholder=\"head\"></textarea><br/><textarea placeholder=\"body\"></textarea><br/><button onclick=\"firebase.database().ref(decodeURIComponent(window.location.search)).set({'head':document.getElementsByTagName('textarea')[0].value,'body':document.getElementsByTagName('textarea')[1].value});\">Add Page</button>";if(typeof d.val()=="object"&&decodeURIComponent(window.location.search)!==""){document.head.innerHTML=d.val().head;document.body.innerHTML=d.val().body;}});</script>
     </body>
 </html>
