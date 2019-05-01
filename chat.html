@@ -4,15 +4,18 @@
         <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-database.js"></script>
         <script>firebase.initializeApp({databaseURL:"https://textmonster404-github-io.firebaseio.com/"});var data={};</script>
+        <title></title>
+        <script>document.getElementsByTagName("title")[0].innerHTML="Chat - "+decodeURIComponent(window.location.search);</script>
     </head>
     <body style="vertical-align:top;">
         <div id="chat" style="overflow-y:scroll;width:300px;height:300px;border:2px inset #bbbbbb;display:inline-block;"></div>
         <div><input placeholder="name" id="username" style="width:304px;"/><br/>
         <textarea placeholder="message" id="msg" style="width:304px;resize:vertical;"></textarea><br/>
-        <button onclick="firebase.database().ref('message').set({});firebase.database().ref('message/'+decodeURIComponent(window.location.search)).set({'user':document.getElementById('username').value,'content':document.getElementById('msg').value+' <!-- '+Math.floor(Math.random()*(2**32))+' --> '});document.getElementById('msg').value='';" style="width:304px;background-color:white;border:2px outset #dddddd;">Send</button></div>
+        <button onclick="msgId++;firebase.database().ref('message').set({});firebase.database().ref('message/'+decodeURIComponent(window.location.search)).set({'user':document.getElementById('username').value,'content':document.getElementById('msg').value+' <!-- '+msgId+' --> '});document.getElementById('msg').value='';" style="width:304px;background-color:white;border:2px outset #dddddd;">Send</button></div>
         <script>
             if (window.location.search===""&&window.location.href.includes("?")==false) {window.location.search="?";}
             var loaded = false;
+            var msgId = Math.floor(Math.random()*(2**32));
             firebase.database().ref("message/"+decodeURIComponent(window.location.search)).on("value",function(d){if(loaded==false){loaded=true;}else{if(d.val()!==data&&d.val()!==null&&(typeof d.val().user=="string")){data=d.val();document.getElementById("chat").innerHTML+="<div style=\"font-weight:bold;\">"+data.user+"</div><div style=\"padding-left:1em;\">"+data.content+"</div>";loaded}}});
         </script>
     </body>
