@@ -1,0 +1,5 @@
+body{text-align:center;}
+h1{font-size:64px;}
+span {font-size:24px;vertical-align:top;font-weight:bold;}
+canvas {vertical-align: top;border-right:1px solid black;border-bottom:1px solid black;}
+span:last-of-type{vertical-align:bottom;}

@@ -1,0 +1,29 @@
+td[s] {background:#dedede;}            /* shaded       */
+td[r] {border-right:2px solid black;}  /* right border */
+td[l] {border-left:2px solid black;}   /* left border  */
+td[u] {border-top:2px solid black;}    /* up border    */
+td[d] {border-bottom:2px solid black;} /* down border  */
+
+/* normal cell style */
+td {
+    border:1px solid black;
+    width:40px;  /* about 1cm */
+    height:40px; /* about 1cm */
+    font-size:0.75cm;
+    font-weight:bold;
+    /* center the number */
+    vertical-align:middle;
+    text-align:center;
+    /* no padding */
+    padding:0;
+}
+table {
+    /* all cells are touching */
+    border-collapse:collapse;
+    /* center the sudoku "board" */
+    margin-inline-start:auto;
+    margin-inline-end:auto;
+}
+
+/* the title */
+h1 {font-size:64px;text-align:center;}
