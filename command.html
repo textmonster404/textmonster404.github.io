@@ -9,16 +9,16 @@
             for (var i=0;i<temp.length;i++){window.URIVariables[temp[i].split("=")[0]]=temp[i].split("=")[1];}
             window.onload=function(){
                 if(URIVariables["64txt"]){
-                    document.body.textContent=btoa(docodeURIComponent(URIVariables["64txt"]));
+                    document.body.textContent=btoa(decodeURIComponent(URIVariables["64txt"]));
                 };
                 if(URIVariables["txt64"]){
-                    document.body.textContent=atob(docodeURIComponent(URIVariables["txt64"]));
+                    document.body.textContent=atob(decodeURIComponent(URIVariables["txt64"]));
                 };
                 if(URIVariables["enc64txt"]){
                     document.body.textContent=btoa(decodeURIComponent(URIVariables["enc64txt"])).split("=").join("%3D");
                 };
                 if(URIVariables["txt"]){
-                    document.body.textContent=docodeURIComponent(URIVariables["txt"]);
+                    document.body.textContent=decodeURIComponent(URIVariables["txt"]);
                 };
                 document.querySelector("title").innerHTML=URIVariables.title||"Text Document";
             };
