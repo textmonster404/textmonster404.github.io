@@ -1,0 +1,164 @@
+
+<style>body{font-family:default;overflow:hidden;}button{font-family:default;}.particle {width:1px;height:1px;border-radius:50%;background-color:black;position:absolute;}</style>
+<div id="notepad" class="window" style="visibility: hidden;">
+<h3 style="margin:0px;" id="notepaddrag">Notepad</h3>
+<textarea onclick="objFocus=this;"></textarea>
+</div><br/>
+<style>button[a] {padding:0px;width:20px;height:20px;}button[b] {padding:0px;width:30px;height:20px;}button[c] {padding:0px;width:45px;height:20px;}button[d] {padding:0px;width:35px;height:20px;}button[e]{padding:0px;width:110px;height:20px;}.window{border:2px outset #d0d0d0;display:inline-block;position:absolute;background:white;}</style>
+<div id="keyboard" class="window" style="visibility: hidden;">
+<h3 style="margin:0px;" id="keyboarddrag">Keyboard</h3>
+<button onclick="typ('~')" a>~</button><button onclick="typ('!')" a>!</button><button onclick="typ('@')" a>@</button><button onclick="typ('#')" a>#</button><button onclick="typ('$')" a>$</button><button onclick="typ('%')" a>%</button><button onclick="typ('^')" a>^</button><button onclick="typ('&')" a>&amp;</button><button onclick="typ('*')" a>*</button><button onclick="typ('(')" a>(</button><button onclick="typ(')')" a>)</button><button onclick="typ('_')" a>_</button><button onclick="typ('+')" a>+</button><button onclick="back()" b>←</button><br/><button onclick="typ('`')" a>`</button><button onclick="typ('1')" a>1</button><button onclick="typ('2')" a>2</button><button onclick="typ('3')" a>3</button><button onclick="typ('4')" a>4</button><button onclick="typ('5')" a>5</button><button onclick="typ('6')" a>6</button><button onclick="typ('7')" a>7</button><button onclick="typ('8')" a>8</button><button onclick="typ('9')" a>9</button><button onclick="typ('0')" a>0</button><button onclick="type('-')" a>-</button><button onclick="typ('=')" a>=</button><button onclick="back()" b>←</button><br/><button onclick="typ('	')" b>tab</button><button onclick="typ('q')" a>q</button><button onclick="typ('w')" a>w</button><button onclick="typ('e')" a>e</button><button onclick="typ('r')" a>r</button><button onclick="typ('t')" a>t</button><button onclick="typ('y')" a>y</button><button onclick="typ('u')" a>u</button><button onclick="typ('i')" a>i</button><button onclick="typ('o')" a>o</button><button onclick="typ('p')" a>p</button><button onclick="typ('[')" a>[</button><button onclick="typ(']')" a>]</button><button onclick="typ('\\')" a>\</button><br/><button onclick="caps()" d>↑</button><button onclick="typ('a')" a>a</button><button onclick="typ('s')" a>s</button><button onclick="typ('d')" a>d</button><button onclick="typ('f')" a>f</button><button onclick="typ('g')" a>g</button><button onclick="typ('h')" a>h</button><button onclick="typ('j')" a>j</button><button onclick="typ('k')" a>k</button><button onclick="typ('l')" a>l</button><button onclick="typ(';')" a>;</button><button onclick="typ('\'')" a>'</button><button onclick="typ('\n')" d>enter</button><br/><button onclick="shift()" c>shift</button><button onclick="typ('z')" a>z</button><button onclick="typ('x')" a>x</button><button onclick="typ('c')" a>c</button><button onclick="typ('v')" a>v</button><button onclick="typ('b')" a>b</button><button onclick="typ('n')" a>n</button><button onclick="typ('m')" a>m</button><button onclick="typ(',')" a>,</button><button onclick="typ('.')" a>.</button><button onclick="typ('/')" a>/</button><button onclick="shift()" c>shift</button><br/><button onclick="ctrl()" c>ctrl</button><button onclick="alt()" c>alt</button><button onclick="typ(' ')" e>&nbsp;</button><button onclick="alt()" c>alt</button><button onclick="ctrl()" c>ctrl</button>
+</div>
+<div id="particles" class="window" style="visibility: hidden;width:128px;height:64px;">
+<div id="parts"></div>
+</div>
+<div id="windows" class="window">
+<h3 style="margin:0px;" id="windowsdrag">Windows</h3>
+<button onclick="if(document.getElementById('notepad').style.visibility!=='hidden'){document.getElementById('notepad').style.visibility='hidden';this.style.fontWeight='bold';}else{document.getElementById('notepad').style.visibility='visible';this.style.fontWeight='initial';};" style="font-weight: bold;">Notepad</button><button onclick="if(document.getElementById('keyboard').style.visibility!=='hidden'){document.getElementById('keyboard').style.visibility='hidden';this.style.fontWeight='bold';}else{document.getElementById('keyboard').style.visibility='visible';this.style.fontWeight='initial';};" style="font-weight: bold;">Keyboard</button><button onclick="if(document.getElementById('particles').style.visibility!=='hidden'){document.getElementById('particles').style.visibility='hidden';this.style.fontWeight='bold';}else{document.getElementById('particles').style.visibility='visible';this.style.fontWeight='initial';};" style="font-weight: bold;">Gravity Dots</button>
+</div>
+<script>
+            Element.prototype.remove = function() {
+                this.parentElement.removeChild(this);
+            }
+            NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+                for(var i = this.length - 1; i >= 0; i--) {
+                    if(this[i] && this[i].parentElement) {
+                        this[i].parentElement.removeChild(this[i]);
+                    }
+                }
+            }
+            var $ = function(str) {return document.getElementById(str);}
+            var particles = $("parts");
+            var n = 10;
+            if (decodeURIComponent(window.location.search.substring(1))!=="") {
+                n = parseInt(decodeURIComponent(window.location.search.substring(1)));
+            }
+            
+            for (var i=0;i<n;i++) {
+                particles.innerHTML+="<div class=\"particle\"></div>";
+            }
+            
+            var parts = particles.children;
+            
+            for (var i=0;i<parts.length;i++) {
+                var p = parts[i];
+                p.y = Math.random()*128;
+                p.x = Math.random()*64;
+                p.speedX = Math.random()*4-2;
+                p.speedY = Math.random()*4-2;
+            }
+            particles.mouseX=0;
+            particles.mouseY=0;
+            particles.onmousemove = function(e) {
+                particles.mouseX = e.clientX;
+                particles.mouseY = e.clientY;
+            }
+            function update() {
+                for (var i=0;i<parts.length;i++) {
+                    var forceSum = {};
+                    var p = parts[i];
+                    for (var j=0;j<parts.length;j++) {
+                        if (i!==j) {
+                            var forceSum = {};
+                            forceSum.x = 0;
+                            forceSum.y = 0;
+                            var p = parts[i];
+                            var xDist = p.x - parts[j].x;
+				            var yDist = p.y - parts[j].y;
+				            var distance = Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
+                            var forceMag = 1.00 * (12*12) / Math.pow(distance, 2);
+                            forceSum.x -= Math.abs(forceMag * (xDist / distance)) * Math.sign(xDist);
+  					        forceSum.y -= Math.abs(forceMag * (yDist / distance)) * Math.sign(yDist);
+                            p.speedX += forceSum.x / 12;
+		                    p.speedY += forceSum.y / 12;
+                            if(distance<1){n--;p.remove();}
+                        }
+                    }
+                    if (p.speedX>16) {p.speedX=16;}
+                    if (p.speedY>16) {p.speedY=16;}
+                    if (p.speedX<-16) {p.speedX=-16;}
+                    if (p.speedY<-16) {p.speedY=-16;}
+                    p.x+=p.speedX / 12;
+                    p.y+=p.speedY / 12;
+                    if (p.x>128) {p.x=0};
+                    if (p.x<0) {p.x=128};
+                    if (p.y>64) {p.y=0};
+                    if (p.y<0) {p.y=64};
+                    p.style.top=(p.y-1)+"px";
+                    p.style.left=(p.x-1)+"px";
+                }
+            }
+            window.setInterval(function(){if(document.getElementById('particles').style.visibility!=='hidden'){update();}},1000/60);
+            
+        </script>
+<script>
+var objFocus = null;
+var c = false;
+var s = false;
+var shift = function() {s=!s;}
+var caps = function() {c=!c;}
+var back = function() {document.execCommand('delete',false,null);}
+
+var typ = function(txt) {objFocus.focus();if(s==true||c==true){document.execCommand("insertText",false,txt.toUpperCase().split("[").join("{").split("]").join("}").split("\\").join("|").split(";").join(":").split("'").join("\"").split(",").join("<").split(".").join(">").split("/").join("?"));s=false;}else{document.execCommand("insertText",false,txt);}}
+
+//for(var j=0;j<document.getElementsByClassName('window').length;j++){document.getElementsByClassName('window')[j].onclick=function(e){for(var i=0;i<document.getElementsByClassName('window').length;i++){document.getElementsByClassName('window')[i].style.zIndex='1';};e.target.style.zIndex='2';}}
+
+dragElement(document.getElementById("windows"));
+dragElement(document.getElementById("particles"));
+dragElement(document.getElementById("notepad"));
+dragElement(document.getElementById("keyboard"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "drag")) {
+    document.getElementById(elmnt.id + "drag").onmousedown = dragMouseDown;
+    elmnt.onmousedown = goToTop;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+  function goToTop(e) {
+    for(var i=0;i<document.getElementsByClassName('window').length;i++){document.getElementsByClassName('window')[i].style.zIndex='1';}
+    elmnt.style.zIndex="2";
+  }
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    for(var i=0;i<document.getElementsByClassName('window').length;i++){document.getElementsByClassName('window')[i].style.zIndex='1';}
+    elmnt.style.zIndex="2";
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    if ((elmnt.offsetTop + elmnt.clientHeight+2)>window.innerHeight) {
+    elmnt.style.top = (window.innerHeight-elmnt.clientHeight-2) + "px";
+    }
+    if ((elmnt.offsetLeft + elmnt.clientWidth+2)>window.innerWidth) {
+    elmnt.style.left = (window.innerWidth-elmnt.clientWidth-2) + "px";
+    }
+    if ((elmnt.offsetTop)<0) {
+    elmnt.style.top = "0px";
+    }
+    if ((elmnt.offsetLeft)<0) {
+    elmnt.style.left = "0px";
+    }
+  }
+
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
