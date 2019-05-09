@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {background-color:#212121;color:#ffffff;font-family:monospace;white-space:pre;}
+        </style>
+        <script src="https://josephg.com/perlin/perlin.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"></script>
+    </head>
+    <body>
+        <script>
+            if(window.location.search.substring(1)==""){
+                var random = new Math.seedrandom();
+                noise.seed(random());
+            } else {
+                var seed = window.location.search.substring(1);
+                var random = new Math.seedrandom(seed);
+                noise.seed(random());
+            }
+            h=Math.floor(random()*48+1);
+            w=Math.floor((window.innerWidth-8)/8);
+            for (var i=0;i<h;i++) {
+                document.body.innerHTML+='<div id="'+i+'"></div>';
+            }
+            for (var i=0;i<w;i++) {
+                var t = Math.floor(noise.perlin2(i/(4*Math.PI),0)*h/2);
+                var b = Math.floor(noise.perlin2(i/(4*Math.PI),1)*h/2)+h/2;
+                for (var j=0;j<h;j++) {
+                    if (j>t&&j<b) {
+                        document.getElementById(j).innerHTML+=[" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ",".","x","*"][Math.floor(random()*20)];
+                    }else{
+                        document.getElementById(j).innerHTML+=" ";
+                    }
+                }
+            }
+            for (var i=0;i<h;i++) {
+                var isWhiteSpace = true;
+                for (var j=0;j<document.getElementById(i).innerHTML.length;j++) {
+                    if (document.getElementById(i).innerHTML.charAt(j)!==" "){
+                        isWhiteSpace = false;
+                    }
+                }
+                if (isWhiteSpace==true) {
+                    document.getElementById(i).outerHTML="";
+                }
+            }
+        </script>
+    </body>
+</html>
