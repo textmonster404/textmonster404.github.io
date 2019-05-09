@@ -17,7 +17,7 @@
                 if(URIVariables["txt"]){
                     document.body.textContent=URIVariables["txt"];
                 };
-                $("title").innerHTML=URIVariables.title||"Text Document";
+                document.querySelector("title").innerHTML=URIVariables.title||"Text Document";
             };
         </script>
         <style>
