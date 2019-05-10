@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stars</title>
+        <style>
+            html {height:100%;}
+            body {background-color:#212121;color:#ffffff;text-align:center;top:30%;position:relative;}
+            input {border:none;font-family:monospace;background:transparent;color:white;}
+            *:focus {outline:none;}
+            button {border:2px outset white;background:#3a3a3a;color:white;font-family:monospace;cursor:pointer;}
+            button:active {border:2px inset #ddd;background:#000;}
+            button:hover {background:#3f3f3f;}
+        </style>
+    </head>
+    <body>
+        <h1>Stars Generator</h1>
+        <p><i><code>Put your name in the box below.<br/>Then click, "Starify".<br/>Leave blank for random stars.</code></i></p>
+        <input type="text" placeholder="Name here."/><button onclick="window.open('stars?'+document.querySelector('input').value);">Starify!</button>
+    </body>
+</html>
