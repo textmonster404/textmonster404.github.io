@@ -23,7 +23,7 @@
                 noise.seed(random());
             }
             h=Math.floor(random()*48+1);
-            w=Math.floor((window.innerWidth-16)/char.clientWidth);
+            w=Math.floor((window.innerWidth-16)/char.width);
             for (var i=0;i<h;i++) {
                 document.body.innerHTML+='<div id="'+i+'"></div>';
             }
