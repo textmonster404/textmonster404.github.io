@@ -3,13 +3,13 @@
     <head>
         <title>Stars</title>
         <style>
-            body {background-color:#212121;color:#ffffff;font-family:consolas;white-space:pre;}
-            #char {position:absolute;}
+            body {background-color:#212121;color:#ffffff;font-family:courier new;white-space:pre;}
+            #char {position:absolute;opacity:0.0;}
         </style>
         <script src="https://josephg.com/perlin/perlin.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"></script>
     </head>
-    <body><span id="char"> </span><script>
+    <body><span id="char">.</span><script>
             var char = document.getElementById("char");
             char.width = char.clientWidth;
             char.height = char.clientHeight;
@@ -23,7 +23,7 @@
                 noise.seed(random());
             }
             h=Math.floor(random()*48+1);
-            w=Math.floor((window.innerWidth-16)/8.8);
+            w=Math.floor((window.innerWidth-16)/char.clientWidth);
             for (var i=0;i<h;i++) {
                 document.body.innerHTML+='<div id="'+i+'"></div>';
             }
