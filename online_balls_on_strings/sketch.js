@@ -1,8 +1,10 @@
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
 }
+var name = decodeURIComponent(window.location.search.substring(1));
 var myR = Math.random().toString().split(".").join("");
-var myCir={"x":0,"y":0,"speedX":0,"speedY":0,"mouseX":0,"mouseY":0};
+if (name=="") {name=myR.substring(6);}
+var myCir={"x":0,"y":0,"speedX":0,"speedY":0,"mouseX":0,"mouseY":0,"name":name};
 firebase.database().ref().once("value").then(
   function(d) {
     data = d.val();
@@ -66,6 +68,7 @@ function draw() {
     stroke(0);
     line(myCir.mouseX,myCir.mouseY,myCir.x,myCir.y);
     circle(myCir.x,myCir.y,5);
+    text(myCir);
   } else {
     text("Loading...",200,200);
   }
