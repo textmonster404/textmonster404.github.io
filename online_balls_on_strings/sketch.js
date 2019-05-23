@@ -3,7 +3,7 @@ function setup() {
 }
 var name = decodeURIComponent(window.location.search.substring(1));
 var myR = Math.random().toString().split(".").join("");
-if (name=="") {name=myR.substring(6);}
+if (name=="") {name=myR.substring(6);} else {document.getElementById("name").style.display="none";}
 var myCir={"x":0,"y":0,"speedX":0,"speedY":0,"mouseX":0,"mouseY":0,"name":name};
 firebase.database().ref().once("value").then(
   function(d) {
@@ -34,6 +34,7 @@ function draw() {
         line(ball.mouseX,ball.mouseY,ball.x,ball.y);
         circle(ball.x,ball.y,5);
         circle(ball.mouseX,ball.mouseY,2);
+        text(ball.name,ball.mouseX,ball.mouseY);
       }
     }
     myCir.mouseX = mouseX;
@@ -68,7 +69,7 @@ function draw() {
     stroke(0);
     line(myCir.mouseX,myCir.mouseY,myCir.x,myCir.y);
     circle(myCir.x,myCir.y,5);
-    text(myCir);
+    text(myCir.name,myCir.mouseX,myCir.mouseY);
   } else {
     text("Loading...",200,200);
   }
