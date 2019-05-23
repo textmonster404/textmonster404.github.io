@@ -3,7 +3,7 @@ function setup() {
 }
 var name = decodeURIComponent(window.location.search.substring(1));
 var myR = Math.random().toString().split(".").join("");
-if (name=="") {name=myR.substring(6);} else {document.getElementById("name").style.display="none";}
+if (name=="") {name=myR.substring(-6);} else {document.getElementById("name").style.display="none";}
 var myCir={"x":0,"y":0,"speedX":0,"speedY":0,"mouseX":0,"mouseY":0,"name":name};
 firebase.database().ref().once("value").then(
   function(d) {
