@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head>
+    <script src="p5.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-database.js"></script>
+    <script>firebase.initializeApp({databaseURL:"https://block-game-online.firebaseio.com/"});</script>
+
+  </head>
+  <body>
+    <script src="sketch.js"></script>
+    <h1>Block game level creator</h1>
+    <h3>Script:</h3>
+    <textarea>
+/* never use local variables here. */
+levels = 1; // number of levels
+
+
+A = 255; // player 1 spawn
+B = 256; // player 2 spawn
+W = 257; // win
+T = 10;  // collumn semisolid
+C = 11;  // collumn background
+// 0 = empty
+// 1 = solid block
+// 2 = player 1 pass-through block
+// 3 = player 2 pass-through block
+// 4 = spike
+// 5 = semisolid
+// 6 = fall-through semisolid
+// 7 = dithering background
+// 8 = collumn left
+// 9 = collumn right
+
+level0 = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,W,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,2,2,0,0,0,0,0,0,3,3,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,A,0,0,0,0,0,0,0,0,0,0,0,0,B,0],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+]
+
+texts = ["Your Stage"];
+autoscrolls = [false];
+scrollspeeds = [[0,0]];
+
+
+end = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,2,2,0,0,0,0,0,0,3,3,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,A,0,0,0,0,0,0,0,0,0,0,0,0,B,0],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+];
+    </textarea>
+    <br/><button onclick="createGame(document.getElementsByTagName('textarea')[0].value);">Create Game</button>
+
+</body></html>
