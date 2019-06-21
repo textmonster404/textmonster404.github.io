@@ -78,6 +78,6 @@ end = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ];
     </textarea>
-    <br/><button onclick="createGame(document.getElementsByTagName('textarea')[0].value);">Create Game</button><button onclick="firebase.database().ref(prompt('Game Id?')).once('value').then(function(d){document.getElementsByTagName('textarea')[0].value=d.val();}">Load Game</button>
+    <br/><button onclick="createGame(document.getElementsByTagName('textarea')[0].value);">Create Game</button><button onclick="firebase.database().ref(prompt('Game Id?')).once('value').then(function(d){document.getElementsByTagName('textarea')[0].value=d.val();});">Load Game</button>
 
 </body></html>
