@@ -10,10 +10,19 @@
             var mouseY = 0;
             function unleashTheLennys() {
                 var boxOfLenny = "";
-                var quantity = Math.floor(Math.random()*16+1);
-                var qualities = ["( ͡° ͜ʖ ͡°)","( ͡° ͜ʖ ͡°)","( ͡° ͜ʖ ͡°)","( ͠° ͟ʖ ͡°)","( ͡° ʖ̯ ͡°)","( ͡ᵔ ͜ʖ ͡ᵔ )"];
-                for (var lenny=0;lenny<quantity;lenny++) {
-                    boxOfLenny += "<span>"+qualities[Math.floor(Math.random()*qualities.length)]+"</span>";
+                if (window.location.search == "") {
+                    var quantity = Math.floor(Math.random()*16+1);
+                    var qualities = ["( ͡° ͜ʖ ͡°)","( ͡° ͜ʖ ͡°)","( ͡° ͜ʖ ͡°)","( ͠° ͟ʖ ͡°)","( ͡° ʖ̯ ͡°)","( ͡ᵔ ͜ʖ ͡ᵔ )"];
+                    var lennys = [];
+                    for (var lenny=0;lenny<quantity;lenny++) {
+                        lennys[lennys.length] = qualities[Math.floor(Math.random()*qualities.length)];
+                    }
+                    window.location.href += "?" + btoa(encodeURIComponent(lennys.toString()));
+                } else {
+                    var qualities = JSON.parse("[\""+decodeURIComponent(atob(window.location.search.substring(1))).split(",").join("\",\"")+"\"]");
+                    for (var lenny=0;lenny<qualities.length;lenny++) {
+                        boxOfLenny += "<span>"+qualities[lenny]+"</span>";
+                    }
                 }
                 document.body.innerHTML += boxOfLenny;
             }
