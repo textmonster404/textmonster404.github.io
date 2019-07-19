@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LENNY</title>
+        <style>body{overflow:hidden;}</style>
+    </head>
+    <body>
+        <script>
+            var mouseX = 0;
+            var mouseY = 0;
+            function unleashTheLennys() {
+                var boxOfLenny = "";
+                var quantity = Math.floor(Math.random()*16+1);
+                var qualities = ["( ͡° ͜ʖ ͡°)","( ͡° ͜ʖ ͡°)","( ͡° ͜ʖ ͡°)","( ͠° ͟ʖ ͡°)","( ͡° ʖ̯ ͡°)","( ͡ᵔ ͜ʖ ͡ᵔ )"];
+                for (var lenny=0;lenny<quantity;lenny++) {
+                    boxOfLenny += "<span>"+qualities[Math.floor(Math.random()*qualities.length)]+"</span>";
+                }
+                document.body.innerHTML += boxOfLenny;
+            }
+            function forgeLennyness() {
+                window.lennys = document.getElementsByTagName("span");
+                for (var i=0;i<lennys.length;i++) {
+                    lenny = lennys[i];
+                    lenny.x = Math.random()*window.innerWidth;
+                    lenny.y = Math.random()*window.innerHeight;
+                    lenny.speedX = Math.random()*8;
+                    lenny.speedY = Math.random()*8;
+                    lenny.style.position = "absolute";
+                }
+            }
+            function lennyz() {
+                for (var i=0;i<lennys.length;i++) {
+                    lenny = lennys[i];
+                    lenny.speedX += (mouseX-lenny.x)/1024;
+                    lenny.speedY += (mouseY-lenny.y)/1024;
+                    for (var j=0;j<lennys.length;j++) {
+                        lennyII = lennys[j];
+                        if (lennyII!=lenny) {
+                            lenny.speedX += (1/(lenny.x-lennyII.x))/2;
+                            lenny.speedY += (1/(lenny.y-lennyII.y))/2;
+                        }
+                    }
+                    lenny.speedX += Math.random()/8-1/4;
+                    lenny.speedY += Math.random()/8-1/4;
+                    if (lenny.speedX>8) {
+                        lenny.speedX=8;
+                    }
+                    if (lenny.speedX<-8) {
+                        lenny.speedX=-8;
+                    }
+                    if (lenny.speedY>8) {
+                        lenny.speedY=8;
+                    }
+                    if (lenny.speedY<-8) {
+                        lenny.speedY=-8;
+                    }
+                    lenny.x += lenny.speedX;
+                    lenny.y += lenny.speedY;
+                    lenny.style.left = lenny.x+"px";
+                    lenny.style.top = lenny.y+"px";
+                }
+            }
+            document.onmousemove = function(e) {
+                mouseX = e.screenX+156;
+                mouseY = e.screenY+98;
+            }
+            
+            
+            unleashTheLennys();
+            forgeLennyness();
+            window.setInterval(lennyz,1);
+        </script>
+    </body>
+</html>
