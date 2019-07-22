@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shiritori</title>
+        <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-database.js"></script>
+        <script>uuidv4 = function(){return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));};</script>
+        <script>if (window.location.search=="") {window.location.href += "?" + uuidv4();}</script>
+        <script>firebase.initializeApp({databaseURL:"https://shiritori-a582c3614e24.firebaseio.com/"+window.location.search});loaded=false;data={};</script>
+    </head>
+    <body>
+        <h1>Shiritori (しりとり)</h1>
+        <div id="chat" style="overflow-y:scroll;width:304px;height:304px;border:2px inset #bbbbbb;display:inline-block;"></div>
+        <div><input placeholder="name" id="username" style="width:304px;"/><br/>
+        <textarea placeholder="message" id="msg" style="width:302px;resize:vertical;"></textarea><br/>
+        <button onclick="if(this.disabled!=true){msgId++;msg=document.getElementById('msg').value;firebase.database().ref(window.location.search+'/history').once('value').then(function(d){if(typeof d.val()=='string'){firebase.database().ref(window.location.search+'/history').set(d.val()+'<div style=\'font-weight:bold;\'>'+document.getElementById('username').value+'</div><div style=\'padding-left:1em;\'>'+msg+'</div>');}else{firebase.database().ref(window.location.search+'/history').set('<div style=\'font-weight:bold;\'>'+document.getElementById('username').value+'</div><div style=\'padding-left:1em;\'>'+msg+'</div>');}});firebase.database().ref(window.location.search+'/message').set({'user':document.getElementById('username').value,'content':document.getElementById('msg').value+' <!-- '+msgId+' --> '});if (document.getElementById('chat').children.length>2&&(shiritori(document.getElementsByTagName('div')[document.getElementsByTagName('div').length-4].innerText,document.getElementById('msg').value)==false)){msgId++;msg=document.getElementById('msg').value;firebase.database().ref(window.location.search+'/history').once('value').then(function(d){if(typeof d.val()=='string'){firebase.database().ref(window.location.search+'/history').set(d.val()+'<div style=\'font-weight:bold;\'>'+'<span style=\'color:red;\'>[Server]</span>'+'</div><div style=\'padding-left:1em;\'>'+'Player '+document.getElementById('username').value+' has lost. '+'</div>');}else{firebase.database().ref(window.location.search+'/history').set('<div style=\'font-weight:bold;\'>'+'<span style=\'color:red;\'>[Server]</span>'+'</div><div style=\'padding-left:1em;\'>'+'Player '+document.getElementById('username').value+' has lost. '+'</div>');}});firebase.database().ref(window.location.search+'/message').set({'user':'<span style=\'color:red;\'>[Server]</span>','content':'Player '+document.getElementById('username').value+' has lost. '+' <!-- '+msgId+' --> '});firebase.database().ref('over').set('over')};turn++;if(turn>players){turn=1};firebase.database().ref(window.location.search+'/turn').set(turn);document.getElementById('msg').value='';}" style="width:308px;background-color:white;border:2px outset #dddddd;">Send</button></div>
+        
+        <script>
+            var msgId = Math.floor(Math.random()*(2**32));
+            var player;
+            var turn = 1;
+            var players;
+            firebase.database().ref(window.location.search+"/players").once("value").then(function(d){if(typeof d.val()=="number"){player=d.val()+1;firebase.database().ref(window.location.search+"/players").set(player);players=player;}else{player=1;firebase.database().ref(window.location.search+"/players").set(player);players=player;}if(player==1){firebase.database().ref(window.location.search+"/turn").set(1).then(function(){firebase.database().ref(window.location.search+"/turn").once("value").then(function(d1){turn=d1.val();});});}})
+            String.prototype.lastChar = function() {return this.charAt(this.length-1);}
+            String.prototype.firstChar = function() {return this.charAt(0);}
+            function shiritori(word1, word2) {
+                return (word1.lastChar()==word2.firstChar());
+            }
+            firebase.database().ref(window.location.search+"/history").once("value").then(function(d){if(typeof d.val()=="string"){document.getElementById("chat").innerHTML=d.val();}});
+            firebase.database().ref(window.location.search+"/message").on("value",function(d){if(loaded==false){loaded=true;}else{if(d.val()!==data&&d.val()!==null&&(typeof d.val().user=="string")){data=d.val();document.getElementById("chat").innerHTML+="<div style=\"font-weight:bold;\">"+data.user+"</div><div style=\"padding-left:1em;\">"+data.content+"</div>";}}});
+            firebase.database().ref(window.location.search+"/over").once("value").then(function(d){if(typeof d.val()=="string"&&d.val()=="over"){document.body.innerHTML="<h1>Shiritori (しりとり)</h1><h3>Sorry! Game over.</h3>";}});
+            firebase.database().ref(window.location.search+"/players").on("value",function(d){players=d.val();});
+            firebase.database().ref(window.location.search+"/turn").on("value",function(d){turn=d.val();if(turn!=player){document.getElementsByTagName("button")[0].disabled=true;}else{document.getElementsByTagName("button")[0].disabled=false;}});
+            firebase.database().ref(window.location.search+"/over").on("value",function(d){if(typeof d.val()=="string"&&d.val()=="over"){document.getElementsByTagName("button")[0].disabled=true;}});
+        </script>
+    </body>
+</html>
