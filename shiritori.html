@@ -19,7 +19,7 @@
         <script>
             var msgId = Math.floor(Math.random()*(2**32));
             var player;
-            var turn = 1;
+            var turn = 0;
             var players;
             firebase.database().ref(window.location.search+"/players").once("value").then(function(d){if(typeof d.val()=="number"){player=d.val()+1;firebase.database().ref(window.location.search+"/players").set(player);players=player;}else{player=1;firebase.database().ref(window.location.search+"/players").set(player);players=player;}if(player==1){firebase.database().ref(window.location.search+"/turn").set(1).then(function(){firebase.database().ref(window.location.search+"/turn").once("value").then(function(d1){turn=d1.val();});});}})
             String.prototype.lastChar = function() {return this.charAt(this.length-1);}
