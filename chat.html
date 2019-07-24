@@ -22,7 +22,7 @@
                 document.getElementById("username").disabled = true;
             }
             
-            firebase.database().ref("history/"+decodeURIComponent(window.location.search.split("&")[0])).once("value").then(function(d){if(typeof d.val()=="string"){document.getElementById("chat").innerHTML=d.val();}});
+            firebase.database().ref("history/"+decodeURIComponent(window.location.search.split("&")[0])).once("value").then(function(d){if(typeof d.val()=="string"){if (window.location.search.includes("$")) {document.body.innerHTML = d.val();}else{document.getElementById("chat").innerHTML=d.val();}}});
             firebase.database().ref("message/"+decodeURIComponent(window.location.search.split("&")[0])).on("value",function(d){if(loaded==false){loaded=true;}else{if(d.val()!==data&&d.val()!==null&&(typeof d.val().user=="string")){data=d.val();document.getElementById("chat").innerHTML+="<div style=\"font-weight:bold;\">"+data.user+"</div><div style=\"padding-left:1em;\">"+data.content+"</div>";loaded}}});
             
             window.setInterval(function(){document.getElementById("chat").scrollBy(0,1);},12);
