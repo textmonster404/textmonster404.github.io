@@ -10,12 +10,12 @@
             document.body.innerHTML = ['<h3>Error <small><small>(textmonster)</small></small>404 Page not Found</h3><p>Back to <a href="https://textmonster404.github.io/">Homepage</a>','<img src="https://textmonster404.github.io/images/404.jpg"><p>Back to <a href="https://textmonster404.github.io/">Homepage</a>','<p>Error 404:</p><p>Your haiku could not be found.</p><p>Try again later.</p>'][Math.floor(Math.random()*3)];
             if (window.location.href.includes("coin")) {
                 window.setInterval(function(){
-                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin1favicon.png"},167);
-                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin1favicon.png"},333);
-                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin1favicon.png"},500);
-                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin2favicon.png"},667);
-                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin3favicon.png"},833);
-                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin2favicon.png"},1000);
+                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin1favicon.png"},500*(1/6));
+                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin1favicon.png"},500*(1/3));
+                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin1favicon.png"},500*(1/2));
+                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin2favicon.png"},500*(2/3));
+                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin3favicon.png"},500*(5/6));
+                    window.setTimeout(function(){document.getElementById("icon").href="https://textmonster404.github.io/icon/coin2favicon.png"},500);
                 },1000);
             }
         </script>
