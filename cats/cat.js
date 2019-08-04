@@ -14,8 +14,8 @@ for (var i=0;i<document.getElementsByTagName("cat").length;i++) {
     document.getElementsByTagName("cat")[i].innerHTML = "<img width=\""+document.getElementsByTagName("cat")[i].getAttribute("width")+"\" height=\""+document.getElementsByTagName("cat")[i].getAttribute("height")+"\" src=\""+cat.random()+"\"/>";
 }
 for (var i=0;i<document.getElementsByTagName("cat-gif").length;i++) {
-    document.getElementsByTagName("cat-gif")[i].innerHTML = "<img width=\""+document.getElementsByTagName("cat")[i].getAttribute("width")+"\" height=\""+document.getElementsByTagName("cat")[i].getAttribute("height")+"\" src=\""+cat.gif()+"\"/>";
+    document.getElementsByTagName("cat-gif")[i].innerHTML = "<img width=\""+document.getElementsByTagName("cat-gif")[i].getAttribute("width")+"\" height=\""+document.getElementsByTagName("cat-gif")[i].getAttribute("height")+"\" src=\""+cat.gif()+"\"/>";
 }
 for (var i=0;i<document.getElementsByTagName("cat-meme").length;i++) {
-    document.getElementsByTagName("cat-meme")[i].innerHTML = "<img width=\""+document.getElementsByTagName("cat")[i].getAttribute("width")+"\" height=\""+document.getElementsByTagName("cat")[i].getAttribute("height")+"\" src=\""+cat.meme()+"\"/>";
+    document.getElementsByTagName("cat-meme")[i].innerHTML = "<img width=\""+document.getElementsByTagName("cat-meme")[i].getAttribute("width")+"\" height=\""+document.getElementsByTagName("cat-meme")[i].getAttribute("height")+"\" src=\""+cat.meme()+"\"/>";
 }
