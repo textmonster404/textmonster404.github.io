@@ -15,7 +15,7 @@
                 document.getElementById("description").content = uri.split("&")[1];
                 document.getElementById("color").content = "#"+uri.split("&")[0];
             }
-            document.getElementsByTagName("title").innerHTML = "#"+uri.split("&")[0];
+            document.getElementsByTagName("title")[0].innerHTML = "#"+uri.split("&")[0];
         </script>
     </head>
     <body>
