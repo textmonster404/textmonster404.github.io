@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="" id="description"/>
+        <meta name="theme-color" content="" id="color"/>
+        <script>
+            uri = decodeURIComponent(window.location.search.substring(1));
+            if (uri.split("&").length==1) {
+                document.getElementById("description") = "#"+uri.split("&")[0];
+                document.getElementById("color") = "#"+uri.split("&")[0];
+            }
+            if (uri.split("&").length==2) {
+                document.getElementById("description") = uri.split("&")[1];
+                document.getElementById("color") = "#"+uri.split("&")[0];
+            }
+            document.getElementsByTagName("title").innerHTML = "#"+uri.split("&")[0];
+        </script>
+    </head>
+    <body>
+        <h1>this is only for embed. not meant for click</h1>
+    </body>
+</html>
