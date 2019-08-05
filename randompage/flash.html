@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>flash.html</title>
+    </head>
+    <body>
+        <script>
+            document.body.style.background="black";
+            var flash = function(){window.setTimeout(function(){document.style.background="white";window.setTimeout(function(){document.body.style.background="black";},2);flash();},Math.random()*4000+1000)}
+            flash();
+        </script>
+    </body>
+</html>
