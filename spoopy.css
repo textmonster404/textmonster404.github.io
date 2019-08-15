@@ -1,0 +1,7 @@
+html{background:black;}
+h1{text-shadow:none;color:orange}
+table{border:0px solid orange;background:black;color:orange;}
+th,td{border:2px solid orange;}
+a:visited{color:yellow;}
+a{color:orange;}
+h1::after{font-size:12pt;content:"(spoopy version)";display:block;color:grey;}
