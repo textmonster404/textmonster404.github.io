@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>plexer page</title>
+		<style>
+			body {width:8.5in;height:11in;padding:0.5in;}
+			h1 {text-align:center;}
+			td {height:1.5in;border-width:3px}
+		</style>
+	</head>
+	<body>
+		<h1>Plexers</h1>
+		<table border="1" width="100%">
+			<tbody>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		<script>
+		    var cells = document.getElementsByTagName("td");
+			for (var i=0;i<cells.length;i++) {
+				cells[i].style.borderStyle = ["dashed","dotted","double","groove","inset","outset","ridge","solid"][Math.floor(Math.random()*8)];
+			}
+		</script>
+	</body>
+</html>
