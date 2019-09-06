@@ -1969,6 +1969,11 @@ function keyPressed() {
     fail4 = true;
   }
 }
+function mouseClicked() {
+  if (level>=levels) {
+    window.location.replace("index.html");
+  }
+}
 if (!testmode) {
   game(window["level"+level]);
 } else {
