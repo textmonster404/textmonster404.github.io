@@ -395,6 +395,13 @@ win.y = -32;
 win.p1 = false;
 win.p2 = false;
 
+if (level==3) {
+  screen.autoScroll = true;
+  screen.scrollY = -0.75;
+  screen.y = screen.height-512;
+  screen.x = 0;
+}
+
 blocks = [];
 p1pass = [];
 p2pass = [];
@@ -522,6 +529,14 @@ createParticle = function(x,y) {
 draw = function() {
   if (level<levels) {
     texts[texts.length-1]="End.\nBeaten in "+t2hms(floor(millis()/10)/100)+"\n\n"+(function(t){if(t<20){return "This... isn't possible.\nDid you cheat?"}else if(t<=90){return "Umm..."}else if(t<=300){return "Nice."}else if(t<600){return "You did okay.\nAim for less than five minutes."}else{return "Try to get less than 10 minutes next time."};})(floor(millis()/10)/100);
+  }
+  if (level==3) {
+    screen.autoScroll = true;
+    if (screen.y<180&&screen.y>0) {
+      screen.scrollY = -0.35;
+    } else {
+      screen.scrollY = -0.75;
+    }
   }
   if (screen.autoScroll==false) {
     screen.x = 0;
@@ -716,7 +731,11 @@ draw = function() {
       }
     }
   }
-  text(texts[level],256,24);
+  if (level==3) {
+    text(texts[level],256,818);
+  } else {
+    text(texts[level],256,24);
+  }
   var inAir = true;
   if (win.p1==false&&fail1==false) {
     speedY+=0.4;
