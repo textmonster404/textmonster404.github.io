@@ -1447,6 +1447,11 @@ function keyPressed() {
     fail3 = true;
   }
 }
+function mouseClicked() {
+  if (level>=levels) {
+    window.location.replace("index.html");
+  }
+}
 if (!testmode) {
   game(window["level"+level]);
 } else {
