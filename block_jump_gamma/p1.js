@@ -1,7 +1,7 @@
 var testmode = false; // should be false
 var level = 0;        // should be 0
 
-var levels = 2;       // number of levels
+var levels = 3;       // number of levels
 
 function setup() {
   var canvas = createCanvas(512, 512);
@@ -51,7 +51,8 @@ var W = 257; // win
 var T = 10;  // collumn semisolid
 var C = 11;  // collumn background
 var F = 12;  // fan
-var M = 20;  // center the tile on the right
+var M = 20;  // center a tile horizontally
+var V = 21;  // center a tile vertically
 // 0 = empty
 // 1 = solid block
 // 2 = solid switchable
@@ -108,6 +109,25 @@ var level1 = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ]
 
+var level2 = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,B],
+  [0,0,0,0,0,0,0,0,1,3,1,1,1,1,1,1],
+  [1,V,1,0,0,0,0,0,1,0,0,0,0,0,0,W],
+  [1,B,1,1,1,1,1,1,1,0,1,1,1,1,1,1],
+  [1,0,0,0,0,A,0,0,0,0,1,0,0,0,0,0],
+  [1,1,1,1,1,1,1,1,1,F,1,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,5,5,5,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+]
+
 var end = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -154,7 +174,7 @@ var test = [
 ];
 
 
-var texts = ["Start!","",""];
+var texts = ["Start!","Switch it up!","Into oblivion",""];
 
 
 
@@ -247,22 +267,25 @@ playerStartY = 0;
 for (var x=0;x<stage[0].length;x++) {
   for (var y=0;y<stage.length;y++) {
     var o = 0;
-    if (stage[y][x-1]==M) {o = -16;}
+    var v = 0;
+    if (stage[y][x-1]!=null&&stage[y][x-1]==M) {o = -16;}
     if (stage[y][x+1]!=null&&stage[y][x+1]==M) {o = 16;}
+    if (stage[y-1]!=null&&stage[y-1][x]==V) {v = -16;}
+    if (stage[y+1]!=null&&stage[y+1][x]==V) {v = 16;}
     if (stage[y][x]==1) {
-      blocks[blocks.length] = new Rectangle(x*32+o,y*32,32,32,0);
+      blocks[blocks.length] = new Rectangle(x*32+o,y*32+v,32,32,0);
     }
     if (stage[y][x]==2) {
-      on[on.length] = new Rectangle(x*32+o,y*32,32,32,0);
+      on[on.length] = new Rectangle(x*32+o,y*32+v,32,32,0);
     }
     if (stage[y][x]==3) {
-      off[off.length] = new Rectangle(x*32+o,y*32,32,32,0);
+      off[off.length] = new Rectangle(x*32+o,y*32+v,32,32,0);
     }
     if (stage[y][x]==4) {
-      spikes[spikes.length] = new Rectangle(x*32+o,y*32,32,32,0);
+      spikes[spikes.length] = new Rectangle(x*32+o,y*32+v,32,32,0);
     }
     if (stage[y][x]==5) {
-      semisolids[semisolids.length] = new Rectangle(x*32+o,y*32,32,2,0);
+      semisolids[semisolids.length] = new Rectangle(x*32+o,y*32+v,32,2,0);
       if (stage[y][x+1]==5||stage[y][x+1]==T) {
         semisolids[semisolids.length-1].ex = true;
       } else {
@@ -277,7 +300,7 @@ for (var x=0;x<stage[0].length;x++) {
       }
     }
     if (stage[y][x]==6) {
-      semisolids[semisolids.length] = new Rectangle(x*32+o,y*32,32,2,0);
+      semisolids[semisolids.length] = new Rectangle(x*32+o,y*32+v,32,2,0);
       if (stage[y][x]==6) {
         semisolids[semisolids.length-1].fall = true;
       } else {
@@ -285,17 +308,17 @@ for (var x=0;x<stage[0].length;x++) {
       }
     }
     if (stage[y][x]==7) {
-      dithering[dithering.length] = new Rectangle(x*32+o,y*32,32,32,255);
+      dithering[dithering.length] = new Rectangle(x*32+o,y*32+v,32,32,255);
     }
     if (stage[y][x]==8) {
-      colleft[colleft.length] = new Rectangle(x*32+4+o,y*32,32,28,255);
+      colleft[colleft.length] = new Rectangle(x*32+4+o,y*32+v,32,28,255);
     }
     if (stage[y][x]==9) {
-      colright[colright.length] = new Rectangle(x*32+o,y*32,32,28,255);
+      colright[colright.length] = new Rectangle(x*32+o,y*32+v,32,28,255);
     }
     if (stage[y][x]==T) {
-      colplatform[colplatform.length] = new Rectangle(x*32+o,y*32,32,32,255);
-      semisolids[semisolids.length] = new Rectangle(x*32+o,y*32,32,2,0);
+      colplatform[colplatform.length] = new Rectangle(x*32+o,y*32+v,32,32,255);
+      semisolids[semisolids.length] = new Rectangle(x*32+o,y*32+v,32,2,0);
       if (stage[y][x+1]==5||stage[y][x+1]==T) {
         semisolids[semisolids.length-1].ex = true;
       } else {
@@ -304,21 +327,21 @@ for (var x=0;x<stage[0].length;x++) {
     }
     
     if (stage[y][x]==C) {
-      col[col.length] = new Rectangle(x*32+o,y*32,32,32,255);
+      col[col.length] = new Rectangle(x*32+o,y*32+v,32,32,255);
     }
     if (stage[y][x]==F) {
-      fans[fans.length] = new Rectangle(x*32+o,y*32+16,32,16,0);
+      fans[fans.length] = new Rectangle(x*32+o,y*32+16+v,32,16,0);
     }
     if (stage[y][x]==A) {
       playerStartX = x*32+o;
       playerStartY = y*32;
     }
     if (stage[y][x]==B) {
-      switches[switches.length] = new Rectangle(x*32+o,y*32,32,32,0);
+      switches[switches.length] = new Rectangle(x*32+o,y*32+v,32,32,0);
     }
     if (stage[y][x]==W) {
       win.x = x*32+o;
-      win.y = y*32;
+      win.y = y*32+v;
     }
   }
 }
@@ -821,6 +844,7 @@ function mouseClicked() {
     window.location.replace("index.html");
   }
 }
+
 if (!testmode) {
   game(window["level"+level]);
 } else {
