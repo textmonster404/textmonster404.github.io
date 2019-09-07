@@ -427,6 +427,14 @@ draw = function() {
   if (right2&&screen.offset>bound) {screen.offset-=rate;}
   if (left2&&screen.offset<-bound) {screen.offset+=rate;}
   if (left2&&screen.offset>-bound) {screen.offset-=rate;}
+  if (right3&&screen.offset<bound) {screen.offset+=rate;}
+  if (right3&&screen.offset>bound) {screen.offset-=rate;}
+  if (left3&&screen.offset<-bound) {screen.offset+=rate;}
+  if (left3&&screen.offset>-bound) {screen.offset-=rate;}
+  if (right4&&screen.offset<bound) {screen.offset+=rate;}
+  if (right4&&screen.offset>bound) {screen.offset-=rate;}
+  if (left4&&screen.offset<-bound) {screen.offset+=rate;}
+  if (left4&&screen.offset>-bound) {screen.offset-=rate;}
   averagePlayer.x = (p.x+p.w*0.5+p2.x+p2.w*0.5+p3.x+p3.w*0.5+p4.x+p4.w*0.5)/4+screen.offset;
   averagePlayer.y = (p.y+p.h*0.5+p2.y+p2.h*0.5+p3.y+p3.h*0.5+p4.y+p4.h*0.5)/4;
   
