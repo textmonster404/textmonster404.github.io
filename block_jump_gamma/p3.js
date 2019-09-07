@@ -1,7 +1,7 @@
 var testmode = false; // should be false
-var level = 0;        // should be 0
+var level = 3;        // should be 0
 
-var levels = 3;       // number of levels
+var levels = 4;       // number of levels
 
 function setup() {
   var canvas = createCanvas(512, 512);
@@ -49,10 +49,13 @@ var A = 255; // player 1 spawn
 var B = 256; // player 2 spawn
 var K = 14;  // player 3 spawn
 var W = 257; // win
+var S = 258; // switch
 var T = 10;  // collumn semisolid
 var C = 11;  // collumn background
 var I = 12;  // player 3 block
 var M = 20;  // center the tile on the right
+var D = 30;  // on tile
+var E = 31;  // off tile
 // 0 = empty
 // 1 = solid block
 // 2 = player 1 block
@@ -117,7 +120,26 @@ var level2 = [
   [0,0,2,2,2,2,2,2,0,0,3,3,3,3,3,3,0,0,I,I,I,I,I,I,I],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+]
+
+var level3 = [
+  [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
+  [0,4,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
+  [3,1,I,I,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
+  [2,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
+  [E,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
+  [S,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
+  [E,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
+  [2,1,0,0,0,0,0,0,0,1,W,0,0,0,0,0,0,0,0],
+  [3,1,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0],
+  [0,D,0,0,0,0,0,0,0,D,3,I,0,D,3,0,0,0,0],
+  [0,D,0,0,0,0,0,0,0,D,3,I,S,D,3,0,0,2,2],
+  [0,D,0,A,0,B,0,K,0,D,3,I,0,D,3,0,0,0,0],
+  [0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0],
+  [0,D,2,0,0,0,0,0,E,0,0,0,0,0,2,0,0,0,0],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 ]
 
 
@@ -152,15 +174,15 @@ var test = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,3,3,3,0,0,0,0,0,0,I,I,I,I,I,I,I,0,0,0,0,0,0,2,2,2,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,S,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,1,1,1,1,0,0,0,D,D,1,E,E,0,0,0,1,1,1,1,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,A,0,K,0,B,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ];
 
 
-var texts = ["Start!","Leap Frog","Ride to victory",""];
+var texts = ["Start!","Leap Frog","Ride to victory","Switch it up     ",""];
 
 
 
@@ -202,12 +224,17 @@ var p1pass = [];
 var p2pass = [];
 var p3pass = [];
 var spikes = [];
+var switches = [];
+var on = [];
+var off = [];
 var playerStartX = 0;
 var playerStartY = 0;
 var playerStartX2 = 0;
 var playerStartY2 = 0;
 var playerStartX3 = 0;
 var playerStartY3 = 0;
+
+var swapped = false;
 
 var p = new Rectangle(playerStartX,playerStartY,32,32,[255, 0, 0]);
 var p2 = new Rectangle(playerStartX2,playerStartY2,32,32,[0, 255, 0]);
@@ -257,12 +284,16 @@ win.p1 = false;
 win.p2 = false;
 win.p3 = false;
 
+swapped = false;
 
 blocks = [];
 p1pass = [];
 p2pass = [];
 p3pass = [];
 spikes = [];
+switches = [];
+on = [];
+off = [];
 semisolids  = [];
 dithering  = [];
 colleft  = [];
@@ -356,6 +387,15 @@ for (var x=0;x<stage[0].length;x++) {
       win.x = x*32+o;
       win.y = y*32;
     }
+    if (stage[y][x]==S) {
+      switches[switches.length] = new Rectangle(x*32+o,y*32,32,32,0);
+    }
+    if (stage[y][x]==D) {
+      on[on.length] = new Rectangle(x*32+o,y*32,32,32,0);
+    }
+    if (stage[y][x]==E) {
+      off[off.length] = new Rectangle(x*32+o,y*32,32,32,0);
+    }
   }
 }
 p = new Rectangle(playerStartX,playerStartY,32,32,[255, 0, 0]);
@@ -429,9 +469,61 @@ draw = function() {
   if (right2&&screen.offset>bound) {screen.offset-=rate;}
   if (left2&&screen.offset<-bound) {screen.offset+=rate;}
   if (left2&&screen.offset>-bound) {screen.offset-=rate;}
+  if (right3&&screen.offset<bound) {screen.offset+=rate;}
+  if (right3&&screen.offset>bound) {screen.offset-=rate;}
+  if (left3&&screen.offset<-bound) {screen.offset+=rate;}
+  if (left3&&screen.offset>-bound) {screen.offset-=rate;}
   averagePlayer.x = (p.x+p.w*0.5+p2.x+p2.w*0.5+p3.x+p3.w*0.5)/3+screen.offset;
   averagePlayer.y = (p.y+p.h*0.5+p2.y+p2.h*0.5+p3.y+p3.h*0.5)/3;
   
+  for (var i=0;i<switches.length;i++) {
+    var obsticle = switches[i];
+    if (obsticle.x+obsticle.w+32>=screen.x&&obsticle.x-32<=screen.x+512&&obsticle.y+obsticle.h+32>=screen.y&&obsticle.y-32<=screen.y+512) {
+      obsticle.draw();
+      fill(255);
+      rect(obsticle.x+4,obsticle.y+4,obsticle.w-8,obsticle.h-8);
+      fill(0);
+      if (swapped==true) {
+        rect(obsticle.x+8,obsticle.y+8,obsticle.w-16,obsticle.h-16);
+      }
+    }
+    if ((collide(p,obsticle)!=="none"||collide(p2,obsticle)!=="none"||collide(p3,obsticle)!=="none")&&!obsticle.touching) {
+      obsticle.touching = true;
+      swapped = !swapped;
+      var temp = on;
+      on = off;
+      off = temp;
+    }
+    if ((collide(p,obsticle)=="none"&&collide(p2,obsticle)=="none"&&collide(p3,obsticle)=="none")&&obsticle.touching) {
+      obsticle.touching = null;
+    }
+  }
+  for (var i=0;i<off.length;i++) {
+    var obsticle = off[i];
+    if (obsticle.x+obsticle.w+32>=screen.x&&obsticle.x-32<=screen.x+512&&obsticle.y+obsticle.h+32>=screen.y&&obsticle.y-32<=screen.y+512) {
+      obsticle.draw();
+      
+      fill(255);
+      rect(obsticle.x+2,obsticle.y+2,obsticle.w-4,obsticle.h-4);
+      fill(0);
+      rect(obsticle.x+4,obsticle.y+4,obsticle.w-8,obsticle.h-8);
+      fill(255);
+      rect(obsticle.x+6,obsticle.y+6,obsticle.w-12,obsticle.h-12);
+      fill(0);
+    }
+  }
+  for (var i=0;i<on.length;i++) {
+    var obsticle = on[i];
+    if (obsticle.x+obsticle.w+32>=screen.x&&obsticle.x-32<=screen.x+512&&obsticle.y+obsticle.h+32>=screen.y&&obsticle.y-32<=screen.y+512) {
+      obsticle.draw();
+      
+      fill(255);
+      rect(obsticle.x+2,obsticle.y+2,obsticle.w-4,obsticle.h-4);
+      fill(0);
+      rect(obsticle.x+4,obsticle.y+4,obsticle.w-8,obsticle.h-8);
+      fill(255);
+    }
+  }
   for (var i=0;i<p2pass.length;i++) {
     var obsticle = p2pass[i];
     if (obsticle.x+obsticle.w+32>=screen.x&&obsticle.x-32<=screen.x+512&&obsticle.y+obsticle.h+32>=screen.y&&obsticle.y-32<=screen.y+512) {
@@ -718,6 +810,62 @@ draw = function() {
       obsticle.draw();
       }
     }
+    for (var i=0;i<on.length;i++) {
+      var obsticle = on[i];
+      if (obsticle.x+obsticle.w+32>=screen.x&&obsticle.x-32<=screen.x+512&&obsticle.y+obsticle.h+32>=screen.y&&obsticle.y-32<=screen.y+512) {
+      if (collide(p,obsticle)=="top") {
+        if (right) {
+          speedX += 0.3;
+          speedX = speedX*0.90;
+        }
+        if (left) {
+          speedX -= 0.3;
+          speedX = speedX*0.90;
+        }
+        p.y = obsticle.y-p.h;
+        if (!left&&!right) {
+          speedX = speedX*0.82;
+        }
+        if (up) {
+          speedY=-10;
+        } else {
+          speedY = 0;
+        }
+      }
+      if (collide(p,obsticle)=="bottom") {
+        p.y = obsticle.y+obsticle.h+0.01;
+        speedY *= -0.25;
+        if (collide(p,p2)=="top") {
+          p2.y = p.y+p.h+0.01;
+          speedY2 *= -0.25;
+        }
+        if (collide(p,p3)=="top") {
+          p3.y = p.y+p.h+0.01;
+          speedY3 *= -0.25;
+        }
+      }
+      if (collide(p,obsticle)=="left"&&p.y+p.h>obsticle.y+2) {
+        if (p.x<screen.x) {fail1=true;}
+        p.x = obsticle.x-p.w;
+        if (right) {
+          speedX = 0;
+        }
+      }
+      if (collide(p,obsticle)=="right"&&p.y+p.h>obsticle.y+2) {
+        if (p.x+p.w>screen.x+512) {fail1=true;}
+        p.x = obsticle.x+obsticle.w;
+        if (left) {
+          speedX = 0;
+        }
+      }
+      if (collide(p,obsticle)!=="none") {
+        inAir = false;
+      }
+      if (up&&(p.y>=screen.height-p.h||collide(p,obsticle)=="bottom")&&collide(p,obsticle)!=="top") {
+        speedY=-10;
+      }
+      }
+    }
     for (i=0;i<p1pass.length;i++) {
       obsticle = p1pass[i];
       if (obsticle.x+obsticle.w+32>=screen.x&&obsticle.x-32<=screen.x+512&&obsticle.y+obsticle.h+32>=screen.y&&obsticle.y-32<=screen.y+512) {
@@ -976,6 +1124,63 @@ draw = function() {
         speedY2=-10;
       }
       obsticle.draw();
+      }
+    }
+    
+    for (i=0;i<on.length;i++) {
+      obsticle = on[i];
+      if (obsticle.x+obsticle.w+32>=screen.x&&obsticle.x-32<=screen.x+512&&obsticle.y+obsticle.h+32>=screen.y&&obsticle.y-32<=screen.y+512) {
+      if (collide(p2,obsticle)=="top") {
+        if (right2) {
+          speedX2 += 0.3;
+          speedX2 = speedX2*0.90;
+        }
+        if (left2) {
+          speedX2 -= 0.3;
+          speedX2 = speedX2*0.90;
+        }
+        p2.y = obsticle.y-p2.h;
+        if (!left2&&!right2) {
+          speedX2 = speedX2*0.82;
+        }
+        if (up2) {
+          speedY2=-10;
+        } else {
+          speedY2 = 0;
+        }
+      }
+      if (collide(p2,obsticle)=="bottom") {
+        p2.y = obsticle.y+obsticle.h+0.01;
+        speedY2 *= -0.25;
+        if (collide(p2,p)=="top") {
+          p.y = p2.y+p2.h+0.01;
+          speedY *= -0.25;
+        }
+        if (collide(p2,p3)=="top") {
+          p3.y = p2.y+p2.h+0.01;
+          speedY3 *= -0.25;
+        }
+      }
+      if (collide(p2,obsticle)=="left"&&p2.y+p2.h>obsticle.y+2) {
+        if (p2.x<screen.x) {fail2=true;}
+        p2.x = obsticle.x-p2.w;
+        if (right2) {
+          speedX2 = 0;
+        }
+      }
+      if (collide(p2,obsticle)=="right"&&p2.y+p2.h>obsticle.y+2) {
+        if (p2.x+p2.w>screen.x+512) {fail2=true;}
+        p2.x = obsticle.x+obsticle.w;
+        if (left2) {
+          speedX2 = 0;
+        }
+      }
+      if (collide(p2,obsticle)!=="none") {
+        inAir = false;
+      }
+      if (up2&&(p2.y>=screen.height-p2.h||collide(p2,obsticle)=="bottom")&&collide(p2,obsticle)!=="top") {
+        speedY2=-10;
+      }
       }
     }
     for (i=0;i<p2pass.length;i++) {
@@ -1239,6 +1444,62 @@ draw = function() {
         speedY3=-10;
       }
       obsticle.draw();
+      }
+    }
+    for (i=0;i<on.length;i++) {
+      obsticle = on[i];
+      if (obsticle.x+obsticle.w+32>=screen.x&&obsticle.x-32<=screen.x+512&&obsticle.y+obsticle.h+32>=screen.y&&obsticle.y-32<=screen.y+512) {
+      if (collide(p3,obsticle)=="top") {
+        if (right3) {
+          speedX3 += 0.3;
+          speedX3 = speedX3*0.90;
+        }
+        if (left3) {
+          speedX3 -= 0.3;
+          speedX3 = speedX3*0.90;
+        }
+        p3.y = obsticle.y-p3.h;
+        if (!left3&&!right3) {
+          speedX3 = speedX3*0.82;
+        }
+        if (up3) {
+          speedY3=-10;
+        } else {
+          speedY3 = 0;
+        }
+      }
+      if (collide(p3,obsticle)=="bottom") {
+        p3.y = obsticle.y+obsticle.h+0.01;
+        speedY3 *= -0.25;
+        if (collide(p3,p)=="top") {
+          p.y = p3.y+p3.h+0.01;
+          speedY *= -0.25;
+        }
+        if (collide(p3,p2)=="top") {
+          p2.y = p3.y+p3.h+0.01;
+          speedY2 *= -0.25;
+        }
+      }
+      if (collide(p3,obsticle)=="left"&&p3.y+p3.h>obsticle.y+2) {
+        if (p3.x<screen.x) {fail3=true;}
+        p3.x = obsticle.x-p3.w;
+        if (right3) {
+          speedX3 = 0;
+        }
+      }
+      if (collide(p3,obsticle)=="right"&&p3.y+p3.h>obsticle.y+2) {
+        if (p3.x+p3.w>screen.x+512) {fail3=true;}
+        p3.x = obsticle.x+obsticle.w;
+        if (left3) {
+          speedX3 = 0;
+        }
+      }
+      if (collide(p3,obsticle)!=="none") {
+        inAir = false;
+      }
+      if (up3&&(p3.y>=screen.height-p3.h||collide(p3,obsticle)=="bottom")&&collide(p3,obsticle)!=="top") {
+        speedY3=-10;
+      }
       }
     }
     for (i=0;i<p3pass.length;i++) {
