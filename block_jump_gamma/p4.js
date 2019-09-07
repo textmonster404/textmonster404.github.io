@@ -388,6 +388,10 @@ fail4 = false;
 averagePlayer = new p5.Vector((playerStartX+playerStartX2+playerStartX3+playerStartX4)*0.25,(playerStartY+playerStartY2+playerStartY3+playerStartY4)*0.25);
 
 
+hasup = true;
+hasup2 = true;
+hasup3 = true;
+hasup4 = true;
 
 draw = function() {
   if (level<levels) {
@@ -871,11 +875,19 @@ draw = function() {
     
     if (inAir) {
       if (right) {
-        speedX += 0.1;
+        speedX += 0.25;
       }
       if (left) {
-        speedX -= 0.1;
+        speedX -= 0.25;
       }
+      if ((!(up&&hasup))||speedY>0) {
+        hasup=false;
+      }
+      if (!hasup) {
+        speedY+=0.3
+      }
+    } else {
+      hasup = true;
     }
     if (p.x<screen.x) {
       p.x=screen.x;
@@ -910,6 +922,7 @@ draw = function() {
         speedX -= 0.1;
       }
     }
+    speedY = constrain(speedY,-12,10);
     speedX = constrain(speedX,-4,4);
     p.x+=speedX;
   }
@@ -1182,11 +1195,19 @@ draw = function() {
     
     if (inAir) {
       if (right2) {
-        speedX2 += 0.1;
+        speedX2 += 0.25;
       }
       if (left2) {
-        speedX2 -= 0.1;
+        speedX2 -= 0.25;
       }
+      if ((!(up2&&hasup2))||speedY2>0) {
+        hasup2=false;
+      }
+      if (!hasup2) {
+        speedY2+=0.3
+      }
+    } else {
+      hasup2 = true;
     }
     
     if (p2.x<screen.x) {
@@ -1222,6 +1243,7 @@ draw = function() {
         speedX2 -= 0.1;
       }
     }
+    speedY2 = constrain(speedY2,-12,10);
     speedX2 = constrain(speedX2,-4,4);
     p2.x+=speedX2;
     p2.draw();
@@ -1495,11 +1517,19 @@ draw = function() {
     
     if (inAir) {
       if (right3) {
-        speedX3 += 0.1;
+        speedX3 += 0.25;
       }
       if (left3) {
-        speedX3 -= 0.1;
+        speedX3 -= 0.25;
       }
+      if ((!(up3&&hasup3))||speedY3>0) {
+        hasup3=false;
+      }
+      if (!hasup3) {
+        speedY3+=0.3
+      }
+    } else {
+      hasup3 = true;
     }
     
     if (p3.x<screen.x) {
@@ -1535,6 +1565,7 @@ draw = function() {
         speedX3 -= 0.1;
       }
     }
+    speedY3 = constrain(speedY3,-12,10);
     speedX3 = constrain(speedX3,-4,4);
     p3.x+=speedX3;
     p3.draw();
@@ -1809,11 +1840,19 @@ draw = function() {
     
     if (inAir) {
       if (right4) {
-        speedX4 += 0.1;
+        speedX4 += 0.25;
       }
       if (left4) {
-        speedX4 -= 0.1;
+        speedX4 -= 0.25;
       }
+      if ((!(up4&&hasup4))||speedY4>0) {
+        hasup4=false;
+      }
+      if (!hasup4) {
+        speedY4+=0.3
+      }
+    } else {
+      hasup4 = true;
     }
     
     if (p4.x<screen.x) {
@@ -1849,6 +1888,7 @@ draw = function() {
         speedX4 -= 0.1;
       }
     }
+    speedY4 = constrain(speedY4,-12,10);
     speedX4 = constrain(speedX4,-4,4);
     p4.x+=speedX4;
     p4.draw();
