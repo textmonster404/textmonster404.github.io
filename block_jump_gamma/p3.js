@@ -1,5 +1,5 @@
 var testmode = false; // should be false
-var level = 3;        // should be 0
+var level = 0;        // should be 0
 
 var levels = 4;       // number of levels
 
