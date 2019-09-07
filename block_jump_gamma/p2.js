@@ -525,6 +525,8 @@ createParticle = function(x,y) {
   particles[particles.length-1].t = 60;
 }
 
+hasup = true;
+hasup2 = true;
 
 draw = function() {
   if (level<levels) {
@@ -967,11 +969,19 @@ draw = function() {
     
     if (inAir) {
       if (right) {
-        speedX += 0.1;
+        speedX += 0.25;
       }
       if (left) {
-        speedX -= 0.1;
+        speedX -= 0.25;
       }
+      if ((!(up&&hasup))||speedY>0) {
+        hasup=false;
+      }
+      if (!hasup) {
+        speedY+=0.3
+      }
+    } else {
+      hasup = true;
     }
     if (p.x<screen.x) {
       p.x=screen.x;
@@ -998,6 +1008,7 @@ draw = function() {
         speedX -= 0.1;
       }
     }
+    speedY = constrain(speedY,-12,10);
     speedX = constrain(speedX,-4,4);
     p.x+=speedX;
   }
@@ -1234,11 +1245,19 @@ draw = function() {
     
     if (inAir) {
       if (right2) {
-        speedX2 += 0.1;
+        speedX2 += 0.25;
       }
       if (left2) {
-        speedX2 -= 0.1;
+        speedX2 -= 0.25;
       }
+      if ((!(up2&&hasup2))||speedY2>0) {
+        hasup2=false;
+      }
+      if (!hasup2) {
+        speedY2+=0.3
+      }
+    } else {
+      hasup2 = true;
     }
     
     if (p2.x<screen.x) {
@@ -1266,6 +1285,7 @@ draw = function() {
         speedX2 -= 0.1;
       }
     }
+    speedY2 = constrain(speedY2,-12,10);
     speedX2 = constrain(speedX2,-4,4);
     p2.x+=speedX2;
     p2.draw();
