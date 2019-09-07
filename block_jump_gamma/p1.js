@@ -402,6 +402,8 @@ createParticle = function(x,y) {
   particles[particles.length-1].t = 60;
 }
 
+/* TEST CODE */
+hasup = true;
 
 draw = function() {
   if (level<levels) {
@@ -690,6 +692,9 @@ draw = function() {
         }
       }
       if (collide(p,{"x":obsticle.x,"y":obsticle.y-240,"w":32,"h":240})!=="none") {
+        if (!hasup) {
+          speedY -= 0.3;
+        }
         speedY -= 0.6;
       }
       if (collide(p,obsticle)=="bottom") {
@@ -792,15 +797,25 @@ draw = function() {
         }
       }
     }
-    
+    /* TEST CODE */
     if (inAir) {
       if (right) {
-        speedX += 0.1;
+        speedX += 0.25;
       }
       if (left) {
-        speedX -= 0.1;
+        speedX -= 0.25;
       }
+      if ((!(up&&hasup))||speedY>0) {
+        hasup=false;
+      }
+      if (!hasup) {
+        speedY+=0.3
+      }
+    } else {
+      hasup = true;
     }
+    /* TEST CODE */
+    
     if (p.x<screen.x) {
       p.x=screen.x;
       speedX = 0;
@@ -823,6 +838,7 @@ draw = function() {
       }
     }
     speedX = constrain(speedX,-4,4);
+    speedY = constrain(speedY,-12,10);
     p.x+=speedX;
   }
   if (win.p1==false) {
