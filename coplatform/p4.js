@@ -5,7 +5,7 @@ var levels = 1;       // number of levels
 
 function setup() {
   var canvas = createCanvas(512, 512);
-  canvas.elt.style.border = "1px solid black";
+  canvas.elt.style.border = "2px solid black";
   textAlign(CENTER);
   textFont("monospace");
   dither = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAS0lEQVRYR+3SsQ0AMAgDQbP/0IkQockAmOJpEJWxdCHpqCbeHr0zdDTwz+vWWd7yyIoHLM3bHAYwgAEMYAADGMAABjCAAQxgwG7gApZ3ACCkcd1GAAAAAElFTkSuQmCC");
