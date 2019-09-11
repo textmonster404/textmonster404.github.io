@@ -206,7 +206,7 @@ var test = [
 ];
 
 
-var texts = ["Start!","Leap Frog","Ride to victory","Switch it up     ","Take the controls",""];
+var texts = ["Start!","Leap Frog","Ride to victory","Switch it up        ","Take the controls",""];
 
 
 
