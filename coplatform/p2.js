@@ -318,7 +318,7 @@ var test = [
 ];
 
 
-var texts = ["Start!","Be the Platform","Get a Lift","Up, Up, and Away!","           Up and Through.","Get up\nto get\n Down.","The Maze","Separate but Equal","Middle Magic",""];
+var texts = ["Start!","Be the Platform","Get a Lift","Up, Up, and Away!","           Up and Through.","Get\nup\nto\nget\ndown","The Maze","Separate but Equal","Middle Magic",""];
 
 
 
