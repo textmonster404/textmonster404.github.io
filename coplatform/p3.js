@@ -1001,6 +1001,7 @@ draw = function() {
     }
     if (p.y<screen.y) {
       p.y=screen.y;
+      speedY *= -0.25;
       if (collide(p,p2)=="top") {
         p2.y = p.y+p.h+0.01;
         speedY2 *= -0.25;
@@ -1329,6 +1330,7 @@ draw = function() {
     }
     if (p2.y<screen.y) {
       p2.y=screen.y;
+      speedY2 *= -0.25;
       if (collide(p2,p)=="top") {
         p.y = p2.y+p2.h+0.01;
         speedY *= -0.25;
@@ -1656,6 +1658,7 @@ draw = function() {
     }
     if (p3.y<screen.y) {
       p3.y=screen.y;
+      speedY3 *= -0.25;
       if (collide(p3,p)=="top") {
         p.y = p3.y+p3.h+0.01;
         speedY *= -0.25;
