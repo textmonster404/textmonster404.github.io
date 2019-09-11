@@ -1,3 +1,9 @@
+var nes;
+function preload() {
+  nes = loadFont("coplatform-nes.ttf");
+  textFont(nes);
+  textSize(16);
+}
 function clickBox(x,y,box,f) {
   if (x>=box.x&&x<=box.x+box.w&&y>=box.y&&y<=box.y+box.h) {
     f();
