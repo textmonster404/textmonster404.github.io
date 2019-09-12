@@ -1314,6 +1314,11 @@ draw = function() {
     text("p2",p2.x+16,p2.y-8);
     fill(0);
   }
+  if (win.p2==false) {
+    fill(0, 255, 0);
+    text("p2",p2.x+16,p2.y-8);
+    fill(0);
+  }
   if (win.p1==false) {
     p.draw();
     image(designs[design.p1],p.x,p.y,p.w,p.h);
