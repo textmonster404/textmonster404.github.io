@@ -28,6 +28,7 @@ function setup() {
   textSize(16);
 }
 function draw() {
+  background(255);
   fill(0);
   textAlign(LEFT);
   text("Back",2,18);
