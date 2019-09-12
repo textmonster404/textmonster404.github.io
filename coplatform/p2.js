@@ -1312,7 +1312,7 @@ draw = function() {
     p2.draw();
     image(designs[design.p2],p2.x,p2.y,p2.w,p2.h);
     fill(0, 255, 0);
-    text("p2",p.x+16,p.y-8);
+    text("p2",p2.x+16,p2.y-8);
     fill(255);
     rect(p2.x+2,p2.y+2,p2.w-4,p2.h-4);
     fill(0);
