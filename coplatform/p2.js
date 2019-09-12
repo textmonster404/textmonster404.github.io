@@ -599,25 +599,24 @@ draw = function() {
   for (var i=0;i<p2pass.length;i++) {
     var obsticle = p2pass[i];
     if (obsticle.x+obsticle.w+32>=screen.x&&obsticle.x-32<=screen.x+512&&obsticle.y+obsticle.h+32>=screen.y&&obsticle.y-32<=screen.y+512) {
-      obsticle.draw();
-      
+      fill(255,0,0);
+      rect(obsticle.x,obsticle.y,obsticle.w,obsticle.h);
       fill(255);
       rect(obsticle.x+2,obsticle.y+2,obsticle.w-4,obsticle.h-4);
-      fill(0);
+      fill(255,0,0);
       rect(obsticle.x+4,obsticle.y+4,obsticle.w-8,obsticle.h-8);
+      fill(0);
     }
   }
   for (var i=0;i<p1pass.length;i++) {
     var obsticle = p1pass[i];
     if (obsticle.x+obsticle.w+32>=screen.x&&obsticle.x-32<=screen.x+512&&obsticle.y+obsticle.h+32>=screen.y&&obsticle.y-32<=screen.y+512) {
-      obsticle.draw();
-      
+      fill(0,255,0);
+      rect(obsticle.x,obsticle.y,obsticle.w,obsticle.h);
       fill(255);
       rect(obsticle.x+2,obsticle.y+2,obsticle.w-4,obsticle.h-4);
-      fill(0);
+      fill(0,255,0);
       rect(obsticle.x+4,obsticle.y+4,obsticle.w-8,obsticle.h-8);
-      fill(255);
-      rect(obsticle.x+6,obsticle.y+6,obsticle.w-12,obsticle.h-12);
       fill(0);
     }
   }
