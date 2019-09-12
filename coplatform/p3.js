@@ -2,10 +2,19 @@ var testmode = false; // should be false
 var level = 0;        // should be 0
 
 var levels = 5;       // number of levels
+var design = {"p1":localStorage.getItem("p1style") || 0,"p2":localStorage.getItem("p2style") || 1,"p3":localStorage.getItem("p3style") || 2};
 
 var nes;
+var designs = [];
 function preload() {
   nes = loadFont("coplatform-nes.ttf");
+  designs[0] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAALUlEQVRYR+3QQREAAAABQfqXFsNnFTizzXk99+MAAQIECBAgQIAAAQIECBAgMBo/ACHo7lH9AAAAAElFTkSuQmCC");
+  designs[1] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAARElEQVRYR+3XsQ0AIAwDMPL/0UViQFzQMjgPJPKWrOFkuH/dAVVVnWOSnG4DCBAgQIAAAQIECBAgQOAfgc5f+HaNv+MNv4FwIWQhR4wAAAAASUVORK5CYII=");
+  designs[2] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAmUlEQVRYR83Xyw6AMAhE0fL/H42JCV3UIH0wZdya2NPrBqQVP1J8fnMBqqpInIi8Z/MC7PaoEmGB6wC7qcnG/59d4lOABmA3R5dwC9AA0JCwAA0ABZkuQAPIhiwXoAFkQbYL0ABOIccFaAC7kLQCNIBVSHoBGsAsBFaABhBB+vtb06+35PTFJHvqHQ/0ZkweAHIP/Pt2+Xb8AE8BwCE5gBnLAAAAAElFTkSuQmCC");
+  designs[3] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAo0lEQVRYR+2XUQ6AMAhDx/0PjYkJfrAQ2MZGNfrt0kfbRaRW/FCxfnsAmJlPwhDRrY0HIGS73BCnTQdgALI7IYOFHYABWI1ETzzsAAzAaCRW5tMOwAB4kXiZLzsAA6AjiWae5sAPUO6A9bX8/i2I7gnRW9FtRN7BMoCosH7P60TYgTKAWWF97n0bUdbkXifMDpQB7BK2OoHzZ3Rq8s6JKmHRvQBSiMAwhcLy+AAAAABJRU5ErkJggg==");
+  designs[4] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAhElEQVRYR+2XwQ7AIAhD7f9/NEuW4IHN9DC0O9STCQZeKoJgiBfE8ccEiIh4gwFwn+m2p18D/FeBXXefeUZzwAAyBU4FnrmQmyw0BpApUK+i9oVusEcdMIBcge5+X2t+9U97AXPw1W4AqkD3u1/VleWPyAAyBXYHpn9CA8gUUA2p8un4AklxwDBHd49JAAAAAElFTkSuQmCC");
+  designs[5] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAxUlEQVRYR+1XQQ6AMAgb/3/0jAc8kDRtE3WiejExrBRYAWPOOccYIyJif7Mn7ZGdixPLCWQkZ0Xm4h1pb0NAJara2RlQgVU7mUDWNm95dYC+M7X0IaDqu68Kaq1Qg1IvV80EyiBsv7cRqI6YY1UFNWLo57EEkO6ZGlBAEM8+QMa2jWcf+AwBdItrLVHnu0wFpxNA04r1Azbl+nRCd3qxrdnFk/cB1oDQMGOlkgn8G5G687l2cglcYHVxsQm8TwXLf05XE9gAYnrIAE0ja+wAAAAASUVORK5CYII=");
+  designs[6] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAtUlEQVRYR+2XSw7AIAgFy/0PTdMFLrB2JGqkid014TM8BVWu4Keq+uUiIhIJGTJ+Ai8HoASR6t5svUKVAtsALLERzgbxce2/KJAGwNZtlhKtOE0F0gCMgpCCqEAagCgIVe7jVV3QGjTRwNTGZQnIcHTykb8cgKPAUWC7AtanBLJsEKUH6K3cTzzyy38aUgU04+kURQW2AcxKTHsi3624tx17154uNmWPeEMaSMsBKAEB/u51fANqqgAQlAH+0gAAAABJRU5ErkJggg==");
 }
 function setup() {
   var canvas = createCanvas(512, 512);
@@ -260,9 +269,9 @@ var playerStartY3 = 0;
 
 var swapped = false;
 
-var p = new Rectangle(playerStartX,playerStartY,32,32,[255, 0, 0]);
-var p2 = new Rectangle(playerStartX2,playerStartY2,32,32,[0, 255, 0]);
-var p3 = new Rectangle(playerStartX3,playerStartY3,32,32,[255, 255, 0]);
+var p = new Rectangle(playerStartX,playerStartY,32,32,0);
+var p2 = new Rectangle(playerStartX2,playerStartY2,32,32,0);
+var p3 = new Rectangle(playerStartX3,playerStartY3,32,32,0);
 
 var dp = 0;
 var dp2 = 0;
@@ -422,9 +431,9 @@ for (var x=0;x<stage[0].length;x++) {
     }
   }
 }
-p = new Rectangle(playerStartX,playerStartY,32,32,[255, 0, 0]);
-p2 = new Rectangle(playerStartX2,playerStartY2,32,32,[0, 255, 0]);
-p3 = new Rectangle(playerStartX3,playerStartY3,32,32,[255, 255, 0]);
+p = new Rectangle(playerStartX,playerStartY,32,32,0);
+p2 = new Rectangle(playerStartX2,playerStartY2,32,32,0);
+p3 = new Rectangle(playerStartX3,playerStartY3,32,32,0);
 dp = 0;
 dp2 = 0;
 dp3 = 0;
@@ -485,6 +494,9 @@ draw = function() {
   }
   background(255);
   fill(0);
+  textAlign(LEFT);
+  text("Back",screen.x+2,screen.y+18);
+  textAlign(CENTER);
   var bound = 48;
   var rate = 1;
   if ((right||left)&&(right2||left2)&&(right3||left3)) {bound = 64; rate = 0.4;}
@@ -558,7 +570,7 @@ draw = function() {
       
       fill(255);
       rect(obsticle.x+2,obsticle.y+2,obsticle.w-4,obsticle.h-4);
-      fill(p2.c);
+      fill(0,255,0);
       rect(obsticle.x+4,obsticle.y+4,obsticle.w-8,obsticle.h-8);
     }
   }
@@ -569,7 +581,7 @@ draw = function() {
       
       fill(255);
       rect(obsticle.x+2,obsticle.y+2,obsticle.w-4,obsticle.h-4);
-      fill(p.c);
+      fill(255,0,0);
       rect(obsticle.x+4,obsticle.y+4,obsticle.w-8,obsticle.h-8);
     }
   }
@@ -580,7 +592,7 @@ draw = function() {
       
       fill(255);
       rect(obsticle.x+2,obsticle.y+2,obsticle.w-4,obsticle.h-4);
-      fill(p3.c);
+      fill(255,255,0);
       rect(obsticle.x+4,obsticle.y+4,obsticle.w-8,obsticle.h-8);
     }
   }
@@ -1354,6 +1366,10 @@ draw = function() {
     speedY2 = constrain(speedY2,-12,9);
     p2.x+=speedX2;
     p2.draw();
+    image(designs[design.p2],p2.x,p2.y,p2.w,p2.h);
+    fill(0, 255, 0);
+    text("p2",p2.x+16,p2.y-8);
+    fill(0);
   }
   if (win.p3==false&&fail3==false) {
     dp3 = p3.x;
@@ -1682,10 +1698,18 @@ draw = function() {
     speedY3 = constrain(speedY3,-12,9);
     p3.x+=speedX3;
     p3.draw();
+    image(designs[design.p3],p3.x,p3.y,p3.w,p3.h);
+    fill(255, 255, 0);
+    text("p3",p3.x+16,p3.y-8);
+    fill(0);
   }
   
   if (win.p1==false) {
     p.draw();
+    image(designs[design.p1],p.x,p.y,p.w,p.h);
+    fill(255, 0, 0);
+    text("p1",p.x+16,p.y-8);
+    fill(0);
     dp = p.x;
   }
   if (win.p1==true&&win.p2==true&&win.p3==true) {
@@ -1783,10 +1807,16 @@ function keyPressed() {
     fail3 = true;
   }
 }
+function clickBox(x,y,box,f) {
+  if (x>=box.x&&x<=box.x+box.w&&y>=box.y&&y<=box.y+box.h) {
+    f();
+  }
+}
 function mouseClicked() {
   if (level>=levels) {
     window.location.replace("index.html");
   }
+  clickBox(mouseX,mouseY,{"x":camera.x+2,"y":camera.y+2,"w":80,"h":16},function(){window.location.replace("index.html");});
 }
 if (!testmode) {
   game(window["level"+level]);
