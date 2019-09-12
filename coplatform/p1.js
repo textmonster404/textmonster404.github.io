@@ -2,18 +2,28 @@ var testmode = false; // should be false
 var level = 0;        // should be 0
 
 var levels = 10;       // number of levels
+var design = {"p1":localStorage.getItem("p1style") || 0};
+
+var designs = [];
 
 var nes;
 function preload() {
   nes = loadFont("coplatform-nes.ttf");
+  dither = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAS0lEQVRYR+3SsQ0AMAgDQbP/0IkQockAmOJpEJWxdCHpqCbeHr0zdDTwz+vWWd7yyIoHLM3bHAYwgAEMYAADGMAABjCAAQxgwG7gApZ3ACCkcd1GAAAAAElFTkSuQmCC");
+  collumn = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAApElEQVRYR+2W0Q6AIAhF8/8/ulYbm91UCGTwQG8Z5lG4V9rxfc7BWD/U4DvFz8bxd684nHQHpwUgWATkdo7z1CcQDkC51ILg/OfdUgN/U6EGkOaYFkBVLEElJxAOsNRxJ1sOVJ2CNADa6i8fcLsLygeGshrI0mxEaWQo3TFa8rYiLB+ofmBWXFyXbJYhd826A5QPWKu/+oFtVmxNhbopDZehK8AFLr9wISIiNLMAAAAASUVORK5CYII=");
+  designs[0] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAALUlEQVRYR+3QQREAAAABQfqXFsNnFTizzXk99+MAAQIECBAgQIAAAQIECBAgMBo/ACHo7lH9AAAAAElFTkSuQmCC");
+  designs[1] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAARElEQVRYR+3XsQ0AIAwDMPL/0UViQFzQMjgPJPKWrOFkuH/dAVVVnWOSnG4DCBAgQIAAAQIECBAgQOAfgc5f+HaNv+MNv4FwIWQhR4wAAAAASUVORK5CYII=");
+  designs[2] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAmUlEQVRYR83Xyw6AMAhE0fL/H42JCV3UIH0wZdya2NPrBqQVP1J8fnMBqqpInIi8Z/MC7PaoEmGB6wC7qcnG/59d4lOABmA3R5dwC9AA0JCwAA0ABZkuQAPIhiwXoAFkQbYL0ABOIccFaAC7kLQCNIBVSHoBGsAsBFaABhBB+vtb06+35PTFJHvqHQ/0ZkweAHIP/Pt2+Xb8AE8BwCE5gBnLAAAAAElFTkSuQmCC");
+  designs[3] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAo0lEQVRYR+2XUQ6AMAhDx/0PjYkJfrAQ2MZGNfrt0kfbRaRW/FCxfnsAmJlPwhDRrY0HIGS73BCnTQdgALI7IYOFHYABWI1ETzzsAAzAaCRW5tMOwAB4kXiZLzsAA6AjiWae5sAPUO6A9bX8/i2I7gnRW9FtRN7BMoCosH7P60TYgTKAWWF97n0bUdbkXifMDpQB7BK2OoHzZ3Rq8s6JKmHRvQBSiMAwhcLy+AAAAABJRU5ErkJggg==");
+  designs[4] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAhElEQVRYR+2XwQ7AIAhD7f9/NEuW4IHN9DC0O9STCQZeKoJgiBfE8ccEiIh4gwFwn+m2p18D/FeBXXefeUZzwAAyBU4FnrmQmyw0BpApUK+i9oVusEcdMIBcge5+X2t+9U97AXPw1W4AqkD3u1/VleWPyAAyBXYHpn9CA8gUUA2p8un4AklxwDBHd49JAAAAAElFTkSuQmCC");
+  designs[5] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAxUlEQVRYR+1XQQ6AMAgb/3/0jAc8kDRtE3WiejExrBRYAWPOOccYIyJif7Mn7ZGdixPLCWQkZ0Xm4h1pb0NAJara2RlQgVU7mUDWNm95dYC+M7X0IaDqu68Kaq1Qg1IvV80EyiBsv7cRqI6YY1UFNWLo57EEkO6ZGlBAEM8+QMa2jWcf+AwBdItrLVHnu0wFpxNA04r1Azbl+nRCd3qxrdnFk/cB1oDQMGOlkgn8G5G687l2cglcYHVxsQm8TwXLf05XE9gAYnrIAE0ja+wAAAAASUVORK5CYII=");
+  designs[6] = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAtUlEQVRYR+2XSw7AIAgFy/0PTdMFLrB2JGqkid014TM8BVWu4Keq+uUiIhIJGTJ+Ai8HoASR6t5svUKVAtsALLERzgbxce2/KJAGwNZtlhKtOE0F0gCMgpCCqEAagCgIVe7jVV3QGjTRwNTGZQnIcHTykb8cgKPAUWC7AtanBLJsEKUH6K3cTzzyy38aUgU04+kURQW2AcxKTHsi3624tx17154uNmWPeEMaSMsBKAEB/u51fANqqgAQlAH+0gAAAABJRU5ErkJggg==");
 }
 function setup() {
   var canvas = createCanvas(512, 512);
   canvas.elt.style.border = "2px solid black";
   textAlign(CENTER);
   textFont("monospace");
-  dither = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAS0lEQVRYR+3SsQ0AMAgDQbP/0IkQockAmOJpEJWxdCHpqCbeHr0zdDTwz+vWWd7yyIoHLM3bHAYwgAEMYAADGMAABjCAAQxgwG7gApZ3ACCkcd1GAAAAAElFTkSuQmCC");
-  collumn = loadImage("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAApElEQVRYR+2W0Q6AIAhF8/8/ulYbm91UCGTwQG8Z5lG4V9rxfc7BWD/U4DvFz8bxd684nHQHpwUgWATkdo7z1CcQDkC51ILg/OfdUgN/U6EGkOaYFkBVLEElJxAOsNRxJ1sOVJ2CNADa6i8fcLsLygeGshrI0mxEaWQo3TFa8rYiLB+ofmBWXFyXbJYhd826A5QPWKu/+oFtVmxNhbopDZehK8AFLr9wISIiNLMAAAAASUVORK5CYII=");
   textFont(nes);
   textSize(16);
 }
@@ -41,7 +51,6 @@ function t2hms(t) {
 function draw() {
   
 }
-
 var screen = {};
 screen.width = 512;
 screen.height = 512;
@@ -586,6 +595,9 @@ draw = function() {
   }
   background(255);
   fill(0);
+  textAlign(LEFT);
+  text("Back",screen.x+2,screen.y+18);
+  textAlign(CENTER);
   var bound = 48;
   var rate = 1;
   if ((right||left)) {bound = 128; rate = 0.65;}
@@ -998,7 +1010,11 @@ draw = function() {
   }
   if (win.p1==false) {
     p.draw();
+    image(designs[design.p1],p.x,p.y,p.w,p.h);
+    fill(255, 0, 0);
+    text("p1",p.x+16,p.y-8);
     dp = p.x;
+    fill(0);
   }
   if (win.p1==true) {
     //text("Win!",win.x+4,win.y-4);
@@ -1047,10 +1063,16 @@ function keyPressed() {
     fail2 = true;
   }
 }
+function clickBox(x,y,box,f) {
+  if (x>=box.x&&x<=box.x+box.w&&y>=box.y&&y<=box.y+box.h) {
+    f();
+  }
+}
 function mouseClicked() {
   if (level>=levels) {
     window.location.replace("index.html");
   }
+  clickBox(mouseX,mouseY,{"x":camera.x+2,"y":camera.y+2,"w":80,"h":16},function(){window.location.replace("index.html");});
 }
 
 if (!testmode) {
