@@ -1404,7 +1404,7 @@ function mouseClicked() {
   if (level>=levels) {
     window.location.replace("index.html");
   }
-  clickBox(mouseX,mouseY,{"x":camera.x+2,"y":camera.y+2,"w":80,"h":16},function(){window.location.replace("index.html");});
+  clickBox(mouseX,mouseY,{"x":screen.x+2,"y":screen.y+2,"w":80,"h":16},function(){window.location.replace("index.html");});
 }
 if (!testmode) {
   game(window["level"+level]);
