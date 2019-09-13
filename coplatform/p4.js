@@ -458,11 +458,11 @@ draw = function() {
     if (averagePlayer.y<=256) {
       screen.y = 0;
     }
-    translate(-screen.x,-screen.y);
+    translate(Math.floor(-screen.x),Math.floor(-screen.y));
   } else {
     screen.x += screen.scrollX;
     screen.y += screen.scrollY;
-    translate(-screen.x, -screen.y);
+    translate(Math.floor(-screen.x),Math.floor(-screen.y));
   }
   background(255);
   fill(0);
@@ -1297,7 +1297,7 @@ draw = function() {
     speedY2 = constrain(speedY2,-12,9);
     speedX2 = constrain(speedX2,-4,4);
     p2.x+=speedX2;
-    image(designs[1][design.p2],p2.x,p2.y,p2.w,p2.h);
+    image(designs[1][design.p2],Math.floor(p2.x),Math.floor(p2.y),p2.w,p2.h);
     fill(0, 255, 0);
     //text("p2",p2.x+16,p2.y-8);
     fill(0);
@@ -1623,7 +1623,7 @@ draw = function() {
     speedY3 = constrain(speedY3,-12,9);
     speedX3 = constrain(speedX3,-4,4);
     p3.x+=speedX3;
-    image(designs[2][design.p3],p3.x,p3.y,p3.w,p3.h);
+    image(designs[2][design.p3],Math.floor(p3.x),Math.floor(p3.y),p3.w,p3.h);
     fill(255, 255, 0);
     //text("p3",p3.x+16,p3.y-8);
     fill(0);
@@ -1950,7 +1950,7 @@ draw = function() {
     speedY4 = constrain(speedY4,-12,9);
     speedX4 = constrain(speedX4,-4,4);
     p4.x+=speedX4;
-    image(designs[3][design.p4],p4.x,p4.y,p4.w,p4.h);
+    image(designs[3][design.p4],Math.floor(p4.x),Math.floor(p4.y),p4.w,p4.h);
     fill(0, 0, 255);
     //text("p4",p4.x+16,p4.y-8);
     fill(0);
@@ -1971,7 +1971,7 @@ draw = function() {
     fill(0);
   }
   if (win.p1==false) {
-    image(designs[0][design.p1],p.x,p.y,p.w,p.h);
+    image(designs[0][design.p1],Math.floor(p.x),Math.floor(p.y),p.w,p.h);
     fill(255, 0, 0);
     //text("p1",p.x+16,p.y-8);
     dp = p.x;

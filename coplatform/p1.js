@@ -617,11 +617,11 @@ draw = function() {
     if (averagePlayer.y<=256) {
       screen.y = 0;
     }
-    translate(-screen.x,-screen.y);
+    translate(Math.floor(-screen.x),Math.floor(-screen.y));
   } else {
     screen.x += screen.scrollX;
     screen.y += screen.scrollY;
-    translate(-screen.x, -screen.y);
+    translate(Math.floor(-screen.x),Math.floor(-screen.y));
   }
   background(255);
   fill(0);
@@ -1039,7 +1039,7 @@ draw = function() {
     p.x+=speedX;
   }
   if (win.p1==false) {
-    image(designs[0][design.p1],p.x,p.y,p.w,p.h);
+    image(designs[0][design.p1],Math.floor(p.x),Math.floor(p.y),p.w,p.h);
     fill(255, 0, 0);
     //text("p1",p.x+16,p.y-8);
     dp = p.x;
