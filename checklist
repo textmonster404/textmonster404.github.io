@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Checklist</title>
+        <style>
+        	input:nth-of-type(1) {margin-top:5px;}
+        </style>
+    </head>
+    <body>
+        <table style="border-collapse:collapse;width:100%;font-size:18px;">
+            <tr>
+                <td id="boxes"><input type="checkbox"/></td>
+                <td id="text" contenteditable oninput="updateBoxes();" style="width:100%;outline:none;"></td>
+            </tr>
+        </table>
+        <script>
+            var boxes = {};
+            for (var i=0;i<localStorage.getItem(window.location.href).split("\n").length;i++) {
+            boxes[localStorage.getItem(window.location.href).split("\n")[i].substring(1)]=(localStorage.getItem(window.location.href).split("\n")[i].charAt(0)=="1");
+            document.getElementById("text").innerText+=localStorage.getItem(window.location.href).split("\n")[i].substring(1);
+                if (i<localStorage.getItem(window.location.href).split("\n").length-1) {document.getElementById("text").innerText+="\n";}
+            }
+            updateBoxes();
+            function update() {
+                var t = "";
+                for (var i=0;i<document.getElementById("text").innerText.split("\n").length;i++) {
+                    t+=(function(a){if(a){return 1;}else{return 0;}})(boxes[document.getElementById("text").innerText.split("\n")[i]])+document.getElementById("text").innerText.split("\n")[i];
+                    if (i<document.getElementById("text").innerText.split("\n").length-1) {t+="\n"}
+                }
+                localStorage.setItem(window.location.href,t);
+            }
+            function updateBoxes() {
+                document.getElementById("boxes").innerHTML = "";
+            	for (var i=0;i<document.getElementById("text").innerText.split("\n").length;i++) {
+                    if (!(i==document.getElementById("text").innerText.split("\n").length-1&&document.getElementById("text").innerText.split("\n")[i]=="")) {
+                		document.getElementById("boxes").innerHTML += "<input type=\"checkbox\" onclick=\"boxes['"+document.getElementById("text").innerText.split("\n")[i]+"']=this.checked;updateBoxes();\" "+(function(a){if(a){return "checked"}else{return ""}})(boxes[document.getElementById("text").innerText.split("\n")[i]])+"><br/>";
+                	}
+            	}
+                update();
+            }
+        </script>
+    </body>
+</html>
