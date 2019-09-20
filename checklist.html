@@ -32,7 +32,7 @@
             function updateBoxes() {
                 document.getElementById("boxes").innerHTML = "";
             	for (var i=0;i<document.getElementById("text").innerText.split("\n").length;i++) {
-                    if (!(i==document.getElementById("text").innerText.split("\n").length-1&&document.getElementById("text").innerText.split("\n")[i]=="")) {
+                    if (!(i==document.getElementById("text").innerText.split("\n").length-1&&document.getElementById("text").innerText.split("\n")[i]=="")||document.getElementById("text").innerText=="") {
                 		document.getElementById("boxes").innerHTML += "<input type=\"checkbox\" onclick=\"boxes['"+document.getElementById("text").innerText.split("\n")[i]+"']=this.checked;updateBoxes();\" "+(function(a){if(a){return "checked"}else{return ""}})(boxes[document.getElementById("text").innerText.split("\n")[i]])+"><br/>";
                 	}
             	}
