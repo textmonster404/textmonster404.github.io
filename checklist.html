@@ -15,10 +15,10 @@
         </table>
         <script>
             var boxes = {};
-            for (var i=0;i<localStorage.getItem(window.location.href).split("\n").length;i++) {
-            boxes[localStorage.getItem(window.location.href).split("\n")[i].substring(1)]=(localStorage.getItem(window.location.href).split("\n")[i].charAt(0)=="1");
-            document.getElementById("text").innerText+=localStorage.getItem(window.location.href).split("\n")[i].substring(1);
-                if (i<localStorage.getItem(window.location.href).split("\n").length-1) {document.getElementById("text").innerText+="\n";}
+            for (var i=0;i<localStorage.getItem(window.location.search).split("\n").length;i++) {
+            boxes[localStorage.getItem(window.location.search).split("\n")[i].substring(1)]=(localStorage.getItem(window.location.search).split("\n")[i].charAt(0)=="1");
+            document.getElementById("text").innerText+=localStorage.getItem(window.location.search).split("\n")[i].substring(1);
+                if (i<localStorage.getItem(window.location.search).split("\n").length-1) {document.getElementById("text").innerText+="\n";}
             }
             updateBoxes();
             function update() {
@@ -27,7 +27,7 @@
                     t+=(function(a){if(a){return 1;}else{return 0;}})(boxes[document.getElementById("text").innerText.split("\n")[i]])+document.getElementById("text").innerText.split("\n")[i];
                     if (i<document.getElementById("text").innerText.split("\n").length-1) {t+="\n"}
                 }
-                localStorage.setItem(window.location.href,t);
+                localStorage.setItem(window.location.search,t);
             }
             function updateBoxes() {
                 document.getElementById("boxes").innerHTML = "";
