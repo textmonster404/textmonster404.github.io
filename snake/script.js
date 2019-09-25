@@ -3,6 +3,13 @@ size = 32;
 var playerNumber = parseInt(window.location.search.substring(1).split("&")[0]);
 var computerNumber = parseInt(window.location.search.substring(1).split("&")[1]);
 
+if (playerNumber==NaN) {
+    playerNumber=1;
+}
+if (computerNumber==NaN) {
+    computerNumber=1;
+}
+
 var lossP = 0;
 var lossC = 0;
 
@@ -95,7 +102,7 @@ class Snake {
         this.dir = dir;
         this.input = controls;
         this.killed = false;
-        this.computer = computer || false; 
+        this.computer = computer || false;
     }
     update() {
         for (var i=0;i<players.concat(computers).length;i++) {
@@ -142,11 +149,33 @@ class Snake {
     }
     ai() {
         if (!this.killed) {
+            this.input.up = false;
+            this.input.down = false;
+            this.input.left = false;
+            this.input.right = false;
             if (Math.floor(Math.random()*8)==0) {
-                if (this.dir==2) {this.dir=[1,2,3][Math.floor(Math.random()*3)];}
-                else if (this.dir==0) {this.dir=[0,1,3][Math.floor(Math.random()*3)];}
-                else if (this.dir==1) {this.dir=[0,1,2][Math.floor(Math.random()*3)];}
-                else if (this.dir==3) {this.dir=[0,2,3][Math.floor(Math.random()*3)];}
+                var decision = Math.floor(Math.random()*4);
+                if (decision==0) {
+                    this.input.up=true;
+                    this.input.down=false;
+                    this.input.left=false;
+                    this.input.right=false;
+                } else if (decision==1) {
+                    this.input.up=false;
+                    this.input.down=false;
+                    this.input.left=false;
+                    this.input.right=true;
+                } else if (decision==2) {
+                    this.input.up=false;
+                    this.input.down=true;
+                    this.input.left=false;
+                    this.input.right=false;
+                } else if (decision==3) {
+                    this.input.up=false;
+                    this.input.down=false;
+                    this.input.left=true;
+                    this.input.right=false;
+                }
             }
             for (var i=0;i<players.concat(computers).length;i++) {
                 var p = players.concat(computers)[i];
@@ -154,16 +183,56 @@ class Snake {
                     var c = p.history[m];
                     for (var o=1;o<6;o++) {
                         if (this.head.x==c.x&&this.head.y-o==c.y&&this.dir==0) {
-                            this.dir = [1,3][Math.floor(Math.random()*2)];
+                            if (Math.floor(Math.random()*2)==0) {
+                                this.input.left=true;
+                                this.input.up = false;
+                                this.input.down = false;
+                                this.input.right = false;
+                            } else {
+                                this.input.right=true;
+                                this.input.up = false;
+                                this.input.down = false;
+                                this.input.left = false;
+                            }
                         }
                         if (this.head.x+o==c.x&&this.head.y==c.y&&this.dir==1) {
-                            this.dir = [0,2][Math.floor(Math.random()*2)];
+                            if (Math.floor(Math.random()*2)==0) {
+                                this.input.up=true;
+                                this.input.left = false;
+                                this.input.down = false;
+                                this.input.right = false;
+                            } else {
+                                this.input.down=true;
+                                this.input.up = false;
+                                this.input.left = false;
+                                this.input.right = false;
+                            }
                         }
                         if (this.head.x==c.x&&this.head.y+o==c.y&&this.dir==2) {
-                            this.dir = [1,3][Math.floor(Math.random()*2)];
+                            if (Math.floor(Math.random()*2)==0) {
+                                this.input.left=true;
+                                this.input.up = false;
+                                this.input.down = false;
+                                this.input.right = false;
+                            } else {
+                                this.input.right=true;
+                                this.input.up = false;
+                                this.input.down = false;
+                                this.input.left = false;
+                            }
                         }
                         if (this.head.x-o==c.x&&this.head.y==c.y&&this.dir==3) {
-                            this.dir = [0,2][Math.floor(Math.random()*2)];
+                            if (Math.floor(Math.random()*2)==0) {
+                                this.input.up=true;
+                                this.input.left = false;
+                                this.input.down = false;
+                                this.input.right = false;
+                            } else {
+                                this.input.down=true;
+                                this.input.up = false;
+                                this.input.left = false;
+                                this.input.right = false;
+                            }
                         }
                     }
                 }
@@ -174,40 +243,52 @@ class Snake {
             }
             for (var o=0;o<24;o++) {
                 if (this.head.x==f.x&&this.head.y-o==f.y&&this.dir!=2) {
-                    this.dir = 0;
+                    this.input.up = true;
+                    this.input.left = false;
+                    this.input.down = false;
+                    this.input.right = false;
                 }
                 if (this.head.x+o==f.x&&this.head.y==f.y&&this.dir!=3) {
-                    this.dir = 1;
+                    this.input.up = false;
+                    this.input.left = false;
+                    this.input.down = false;
+                    this.input.right = true;
                 }
                 if (this.head.x==f.x&&this.head.y+o==f.y&&this.dir!=0) {
-                    this.dir = 2;
+                    this.input.up = false;
+                    this.input.left = false;
+                    this.input.down = true;
+                    this.input.right = false;
                 }
                 if (this.head.x-o==f.x&&this.head.y==f.y&&this.dir!=1) {
-                    this.dir = 3;
-                }
-            }
-            if (this.history.length>2&&!this.killed) {
-                if (this.head.x==this.history[this.history.length-2].x&&this.head.y==this.history[this.history.length-2].y) {
-                    if (this.dir==0) {this.dir=2;}
-                    if (this.dir==1) {this.dir=3;}
-                    if (this.dir==2) {this.dir=0;}
-                    if (this.dir==3) {this.dir=1;}
+                    this.input.up = false;
+                    this.input.left = true;
+                    this.input.down = false;
+                    this.input.right = false;
                 }
             }
             if (Math.floor(Math.random()*16)==0) {
-                if (this.dir==2) {this.dir=[1,2,3][Math.floor(Math.random()*3)];}
-                else if (this.dir==0) {this.dir=[0,1,3][Math.floor(Math.random()*3)];}
-                else if (this.dir==1) {this.dir=[0,1,2][Math.floor(Math.random()*3)];}
-                else if (this.dir==3) {this.dir=[0,2,3][Math.floor(Math.random()*3)];}
-            }
-        }
-        for (var n=0;n<this.history.length;n++) {
-            if (this.history.length>2&&!this.killed) {
-                if (this.head.x==this.history[this.history.length-2].x&&this.head.y==this.history[this.history.length-2].y) {
-                    if (this.dir==0) {this.dir=2;}
-                    if (this.dir==1) {this.dir=3;}
-                    if (this.dir==2) {this.dir=0;}
-                    if (this.dir==3) {this.dir=1;}
+                var decision = Math.floor(Math.random()*4);
+                if (decision==0) {
+                    this.input.up=true;
+                    this.input.down=false;
+                    this.input.left=false;
+                    this.input.right=false;
+                } else if (decision==1) {
+                    this.input.up=false;
+                    this.input.down=false;
+                    this.input.left=false;
+                    this.input.right=true;
+                } else if (decision==2) {
+                    this.input.up=false;
+                    this.input.down=true;
+                    this.input.left=false;
+                    this.input.right=false;
+                } else if (decision==3) {
+                    this.input.up=false;
+                    this.input.down=false;
+                    this.input.left=true;
+                    this.input.right=false;
                 }
             }
         }
