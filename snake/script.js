@@ -308,9 +308,9 @@ var computers = [];
 
 var dir = Math.floor(Math.random()*4);
 for (var i=0;i<playerNumber;i++) {
-    if (i==0) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("ArrowUp","ArrowDown","ArrowLeft","ArrowRight"),0,0,0);}
-    if (i==1) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("w","s","a","d"),255,0,0);}
-    if (i==2) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("t","g","f","h"),0,255,0);}
+    if (i==0) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("ArrowUp","ArrowDown","ArrowLeft","ArrowRight"),255,0,0);}
+    if (i==1) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("w","s","a","d"),0,255,0);}
+    if (i==2) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("t","g","f","h"),255,255,0);}
     if (i==3) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("i","k","j","l"),0,0,255);}
 }
 for (var i=0;i<computerNumber;i++) {
@@ -329,7 +329,7 @@ function update() {
         computers[i].update();
         computers[i].draw();
     }
-    if (lossP==playerNumber-1&&lossC==computerNumber) {document.body.innerHTML+="<div>WIN!</div>";window.clearInterval(updateInterval);} else if (lossP==playerNumber&&lossC<computerNumber) {document.body.innerHTML+="<div>LOSS.</div>";window.clearInterval(updateInterval);}
+    if (lossP==playerNumber&&lossC==computerNumber) {document.body.innerHTML+="<div>TIE.</div>";window.clearInterval(updateInterval);} else if (lossP==playerNumber-1&&lossC==computerNumber) {if(!players[0].killed){document.body.innerHTML+="<div style=\"color:red;\">WIN!</div>";window.clearInterval(updateInterval);}else if(!players[1].killed){document.body.innerHTML+="<div style=\"color:rgb(0,255,0);\">WIN!</div>";window.clearInterval(updateInterval);}else if(!players[2].killed){document.body.innerHTML+="<div style=\"color:yellow;\">WIN!</div>";window.clearInterval(updateInterval);}else if(!players[3].killed){document.body.innerHTML+="<div style=\"color:blue;\">WIN!</div>";window.clearInterval(updateInterval);}} else if (lossP==playerNumber&&lossC<computerNumber) {document.body.innerHTML+="<div>LOSS.</div>";window.clearInterval(updateInterval);}
     for (var i=0;i<fruit.length;i++) {
         fruit[i].draw();
     }
