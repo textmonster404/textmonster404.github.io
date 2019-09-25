@@ -177,6 +177,36 @@ class Snake {
                     this.input.right=false;
                 }
             }
+            var f = fruit[0];
+            for (var i=0;i<fruit.length;i++) {
+                if ((Math.abs(fruit[1].x-this.head.x)+Math.abs(fruit[1].y-this.head.y))<(Math.abs(fruit[0].x-this.head.x)+Math.abs(fruit[0].y-this.head.y))) {f = fruit[1];}
+            }
+            for (var o=0;o<24;o++) {
+                if (this.head.x==f.x&&this.head.y-o==f.y&&this.dir!=2) {
+                    this.input.up = true;
+                    this.input.left = false;
+                    this.input.down = false;
+                    this.input.right = false;
+                }
+                if (this.head.x+o==f.x&&this.head.y==f.y&&this.dir!=3) {
+                    this.input.up = false;
+                    this.input.left = false;
+                    this.input.down = false;
+                    this.input.right = true;
+                }
+                if (this.head.x==f.x&&this.head.y+o==f.y&&this.dir!=0) {
+                    this.input.up = false;
+                    this.input.left = false;
+                    this.input.down = true;
+                    this.input.right = false;
+                }
+                if (this.head.x-o==f.x&&this.head.y==f.y&&this.dir!=1) {
+                    this.input.up = false;
+                    this.input.left = true;
+                    this.input.down = false;
+                    this.input.right = false;
+                }
+            }
             for (var i=0;i<players.concat(computers).length;i++) {
                 var p = players.concat(computers)[i];
                 for (var m=0;m<p.history.length;m++) {
@@ -235,36 +265,6 @@ class Snake {
                             }
                         }
                     }
-                }
-            }
-            var f = fruit[0];
-            for (var i=0;i<fruit.length;i++) {
-                if ((Math.abs(fruit[1].x-this.head.x)+Math.abs(fruit[1].y-this.head.y))<(Math.abs(fruit[0].x-this.head.x)+Math.abs(fruit[0].y-this.head.y))) {f = fruit[1];}
-            }
-            for (var o=0;o<24;o++) {
-                if (this.head.x==f.x&&this.head.y-o==f.y&&this.dir!=2) {
-                    this.input.up = true;
-                    this.input.left = false;
-                    this.input.down = false;
-                    this.input.right = false;
-                }
-                if (this.head.x+o==f.x&&this.head.y==f.y&&this.dir!=3) {
-                    this.input.up = false;
-                    this.input.left = false;
-                    this.input.down = false;
-                    this.input.right = true;
-                }
-                if (this.head.x==f.x&&this.head.y+o==f.y&&this.dir!=0) {
-                    this.input.up = false;
-                    this.input.left = false;
-                    this.input.down = true;
-                    this.input.right = false;
-                }
-                if (this.head.x-o==f.x&&this.head.y==f.y&&this.dir!=1) {
-                    this.input.up = false;
-                    this.input.left = true;
-                    this.input.down = false;
-                    this.input.right = false;
                 }
             }
             if (Math.floor(Math.random()*16)==0) {
