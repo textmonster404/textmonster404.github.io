@@ -3,6 +3,23 @@ size = 32;
 var playerNumber = parseInt(window.location.search.substring(1).split("&")[0]);
 var computerNumber = parseInt(window.location.search.substring(1).split("&")[1]);
 
+function hexToRGB(color) {
+    var result = [];
+    var c = color.substring(1);
+    result[0] = parseInt(c.substring(0,2),16);
+    result[1] = parseInt(c.substring(2,4),16);
+    result[2] = parseInt(c.substring(4,6),16);
+    return result;
+}
+
+var colors = [(localStorage.getItem("color1")||"#ff0000"),(localStorage.getItem("color2")||"#00ff00"),(localStorage.getItem("color3")||"#ffff00"),(localStorage.getItem("color4")||"#0000ff")];
+function setColors() {
+window.setTimeout(function(){document.getElementsByTagName("input")[0].value=colors[0];
+document.getElementsByTagName("input")[1].value=colors[1];
+document.getElementsByTagName("input")[2].value=colors[2];
+document.getElementsByTagName("input")[3].value=colors[3];},1);}
+setColors();
+
 if (playerNumber==NaN) {
     playerNumber=1;
 }
@@ -41,10 +58,10 @@ class Input {
         this.right = false;
     }
     update(key) {
-        if (key==this.keyUp) {this.up = true;} else {this.up = false;}
-        if (key==this.keyDown) {this.down = true;} else {this.down = false;}
-        if (key==this.keyLeft) {this.left = true;} else {this.left = false;}
-        if (key==this.keyRight) {this.right = true;} else {this.right = false;}
+        if (key==this.keyUp) {this.up = true;this.down = false;this.left = false;this.right = false;}
+        if (key==this.keyDown) {this.up = false;this.down = true;this.left = false;this.right = false;}
+        if (key==this.keyLeft) {this.up = false;this.down = false;this.left = true;this.right = false;}
+        if (key==this.keyRight) {this.up = false;this.down = false;this.left = false;this.right = true;}
     }
 }
 class Point {
@@ -103,6 +120,9 @@ class Snake {
         this.input = controls;
         this.killed = false;
         this.computer = computer || false;
+        this.aggressive = [true,false][Math.floor(Math.random()*2)];
+        this.error = Math.floor(Math.random()*16)+16;
+        this.catious = [true,false][Math.floor(Math.random()*2)];
     }
     update() {
         for (var i=0;i<players.concat(computers).length;i++) {
@@ -153,7 +173,7 @@ class Snake {
             this.input.down = false;
             this.input.left = false;
             this.input.right = false;
-            if (Math.floor(Math.random()*8)==0) {
+            if (Math.floor(Math.random()*this.error)==0) {
                 var decision = Math.floor(Math.random()*4);
                 if (decision==0) {
                     this.input.up=true;
@@ -175,6 +195,47 @@ class Snake {
                     this.input.down=false;
                     this.input.left=true;
                     this.input.right=false;
+                }
+            }
+            if (this.aggressive) {
+                var f = players.concat(computers)[0];
+                for (var i=0;i<players.concat(computers).length;i++) {
+                    if ((Math.abs(players.concat(computers)[i].head.x-this.head.x)+Math.abs(players.concat(computers)[i].head.y-this.head.y))<(Math.abs(f.head.x-this.head.x)+Math.abs(f.head.y-this.head.y))) {f = players.concat(computers)[0];}
+                }
+                var ox = 0;
+                var oy = 0;
+                
+                if (f.dir==0) {oy=-(Math.abs(f.head.x-this.head.x)+this.len-2)}
+                if (f.dir==1) {ox=(Math.abs(f.head.y-this.head.y)+this.len-2)}
+                if (f.dir==2) {oy=(Math.abs(f.head.x-this.head.x)+this.len-2)}
+                if (f.dir==3) {ox=-(Math.abs(f.head.y-this.head.y)+this.len-2)}
+                for (var a=-this.len+2;a<=this.len-2;a++){
+                    for (var o=2;o<8;o++) {
+                        if (this.head.x+a==f.tail.x+ox&&this.head.y+o==f.tail.y+oy) {
+                            this.input.up = false;
+                            this.input.left = false;
+                            this.input.down = true;
+                            this.input.right = false;
+                        }
+                        if (this.head.x-o==f.tail.x+ox&&this.head.y+a==f.tail.y+oy) {
+                            this.input.up = false;
+                            this.input.left = true;
+                            this.input.down = false;
+                            this.input.right = false;
+                        }
+                        if (this.head.x+a==f.tail.x+ox&&this.head.y-o==f.tail.y+oy) {
+                            this.input.up = false;
+                            this.input.left = false;
+                            this.input.down = true;
+                            this.input.right = false;
+                        }
+                        if (this.head.x+o==f.tail.x+ox&&this.head.y+a==f.tail.y+oy) {
+                            this.input.up = false;
+                            this.input.left = false;
+                            this.input.down = false;
+                            this.input.right = true;
+                        }
+                    }
                 }
             }
             var f = fruit[0];
@@ -267,7 +328,72 @@ class Snake {
                     }
                 }
             }
-            if (Math.floor(Math.random()*16)==0) {
+            
+            if (this.catious){
+            for (var i=0;i<players.concat(computers).length;i++) {
+                var p = players.concat(computers)[i];
+                for (var m=0;m<p.history.length;m++) {
+                    var c = p.history[m];
+                    for (var a=-1;a<=1;a++){
+                        for (var o=1;o<6;o++) {
+                            if (this.head.x+a==c.x&&this.head.y-o==c.y&&this.dir==0) {
+                                if (Math.floor(Math.random()*2)==0) {
+                                    this.input.left=true;
+                                    this.input.up = false;
+                                    this.input.down = false;
+                                    this.input.right = false;
+                                } else {
+                                    this.input.right=true;
+                                    this.input.up = false;
+                                    this.input.down = false;
+                                    this.input.left = false;
+                                }
+                            }
+                            if (this.head.x+o==c.x&&this.head.y+a==c.y&&this.dir==1) {
+                                if (Math.floor(Math.random()*2)==0) {
+                                    this.input.up=true;
+                                    this.input.left = false;
+                                    this.input.down = false;
+                                    this.input.right = false;
+                                } else {
+                                    this.input.down=true;
+                                    this.input.up = false;
+                                    this.input.left = false;
+                                    this.input.right = false;
+                                }
+                            }
+                            if (this.head.x+a==c.x&&this.head.y+o==c.y&&this.dir==2) {
+                                if (Math.floor(Math.random()*2)==0) {
+                                    this.input.left=true;
+                                    this.input.up = false;
+                                    this.input.down = false;
+                                    this.input.right = false;
+                                } else {
+                                    this.input.right=true;
+                                    this.input.up = false;
+                                    this.input.down = false;
+                                    this.input.left = false;
+                                }
+                            }
+                            if (this.head.x-o==c.x&&this.head.y+a==c.y&&this.dir==3) {
+                                if (Math.floor(Math.random()*2)==0) {
+                                    this.input.up=true;
+                                    this.input.left = false;
+                                    this.input.down = false;
+                                    this.input.right = false;
+                                } else {
+                                    this.input.down=true;
+                                    this.input.up = false;
+                                    this.input.left = false;
+                                    this.input.right = false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            }
+            if (Math.floor(Math.random()*this.error/2)==0) {
                 var decision = Math.floor(Math.random()*4);
                 if (decision==0) {
                     this.input.up=true;
@@ -308,13 +434,14 @@ var computers = [];
 
 var dir = Math.floor(Math.random()*4);
 for (var i=0;i<playerNumber;i++) {
-    if (i==0) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("ArrowUp","ArrowDown","ArrowLeft","ArrowRight"),255,0,0);}
-    if (i==1) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("w","s","a","d"),0,255,0);}
-    if (i==2) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("t","g","f","h"),255,255,0);}
-    if (i==3) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("i","k","j","l"),0,0,255);}
+    if (i==0) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("ArrowUp","ArrowDown","ArrowLeft","ArrowRight"),hexToRGB(colors[0])[0],hexToRGB(colors[0])[1],hexToRGB(colors[0])[2]);}
+    if (i==1) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("w","s","a","d"),hexToRGB(colors[1])[0],hexToRGB(colors[1])[1],hexToRGB(colors[1])[2]);}
+    if (i==2) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("t","g","f","h"),hexToRGB(colors[2])[0],hexToRGB(colors[2])[1],hexToRGB(colors[2])[2]);}
+    if (i==3) {players[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,dir,new Input("i","k","j","l"),hexToRGB(colors[3])[0],hexToRGB(colors[3])[1],hexToRGB(colors[3])[2]);}
 }
 for (var i=0;i<computerNumber;i++) {
-    computers[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,Math.floor(Math.random()*4),new Input(0,1,2,3),96,96,96,true);
+    var col = Math.floor(Math.random()*64)+128;
+    computers[i] = new Snake(Math.floor(Math.random()*size),Math.floor(Math.random()*size),3,Math.floor(Math.random()*4),new Input(0,1,2,3),col+Math.floor(Math.random()*96)-48,col+Math.floor(Math.random()*96)-48,col+Math.floor(Math.random()*96)-48,true);
 }
 
 var fruit = [new Fruit(),new Fruit()];
@@ -329,7 +456,7 @@ function update() {
         computers[i].update();
         computers[i].draw();
     }
-    if (lossP==playerNumber&&lossC==computerNumber) {document.body.innerHTML+="<div>TIE.</div>";window.clearInterval(updateInterval);} else if (lossP==playerNumber-1&&lossC==computerNumber) {if(!players[0].killed){document.body.innerHTML+="<div style=\"color:red;\">WIN!</div>";window.clearInterval(updateInterval);}else if(!players[1].killed){document.body.innerHTML+="<div style=\"color:rgb(0,255,0);\">WIN!</div>";window.clearInterval(updateInterval);}else if(!players[2].killed){document.body.innerHTML+="<div style=\"color:yellow;\">WIN!</div>";window.clearInterval(updateInterval);}else if(!players[3].killed){document.body.innerHTML+="<div style=\"color:blue;\">WIN!</div>";window.clearInterval(updateInterval);}} else if (lossP==playerNumber&&lossC<computerNumber) {document.body.innerHTML+="<div>LOSS.</div>";window.clearInterval(updateInterval);}
+    if (lossP==playerNumber&&lossC==computerNumber) {document.body.innerHTML+="<div>TIE.</div>";window.clearInterval(updateInterval);setColors();} else if (lossP==playerNumber-1&&lossC==computerNumber) {if(!players[0].killed){document.body.innerHTML+="<div style=\"color:"+colors[0]+";\">WIN!</div>";window.clearInterval(updateInterval);setColors();}else if(!players[1].killed){document.body.innerHTML+="<div style=\"color:"+colors[1]+"\">WIN!</div>";window.clearInterval(updateInterval);setColors();}else if(!players[2].killed){document.body.innerHTML+="<div style=\"color:"+colors[2]+";\">WIN!</div>";window.clearInterval(updateInterval);setColors();}else if(!players[3].killed){document.body.innerHTML+="<div style=\"color:"+colors[3]+";\">WIN!</div>";window.clearInterval(updateInterval);setColors();}} else if (lossP==playerNumber&&lossC<computerNumber) {document.body.innerHTML+="<div>LOSS.</div>";window.clearInterval(updateInterval);setColors();}
     for (var i=0;i<fruit.length;i++) {
         fruit[i].draw();
     }
@@ -349,6 +476,11 @@ function pixel(x,y,r,g,b) {
     getCell(x,y).style.background="rgb("+r+","+g+","+b+")";
 }
 window.onkeydown = function(e) {
+    for (var i=0;i<players.length;i++) {
+        players[i].input.update(e.key);
+    }
+}
+window.onkeypress = function(e) {
     for (var i=0;i<players.length;i++) {
         players[i].input.update(e.key);
     }
