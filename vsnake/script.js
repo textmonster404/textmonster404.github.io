@@ -385,57 +385,59 @@ class Snake {
                 var p = players.concat(computers)[i];
                 for (var m=0;m<p.history.length;m++) {
                     var c = p.history[m];
-                    for (var o=1;o<6;o++) {
-                        if (this.head.x==c.x&&this.head.y-o==c.y&&this.dir==0) {
-                            if (Math.floor(Math.random()*2)==0) {
-                                this.input.left=true;
-                                this.input.up = false;
-                                this.input.down = false;
-                                this.input.right = false;
-                            } else {
-                                this.input.right=true;
-                                this.input.up = false;
-                                this.input.down = false;
-                                this.input.left = false;
+                    for (var a=-1;a<=1;a++){
+                        for (var o=1;o<6;o++) {
+                            if (this.head.x==c.x&&this.head.y-o==c.y&&this.dir==0) {
+                                if (Math.floor(Math.random()*2)==0&&getCell(this.head.x-1,this.head.y).style.background=="rgb(255, 255, 255)") {
+                                    this.input.left=true;
+                                    this.input.up = false;
+                                    this.input.down = false;
+                                    this.input.right = false;
+                                } else if (getCell(this.head.x+1,this.head.y).style.background=="rgb(255, 255, 255)") {
+                                    this.input.right=true;
+                                    this.input.up = false;
+                                    this.input.down = false;
+                                    this.input.left = false;
+                                }
                             }
-                        }
-                        if (this.head.x+o==c.x&&this.head.y==c.y&&this.dir==1) {
-                            if (Math.floor(Math.random()*2)==0) {
-                                this.input.up=true;
-                                this.input.left = false;
-                                this.input.down = false;
-                                this.input.right = false;
-                            } else {
-                                this.input.down=true;
-                                this.input.up = false;
-                                this.input.left = false;
-                                this.input.right = false;
+                            if (this.head.x+o==c.x&&this.head.y==c.y&&this.dir==1) {
+                                if (Math.floor(Math.random()*2)==0&&getCell(this.head.x,this.head.y-1).style.background=="rgb(255, 255, 255)") {
+                                    this.input.up=true;
+                                    this.input.left = false;
+                                    this.input.down = false;
+                                    this.input.right = false;
+                                } else if (getCell(this.head.x,this.head.y+1).style.background=="rgb(255, 255, 255)") {
+                                    this.input.down=true;
+                                    this.input.up = false;
+                                    this.input.left = false;
+                                    this.input.right = false;
+                                }
                             }
-                        }
-                        if (this.head.x==c.x&&this.head.y+o==c.y&&this.dir==2) {
-                            if (Math.floor(Math.random()*2)==0) {
-                                this.input.left=true;
-                                this.input.up = false;
-                                this.input.down = false;
-                                this.input.right = false;
-                            } else {
-                                this.input.right=true;
-                                this.input.up = false;
-                                this.input.down = false;
-                                this.input.left = false;
+                            if (this.head.x==c.x&&this.head.y+o==c.y&&this.dir==2) {
+                                if (Math.floor(Math.random()*2)==0&&getCell(this.head.x-1,this.head.y).style.background=="rgb(255, 255, 255)") {
+                                    this.input.left=true;
+                                    this.input.up = false;
+                                    this.input.down = false;
+                                    this.input.right = false;
+                                } else if (getCell(this.head.x+1,this.head.y).style.background=="rgb(255, 255, 255)") {
+                                    this.input.right=true;
+                                    this.input.up = false;
+                                    this.input.down = false;
+                                    this.input.left = false;
+                                }
                             }
-                        }
-                        if (this.head.x-o==c.x&&this.head.y==c.y&&this.dir==3) {
-                            if (Math.floor(Math.random()*2)==0) {
-                                this.input.up=true;
-                                this.input.left = false;
-                                this.input.down = false;
-                                this.input.right = false;
-                            } else {
-                                this.input.down=true;
-                                this.input.up = false;
-                                this.input.left = false;
-                                this.input.right = false;
+                            if (this.head.x-o==c.x&&this.head.y==c.y&&this.dir==3) {
+                                if (Math.floor(Math.random()*2)==0&&getCell(this.head.x,this.head.y-1).style.background=="rgb(255, 255, 255)") {
+                                    this.input.up=true;
+                                    this.input.left = false;
+                                    this.input.down = false;
+                                    this.input.right = false;
+                                } else if (getCell(this.head.x,this.head.y+1).style.background=="rgb(255, 255, 255)") {
+                                    this.input.down=true;
+                                    this.input.up = false;
+                                    this.input.left = false;
+                                    this.input.right = false;
+                                }
                             }
                         }
                     }
@@ -494,70 +496,6 @@ class Snake {
                         this.input.right = false;
                     }
                 }
-            }
-            if (this.catious){
-            for (var i=0;i<players.concat(computers).length;i++) {
-                var p = players.concat(computers)[i];
-                for (var m=0;m<p.history.length;m++) {
-                    var c = p.history[m];
-                    for (var a=-1;a<=1;a++){
-                        for (var o=1;o<6;o++) {
-                            if (this.head.x+a==c.x&&this.head.y-o==c.y&&this.dir==0) {
-                                if (Math.floor(Math.random()*2)==0) {
-                                    this.input.left=true;
-                                    this.input.up = false;
-                                    this.input.down = false;
-                                    this.input.right = false;
-                                } else {
-                                    this.input.right=true;
-                                    this.input.up = false;
-                                    this.input.down = false;
-                                    this.input.left = false;
-                                }
-                            }
-                            if (this.head.x+o==c.x&&this.head.y+a==c.y&&this.dir==1) {
-                                if (Math.floor(Math.random()*2)==0) {
-                                    this.input.up=true;
-                                    this.input.left = false;
-                                    this.input.down = false;
-                                    this.input.right = false;
-                                } else {
-                                    this.input.down=true;
-                                    this.input.up = false;
-                                    this.input.left = false;
-                                    this.input.right = false;
-                                }
-                            }
-                            if (this.head.x+a==c.x&&this.head.y+o==c.y&&this.dir==2) {
-                                if (Math.floor(Math.random()*2)==0) {
-                                    this.input.left=true;
-                                    this.input.up = false;
-                                    this.input.down = false;
-                                    this.input.right = false;
-                                } else {
-                                    this.input.right=true;
-                                    this.input.up = false;
-                                    this.input.down = false;
-                                    this.input.left = false;
-                                }
-                            }
-                            if (this.head.x-o==c.x&&this.head.y+a==c.y&&this.dir==3) {
-                                if (Math.floor(Math.random()*2)==0) {
-                                    this.input.up=true;
-                                    this.input.left = false;
-                                    this.input.down = false;
-                                    this.input.right = false;
-                                } else {
-                                    this.input.down=true;
-                                    this.input.up = false;
-                                    this.input.left = false;
-                                    this.input.right = false;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
             }
             if (Math.floor(Math.random()*this.error/2)==0) {
                 var decision = Math.floor(Math.random()*4);
