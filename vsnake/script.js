@@ -19,6 +19,10 @@ function getPlayers() {
     document.getElementsByTagName("input")[0].value = playerNumber;
     document.getElementsByTagName("input")[1].value = computerNumber;},1);
 }
+function start() {
+    document.getElementsByTagName("input")[6].style.display="none";
+    updateInterval = window.setInterval(update,100);
+}
 var colors = [(localStorage.getItem("color1")||"#ff0000"),(localStorage.getItem("color2")||"#00ff00"),(localStorage.getItem("color3")||"#ffff00"),(localStorage.getItem("color4")||"#0000ff")];
 function setColors() {
 window.setTimeout(function(){document.getElementsByTagName("input")[2].value=colors[0];
@@ -52,7 +56,7 @@ for (var i=0;i<size;i++) {
     }
     tHTML+="</tr>"
 }
-tHTML+="</tbody></table>";
+tHTML+="</tbody></table><input type=\"button\" onclick=\"start();\" value=\"Start\"/>";
 document.body.innerHTML+=tHTML;
 
 function cells() {return document.getElementsByTagName("td");}
@@ -269,7 +273,7 @@ class Snake {
                             }
                         }
                         fruit[i].move();
-                        if (fruit[i].powerups.subtract){if (fruit.length>1)fruit.length--;}
+                        if (fruit[i].powerups.subtract){if (fruit.length>1)fruit.length--;if (fruit.length>1)fruit.length--;}
                     }
                 }
             }
@@ -664,4 +668,4 @@ window.onkeypress = function(e) {
         players[i].input.update(e.key);
     }
 }
-var updateInterval = window.setInterval(update,100);
+var updateInterval = 0;
