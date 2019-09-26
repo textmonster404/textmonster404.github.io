@@ -1,104 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="description" content="Josh's (textmonster404) website, a perfect place to see random code examples, school stuff, CSS libraries, games and more! AKA procrastination station.">
-        <meta name="robots" content="index,follow">
-        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-        <meta name="google-site-verification" content="wiqqvxhO5ycoW3a2mjFgr7VGfzuWihxAZfd1HEF4qgk" />
-        <meta name="keywords" content="josh,josh's,textmonster404,home page,homepage,website,portal,web page,procrastination">
-        <title>Home Page (Procrastination Station)</title>
-        <link rel="icon" href="icon/icon.ico">
-        <link rel="stylesheet" href="stylesheets/home.css">
-        <script>if(new Date().getMonth()==9){document.head.innerHTML+="<link rel=\"stylesheet\" href=\"https://textmonster404.github.io/spoopy.css\">";}</script>
-        <script>if(window.location.search=="?creppy"||window.location.search=="?spoopy"){document.head.innerHTML+="<link rel=\"stylesheet\" href=\"https://textmonster404.github.io/spoopy.css\">";}</script>
-        <style>
-            @import url("Games/doge2048/style/fonts/comic-sans.css");
-        </style>
+        <title>VSnake</title>
+        <style>td{width:4px;height:4px;border:none;}</style>
     </head>
     <body>
-        <h1 title="textmonster404.github.io/?random">Josh's Homepage</h1><br>
-        <table align="center">
-            <thead>
-                <tr><th colspan="3"><h2>Links:</h2></th></tr>
-                <tr>
-                    <td><h3>Projects:</h3></td>
-                    <td><h3>Widgets:</h3></td>
-                    <td><h3>Games:</h3></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <ul>
-                            <li><a href="Cool Text.html">Cool Text</a></li>
-                            <li><a href="school/index.html">School Stuff</a></li>
-                            <li><a href="randompage/index.html">Random Page!</a></li>
-                            <li id="rurl"><a href="random_url/index.html">Random URL</a></li>
-                            <li><a href="asciiart.html">ASCII Art</a></li>
-                            <li><a href="everything.html">Everything</a></li>
-                            <li><a href="sketches.html">P5JS Sketches</a></li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li><a href="Random/random.html">Random Stuff</a></li>
-                            <li><a href="html editor.html">HTML Editor</a></li>
-                            <li><a href="tools.html">Tools</a></li>
-                            <li><a href="RTF.html">RTF Editor</a></li>
-                            <li><a href="page-jumper.html">Page Jumper</a></li>
-                            <li><a href="typing-speed.html">Typing Test</a></li>
-                            <li><a href="sims.html">Simulations</a></li>
-                            <li><a href="bounce.html">Bounce</a></li>
-                            <li><a href="daily_text_character/index.html">Daily Text Character</a></li>
-                            <li><a href="sort.html">My Sorting Algorithm</a></li>
-                            <li><a href="chat" id="chat">Chatroom </a><input style="width:3em" onchange="document.getElementById('chat').href='chat?'+this.value;"/></li>
-                            <li><a href="user_pages" id="user_pages">User Pages </a><input style="width:3em" onchange="document.getElementById('user_pages').href='user_pages?'+this.value;"/></li>
-                            <li><a href="gravity_dots.html?10">Gravity Dots</a></li>
-                            <li><a href="https://textmonster404.000webhostapp.com/">My Domains</a></li>
-                            <li><a href="https://github.com/textmonster404/textmonster404.github.io/archive/master.zip">Download this Website!</a></li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li><a href="Games/Button-Clicker.html">Button Clicker</a></li>
-                            <li><a href="Games/GooglePacman.html">Google Pacman</a></li>
-                            <li><a href="Games/Cookie Clicker Offline/index.html">Cookie Clicker</a></li>
-                            <li><a href="Games/doge2048/doge2048.html" style="font-family:'Comic Sans', 'Comic Sans', Chalkboard, Helvetica, Arial, sans-serif;">Doge 2048</a></li>
-                            <li><a href="maze/maze.html">Link Maze</a></li>
-                            <li><a href="cursorgames/titlescreen.html">Cursor Games!</a></li>
-                            <li><a href="domino.html">Dominoes</a></li>
-                            <li><a href="chess.html">Chess</a></li>
-                            <li><a href="word_tree_board.html">Word Trees</a></li>
-                            <li><a href="Games/puzzles/random/maze.html"> Random Maze</a></li>
-                            <li><a href="Games/puzzles/random/sudoku.html"> Random Sudoku Puzzle</a></li>
-                            <li><a href="shiritori.html">Shiritori</a></li>
-                            <li><a href="plexers/index.html">Plexers</a></li>
-                            <li><a href="tictactoe_asm.html">Tic Tac Toe ASM</a></li>
-                            <li><a href="coplatform/index.html">Coplatform</a></li>
-                            <li><a href="snake/index.html?1&1">(NEW!) Multiplayer Snake</a></li>
-                            <li id="tictactop"><a id="tictac" href="tictactoe">Random Tic Tac Toe Board</a></li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <span style="opacity:0.6;position:fixed;bottom:2px;right:2px;"><span style="color:white;">MECHDRAGON777's website: </span><a href="https://mechdragon777.github.io/" target="_blank">https://mechdragon777.github.io/</a></span>
-        <script>
-            var tictac = document.getElementById("tictac");
-            var tictactop = document.getElementById("tictactop");
-            var rurl = document.getElementById("rurl");
-            var number = decodeURIComponent(window.location.search.substring(1));
-            if (window.location.href.includes("textmonster404.github.io/?")&&!(window.location.search=="spoopy"&&window.location.search=="creppy") {
-                window.location.replace("https://textmonster404.github.io/?"+number+".html");
-            } else if (number !== null && number !== "" && number !== "random.html") {
-                tictac.href = "tictactoe?"+parseInt(number)+".html";
-            } else if (number == "random.html") {
-                tictac.href = "tictactoe?"+Math.floor(Math.random()*1000000000+1)+".html";
-            } else {
-                tictactop.outerHTML = "";
-                rurl.outerHTML = "";
-            }
-        </script>
+        <h1>VSnake</h1>
+        <div style="position:fixed;top:0px;right:0px;text-align:right;">Players: <input type="number" onchange="setPlayers();" style="width:32px;"/><br/>Computers: <input type="number" onchange="setPlayers();" style="width:32px;"/></div>
+        <div style="position:fixed;bottom:0px;right:0px;text-align:right;">Player 1: <input type="color" onchange="localStorage.setItem('color1',this.value);color[0]=this.value;"/><br/>Player 2: <input type="color" onchange="localStorage.setItem('color2',this.value);color[1]=this.value;"/><br/>Player 3: <input type="color" onchange="localStorage.setItem('color3',this.value);color[2]=this.value;"/><br/>Player 4: <input type="color" onchange="localStorage.setItem('color4',this.value);color[3]=this.value;"/><br/></div>
+        <script src="script.js"></script>
     </body>
 </html>
