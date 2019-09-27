@@ -61,7 +61,7 @@ document.body.innerHTML+=tHTML;
 
 function cells() {return document.getElementsByTagName("td");}
 function getCell(x,y) {
-    return document.getElementsByTagName("tr")[y].cells[x];
+    return document.getElementsByTagName("tr")[Math.abs(y%size)].cells[Math.abs(x%size)];
 }
 class Input {
     constructor(keyUp,keyDown,keyLeft,keyRight) {
@@ -381,6 +381,116 @@ class Snake {
                     this.input.right = false;
                 }
             }
+            for (var o=0;o<64;o++) {
+                if (this.head.x+o==f.x&&this.head.y-o==f.y) {
+                    if (!this.dir.up) {
+                        this.input.up = true;
+                        this.input.right = false;
+                        this.input.down = false;
+                        this.input.left = false;
+                    } else {
+                        this.input.up = false;
+                        this.input.right = true;
+                        this.input.down = false;
+                        this.input.left = false;
+                    }
+                }
+                if (this.head.x+o==f.x&&this.head.y+o==f.y) {
+                    if (!this.dir.right) {
+                        this.input.up = false;
+                        this.input.right = true;
+                        this.input.down = false;
+                        this.input.left = false;
+                    } else {
+                        this.input.up = false;
+                        this.input.right = false;
+                        this.input.down = true;
+                        this.input.left = false;
+                    }
+                }
+                if (this.head.x-o==f.x&&this.head.y+o==f.y) {
+                    if (!this.dir.down) {
+                        this.input.up = false;
+                        this.input.right = false;
+                        this.input.down = true;
+                        this.input.left = false;
+                    } else {
+                        this.input.up = false;
+                        this.input.right = false;
+                        this.input.down = false;
+                        this.input.left = true;
+                    }
+                }
+                if (this.head.x-o==f.x&&this.head.y-o==f.y) {
+                    if (!this.dir.left) {
+                        this.input.up = false;
+                        this.input.right = false;
+                        this.input.down = false;
+                        this.input.left = true;
+                    } else {
+                        this.input.up = true;
+                        this.input.right = false;
+                        this.input.down = false;
+                        this.input.left = false;
+                    }
+                }
+                for (var a=-16;a<=16;a+=8) {
+                    for (var b=-16;b<=16;b+=8) {
+                        if (this.head.x+o+a==f.x&&this.head.y-o+b==f.y) {
+                            if (!this.dir.up) {
+                                this.input.up = true;
+                                this.input.right = false;
+                                this.input.down = false;
+                                this.input.left = false;
+                            } else {
+                                this.input.up = false;
+                                this.input.right = true;
+                                this.input.down = false;
+                                this.input.left = false;
+                            }
+                        }
+                        if (this.head.x+o+a==f.x&&this.head.y+o+b==f.y) {
+                            if (!this.dir.right) {
+                                this.input.up = false;
+                                this.input.right = true;
+                                this.input.down = false;
+                                this.input.left = false;
+                            } else {
+                                this.input.up = false;
+                                this.input.right = false;
+                                this.input.down = true;
+                                this.input.left = false;
+                            }
+                        }
+                        if (this.head.x-o+a==f.x&&this.head.y+o+b==f.y) {
+                            if (!this.dir.down) {
+                                this.input.up = false;
+                                this.input.right = false;
+                                this.input.down = true;
+                                this.input.left = false;
+                            } else {
+                                this.input.up = false;
+                                this.input.right = false;
+                                this.input.down = false;
+                                this.input.left = true;
+                            }
+                        }
+                        if (this.head.x-o+a==f.x&&this.head.y-o+b==f.y) {
+                            if (!this.dir.left) {
+                                this.input.up = false;
+                                this.input.right = false;
+                                this.input.down = false;
+                                this.input.left = true;
+                            } else {
+                                this.input.up = true;
+                                this.input.right = false;
+                                this.input.down = false;
+                                this.input.left = false;
+                            }
+                        }
+                    }
+                }
+            }
             for (var i=0;i<players.concat(computers).length;i++) {
                 var p = players.concat(computers)[i];
                 for (var m=0;m<p.history.length;m++) {
@@ -562,6 +672,9 @@ function update() {
         computers[i].update();
         computers[i].draw();
     }
+    for (var i=0;i<fruit.length;i++) {
+        fruit[i].draw();
+    }
     if (powerups.slow>0) {
         powerups.slow--;
     } else {
@@ -576,9 +689,15 @@ function update() {
     } else {
         document.getElementsByTagName("table")[0].style.borderColor="black";
     }
-    if (lossP==playerNumber&&lossC==computerNumber) {document.body.innerHTML+="<div>TIE.</div>";window.clearInterval(updateInterval);setColors();getPlayers();} else if (lossP==playerNumber-1&&lossC==computerNumber) {if(!players[0].killed){document.body.innerHTML+="<div style=\"color:"+colors[0]+";\">WIN!</div>";window.clearInterval(updateInterval);setColors();getPlayers();}else if(!players[1].killed){document.body.innerHTML+="<div style=\"color:"+colors[1]+"\">WIN!</div>";window.clearInterval(updateInterval);setColors();getPlayers();}else if(!players[2].killed){document.body.innerHTML+="<div style=\"color:"+colors[2]+";\">WIN!</div>";window.clearInterval(updateInterval);setColors();getPlayers();}else if(!players[3].killed){document.body.innerHTML+="<div style=\"color:"+colors[3]+";\">WIN!</div>";window.clearInterval(updateInterval);setColors();getPlayers();}} else if (lossP==playerNumber&&lossC<computerNumber) {document.body.innerHTML+="<div>LOSS.</div>";window.clearInterval(updateInterval);setColors();getPlayers();}
-    for (var i=0;i<fruit.length;i++) {
-        fruit[i].draw();
+    if (lossP==playerNumber&&lossC==computerNumber) {document.body.innerHTML+="<div>TIE.</div>";window.clearInterval(updateInterval);setColors();getPlayers();} else if (lossP==playerNumber-1&&lossC==computerNumber) {if(!players[0].killed){document.body.innerHTML+="<div style=\"color:"+colors[0]+";\">WIN!</div>";window.clearInterval(updateInterval);setColors();getPlayers();}else if(!players[1].killed){document.body.innerHTML+="<div style=\"color:"+colors[1]+"\">WIN!</div>";window.clearInterval(updateInterval);setColors();getPlayers();}else if(!players[2].killed){document.body.innerHTML+="<div style=\"color:"+colors[2]+";\">WIN!</div>";window.clearInterval(updateInterval);setColors();getPlayers();}else if(!players[3].killed){document.body.innerHTML+="<div style=\"color:"+colors[3]+";\">WIN!</div>";window.clearInterval(updateInterval);setColors();getPlayers();}} else if (lossP==playerNumber&&lossC==computerNumber-1) {for (var v=0;v<computers.length;v++){if(!computers[v].killed){document.body.innerHTML+="<div style=\"color:rgb("+computers[v].color.r+","+computers[v].color.g+","+computers[v].color.b+");\">WIN!</div>";window.clearInterval(updateInterval);setColors();getPlayers();}}}
+    var scores = [];
+    for (var i=0;i<players.concat(computers).length;i++) {
+        scores[i] = players.concat(computers)[i].len+"&rgb("+players.concat(computers)[i].color.r+","+players.concat(computers)[i].color.g+","+players.concat(computers)[i].color.b+")";
+    }
+    scores = scores.sort(function(a, b){return parseInt(b)-parseInt(a)});
+    document.getElementById("scoreboard").innerHTML = "";
+    for (var i=0;i<scores.length;i++) {
+        document.getElementById("scoreboard").innerHTML += "<span style=\"color:"+scores[i].split("&")[1]+";\">"+scores[i].split("&")[0]+"</span><br/>";
     }
     ticks++;
 }
