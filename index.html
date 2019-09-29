@@ -15,6 +15,7 @@
         <script>if(window.location.search=="?creppy"||window.location.search=="?spoopy"){document.head.innerHTML+="<link rel=\"stylesheet\" href=\"https://textmonster404.github.io/spoopy.css\">";}</script>
         <script>if(new Date().getMonth()==11){document.head.innerHTML+="<link rel=\"stylesheet\" href=\"https://textmonster404.github.io/candy.css\">";}</script>
         <script>if(window.location.search=="?candy"||window.location.search=="?christmas"||window.location.search=="?hohoho"){document.head.innerHTML+="<link rel=\"stylesheet\" href=\"https://textmonster404.github.io/candy.css\">";}</script>
+        <script>if(window.location.search=="?dark"||window.location.search=="?black"||window.location.search=="?monochrome"||window.location.search=="?mono"||window.location.search=="?gray"||window.location.search=="?grey"||window.location.search=="?grayscale"||window.location.search=="?greyscale"){document.head.innerHTML+="<link rel=\"stylesheet\" href=\"https://textmonster404.github.io/dark.css\">";}</script>
         <style>
             @import url("Games/doge2048/style/fonts/comic-sans.css");
         </style>
@@ -92,7 +93,7 @@
             var tictactop = document.getElementById("tictactop");
             var rurl = document.getElementById("rurl");
             var number = decodeURIComponent(window.location.search.substring(1));
-            if (window.location.href.includes("textmonster404.github.io/?")&&!(window.location.search=="?spoopy"&&window.location.search=="?creppy"&&window.location.search=="?christmas"&&window.location.search=="?candy"&&window.location.search=="?hohoho")) {
+            if (window.location.href.includes("textmonster404.github.io/?")&&!(window.location.search=="?spoopy"&&window.location.search=="?creppy"&&window.location.search=="?christmas"&&window.location.search=="?candy"&&window.location.search=="?hohoho"&&window.location.search=="?dark"||window.location.search=="?black"||window.location.search=="?monochrome"||window.location.search=="?mono"||window.location.search=="?gray"||window.location.search=="?grey"||window.location.search=="?grayscale"||window.location.search=="?greyscale")) {
                 window.location.replace("https://textmonster404.github.io/?"+number+".html");
             } else if (number !== null && number !== "" && number !== "random.html") {
                 tictac.href = "tictactoe?"+parseInt(number)+".html";
