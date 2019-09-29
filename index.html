@@ -93,12 +93,17 @@
             var tictactop = document.getElementById("tictactop");
             var rurl = document.getElementById("rurl");
             var number = decodeURIComponent(window.location.search.substring(1));
-            if (window.location.href.includes("textmonster404.github.io/?")&&!(window.location.search=="?spoopy"&&window.location.search=="?creppy"&&window.location.search=="?christmas"&&window.location.search=="?candy"&&window.location.search=="?hohoho"&&window.location.search=="?dark"||window.location.search=="?black"||window.location.search=="?monochrome"||window.location.search=="?mono"||window.location.search=="?gray"||window.location.search=="?grey"||window.location.search=="?grayscale"||window.location.search=="?greyscale")) {
-                window.location.replace("https://textmonster404.github.io/?"+number+".html");
-            } else if (number !== null && number !== "" && number !== "random.html") {
-                tictac.href = "tictactoe?"+parseInt(number)+".html";
-            } else if (number == "random.html") {
-                tictac.href = "tictactoe?"+Math.floor(Math.random()*1000000000+1)+".html";
+            if (!(window.location.search=="?spoopy"&&window.location.search=="?creppy"&&window.location.search=="?christmas"&&window.location.search=="?candy"&&window.location.search=="?hohoho"&&window.location.search=="?dark"||window.location.search=="?black"||window.location.search=="?monochrome"||window.location.search=="?mono"||window.location.search=="?gray"||window.location.search=="?grey"||window.location.search=="?grayscale"||window.location.search=="?greyscale")) {
+                if (window.location.href.includes("textmonster404.github.io/?")) {
+                    window.location.replace("https://textmonster404.github.io/?"+number+".html");
+                } else if (number !== null && number !== "" && number !== "random.html") {
+                    tictac.href = "tictactoe?"+parseInt(number)+".html";
+                } else if (number == "random.html") {
+                    tictac.href = "tictactoe?"+Math.floor(Math.random()*1000000000+1)+".html";
+                } else {
+                    tictactop.outerHTML = "";
+                    rurl.outerHTML = "";
+                }
             } else {
                 tictactop.outerHTML = "";
                 rurl.outerHTML = "";
