@@ -1,5 +1,5 @@
 checkbox = {};
-checkbox.gameURLs = ["https://textmonster404.github.io/Random/random.html","https://textmonster404.github.io/","https://textmonster404.github.io/index.html"];
+checkbox.gameURLs = ["https://textmonster404.github.io/Random/random.html","https://textmonster404.github.io/","https://textmonster404.github.io/index.html","https://textmonster404.github.io/school/index.html","https://textmonster404.github.io/tools.html","https://textmonster404.github.io/Random/weird.html"];
 checkbox.gameLinks = [];
 
 var uuidv4 = function(){return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));};
