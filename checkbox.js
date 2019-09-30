@@ -45,7 +45,7 @@ checkbox.end = function() {
 checkbox.roulette = function() {
     var a = checkbox.gameLinks[Math.floor(Math.random()*checkbox.gameLinks.length)];
     if (Math.random()*4<1&&checkbox.gameLinks.includes(a)) {
-        a.innerHTML+=" <b style=\"color:green;\"><</b>";
+        a.innerHTML+=" <b style=\"color:green;\">&lt;</b>";
         localStorage.setItem("checkbox",a.href);
         checkbox.removeCheckbox();
         window.clearInterval(checkbox.interval);
@@ -53,4 +53,10 @@ checkbox.roulette = function() {
         checkbox.moveCheckbox();
     }
 }
-if (((Math.random()*32<1||window.location.search=="?game")&&(checkbox.url==""||checkbox.url==null))||checkbox.url==window.location.href) {checkbox.startGame();}
+if (((Math.random()*32<1||window.location.search=="?game")&&(checkbox.url==""||checkbox.url==null))||checkbox.url==window.location.href) {checkbox.startGame();} else {
+    for (var i=0;i<document.getElementsByTagName("a").length;i++) {
+        if (document.getElementsByTagName("a")[i].href==checkbox.url) {
+            document.getElementsByTagName("a")[i].innerHTML+=" <b style=\"color:green;\">&lt;</b>";
+        }
+    }
+}
