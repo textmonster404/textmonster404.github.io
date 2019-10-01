@@ -1,5 +1,6 @@
-    html {background:repeating-linear-gradient(345deg,green 0%,green 10%,red 10%, red 20%);height:100%;}
-    h1 {color:white;text-shadow:none;}
-    table,td,th {border-color:white;background:red;color:white;border-style:solid;}
-    a {color:white;}
-    a:visited {color:green;}
+html {background:repeating-linear-gradient(345deg,green 0%,green 10%,red 10%, red 20%);height:100%;}
+h1 {color:white;text-shadow:none;}
+table,td,th {border-color:white;background:red;color:white;border-style:solid;}
+a {color:white;}
+a:visited {color:green;}
+h1::after{font-size:12pt;content:"(jolly version)";display:block;color:aqua;}
