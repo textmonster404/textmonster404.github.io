@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic-Tac-Two</title>
+        <style>table{border-collapse:collapse;font-size:10px;font-family:serif;}td,button{width:20px;height:20px;text-align:center;font-family:serif;}button{padding:0px;vertical-align:middle;}.c{border:1px solid black;}</style>
+    </head>
+    <body>
+        <h1>Tic-Tac-Two</h1>
+        <script src="tictactwo.js"></script>
+        <h3>Settings:</h3>
+        <p>Players: <button onclick="if(window.location.search.split('&').length==1){window.location.search='?2';} else {window.location.search='?2&'+game.board;}">2</button><button onclick="if(window.location.search.split('&').length==1){window.location.search='?3';} else {window.location.search='?3&'+game.board;}">3</button></p>
+        <p>Board:
+            <select onchange="if(this.value=='random'){window.location.search='?'+game.players;} else {window.location.search='?'+game.players+'&'+this.value;}" size="4" style="vertical-align:top;">
+                <option disabled>Select Board</option>
+                <option value="random">Random</option>
+                <option value="classic" title="2 Player">Classic</option>
+                <option value="classic3player" title="3 Player">Classic (3 Player)</option>
+                <option value="rectangle" title="2 Player">Rectangle</option>
+                <option value="cross" title="2 Player">Cross</option>
+                <option value="dumbbell" title="2 Player">Dumbbell</option>
+                <option value="dumbbell3player" title="3 Player">Dumbbell (3 Player)</option>
+                <option value="squarefield" title="3 Player">Square Field</option>
+                <option value="disc" title="3 Player">Disc</option>
+                <option value="wheel" title="2 Player">Wheel</option>
+                <option value="fourbyfour" title="2 Player">Four by Four</option>
+                <option value="pyramid" title="3 Player">Pyramid</option>
+                <option value="temple" title="2 Player">Temple</option>
+                <option value="spiral" title="3 Player">Spiral</option>
+                <option value="whirlpool" title="3 Player">Whirlpool</option>
+                <option value="flower" title="2 Player">Flower</option>
+                <option value="flower3player" title="3 Player">Flower (3 Player)</option>
+                <option value="diagonals" title="3 Player">Diagonals</option>
+            </select>
+        </p>
+    </body>
+</html>
