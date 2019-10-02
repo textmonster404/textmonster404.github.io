@@ -123,11 +123,24 @@ function start() {
 }
 
 function clickSquare(e) {
-    if (e.target.innerText==""&&game.win==0) {
-        e.target.innerText = ["X","O","\u2713"][game.turn-1];
-        game.turn++;
-        if (game.turn>game.players) {
-            game.turn = 1;
+    if (e.target.undo==true) {
+        e.target.innerText="";
+        game.turn--;
+        if (game.turn==0) {
+            game.turn = game.players;
+        }
+        e.target.undo = false;
+    } else {
+        if (e.target.innerText==""&&game.win==0) {
+            e.target.innerText = ["X","O","\u2713"][game.turn-1];
+            game.turn++;
+            if (game.turn>game.players) {
+                game.turn = 1;
+            }
+            for (var i=0;i<document.getElementsByTagName("button").length;i++) {
+                document.getElementsByTagName("button")[i].undo = false;
+            }
+            e.target.undo = true;
         }
     }
     var t = document.getElementsByTagName("table")[0];
