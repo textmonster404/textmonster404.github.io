@@ -211,11 +211,11 @@ function clickSquare(e) {
                              return ;
                          }
                      }
-                     if (t.getCell(x-1,y).innerText=="O") {
-                         if (t.getCell(x-2,y).innerText=="O") {
+                     if (t.getCell(x-1,y+1).innerText=="O") {
+                         if (t.getCell(x-2,y+2).innerText=="O") {
                              t.getCell(x,y).children[0].style.fontWeight = "bold";
-                             t.getCell(x-1,y).children[0].style.fontWeight = "bold";
-                             t.getCell(x-2,y).children[0].style.fontWeight = "bold";
+                             t.getCell(x-1,y+1).children[0].style.fontWeight = "bold";
+                             t.getCell(x-2,y+2).children[0].style.fontWeight = "bold";
                              game.win=2;
                              document.body.innerHTML += "<h3>Player 2 Wins!</h3>";
                              return ;
@@ -253,11 +253,11 @@ function clickSquare(e) {
                             return ;
                         }
                     }
-                    if (t.getCell(x-1,y).innerText=="\u2713") {
-                        if (t.getCell(x-2,y).innerText=="\u2713") {
+                    if (t.getCell(x-1,y+1).innerText=="\u2713") {
+                        if (t.getCell(x-2,y+2).innerText=="\u2713") {
                             t.getCell(x,y).children[0].style.fontWeight = "bold";
-                            t.getCell(x-1,y).children[0].style.fontWeight = "bold";
-                            t.getCell(x-2,y).children[0].style.fontWeight = "bold";
+                            t.getCell(x-1,y+1).children[0].style.fontWeight = "bold";
+                            t.getCell(x-2,y+2).children[0].style.fontWeight = "bold";
                             game.win=3;
                             document.body.innerHTML += "<h3>Player 3 Wins!</h3>";
                             return ;
@@ -306,13 +306,13 @@ function clickSquare(e) {
                             }
                         }
                     }
-                    if (t.getCell(x-1,y).innerText=="X") {
-                        if (t.getCell(x-2,y).innerText=="X") {
-                            if (t.getCell(x-3,y).innerText=="X") {
+                    if (t.getCell(x-1,y+1).innerText=="X") {
+                        if (t.getCell(x-2,y+2).innerText=="X") {
+                            if (t.getCell(x-3,y+3).innerText=="X") {
                                 t.getCell(x,y).children[0].style.fontWeight = "bold";
-                                t.getCell(x-1,y).children[0].style.fontWeight = "bold";
-                                t.getCell(x-2,y).children[0].style.fontWeight = "bold";
-                                t.getCell(x-3,y).children[0].style.fontWeight = "bold";
+                                t.getCell(x-1,y+1).children[0].style.fontWeight = "bold";
+                                t.getCell(x-2,y+2).children[0].style.fontWeight = "bold";
+                                t.getCell(x-3,y+3).children[0].style.fontWeight = "bold";
                                 game.win=1;
                                 document.body.innerHTML += "<h3>Player 1 Wins!</h3>";
                                 return ;
@@ -360,13 +360,13 @@ function clickSquare(e) {
                             }
                         }
                     }
-                    if (t.getCell(x-1,y).innerText=="O") {
-                        if (t.getCell(x-2,y).innerText=="O") {
-                            if (t.getCell(x-3,y).innerText=="O") {
+                    if (t.getCell(x-1,y+1).innerText=="O") {
+                        if (t.getCell(x-2,y+2).innerText=="O") {
+                            if (t.getCell(x-3,y+3).innerText=="O") {
                                 t.getCell(x,y).children[0].style.fontWeight = "bold";
-                                t.getCell(x-1,y).children[0].style.fontWeight = "bold";
-                                t.getCell(x-2,y).children[0].style.fontWeight = "bold";
-                                t.getCell(x-3,y).children[0].style.fontWeight = "bold";
+                                t.getCell(x-1,y+1).children[0].style.fontWeight = "bold";
+                                t.getCell(x-2,y+2).children[0].style.fontWeight = "bold";
+                                t.getCell(x-3,y+3).children[0].style.fontWeight = "bold";
                                 game.win=2;
                                 document.body.innerHTML += "<h3>Player 2 Wins!</h3>";
                                 return ;
@@ -414,13 +414,13 @@ function clickSquare(e) {
                             }
                         }
                     }
-                    if (t.getCell(x-1,y).innerText=="\u2713") {
-                        if (t.getCell(x-2,y).innerText=="\u2713") {
-                            if (t.getCell(x-3,y).innerText=="\u2713") {
+                    if (t.getCell(x-1,y+1).innerText=="\u2713") {
+                        if (t.getCell(x-2,y+2).innerText=="\u2713") {
+                            if (t.getCell(x-3,y+3).innerText=="\u2713") {
                                 t.getCell(x,y).children[0].style.fontWeight = "bold";
-                                t.getCell(x-1,y).children[0].style.fontWeight = "bold";
-                                t.getCell(x-2,y).children[0].style.fontWeight = "bold";
-                                t.getCell(x-3,y).children[0].style.fontWeight = "bold";
+                                t.getCell(x-1,y+1).children[0].style.fontWeight = "bold";
+                                t.getCell(x-2,y+2).children[0].style.fontWeight = "bold";
+                                t.getCell(x-3,y+3).children[0].style.fontWeight = "bold";
                                 game.win=3;
                                 document.body.innerHTML += "<h3>Player 3 Wins!</h3>";
                                 return ;
