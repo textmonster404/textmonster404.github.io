@@ -81,6 +81,7 @@ boards.whirlpool = new Board([[0,0,1,1,0],[1,1,1,1,0],[1,1,0,1,1],[0,1,1,1,1],[0
 boards.flower = new Board([[0,1,1,1,0],[1,1,1,1,1],[1,1,0,1,1],[1,1,1,1,1],[0,1,1,1,0]],2,4);
 boards.flower3player = new Board([[0,1,1,1,0],[1,1,1,1,1],[1,1,0,1,1],[1,1,1,1,1],[0,1,1,1,0]],3);
 boards.diagonals = new Board([[0,0,0,0,1,1,0,0,0,0],[0,0,0,0,1,1,0,0,0,0],[0,0,1,1,0,0,1,1,0,0],[0,0,1,1,0,0,1,1,0,0],[1,1,0,0,1,1,0,0,1,1],[1,1,0,0,1,1,0,0,1,1],[0,0,1,1,0,0,1,1,0,0],[0,0,1,1,0,0,1,1,0,0],[0,0,0,0,1,1,0,0,0,0],[0,0,0,0,1,1,0,0,0,0]],3,4);
+boards.swap = new Board([[0,0,4,4,4,0,0],lineHBlank(7),[2,2,2,0,3,3,3],[2,2,2,0,3,3,3],[2,2,2,0,3,3,3]]);
 
 
 
@@ -91,6 +92,12 @@ function createBoard(board) {
         for (var x=0;x<board.width;x++) {
             if (board.board[y][x]==1) {
                 HTML += "<td class=\"c\"><button></button></td>";
+            } else if (board.board[y][x]==2) {
+                HTML += "<td class=\"c\"><button class=\"s1\"></button></td>";
+            } else if (board.board[y][x]==3) {
+                HTML += "<td class=\"c\"><button class=\"s2\" disabled></button></td>";
+            } else if (board.board[y][x]==4) {
+                HTML += "<td class=\"c\"><button class=\"s\"></button></td>";
             } else {
                 HTML += "<td></td>"
             }
@@ -130,6 +137,11 @@ function clickSquare(e) {
             game.turn = game.players;
         }
         e.target.undo = false;
+        if (e.target.className=="s") {
+            for (var i=0;i<document.querySelectorAll(".s1,.s2").length;i++) {
+                document.querySelectorAll(".s1,.s2")[i].disabled=!document.querySelectorAll(".s1,.s2")[i].disabled;
+            }
+        }
     } else {
         if (e.target.innerText==""&&game.win==0) {
             e.target.innerText = ["X","O","\u2713"][game.turn-1];
@@ -141,6 +153,11 @@ function clickSquare(e) {
                 document.getElementsByTagName("button")[i].undo = false;
             }
             e.target.undo = true;
+            if (e.target.className=="s") {
+                for (var i=0;i<document.querySelectorAll(".s1,.s2").length;i++) {
+                    document.querySelectorAll(".s1,.s2")[i].disabled=!document.querySelectorAll(".s1,.s2")[i].disabled;
+                }
+            }
         }
     }
     var t = document.getElementsByTagName("table")[0];
