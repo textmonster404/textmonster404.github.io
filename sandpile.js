@@ -6,7 +6,7 @@ boards.first = [
     [" "," ","b"],
     ["b"," "," "],
     ["1","1"," "]
-]
+];
 boards.flip = [
     [" "," "," "," "],
     [" ","b","b"," "],
@@ -17,33 +17,53 @@ boards.flip = [
     [" "," ","b"," "],
     [" "," ","b","2"],
     ["2","2","b","b"]
-]
+];
 boards.swap = [
     ["3","2","1"],
     ["1","3","2"],
     ["2","3","1"]
-]
+];
 boards.shake = [
     ["b","b"," ","b","b"],
     ["b"," "," "," ","b"],
     ["1"," "," "," ","1"],
     ["b","2","1","2","b"],
     ["b","b","2","b","b"]
-]
+];
 boards.spiral = [
     ["4","4","2"," "," "],
     ["b","b","b","b"," "],
     [" "," "," "," "," "],
     [" ","b","b","b","b"],
     [" "," ","4","2","2"]
-]
+];
 boards.mountain = [
     ["b","b","b","b","b"],
     ["2","b","b","b","1"],
     ["b"," ","b"," ","b"],
     [" "," "," "," "," "],
     ["1","1"," ","2","2"]
-]
+];
+boards.tunnel = [
+    ["b","b"," ","b","b"],
+    ["b","4"," ","1","b"],
+    ["2","3"," ","2","1"],
+    ["4","1"," ","3","3"],
+    ["b","2"," ","4","b"],
+    ["b","b"," ","b","b"]
+];
+boards.gravity = [
+    ["b","b","b","b","b","b","b","b","b"],
+    [" "," "," "," ","b"," "," "," "," "],
+    [" ","b"," "," ","b"," "," ","b","1"],
+    ["1","b"," "," "," "," "," ","b","1"],
+    ["b","b","b","b","b","b","b","b","b"],
+    ["1","b"," "," "," "," "," ","b","b"],
+    [" ","b"," "," ","b"," "," ","b","b"],
+    [" "," "," "," ","b"," "," "," "," "],
+    ["b","b","b","b","b","b","b","b","1"],
+    ["b","b","b","b","b","b","b","b","1"]
+];
 
 var gravity = 2;
 var cellClicked = [-1,-1];
@@ -542,5 +562,7 @@ dimensions = [boards[window.location.search.substring(1)][0].length,boards[windo
     <li><a href="sandpile.html?shake">Shake</a>
     <li><a href="sandpile.html?spiral">Spiral</a>
     <li><a href="sandpile.html?mountain">Mountain</a>
+    <li><a href="sandpile.html?tunnel">Tunnel</a>
+    <li><a href="sandpile.html?gravity">Gravity</a>
 </ol>`;
 }
