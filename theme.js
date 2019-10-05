@@ -9,8 +9,8 @@ theme.themes = {};
 theme.themes["?spoopy"] = "spoopy.css";
 theme.themes["?creppy"] = "spoopy.css";
 theme.themes["?scary"] = "spoopy.css";
-theme.themes["?spooky"] = "spoopy.css";
-theme.themes["?halloween"] = "spoopy.css";
+theme.themes["?spooktober"] = "spoopy.css";
+theme.themes["?october"] = "spoopy.css";
 theme.themes["?dark"] = "dark.css";
 theme.themes["?black"] = "dark.css";
 theme.themes["?monochrome"] = "dark.css";
@@ -25,6 +25,8 @@ theme.themes["?merry"] = "candy.css";
 theme.themes["?hohoho"] = "candy.css";
 theme.themes["?christmas"] = "candy.css";
 theme.themes["?birthday"] = "birthday.css";
+theme.themes["?spooky"] = "spooky.css";
+theme.themes["?halloween"] = "spooky.css";
 
 
 if (theme.month==10) {
@@ -35,6 +37,9 @@ if (theme.month==12) {
 }
 if (theme.month==9&&theme.day==18) {
     theme.theme = "birthday.css";
+}
+if (theme.month==10&&theme.day==31) {
+    theme.theme = "spooky.css";
 }
 if (theme.themes[window.location.search]) {
     theme.theme = theme.themes[window.location.search];
