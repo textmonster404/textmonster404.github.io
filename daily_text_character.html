@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"></script>
+        <style>
+            @keyframes changedaColor {
+                0% {color:red;}
+                12.5% {color:orange;}
+                25% {color:yellow;}
+                37.5% {color:green;}
+                50% {color:springgreen}
+                62.5% {color:cyan;}
+                75% {color:blue;}
+                87.5% {color:purple;}
+                100% {color:red;}
+            }
+            [today] {
+                font-weight:bolder;
+                animation-name:changedaColor;
+                animation-duration:1s;
+                animation-iteration-count:infinite;
+                animation-timing-function:linear;
+            }
+            [back] {position:fixed;top:calc( 100% - 27px );left:calc( 100% - 41px );}
+            h2,h3,ol {
+                display:inline-block;
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+            details {
+                padding-left:1em;
+            }
+            summary {
+                cursor:pointer;
+                outline:none;
+                display:inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            if(window.location.search==""){
+                var seed = (new Date().getMonth()+1)+"/"+(new Date().getDate())+"/"+(new Date().getFullYear());
+                var random = new Math.seedrandom(seed);
+                var month = new Date().getMonth()+1;
+                var day = new Date().getDate();
+                var year = new Date().getFullYear();
+                console.log(month,day,year);
+                var months = ["January","Febuary","March","April","May","June","July","August","September","October","November","December"];
+                var leaps = [2020,2024,2028,2032,2036,2040,2044,2048];
+                var days = [31,28,31,30,31,30,31,31,30,31,30,31];
+                var html = "";
+                html+="<h1>Daily Text Character</h1>";
+                for (var y=2019;y<=year;y++) {
+                    html+="<details><summary><h2>"+y+"</h2></summary>";
+                    for (var m=1;m<=(function(){if(y<year){return 12;}else{return month;}})();m++) {
+                        html+="<details><summary><h3>"+months[m-1]+"</h3></summary><ol>";
+                        for (var d=1;d<=(function(){if(m<month||y<year){if(leaps.includes(y)&&m==2){return 29;}else{return days[m-1];}}else{return day;}})();d++) {
+                            var r = new Math.seedrandom(m+"/"+d+"/"+y);
+                            if (d==day&&m==month&&y==year) {
+                                html+="<li><a today href=\"daily_text_character.html?"+m+"/"+d+"/"+y+"\">"+eval("\"\\u"+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(r()*16)]+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(r()*16)]+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(r()*16)]+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(r()*16)]+"\"")+"</a>";
+                            } else {
+                                html+="<li><a href=\"daily_text_character.html?"+m+"/"+d+"/"+y+"\">"+eval("\"\\u"+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(r()*16)]+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(r()*16)]+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(r()*16)]+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(r()*16)]+"\"")+"</a>";
+                            }
+                        }
+                        html+="</ol></details>";
+                    }
+                    html+="</details>";
+                }
+                document.body.innerHTML+=html;
+            } else {
+                var seed = window.location.search.substring(1);
+                var random = new Math.seedrandom(seed);
+                document.body.innerHTML+="<h1><a href=\"daily_text_character.html\">Daily Text Character</a> - "+seed+"</h1><div>"+eval("\"\\u"+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(random()*16)]+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(random()*16)]+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(random()*16)]+["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"][Math.floor(random()*16)]+"\"")+"</div>";
+            }
+        </script>
+        <a href="../index.html" back>Back</a>
+    </body>
+</html>
