@@ -3,4 +3,4 @@ table,td,th {border-color:white;border-collapse:collapse;background:black;color:
 h1 {text-shadow: 1px 1px 0px #fff, 1px 0px 0px #fff, 1px -1px 0px #fff, 0px -1px 0px #fff, -1px -1px 0px #fff, -1px 0px 0px #fff, -1px 1px 0px #fff, 0px 1px 0px #fff;}
 a {color:white;}
 a:visited {color:gray;}
-h1::after{font-size:12pt;content:"(dark version)";display:block;color:white;}
+h1::after{font-size:12pt;content:"(dark version)";display:block;color:white;text-shadow:none;}
