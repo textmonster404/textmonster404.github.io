@@ -24,6 +24,7 @@ theme.themes["?jolly"] = "candy.css";
 theme.themes["?merry"] = "candy.css";
 theme.themes["?hohoho"] = "candy.css";
 theme.themes["?christmas"] = "candy.css";
+theme.themes["?birthday"] = "birthday.css";
 
 
 if (theme.month==10) {
@@ -31,6 +32,9 @@ if (theme.month==10) {
 }
 if (theme.month==12) {
     theme.theme = "candy.css";
+}
+if (theme.month==9&&theme.day==18) {
+    theme.theme = "birthday.css";
 }
 if (theme.themes[window.location.search]) {
     theme.theme = theme.themes[window.location.search];
