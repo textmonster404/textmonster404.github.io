@@ -32,8 +32,8 @@ if (theme.month==10) {
 if (theme.month==12) {
     theme.theme = "candy.css";
 }
-if (theme.themes[window.location.href]) {
-    theme.theme = theme.themes[window.location.href];
+if (theme.themes[window.location.search]) {
+    theme.theme = theme.themes[window.location.search];
 }
 if (theme.theme!="") {
     var stylesheet = document.createElement("link");
