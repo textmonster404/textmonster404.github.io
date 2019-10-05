@@ -27,6 +27,11 @@ theme.themes["?christmas"] = "candy.css";
 theme.themes["?birthday"] = "birthday.css";
 theme.themes["?spooky"] = "spooky.css";
 theme.themes["?halloween"] = "spooky.css";
+theme.themes["?minimalism"] = "simple.css";
+theme.themes["?simple"] = "simple.css";
+theme.themes["?blackandwhite"] = "simple.css";
+theme.themes["?saltandpepper"] = "simple.css";
+theme.themes["?outline"] = "simple.css";
 
 
 if (theme.month==10) {
