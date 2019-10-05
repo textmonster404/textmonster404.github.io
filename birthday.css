@@ -1,0 +1,6 @@
+html {background-repeat: repeat; background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA8UlEQVRYR+2X4Q6FIAiF5cmvPbl3uFjkUIik7t3sV20qnwc8JJRcSnI+8IE6s2zuJRJ4ATD4ncC0ZzeAJhrkY0Rh7+28EAAMzoO23xwiFIBUQJgeRCgA7pQC2wAypJT9FX2Sds87peIxACmQvQYmKcBPQPWJS6dgEoR2TPs+8BMAiDepGDUl5GP4oAohPqDtOtwJF0CYAm2LHTmcFcJchL0WexfCBMA7Glmr1uWmKiAFewWA+jtvMKYUDIzNlAL+Y9H2/FGnO6UBIQSLNwPw3dPC5uA0QYC4BGAtLHUcA3kHgBEugKXA/ytAV/Tqjo5r+hdoh9DBGrVRvAAAAABJRU5ErkJggg==");}
+table,td,th {border-color:white;border-collapse:collapse;background:purple;color:#fff;}
+h1 {color:white;text-shadow: 1px 1px 0px #ff80ff, 1px 0px 0px #ff80ff, 1px -1px 0px #ff80ff, 0px -1px 0px #ff80ff, -1px -1px 0px #ff80ff, -1px 0px 0px #ff80ff, -1px 1px 0px #ff80ff, 0px 1px 0px #ff80ff;}
+a {color:#ff80ff;}
+a:visited {color:#cc00cc;}
+h1::after{font-size:12pt;content:"(birthday version)";display:block;color:white;}
