@@ -4,6 +4,7 @@
     <head>
         <link rel="icon/icon.ico"/>
         <title>Particle Chaos (JS Canvas)</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"></script>
         <style>
 body {background:black;text-align:center;overflow:hidden;margin:0px;padding:0px;}
 canvas {left:calc( 50% - 1000px );position:absolute;top:calc( 50% - 500px );}
@@ -12,9 +13,78 @@ canvas {left:calc( 50% - 1000px );position:absolute;top:calc( 50% - 500px );}
     <body>
         <canvas id="canvas" width="2000" height="1000"></canvas>
         <script>
-var parameters = decodeURIComponent(atob(window.location.search.substring(1))).split("&");
-
-var t = parseFloat(parameters[2]);
+var parameters = [];
+var t = 0;
+var point_limit = 1;
+var speed = 0.0001;
+var scale = 1;
+try {atob(window.location.search.substring(1));
+    var random = new Math.seedrandom(window.location.search);
+    parameters = ["",""];
+    speed = Math.random();
+    for (var i=0;i<2;i++) {
+        var l = Math.floor(random()*12+4);
+        for (var c=0;c<l;c++) {
+            parameters[i] += ["x","y","t"][Math.floor(random()*3)];
+            if (c!=l-1) {
+                parameters[i] += ["+","-","*"][Math.floor(random()*3)];
+            }
+        }
+        var value = parameters[i].split("+").join("&").split("-").join("&").split("&");
+        var filter = [];
+        for (var j=0;j<value.length;j++) {
+            if (!filter.includes(value[j])) {
+                filter.push(value[j]);
+            }
+        }
+        parameters[i] = "";
+        for (var v=0;v<filter.length;v++) {
+            parameters[i] += filter[v];
+            if (v!=filter.length-1) {
+                parameters[i] += ["+","-"][Math.floor(random()*2)];
+            }
+        }
+    }
+    point_limit = Math.floor(random()*200)+400;
+    speed = random()*0.01+0.0001;
+    t = random()*2-1;
+    scale = Math.floor(random()*80)+60;
+} catch(e) {
+    var random = new Math.seedrandom(window.location.search);
+    parameters = ["",""];
+    speed = Math.random();
+    for (var i=0;i<2;i++) {
+        var l = Math.floor(random()*12+4);
+        for (var c=0;c<l;c++) {
+            parameters[i] += ["x","y","t"][Math.floor(random()*3)];
+            if (c!=l-1) {
+                parameters[i] += ["+","-","*"][Math.floor(random()*3)];
+            }
+        }
+        var value = parameters[i].split("+").join("&").split("-").join("&").split("&");
+        var filter = [];
+        for (var j=0;j<value.length;j++) {
+            if (!filter.includes(value[j])) {
+                filter.push(value[j]);
+            }
+        }
+        parameters[i] = "";
+        for (var v=0;v<filter.length;v++) {
+            parameters[i] += filter[v];
+            if (v!=filter.length-1) {
+                parameters[i] += ["+","-"][Math.floor(random()*2)];
+            }
+        }
+    }
+    point_limit = Math.floor(random()*200)+400;
+    speed = random()*0.01+0.0001;
+    t = random()*2-1;
+    scale = Math.floor(random()*80)+60;
+}
+try {
+    if (decodeURIComponent(atob(window.location.search.substring(1))).split("&").length==6){parameters = decodeURIComponent(atob(window.location.search.substring(1))).split("&");}
+} catch(e) {}
+if (parameters.length==6){t = parseFloat(parameters[2])};
 var sin = Math.sin;
 var cos = Math.cos;
 var tan = Math.tan;
@@ -37,11 +107,11 @@ var ctx = c.getContext("2d");
 ctx.fillRect(0,0,2000,1000); // set bg
 
 /* points */
-var point_limit = parseInt(parameters[3]); // How many points?
+if (parameters.length==6){point_limit = parseInt(parameters[3]);} // How many points?
 var points = []; // point table
 
 // You may edit this
-var speed = parseFloat(parameters[4]);
+if (parameters.length==6){speed = parseFloat(parameters[4])};
 
 // create points //
 var u = function() {
@@ -56,7 +126,7 @@ var u = function() {
   }
   t += speed;
 }
-var scale = parseFloat(parameters[5]);
+if (parameters.length==6){scale = parseFloat(parameters[5]);}
 var d = function() {
   ctx.fillStyle = "#FFFFFF";
   for (var i=0;i<points.length;i++) {
