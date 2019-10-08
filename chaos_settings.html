@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chaos Settings</title>
+    </head>
+    <body>
+        <h1>Chaos Settings</h1>
+        <form>
+            <h3>Equations</h3>
+            <div><b>x' = </b><input type="text" value="(-t)**2 - x**2 + y - t" title="Dont do - x**2, use - (x**2)."/></div>
+            <div><b>y' = </b><input type="text" value="x**2 - t - y + x" title="Dont do - x**2, use - (x**2)."/></div>
+            <h3>Config</h3>
+            <div><b>t<sub>0</sub> = </b><input type="number" value="-0.5" title="Use small negative values for best results."/></div>
+            <div><b>Points: </b><input type="number" value="500" title="Use < 1000 for lag reduction."/></div>
+            <div><b>Δt = </b><input type="number" value="0.0005" title="Use INCREDIBLY small numbers for this."/></div>
+            <div><b>Scale: </b><input type="number" value="100" title="Values < 200 work best."/></div>
+            <div><input type="button" onclick="goToURL();" value="Go!"/></div>
+        </form>
+        <script>
+            function goToURL() {
+                var parameters = "";
+                for (var i=0;i<6;i++) {
+                    parameters+=document.getElementsByTagName("input")[i].value;
+                    if (i!=5) {parameters+="&";}
+                }
+                window.location.href = "chaos.html?"+btoa(parameters);
+            }
+        </script>
+    </body>
+</html>
