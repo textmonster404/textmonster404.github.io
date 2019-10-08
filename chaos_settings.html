@@ -19,11 +19,25 @@
         <script>
             for (var i=0;i<2;i++) {
                 var input = document.getElementsByTagName("input")[i];
-                var l = Math.floor(Math.random()*8+2);
+                var l = Math.floor(Math.random()*12+4);
                 if (input.value=="") {
                     for (var c=0;c<l;c++) {
                         input.value += ["x","y","t"][Math.floor(Math.random()*3)];
                         if (c!=l-1) {
+                            input.value += ["+","-","*"][Math.floor(Math.random()*3)];
+                        }
+                    }
+                    var value = input.value.split("+").join("&").split("-").join("&").split("&");
+                    var filter = [];
+                    for (var j=0;j<value.length;j++) {
+                        if (!filter.includes(value[j])) {
+                            filter.push(value[j]);
+                        }
+                    }
+                    input.value = "";
+                    for (var v=0;v<filter.length;v++) {
+                        input.value += filter[v];
+                        if (v!=filter.length-1) {
                             input.value += ["+","-","*"][Math.floor(Math.random()*3)];
                         }
                     }
