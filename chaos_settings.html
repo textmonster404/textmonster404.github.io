@@ -7,8 +7,8 @@
         <h1>Chaos Settings</h1>
         <form>
             <h3>Equations</h3>
-            <div><b>x' = </b><input type="text" value="(-t)**2 - x**2 + y - t" title="Dont do - x**2, use - (x**2)."/></div>
-            <div><b>y' = </b><input type="text" value="x**2 - t - y + x" title="Dont do - x**2, use - (x**2)."/></div>
+            <div><b>x' = </b><input type="text" value="" title="Dont do - x**2, use - (x**2)."/></div>
+            <div><b>y' = </b><input type="text" value="" title="Dont do - x**2, use - (x**2)."/></div>
             <h3>Config</h3>
             <div><b>t<sub>0</sub> = </b><input type="number" value="-0.5" title="Use small negative values for best results."/></div>
             <div><b>Points: </b><input type="number" value="500" title="Use < 1000 for lag reduction."/></div>
@@ -17,6 +17,18 @@
             <div><input type="button" onclick="goToURL();" value="Go!"/></div>
         </form>
         <script>
+            for (var i=0;i<2;i++) {
+                var input = document.getElementsByTagName("input")[i];
+                var l = Math.floor(Math.random()*8+2);
+                if (input.value=="") {
+                    for (var c=0;c<l;c++) {
+                        input.value += ["x","y","t"][Math.floor(Math.random()*3)];
+                        if (c!=l-1) {
+                            input.value += ["+","-","*"][Math.floor(Math.random()*3)];
+                        }
+                    }
+                }
+            }
             function goToURL() {
                 var parameters = "";
                 for (var i=0;i<6;i++) {
