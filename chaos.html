@@ -109,6 +109,7 @@ ctx.fillRect(0,0,2000,1000); // set bg
 /* points */
 if (parameters.length==6){point_limit = parseInt(parameters[3]);} // How many points?
 var points = []; // point table
+var previousPoints = [];
 
 // You may edit this
 if (parameters.length==6){speed = parseFloat(parameters[4])};
@@ -128,18 +129,26 @@ var u = function() {
 }
 if (parameters.length==6){scale = parseFloat(parameters[5]);}
 var d = function() {
-  ctx.fillStyle = "#FFFFFF";
   for (var i=0;i<points.length;i++) {
-    ctx.fillRect(2000/2+points[i].x*scale,1000/2+points[i].y*scale,1,1);
+    ctx.strokeStyle = "hsl("+(360/points.length)*i+",100%,50%)";
+    ctx.beginPath();
+    if (!previousPoints[i]) {
+        previousPoints[i] = points[i];
+    }
+    ctx.moveTo(2000/2+previousPoints[i].x*scale, 1000/2+previousPoints[i].y*scale);
+    ctx.lineTo(2000/2+points[i].x*scale, 1000/2+points[i].y*scale);
+    ctx.stroke();
+    previousPoints[i] = points[i];
   }
-  ctx.fillStyle = "#00000004";
+  ctx.fillStyle = "#00000011";
   ctx.fillRect(0,0,2000,1000);
 }
 var g = function() {
   u();
   d();
+  window.requestAnimationFrame(g);
 }
-window.setInterval(g,1);
+window.requestAnimationFrame(g);
         </script>
     </body>
 </html>
