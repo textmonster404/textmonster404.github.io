@@ -130,13 +130,13 @@ var u = function() {
 if (parameters.length==6){scale = parseFloat(parameters[5]);}
 var d = function() {
   for (var i=0;i<points.length;i++) {
-    ctx.strokeStyle = "hsl("+(360/points.length)*i+",100%,50%)";
+    ctx.fillStyle = "hsl("+(360/points.length)*i+",100%,50%)";
     ctx.beginPath();
-    if (!previousPoints[i]) {
+    //if (!previousPoints[i]) {
         previousPoints[i] = points[i];
-    }
-    ctx.moveTo(2000/2+previousPoints[i].x*scale, 1000/2+previousPoints[i].y*scale);
-    ctx.lineTo(2000/2+points[i].x*scale, 1000/2+points[i].y*scale);
+    //}
+//    ctx.moveTo(2000/2+previousPoints[i].x*scale, 1000/2+previousPoints[i].y*scale);
+    ctx.fillRect(2000/2+points[i].x*scale, 1000/2+points[i].y*scale,1,1);
     ctx.stroke();
     previousPoints[i] = points[i];
   }
