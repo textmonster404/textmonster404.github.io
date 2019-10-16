@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Draaaaaaaaaaaaaaawing</title>
+        <style>
+            body,html {height:100%;overflow:hidden;user-select:none;}
+            div {height:100%;}
+            span {transform-origin:50%, 50%;display:inline-block;position:absolute;line-height:0.6;}
+        </style>
+    </head>
+    <body>
+        <script>
+            var pCursor = {"clientX":0,"clientY":0};
+            var firstA = true;
+            function isCollide(a, b) {
+                return !(
+                    ((a.top + a.height) < (b.top)) ||
+                    (a.top > (b.top + b.height)) ||
+                    ((a.left + a.width) < b.left) ||
+                    (a.left > (b.left + b.width))
+                );
+            }
+            window.onmousemove = function(e) {
+                var A = document.createElement("span");
+                A.innerText = "A";
+                A.style.display = "inline-block";
+                A.style.position = "absolute";
+                A.style.transform = "rotate("+(Math.atan2(e.clientY-pCursor.clientY,e.clientX-pCursor.clientX)+Math.PI/2)+"rad)";
+                A.style.fontSize = Math.sqrt((e.clientY-pCursor.clientY)**2+(e.clientX-pCursor.clientX)**2)+8+"px";
+                A.style.top = e.clientY+"px";
+                A.style.left = e.clientX+"px";
+                document.body.appendChild(A);
+                A.style.top = (parseInt(A.style.top)-A.getBoundingClientRect().height/2)+"px";
+                A.style.left = (parseInt(A.style.left)-A.getBoundingClientRect().width/2)+"px";
+                for (var i=0;i<document.getElementsByTagName("span").length;i++) {
+                    if (document.getElementsByTagName("span")[i]!=A&&isCollide(A.getBoundingClientRect(),document.getElementsByTagName("span")[i].getBoundingClientRect())) {
+                        A.remove();
+                    }
+                }
+                if (firstA) {A.remove()};
+                pCursor = e;
+                firstA = false;
+            }
+        </script>
+    </body>
+</html>
