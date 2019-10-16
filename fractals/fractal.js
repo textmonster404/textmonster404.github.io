@@ -37,6 +37,6 @@ function setup() {
   noStroke();
   background(255);
   fill(0);
-  drawPattern(iterations);
   translate(-pattern[0].length,-pattern.length);
+  drawPattern(iterations);
 }
