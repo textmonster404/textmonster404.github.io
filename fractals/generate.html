@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fractal Generator</title>
+        <style>
+            input[type=checkbox] {margin:0px;}
+            body {line-height:0.0;}
+        </style>
+    </head>
+    <body>
+        <div style="line-height:initial;">
+            <h1>Fractal Generator</h1>
+            <div>Width: <input type="number" value="" onchange="checkbox();"/></div>
+            <div>Height: <input type="number" value="" onchange="checkbox();"/></div>
+            <div>Iterations: <input type="number" value=""/></div>
+            <div style="line-height:2.0;"><button onclick="update();" style="vertical-align:top;">Go!</button></div>
+        </div>
+        <script>
+            function checkbox() {
+                for (var i=document.getElementsByTagName("input").length-1;i>=3;i--) {
+                    document.getElementsByTagName("input")[i].remove();
+                }
+                for (var i=document.getElementsByTagName("br").length-1;i>=0;i--) {
+                    document.getElementsByTagName("br")[i].remove();
+                }
+                for (var y=0;y<document.getElementsByTagName("input")[1].value;y++) {
+                    document.body.appendChild(document.createElement("br"));
+                    for (var x=0;x<document.getElementsByTagName("input")[0].value;x++) {
+                        var temp = document.createElement("input");
+                        temp.type = "checkbox";
+                        document.body.appendChild(temp);
+                    }
+                }
+            }
+            function update() {
+                var url = document.getElementsByTagName("input")[0].value+"&"+document.getElementsByTagName("input")[1].value+"&";
+                for (var i=3;i<document.getElementsByTagName("input").length;i++) {
+                    if (document.getElementsByTagName("input")[i].checked) {
+                        url+=1;
+                    } else {
+                        url+=0;
+                    }
+                }
+                url+="&"+document.getElementsByTagName("input")[2].value;
+                window.location.href = "fractal.html?"+url;
+            }
+            checkbox();
+        </script>
+    </body>
+</html>
