@@ -8,8 +8,9 @@
             body {font-family:'Comic Sans','Comic Sans',Chalkboard,Helvetica,Arial,sans-serif;text-align:center;}
             a {font-size:24pt;color:green;}
             a:active {color:orange;}
-            a:visited {color:red;}
+            a.visited {color:red;}
             ol {width:fit-content;margin-inline-start:auto;margin-inline-end:auto;}
+            li {font-size:24pt;}
         </style>
     </head>
     <body>
@@ -26,5 +27,12 @@
             <li><a href="typing.html?can">can</a>
             <li><a href="typing.html?like">like</a>
         </ol>
+        <script>
+            for (var i=0;i<document.getElementsByTagName("a").length;i++) {
+                if (localStorage.getItem("typing-"+document.getElementsByTagName("a")[i].innerText)) {
+                    document.getElementsByTagName("a")[i].setAttribute("class","visited");
+                }
+            }
+        </script>
     </body>
 </html>
