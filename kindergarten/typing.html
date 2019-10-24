@@ -46,6 +46,12 @@
             text.innerText = word;
             check.innerText = "Check!";
             check.onclick = function(){
+                var similar = true;
+                for (var i=0;i<type.value.length;i++) {
+                    if (!word.includes(type.value.charAt(i))) {
+                        similar = false;
+                    }
+                }
                 if (type.value==word) {
                     response.innerHTML = "<font color=\"green\">Good job!</font>";
                     type.style.borderBottom = "2px solid lime";
@@ -56,7 +62,7 @@
                     response.innerHTML = "Looks like you didn't type anything.<br/>Click on the box that says, \"Type here!\"";
                 } else if (word.toLowerCase()==type.value&&word.toLowerCase()!=word) {
                     response.innerHTML = "Use the <b>shift</b> key to make letters upper case.";
-                } else if (word.includes(type.value)) {
+                } else if (similar) {
                     response.innerHTML = "Close! Try again.";
                 } else {
                     response.innerHTML = "Good try. Try again.";
