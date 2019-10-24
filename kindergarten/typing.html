@@ -73,7 +73,7 @@
             window.setInterval(function(){
                 time++;
                 if (time>20&&response.innerHTML!="<font color=\"green\">Good job!</font>"&&type.value.length<word.length) {
-                    response.innerHTML = keys[word.charAt(type.value.length)];
+                    response.innerHTML = keys[word.charAt(type.value.length).toLowerCase()];
                     time = 10;
                     looking = true;
                 }
