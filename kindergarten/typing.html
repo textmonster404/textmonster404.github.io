@@ -51,6 +51,7 @@
                     type.style.borderBottom = "2px solid lime";
                     type.disabled = true;
                     localStorage.setItem("typing-"+word,true);
+                    window.setTimeout(function(){window.location.href="typinglist.html";},2000);
                 } else if (type.value=="") {
                     response.innerHTML = "Looks like you didn't type anything.<br/>Click on the box that says, \"Type here!\"";
                 } else if (word.toLowerCase()==type.value&&word.toLowerCase()!=word) {
