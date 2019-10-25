@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Cats (Video)</title>
+        <style>
+            body {margin:0px;overflow-x:hidden;}
+            div,span {
+                height:100vh;
+                background-repeat:no-repeat;
+                background-color:black;
+                background-position:center;
+                background-attachment:fixed;
+                background-size:contain;
+                font-size:100px;
+                color:white;
+                text-align:center;
+                line-height:100vh;
+            }
+            div:nth-child(2n-1) {
+                border-bottom:10px solid white;
+            }
+            div:nth-child(2n) {
+                background-color:white;
+                color:black;
+            }
+            div:first-child {border-top-width:0px;}
+            div:last-child {border-bottom-width:0px;}
+            span {display:block;width:50vw;height:100vh;position:absolute;background-color:black;border:0px;transition:left 2s ease;color:white;cursor:pointer;transform:translateY(10px);}
+            span::selection {background:transparent;}
+            #curtain1 {top:100vh;left:0vw;text-align:right;}
+            #curtain2 {top:100vh;left:50vw;text-align:left;}
+            video {height:100vh;cursor:pointer;}
+            #time {height:2vh;top:100vh;left:0vh;width:0vw;transition:width 0.2s linear;position:absolute;transform:translateY(10px);display:block;background:grey;}
+            a:visited {color:black;}
+            a:hover {text-decoration:underline;}
+            a {color:black;text-decoration:underline;}
+            a:active {color:black;}
+        </style>
+        <script async src="slides.js"></script>
+    </head>
+    <body>
+        <div>Video</div>
+        <div><section id="time"></section><video><source src="20180525_201000.mp4" type="video/mp4"></video><span id="curtain1">Op</span><span id="curtain2">en</span></div>
+        <script>
+            var time=document.getElementById("time");
+            var video=document.getElementsByTagName("video")[0];
+            var curtains=document.getElementsByTagName("span");
+            function openCurtains() {
+                curtains[0].style.left="-50vw";
+                curtains[1].style.left="100vw";
+                window.setTimeout(function() {
+                    paused=!paused;
+                    if (paused) {
+                        video.pause();
+                    } else {
+                        video.play();
+                    }
+                },2000);
+                window.setTimeout(function(){
+                    window.onkeydown=function(e) {
+                        if (e.key=="ArrowRight") {
+                            video.currentTime+=5;
+                        } else if (e.key="ArrowLeft") {
+                            video.currentTime-=5;
+                        }
+                        if (video.currentTime>video.duration) {
+                            video.currentTime=video.duration;
+                        } else if (video.currentTime<0) {
+                            video.currentTime=0;
+                        }
+                    }
+                    video.onclick=function() {
+                        paused=!paused;
+                        if (paused) {
+                            video.pause();
+                        } else {
+                            video.play();
+                        }
+                    }
+                },2000);
+            }
+            curtains[0].onclick=openCurtains;
+            curtains[1].onclick=openCurtains;
+            function closeCurtains() {
+                video.onended=null;
+                curtains[0].innerText="Clo";
+                curtains[1].innerText="sed";
+                curtains[0].style.transition="left 4s ease";
+                curtains[1].style.transition="left 4s ease";
+                curtains[0].style.left="0vw";
+                curtains[1].style.left="50vw";
+                window.onkeydown=null;
+                curtains[0].onclick=null;
+                curtains[1].onclick=null;
+                window.setTimeout(function(){
+                    var back=document.createElement("div");
+                    back.innerHTML="<a href=\"index.html#slide11\">Back</a>";
+                    document.body.appendChild(back);
+                },4000);
+            }
+            video.onended=closeCurtains;
+            video.volume=0;
+            var paused=true;
+            video.ontimeupdate=function() {
+                time.style.width=(video.currentTime/video.duration)*100+"vw";
+            }
+        </script>
+    </body>
+</html>

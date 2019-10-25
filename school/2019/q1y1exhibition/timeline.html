@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Timeline</title>
+        <style>
+            html {height:100%;}
+            td.content {border-bottom:2px solid black;padding-right:150px;}
+            body {overflow-x:scroll;white-space:nowrap;vertical-align:middle;height:100%;overflow-y:hidden;margin:0px;padding-left:30%;transition:background 6s;}
+            td.p {padding-left:100px;}
+            td[x] {padding-left:2.5em;}
+            td[c] {border-bottom:2px solid black;}
+            h1.q::after {content:"";border-left:12px solid black;border-top:11px solid transparent;border-bottom:11px solid transparent;height:2px;display:inline-block;position:relative;left:47px;}
+            h1.q {position:relative;top:2px;}
+            h2 {position:relative;top:0px;}
+            h2::before {content:"";position:relative;vertical-align:middle;right:4px;width:1.25em;height:2px;background:linear-gradient(90deg,black,transparent);display:inline-block;bottom:1px;}
+            p {margin-top:0.5em;margin-bottom:0.5em;}
+            table[t] {position:absolute;top:50%;transform:translateY(-50%);padding-right:2000px;left:initial;transition:left 10s;}
+            h1[l] {position:absolute;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);z-index:0;color:transparent;transition:color 4s;}
+            h1[l] a, h1[l] a:visited, h1[l] a:active, h1[l] a:hover {color:inherit;transition:color 4s;}
+            h3 {font-size:48px;margin:0px;text-align:center;}
+            h1 {margin:0px;}
+            tr table tr:nth-of-type(1) td:not(.title):not(.end) {height:48vh;vertical-align:bottom;}
+            tr table tr:nth-of-type(1) td:not(.title):not(.end):not(.p)::after {height:24px;width:2px;display:inline-block;content:"";background:black;margin-left:50%;margin-right:50%;position:relative;top:7px;}
+            tr table tr:nth-of-type(2) td:not(.title):not(.end) {height:48vh;vertical-align:top;}
+            img {max-width:300px;max-height:40vh;}
+            td.desc {text-align:center;padding-right:150px;}
+        </style>
+    </head>
+    <body>
+        <table t>
+            <tbody>
+                <tr>
+                    <td class="title">
+                        <h1 class="q">Changes Over Time - Timeline</h1>
+                    </td>
+                    <td x></td>
+                    <td>
+                        <table style="border-collapse:collapse;">
+                            <tbody>
+                                <tr>
+                                    <td class="content">
+                                        <h3>2005</h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="Josh 3 weeks 003.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3>2006</h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="IMG_0427.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3>2009-2013</h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3>2014</h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20140110_174018.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20140704_182809-ANIMATION.gif"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20140704_183945.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20140704_185255.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20140706_181952.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20140708_142419.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20140817_152837.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20140902_070911.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20141226_090316.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3>2015</h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20150502_140643.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20151031_180415.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20151224_183021.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3>2016</h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20160620_154054.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20160620_163405.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20160722_163222.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3>2016.5</h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3>2017</h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20170612_102315.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20170710_170926.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3>2018</h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20180226_150555.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20180226_165200.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3>2019</h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20190606_191354.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                    <td class="content">
+                                        <h3><img src="20190918_193016.jpg"></h3>
+                                    </td>
+                                    <td class="p" c></td>
+                                </tr>
+                                <tr>
+                                    <td class="desc">
+                                        <i>I was born on September 18<sup>th</sup> in this year.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>Me, three weeks old.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>My school life was hell here.</i>
+                                        <ul style="text-align:left;">
+                                            <li>Star academy</li>
+                                            <li>Bannon creek</li>
+                                            <li>Twin rivers</li>
+                                            <li>Sierra (Eastern, Lower) school</li>
+                                        </ul>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>I attended John Morse Elementary.<br/>It was smooth sailing off a cliff.<br/>We moved to Wintermist (in the Pocket Area).<br/>My maternal grandmother died a month later and<br/>my mom got cancer a month after that.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>Capitola</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Me&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grandpa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yvonne</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>Me at a waterpark.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>At the Sacramento river.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>Apparently younger me found taking<br/>photos a miserable experience.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>Almost Christmas.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>The year my class fell to chaos.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>My first rock-climbing experience.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>Pizza for Halloween... <br>Why not?</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>Christmas.<br/>The holiday that apparently<br/>starts in November to Target.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>I changed schools to Natomas Charter PACT Program.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>Glass Beach at Fort Bragg.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>I have always had a passion for math.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i></i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>I graduated 8<sup>th</sup> grade.</i>
+                                    </td>
+                                    <td class="p"></td>
+                                    <td class="desc">
+                                        <i>Cup-cake</i>
+                                    </td>
+                                    <td class="p"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td class="end">
+                        <h2><i>Now</i></h2>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h1 l>That was me. &nbsp;<a href="index.html#slide13">Who am I now?</a></h1>
+        <script>
+            window.onbeforeunload = function(){window.scrollTo(0,0);}
+            window.onload = function(){window.scrollTo(0,0);}
+            window.setTimeout(window.scrollTo,10,0,0);
+            window.setTimeout(function(){window.setInterval(function(){if(window.scrollX>17100){window.scrollTo(0,0);document.body.style.background="black";document.querySelector("table[t]").style.left="-2000em";document.querySelector("h1[l]").style.color="white";}},0);},100);
+        </script>
+    </body>
+</html>
