@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz Generator</title>
+        <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-database.js"></script>
+        <script>firebase.initializeApp({databaseURL:"https://quiz-125cb.firebaseio.com/"});</script>
+    </head>
+    <body>
+        <div style="border-bottom:1px dashed grey;position:sticky;top:8px;left:0px;transform:translate(-8px,-8px);width:100vw;">
+            <div style="text-align:center;display:inline-block;height:20px;width:calc(16.666vw - 1px);border-right:1px dashed grey;cursor:pointer;line-height:20px;background:white;" onclick="addTitle();">Title</div><div style="text-align:center;display:inline-block;height:20px;width:calc(16.666vw - 1px);border-right:1px dashed grey;cursor:pointer;line-height:20px;background:white;" onclick="addQuestion();">Question</div><div style="text-align:center;display:inline-block;height:20px;width:calc(16.666vw - 1px);border-right:1px dashed grey;cursor:pointer;line-height:20px;background:white;" onclick="addRadio();"><input type="radio" onclick="addRadio();event.target.checked=false;"/></div><div style="text-align:center;display:inline-block;height:20px;width:calc(16.666vw - 1px);border-right:1px dashed grey;cursor:pointer;line-height:20px;background:white;" onclick="addCheckbox();"><input type="checkbox" onclick="addCheckbox();event.target.checked=false;"/></div><div style="text-align:center;display:inline-block;height:20px;width:calc(16.666vw - 1px);border-right:1px dashed grey;cursor:pointer;line-height:20px;background:white;" onclick="addInput();">Response</div><div style="text-align:center;display:inline-block;height:20px;width:calc(16.666vw - 1px);cursor:pointer;line-height:20px;background:white;" onclick="create();">Submit</div>
+            <div style="height:20px;width:100vw;border-top:1px dashed grey;cursor:text;outline:none;background:white;" contenteditable id="text"></div>
+        </div>
+        <div id="quiz"></div>
+        <script>
+            var quiz = document.getElementById("quiz");
+            var text = document.getElementById("text");
+            var deleteMode = true;
+            var question = 0;
+            function update() {
+                question = 0;
+                if (deleteMode) {
+                    for (var i=0;i<quiz.children.length;i++) {
+                        if (quiz.children[i].tagName=="OL") {
+                            question++;
+                            quiz.children[i].children[0].value=question;
+                            quiz.children[i].children[0].onclick = function(e){e.target.parentElement.remove();};
+                        } else {
+                            quiz.children[i].onclick = quiz.children[i].remove;
+                        }
+                        if (quiz.children[i].tagName=="DIV"&&quiz.children[i].id!="quiz") {
+                            quiz.children[i].children[0].name=question;
+                        }
+                    }
+                } else {
+                    for (var i=0;i<quiz.children.length;i++) {
+                        quiz.children[i].onclick = null;
+                    }
+                }
+                text.innerHTML = "";
+            }
+            function addTitle() {
+                quiz.innerHTML+="<h1>"+text.innerHTML+"</h1>";
+                update();
+            }
+            function addQuestion() {
+                question++;
+                quiz.innerHTML+="<ol style=\"margin-bottom:0px;\"><li value=\""+question+"\"/>"+text.innerHTML+"</ol>";
+                update();
+            }
+            function addRadio() {
+                quiz.innerHTML+="<div style=\"padding-left:40px;\"><input type=\"radio\" name=\""+question+"\"/> "+text.innerHTML+"</div>";
+                update();
+            }
+            function addCheckbox() {
+                quiz.innerHTML+="<div style=\"padding-left:40px;\"><input type=\"checkbox\" name=\""+question+"\"/> "+text.innerHTML+"</div>";
+                update();
+            }
+            function addInput() {
+                quiz.innerHTML+="<div style=\"padding-left:40px;\"><input/></div>";
+                update();
+            }
+            function create() {
+                quiz.innerHTML+="<button onclick=\"create();\">Submit</button>";
+                var uuidv4 = function(){return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));};
+                var name = uuidv4();
+                var url = "https://textmonster404.github.io/quiz.html?"+name;
+                firebase.database().ref(name).set(quiz.innerHTML);
+                text.innerHTML = url;
+            }
+            text.onkeypress = function(e) {
+                if (e.key=="Enter") {
+                    e.preventDefault();
+                }
+            }
+        </script>
+    </body>
+</html>
