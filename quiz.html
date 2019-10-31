@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz Generator</title>
+        <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-database.js"></script>
+        <script>firebase.initializeApp({databaseURL:"https://quiz-125cb.firebaseio.com/"});</script>
+    </head>
+    <body>
+        <div id="quiz"></div>
+        <script>
+            var quiz = document.getElementById("quiz");
+            firebase.database().ref(window.location.search.substring(1).split("#")[0]).once("value").then(
+                function(d) {
+                    quiz.innerHTML=d.val();
+                    for (var i=0;i<params.length;i++) {
+                        if (values[i].type=="checkbox"||values[i].type=="radio") {
+                            values[i].checked = [false,true][parseInt(params[i])];
+                        } else {
+                            values[i].value = atob(params[i]);
+                        }
+                    }
+                }
+            );
+            var params = [];
+            if (window.location.href.split("#").length==2) {
+                params = window.location.href.split("#")[1].split("&");
+            }
+            var values = document.getElementsByTagName("input");
+            function create() {
+                var url = window.location.href.split("#")[0]+"#";
+                for (var i=0;i<values.length;i++) {
+                    if (values[i].type=="checkbox"||values[i].type=="radio") {
+                        url += {true:1,false:""}[values[i].checked];
+                    } else {
+                        url += btoa(values[i].value)
+                    }
+                    if (i<values.length-1) {
+                        url +="&";
+                    }
+                }
+                var urlEl = document.createElement("div");
+                urlEl.innerHTML = url;
+                document.body.appendChild(urlEl);
+            }
+        </script>
+    </body>
+</html>
