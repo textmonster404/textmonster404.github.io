@@ -48,7 +48,7 @@
                             document.body.style.background = "";
                         }
                     } else if (document.getElementById("myfile").value.includes(".jseval")) {
-                        document.getElementById("out").innerHTML = "<code>"+evalString(evt.target.result)+"</code>";
+                        document.getElementById("out").innerHTML = evalString(evt.target.result);
                     } else if (document.getElementById("myfile").value.includes(".ltxt")) {
                         document.getElementById("out").innerHTML = ltxt(evt.target.result);
                     }
