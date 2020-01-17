@@ -156,7 +156,6 @@
         <script src="https://jquery-textfill.github.io/js/textfill/jquery.textfill.js"></script>
         <script>
             function tf() {
-                $('h1').textfill({maxFontPixels: parseInt(document.getElementsByTagName("input")[3].value),debug:true,minFontPixels:0,changeLineHeight:true});
                 document.getElementsByTagName('h1')[0].style.width = document.getElementsByTagName("input")[0].value * 96 + "px";
                 document.getElementsByTagName('h1')[0].style.height = document.getElementsByTagName("input")[1].value * 96 + "px";
                 document.getElementsByTagName('h1')[0].style.fontFamily = "'"+document.getElementsByTagName("select")[0].value+"'";
@@ -164,6 +163,7 @@
                 document.getElementsByTagName('h1')[0].style.fontWeight = document.getElementsByTagName("input")[2].value;
                 document.getElementsByTagName('h1')[0].style.textAlign = document.getElementsByTagName("select")[1].value;
                 document.getElementsByTagName('h1')[0].style.textIndent = document.getElementsByTagName("input")[4].value+"in";
+                $('h1').textfill({maxFontPixels: parseInt(document.getElementsByTagName("input")[3].value),debug:true,minFontPixels:0,changeLineHeight:true});
             }
             tf();
         </script>
