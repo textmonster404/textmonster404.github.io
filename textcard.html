@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Alice|Times+New+Roman|Average|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Lora:400,400i,700,700i|Merriweather:300,300i,400,400i,700,700i,900,900i|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Noto+Sans:400,400i,700,700i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|PT+Serif:400,400i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic,cyrillic-ext,devanagari,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+        <title>Card Generator</title>
+        <style type="text/css">
+            @import url('https://fonts.googleapis.com/css?family=Georgia');
+            @import url('https://fonts.googleapis.com/css?family=Merriweather');
+            h1 {
+                text-align: left;
+                font-family: "Georgia";
+                width: calc(96px * 4.5);
+                height: calc(96px * 2.5);
+                background: white;
+                margin: 0;
+                border:2px solid black;
+                cursor: text;
+                font-weight:normal;
+            }
+            span {
+                outline: none;
+            }
+            .b {font-weight:bold;}
+            body {
+                font-family: "Merriweather";
+                display:grid;
+                grid:"header header" "left right";
+                margin:0px auto;
+                grid-template-rows:auto minmax(34px,100%) 0px;
+            }
+            body,html{height:100%;}
+            div,h1 {margin-inline-start:auto;margin-inline-end:auto;}
+            .left {grid-area:left;width:calc(80vw - 2px);border-right:2px solid black;text-align:center;height:100%;}
+            .right {grid-area:right;width:calc(20vw - 2px);border-left:2px solid black;text-align:center;height:100%;}
+            h2 {text-align:center;grid-area:header;border-bottom:4px solid black;text-align:center;height:30px;}
+            hr {margin:2px 0px;}
+            .loading {
+                font-family:serif;
+                position:absolute;
+                top:0px;
+                left:0px;
+                width:100%;
+                height:100vh;
+                background:lightgray;
+                font-size:64px;
+                font-weight:900;
+                line-height:100vh;
+                text-align:center;
+                color:black;
+                transition:opacity 0.5s;
+                opacity:1.0;
+            }
+            .tile:nth-child(2n+1) {
+                display:block;
+                background:white;
+                border:2px solid white;
+            }
+            input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+                opacity: 1;
+            }
+            input,select {
+                display:block;
+                background:white;
+                font-family: "Merriweather";
+                width:-webkit-fill-available;
+                height:18px;
+                outline:none;
+                border:2px solid white;
+                text-align:center;
+            }
+            select {
+                height:24px;
+            }
+        </style>
+        <style media="print">
+            .b,.tile,.right,h2,hr,input,select {
+                display:none;
+                border:none;
+            }
+            h1,span {
+                display:block;
+            }
+            .left,h1 {
+                border:none;
+                margin-inline-start:initial;
+                margin-inline-end:initial;
+            }
+        </style>
+        <script>
+            function loaded() {
+                document.getElementsByClassName("loading")[0].style.opacity = "0.0";
+                window.setTimeout(function(){document.getElementsByClassName("loading")[0].remove();},500);
+            }
+        </script>
+    </head>
+    <body onload="loaded();">
+        <h2 style="margin:0px;">Card generator</h2><br/>
+        <div class="left">
+            <div class="b">Preview</div>
+            <hr noshade/>
+            <h1 onclick="event.target.children[0].focus();"><span oninput="tf();" placeholder="Type here..." contenteditable="plaintext-only" style="line-height:1.0;display:block;">Edit this text.</span></h1>
+        </div>
+        <div class="right">
+            <div class="b">Formatting</div>
+            <hr noshade color="black"/>
+            <div class="tile">Width (in)</div>
+            <input class="tile" type="number" step="0.5" value="4.5" oninput="tf();" max="11" min="0.5"/>
+            <hr noshade color="black" style="margin:0px;"/>
+            <div class="tile">Height (in)</div>
+            <input class="tile" type="number" step="0.5" value="2.5" oninput="tf();" max="8.5" min="0.5"/>
+            <hr noshade color="black" style="margin:0px;"/>
+            <div class="tile">Font</div>
+            <select class="tile" value="Georgia" oninput="tf();" style="text-align:center;">
+                <option value="Alice" style="font-family:'Alice';">Alice</option>
+                <option value="Arial" style="font-family:'Arial';">Arial</option>
+                <option value="Average" style="font-family:'Average';">Average</option>
+                <option value="Georgia" style="font-family:'Georgia';" selected>Georgia</option>
+                <option value="Lato" style="font-family:'Lato';">Lato</option>
+                <option value="Lora" style="font-family:'Lora';">Lora</option>
+                <option value="Merriweather" style="font-family:'Merriweather';">Merriweather</option>
+                <option value="Montserrat" style="font-family:'Montserrat';">Montserrat</option>
+                <option value="Noto Sans" style="font-family:'Noto Sans';">Noto Sans</option>
+                <option value="Open Sans" style="font-family:'Open Sans';">Open Sans</option>
+                <option value="PT Serif" style="font-family:'PT Serif';">PT Serif</option>
+                <option value="Playfair Display" style="font-family:'Playfair Display';">Playfair Display</option>
+                <option value="Raleway" style="font-family:'Raleway';">Raleway</option>
+                <option value="Roboto" style="font-family:'Roboto';">Roboto</option>
+                <option value="Times New Roman" style="font-family:'Times New Roman';">Times New Roman</option>
+            </select>
+            <hr noshade color="black" style="margin:0px;"/>
+            <div class="tile">Font Weight (boldness)</div>
+            <input class="tile" type="range" step="50" value="400" min="0" max="1000" oninput="tf();"/>
+            <hr noshade color="black" style="margin:0px;"/>
+            <div class="tile">Maxmum Font Size (px)</div>
+            <input class="tile" type="number" step="1" value="18" min="4" max="64" oninput="tf();"/>
+            <hr noshade color="black" style="margin:0px;"/>
+            <div class="tile">Text Align</div>
+            <select class="tile" value="Left" oninput="tf();" style="text-align:left;">
+                <option value="left" style="text-align:left;">Left</option>
+                <option value="center" style="text-align:center;">Center</option>
+                <option value="right" style="text-align:right;">Right</option>
+                <option value="justify" style="text-align:justify;">Justify</option>
+                
+            </select>
+            <hr noshade color="black" style="margin:0px;"/>
+            <div class="tile">First line indent (in)</div>
+            <input class="tile" type="number" step="0.25" value="0.25" min="0" max="2" oninput="tf();"/>
+            <hr noshade color="black" style="margin:0px;"/>
+        </div>
+        <div class="loading">Loading...</div>
+        <script src="http://jquery-textfill.github.io/js/prologue/jquery.min.js"></script>
+        <script src="http://jquery-textfill.github.io/js/textfill/jquery.textfill.js"></script>
+        <script>
+            function tf() {
+                $('h1').textfill({maxFontPixels: parseInt(document.getElementsByTagName("input")[3].value),debug:true,minFontPixels:0,changeLineHeight:true});
+                document.getElementsByTagName('h1')[0].style.width = document.getElementsByTagName("input")[0].value * 96 + "px";
+                document.getElementsByTagName('h1')[0].style.height = document.getElementsByTagName("input")[1].value * 96 + "px";
+                document.getElementsByTagName('h1')[0].style.fontFamily = "'"+document.getElementsByTagName("select")[0].value+"'";
+                document.getElementsByTagName('select')[0].style.fontFamily = "'"+document.getElementsByTagName("select")[0].value+"'";
+                document.getElementsByTagName('h1')[0].style.fontWeight = document.getElementsByTagName("input")[2].value;
+                document.getElementsByTagName('h1')[0].style.textAlign = document.getElementsByTagName("select")[1].value;
+                document.getElementsByTagName('h1')[0].style.textIndent = document.getElementsByTagName("input")[4].value+"in";
+            }
+            tf();
+        </script>
+    </body>
+</html>
