@@ -11,101 +11,51 @@
         <title>Home Page (Procrastination Station)</title>
         <link rel="icon" href="icon/icon.ico">
         <link rel="stylesheet" href="stylesheets/home.css">
-        <script src="https://textmonster404.github.io/theme.js"></script>
-        <style>
-            @import url("Games/doge2048/style/fonts/comic-sans.css");
-        </style>
-        <script src="https://textmonster404.github.io/checkbox.js" async></script>
     </head>
     <body>
-        <h1 title="textmonster404.github.io/?random">Josh's Homepage</h1><br>
-        <table align="center">
-            <thead>
-                <tr><th colspan="3"><h2>Links:</h2></th></tr>
-                <tr>
-                    <td><h3>Projects:</h3></td>
-                    <td><h3>Widgets:</h3></td>
-                    <td><h3>Games:</h3></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <ul>
-                            <li><a href="Cool Text.html">Cool Text</a></li>
-                            <li><a href="school/index.html">School Stuff</a></li>
-                            <li><a href="randompage/index.html">Random Page!</a></li>
-                            <li id="rurl"><a href="random_url/index.html">Random URL</a></li>
-                            <li><a href="asciiart.html">ASCII Art</a></li>
-                            <li><a href="everything.html">Everything</a></li>
-                            <li><a href="sketches.html">P5JS Sketches</a></li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li><a href="Random/random.html">Random Stuff</a></li>
-                            <li><a href="html editor.html">HTML Editor</a></li>
-                            <li><a href="tools.html">Tools</a></li>
-                            <li><a href="RTF.html">RTF Editor</a></li>
-                            <li><a href="page-jumper.html">Page Jumper</a></li>
-                            <li><a href="typing-speed.html">Typing Test</a></li>
-                            <li><a href="chaos_settings.html">Chaos</a></li>
-                            <li><a href="fractals/generate.html">Fractal Generator</a></li>
-                            <li><a href="sims.html">Simulations</a></li>
-                            <li><a href="bounce.html">Bounce</a></li>
-                            <li><a href="daily_text_character.html">Daily Text Character</a></li>
-                            <li><a href="sort.html">My Sorting Algorithm</a></li>
-                            <li><a href="chat" id="chat">Chatroom </a><input style="width:3em" onchange="document.getElementById('chat').href='chat?'+this.value;"/></li>
-                            <li><a href="user_pages" id="user_pages">User Pages </a><input style="width:3em" onchange="document.getElementById('user_pages').href='user_pages?'+this.value;"/></li>
-                            <li><a href="gravity_dots.html?10">Gravity Dots</a></li>
-                            <li><a href="https://textmonster404.000webhostapp.com/">My Domains</a></li>
-                            <li><a href="https://github.com/textmonster404/textmonster404.github.io/archive/master.zip">Download this Website!</a></li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li><a href="Games/Button-Clicker.html">Button Clicker</a></li>
-                            <li><a href="Games/GooglePacman.html">Google Pacman</a></li>
-                            <li><a href="Games/Cookie Clicker Offline/index.html">Cookie Clicker</a></li>
-                            <li><a href="Games/doge2048/doge2048.html" style="font-family:'Comic Sans', 'Comic Sans', Chalkboard, Helvetica, Arial, sans-serif;">Doge 2048</a></li>
-                            <li><a href="maze/maze.html">Link Maze</a></li>
-                            <li><a href="cursorgames/titlescreen.html">Cursor Games!</a></li>
-                            <li><a href="domino.html">Dominoes</a></li>
-                            <li><a href="chess.html">Chess</a></li>
-                            <li><a href="word_tree_board.html">Word Trees</a></li>
-                            <li><a href="Games/puzzles/random/maze.html"> Random Maze</a></li>
-                            <li><a href="Games/puzzles/random/sudoku.html"> Random Sudoku Puzzle</a></li>
-                            <li><a href="shiritori.html">Shiritori</a></li>
-                            <li><a href="plexers/index.html">Plexers</a></li>
-                            <li><a href="tictactoe_asm.html">Tic Tac Toe ASM</a></li>
-                            <li><a href="originals.html"><b>My Original Games</b></a></li>
-                            <li id="tictactop"><a id="tictac" href="tictactoe">Random Tic Tac Toe Board</a></li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <span style="opacity:0.6;position:fixed;bottom:2px;right:2px;"><span style="color:white;">MECHDRAGON777's website: </span><a href="https://mechdragon777.github.io/" target="_blank">https://mechdragon777.github.io/</a></span>
-        <script>
-            var tictac = document.getElementById("tictac");
-            var tictactop = document.getElementById("tictactop");
-            var rurl = document.getElementById("rurl");
-            var number = decodeURIComponent(window.location.search.substring(1));
-            if (!(theme.themes[window.location.search])) {
-                if (window.location.href.includes("textmonster404.github.io/?")) {
-                    window.location.replace("https://textmonster404.github.io/?"+number);
-                } else if (!isNaN(parseInt(number))) {
-                    tictac.href = "tictactoe?"+parseInt(number)+".html";
-                } else if (number.substring(0,6) == "random") {
-                    tictac.href = "tictactoe?"+Math.floor(Math.random()*1000000000+1)+".html";
-                } else {
-                    tictactop.outerHTML = "";
-                    rurl.outerHTML = "";
-                }
-            } else {
-                tictactop.outerHTML = "";
-                rurl.outerHTML = "";
-            }
-        </script>
+        <div id="title">Procrastination Station</div>
+        <div id="container">
+			<div class="section">
+                <div class="caption">Projects:</div>
+				<div class="links">
+					<div><a href="randompage/index.html">Random Page!</a></div>
+					<div><a href="asciiart.html">ASCII Art</a></div>
+					<div><a href="sketches.html">P5JS Sketches</a></div>
+				</div>
+			</div>
+			<div class="section">
+                <div class="caption">Widgets:</div>
+				<div class="links">
+					<div><a href="html editor.html">HTML Editor</a></div>
+					<div><a href="tools.html">Tools</a></div>
+					<div><a href="RTF.html">RTF Editor</a></div>
+					<div><a href="typing-speed.html">Typing Test</a></div>
+					<div><a href="chaos_settings.html">Chaos</a></div>
+					<div><a href="fractals/generate.html">Fractal Generator</a></div>
+					<div><a href="daily_text_character.html">Daily Text Character</a></div>
+					<div><a href="gravity_dots.html?10">Gravity Dots</a></div>
+					<div><a href="experiments/draaaaaaawing.html">Draaaaaaaaaaaaaaaaaaaaaaaaaawing</a></div>
+					<div><a href="Random/Random Cat Meme.html">Random Cat Meme</a></div>
+				</div>
+			</div>
+			<div class="section">
+                <div class="caption">Games:</div>
+				<div class="links">
+					<div><a href="games/maze/maze.html">Link Maze</a></div>
+					<div><a href="games/domino/domino.html">Dominoes</a></div>
+					<div><a href="chess.html">Chess</a></div>
+					<div><a href="word_tree_board.html">Word Trees</a></div>
+					<div><a href="games/puzzles/random/maze.html">Random Maze</a></div>
+					<div><a href="games/puzzles/random/sudoku.html">Random Sudoku Puzzle</a></div>
+					<div><a href="shiritori.html">Shiritori</a></div>
+					<div><a href="plexers/index.html">Plexers</a></div>
+					<div><a href="games/vsnake/index.html?1&1">VSnake</a></div>
+					<div><a href="coplatform/index.html">Coplatform</a></div>
+					<div><a href="tictactwo.html">(NEW!) Tic-Tac-Two</a></div>
+					<div><a href="sandpile.html">(NEW!) Sandpile</a></div>
+				</div>
+            </div>
+			<div id="extra"></div>
+        </div>
     </body>
 </html>
