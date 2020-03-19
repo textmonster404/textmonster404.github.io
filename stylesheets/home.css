@@ -13,10 +13,10 @@ body {
     font-weight:bold;
     font-family:serif;
     border-bottom:3px solid #404040;
-    font-size:calc( 4vw + 20px );
+    font-size:40px;
     color:white;
-    height:calc( 15vh - 3px );
-    line-height:calc( 15vh - 3px );
+    height: 77px;
+    line-height:77px;
     padding-left:3.25vh;
     animation-name:shine;
     animation-duration:4s;
@@ -33,10 +33,9 @@ body {
 #container {
     display:grid;
     grid-template-rows: auto auto auto;
-    grid-template-columns:25%;
-    height:calc(85vh - 6px);
+    grid-template-columns:60px;
+    height:calc(100vh - 86px);
     margin-top:5px;
-    padding-left:7px;
 }
 .section .links {
     z-index:0;
@@ -49,13 +48,13 @@ body {
 }
 #extra {
     position:absolute;
-    left:25vw;
-    top:15vh;
+    left:60px;
+    top:80px;
     opacity:0.0;
     z-index:2;
     transition:opacity 0.5s;
-    height:calc(85vh - 18px);
-    width:calc(75vw - 16px);
+    height:calc(100vh - 98px);
+    width:calc(100vw - 76px);
     background:#606060;
     margin:5px;
     border:3px solid #404040;
@@ -63,7 +62,7 @@ body {
     display:flex;
     align-items: center;
     justify-content: center;
-    font-size:5vw;
+    font-size:48px;
     box-shadow:#101010 4px 4px 0px;
 }
 #extra::before {
@@ -74,10 +73,10 @@ body {
 }
 .links {
     position:absolute;
-    left:25vw;
-    top:15vh;
-    height:calc(85vh - 18px);
-    width:calc(75vw - 16px);
+    left:60px;
+    top:80px;
+    height:calc(100vh - 98px);
+    width:calc(100vw - 76px);
     background:#606060;
     margin:5px;
     border:3px solid #404040;
@@ -98,6 +97,20 @@ body {
 .links div:hover {
     transform:scale(1.01) translate(-2px, -2px);
     box-shadow:#303030 2px 2px 0px;
+    background:#a0a0a0;
+}
+.links div a::after {
+    content:attr(desc);
+    display:inline;
+    font-size:24px;
+	height:0px;
+    opacity:0.0;
+    transition:height 0.25s, opacity 0.25s;
+    font-weight:normal;
+}
+.links div a:hover::after {
+	height:50%;
+    opacity:1.0;
 }
 .links div a {
     width:100%;
@@ -105,20 +118,21 @@ body {
     display:flex;
     align-items: center;
     justify-content: center;
-    font-size:2vw;
+    text-align:center;
+    font-size:32px;
     color:transparent;
+    text-decoration:none;
     background:linear-gradient(45deg, #d0d0d0, #ffffff, #d0d0d0);
     font-weight:bold;
     -webkit-background-clip:text;
     background-clip:text;
-    text-decoration-line:underline;
-    text-decoration-style:solid;
-    text-decoration-color:white;
     animation-name:shine;
     animation-duration:4s;
     animation-iteration-count:infinite;
     animation-timing-function:linear;
     background-repeat:repeat;
+    white-space:pre-wrap;
+    flex-flow: column;
 }
 .links div:hover a {
     color:white;
@@ -131,7 +145,7 @@ body {
 
 .caption {
     background:radial-gradient(#dfdfdf 0%,#efefef 0%,#dfdfdf 100%);
-    font-size:4vw;
+    font-size:36px;
     height:calc(100% - 12px);
     width:calc(100% - 14px);
     border:3px solid #404040;
@@ -141,9 +155,18 @@ body {
     cursor:pointer;
     transition:transform 0.25s, box-shadow 0.25s;
     box-shadow:#101010 4px 4px 0px;
+    margin-left:7px;
+    width:46px;
+
 }
-.caption:hover {
-    transform:rotateY(-10deg) rotateX(-5deg) rotateZ(-2deg);
+.section {
+    width:76px;
+}
+.caption span {
+    display:inline-block;
+    transform:rotate(-90deg);
+}
+.section:hover .caption {
     transform:scale(1.01) translate(-2px, -2px);
     box-shadow:#101010 6px 6px 0px;
 }
