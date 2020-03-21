@@ -23,12 +23,22 @@ body {
     animation-iteration-count:infinite;
     animation-timing-function:linear;
     background:linear-gradient(90deg, #a0a0a0, #c0c0c0, #a0a0a0);
-    transition:padding-left 0.25s, text-shadow 0.25s;
     text-shadow:#101010 0px 0px 0px;
 }
-#title:hover {
-    padding-left:4vh;
-    text-shadow:#101010 -6px 2px 0px;
+#title::before {
+    content:"";
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:block;
+    height:77px;
+    background:white;
+    width:100%;
+    opacity:0.0;
+    transition:opacity 0.25s;
+}
+#title:hover::before {
+    opacity:0.2;
 }
 #container {
     display:grid;
