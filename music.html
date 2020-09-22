@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Music</title>
+</head>
+<body>
+	<h1>This is a test of js sound.</h1>
+	<hr/>
+	<p>Use the bottom row of keys (z-/) and the middle row (a-') to play notes.<br/>Use the up/down arrows to select octave. (currently <span id="octave">3</span>)</p>
+	<h3>Playing: <span id="note">---</span></h3>
+<script>
+var context = new AudioContext();
+function note(type, pitch, gain) {
+	/*setup*/
+	var o = context.createOscillator();
+	var g = context.createGain();
+	
+	/*params*/
+	g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + gain);
+	o.type = type;
+	o.frequency.value = pitch;
+	
+	/*play*/
+	o.connect(g);
+	g.connect(context.destination);
+	o.start(0);
+    o.onended = function(e) {
+    	g.disconnect(context.destination);
+    	o.disconnect(g);
+    }
+}
+document.getElementById("octave").style.fontWeight = "bold";
+var octave = 3;
+window.onkeydown = function(e) {
+	if (!e.repeat) {
+		var keys = {};
+    	keys["z"] = 130.81; //C-3
+    	keys["s"] = 138.59; //C#3
+    	keys["x"] = 146.83; //D-3
+    	keys["d"] = 155.56; //D#3
+    	keys["c"] = 164.81; //E-3
+    	keys["v"] = 174.61; //F-3
+    	keys["g"] = 185.00; //F#3
+    	keys["b"] = 196.00; //G-3
+    	keys["h"] = 207.65; //G#3
+    	keys["n"] = 220.00; //A-3
+    	keys["j"] = 233.08; //A#3
+    	keys["m"] = 246.94; //B-3
+		keys[","] = 261.63; //C-4
+		keys["l"] = 277.18; //C#4
+		keys["."] = 293.66; //D-4
+		keys[";"] = 311.13; //D#4
+		var prefix = {};
+    	prefix["z"] = "C-";
+    	prefix["s"] = "C#";
+    	prefix["x"] = "D-";
+    	prefix["d"] = "D#";
+    	prefix["c"] = "E-";
+    	prefix["v"] = "F-";
+    	prefix["g"] = "F#";
+    	prefix["b"] = "G-";
+    	prefix["h"] = "G#";
+    	prefix["n"] = "A-";
+    	prefix["j"] = "A#";
+    	prefix["m"] = "B-";
+		prefix[","] = "C-";
+		prefix["l"] = "C#";
+		prefix["."] = "D-";
+		prefix[";"] = "D#";
+		var above = {};
+		above[","] = true;
+		above["l"] = true;
+		above["."] = true;
+		above[";"] = true;
+		if (e.key=="ArrowUp") {
+			octave++;
+			document.getElementById("octave").innerText = octave;
+		} else if (e.key=="ArrowDown") {
+			octave--;
+			document.getElementById("octave").innerText = octave;
+		} else if (keys[e.key]) {
+			note("square",keys[e.key]*(2**(octave-3)),2);
+			if (above[e.key]) {
+				document.getElementById("note").innerText = prefix[e.key] + (octave+1);
+			} else {
+				document.getElementById("note").innerText = prefix[e.key] + octave;
+			}
+		}
+    }
+}
+</script>
+
+</body>
+</html>
