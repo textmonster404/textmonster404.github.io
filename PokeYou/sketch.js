@@ -93,7 +93,7 @@ function draw() {
     player.draw();
     partner.draw();
     // * draw fire * //
-    if (partner.animation == AniFire) {
+    if (partner.animation == 6) {
       var fireoffsetX = [12, 6, -16, -38, -44, -39, -16, 7][partner.direction];
       var fireoffsetY = [-32, -34, -26, -34, -32, -40, -38, -40][partner.direction];
       image(
@@ -114,7 +114,7 @@ function draw() {
   } else {
     partner.draw();
     // * draw fire * //
-    if (partner.animation == AniFire) {
+    if (partner.animation == 6) {
       var fireoffsetX = [12, 6, -16, -38, -44, -39, -16, 7][partner.direction];
       var fireoffsetY = [-32, -34, -26, -34, -32, -40, -38, -40][partner.direction];
       image(
