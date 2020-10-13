@@ -36,10 +36,10 @@ function preload() {
   Graphics["controls"] = loadImage("graphics/controls.png");
   Graphics["Shadow"] = loadImage("graphics/Shadow.png");
   
-  Graphics["Stage00FGO"] = loadImage("graphics/_Stage00FGO.png");
-  Graphics["Stage00BGO"] = loadImage("graphics/_Stage00BGO.png");
-  Graphics["Stage00Tiles"] = loadImage("graphics/_Stage00Tiles.png");
-  Graphics["Stage00Collision"] = loadImage("graphics/_Stage00Collision.png");
+  Graphics["Stage00FGO"] = loadImage("graphics/Stage00FGO.png");
+  Graphics["Stage00BGO"] = loadImage("graphics/Stage00BGO.png");
+  Graphics["Stage00Tiles"] = loadImage("graphics/Stage00Tiles.png");
+  Graphics["Stage00Collision"] = loadImage("graphics/Stage00Collision.png");
   
   
   
